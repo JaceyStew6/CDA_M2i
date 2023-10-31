@@ -86,3 +86,10 @@ git pull branche_distante branche_locale
 git pull origin main
 ```
 
+Lorsque vous exécutez un `git pull`, ces étapes se succèdent:
+1. Git commence par exécuter une opération `git fetch` pour récupérer toutes les modifications depuis la branche distante spécifiée. Cela met à jour les références distantes dans votre dépôt local pour refléter l'état actuel du dépôt distant, mais à ce moment là, on ne modifie pas encore sa branche locale.
+
+2. Fusion automatique: Après avoir récupéré les informations distantes, Git exécute automatiquement une opération de fusion (ou de rebase, si vous lui spécifiez) pour intégrer les modifications récupérées dans votre branche locale. Si Git détecte des conflits entre les modifications distantes et locales, il vous demandera de les résoudre manuellement avant de terminer la fusion.
+
+3. Finalisation: Une fois que la fusion (ou le rebase) est réussi, votre branche locale est mise à jour avec les dernières modifications de la branche distante. Votre arborescence de travail locale reflète désormais l'état actuel de la branche distante.
+
