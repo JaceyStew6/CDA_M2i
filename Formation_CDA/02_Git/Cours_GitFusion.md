@@ -83,3 +83,12 @@ Avec un rebase
 - Le rebase peut être utilisé pour garder l'historique des commits plus propre et plus linéaire, mais il peut réécrire l'historique des commits, ce qui peut causer des conflits si plusieurs contributeurs travaillent sur la même branche.
 
 - C'est une stratégie généralement recommandée pour les branches locales où vous voulez garder votre historique propre et pour intégrer régulièrement les mises à jour à la branche principale (main).
+
+**ATTENTION: Si je souhaite rebase une branche "feature" sur ma branche principale, je viendrais me placer sur ma branche feature et j'utiliserai la commande:** 
+
+```bash
+git rebase main
+```
+
+S'il y a des conflits, Git vous demandera de les résoudre à mesure que chaque commit est réappliqué.
+
