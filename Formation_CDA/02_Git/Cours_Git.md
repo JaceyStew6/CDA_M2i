@@ -225,6 +225,8 @@ Option `-m` pour *modify*
 - Je supprime ma branche avec la commande `git branch -d nom_de_la_branche`
 **Pour supprimer une branche, il ne faut pas s'y situer. Mieux vaut se déplacer dans la branche MAIN**
 
+**Supprimer une branche en local n'aura pas d'incidence sur la branche distante. Elle sera toujours présente mais sera ignorée. Il n'y aura donc pas de conflits et il sera également possible de supprimer la branche distante depuis GitHub*.*
+
 Option `-d` pour supprimer une branche sans commit.  
 Option `-D` pour supprimer une branche avec commit.
 
