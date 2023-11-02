@@ -92,3 +92,5 @@ git rebase main
 
 S'il y a des conflits, Git vous demandera de les résoudre à mesure que chaque commit est réappliqué.
 
+**ATTENTION: A partir du moment où il y a des conflits, un merge aura forcément lieu, puisque lui seul peut les résoudre. Le rebase ne peut pas résoudre lui-même les conflits et génèrera automatiquement un merge pour les résoudre!**
+
