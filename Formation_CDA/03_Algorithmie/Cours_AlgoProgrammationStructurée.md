@@ -27,11 +27,11 @@ Une **affectation** a pour but d'attribuer une valeur à une variable déclarée
 
 ---
 
-### Exercice: 
+### Exercices (avec Algobox): 
 
 *Ecrire un algorithme qui demande un nombre entier à l'utilisateur, puis qui teste et affiche s'il est divisible par 3*
 
-```
+```bash
 FONCTIONS_UTILISEES
 VARIABLES
 A EST_DU_TYPE NOMBRE
@@ -53,7 +53,7 @@ FIN_ALGORITHME
 
 *Ecrivez un algorithme qui demande à l'utilisateur le nombre de photocopies effectuées, qui calcule et affiche le prix à payer.*
 
-```
+```bash
 FONCTIONS_UTILISEES
 VARIABLES
 nbCopies EST_DU_TYPE NOMBRE
@@ -78,5 +78,122 @@ SI (nbCopies<10) ALORS
 			FIN_SI		
 AFFICHER "Le prix total est de "
 AFFICHER prixTotal
+FIN_ALGORITHME
+```
+
+---
+
+### Schématisation
+
+Variables   
+	+ Opérateurs  
+    
+		- arithmétiques
+		- logiques
+		- comparaison
+		- concaténation
+
+Structures conditionnelles  
+
+	- Si ...(condition) alors   
+	instructions  
+	(option) Sinon
+
+
+
+---
+
+### Exercices
+
+*Déterminer le montant d'un capital c placé à un taux fixe t pendant un nombre d'années. On sippose que c, t, n sont lus.*
+
+```bash
+FONCTIONS_UTILISEES
+
+VARIABLES
+c EST_DU_TYPE NOMBRE
+t EST_DU_TYPE NOMBRE
+n EST_DU_TYPE NOMBRE
+s EST_DU_TYPE NOMBRE
+gain EST_DU_TYPE NOMBRE
+DEBUT_ALGORITHME
+AFFICHER "Indiquez la somme investie:"
+LIRE c
+AFFICHER "Indiquez le taux fixe en pourcentage:"
+LIRE t
+AFFICHER "Indiquez le nombre d'années:"
+LIRE n
+
+s PREND_LA_VALEUR c*pow(1+t/100,n)
+AFFICHER "Votre capital actuel est de "
+AFFICHERCALCUL round(s)
+AFFICHER " euros"
+
+gain PREND_LA_VALEUR s-c
+
+SI (gain<0) ALORS
+	DEBUT_SI
+		 AFFICHER "Vous enregistrez une baisse de capital de "
+		 AFFICHER gain
+		 AFFICHER " euros"
+	FIN_SI
+		
+	SINON
+		SI (gain==0) ALORS 
+			DEBUT_SI
+				 AFFICHER "Vous êtes à l'équilibre"
+			FIN_SI
+		SINON	
+			SI (gain>0) ALORS
+			DEBUT_SI
+				AFFICHER "Vous enregistrez un gain de capital de "
+		 		AFFICHER gain
+			 	AFFICHER " euros"
+			FIN_SI	
+
+FIN_ALGORITHME
+```
+
+
+*Ecrire un algorithme qui demande l'age d'un enfant à un utilisateur pour l'informer ensuite sur sa catégorie de licence sportive.*
+
+```bash
+FONCTIONS_UTILISEES
+
+VARIABLES
+ageEnfant EST_DU_TYPE NOMBRE
+
+DEBUT_ALGORITHME
+AFFICHER "Indiquez l'âge de votre enfant"
+LIRE ageEnfant
+
+
+SI (ageEnfant>=3 ET ageEnfant<=6) ALORS
+	DEBUT_SI
+		 AFFICHER "Catégorie Baby"
+	FIN_SI
+		
+	SINON
+		SI (ageEnfant>=7 ET ageEnfant<=8) ALORS 
+			DEBUT_SI
+				 AFFICHER "Catégorie Poussin"
+			FIN_SI
+		SINON	
+			SI (ageEnfant>=9 ET ageEnfant<=10) ALORS 
+			DEBUT_SI
+				 AFFICHER "Catégorie Pupille"
+			FIN_SI
+			
+			SINON
+		SI (ageEnfant>=11 ET ageEnfant<=12) ALORS 
+			DEBUT_SI
+				 AFFICHER "Catégorie Minime"
+			FIN_SI
+		SINON	
+			SI (ageEnfant>=13) ALORS 
+			DEBUT_SI
+				 AFFICHER "Catégorie Cadet"
+			FIN_SI
+
 FIN_ALGORITHME
 ```
