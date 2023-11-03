@@ -99,6 +99,12 @@ Structures conditionnelles
 	instructions  
 	(option) Sinon
 
+Les boucles  
+
+	- while (tant que): on y répète les instructions tant qu'une certaine condition est réalisée
+	- do while (jusqu'à): on y répète des instructions jusqu'à ce qu'une certaine condition soit réalisée
+	- for (pour): on y répète des instructions en faisant évoluer un compteur entre une valeur initiale et une valeur finale
+
 
 
 ---
@@ -195,5 +201,357 @@ SI (ageEnfant>=3 ET ageEnfant<=6) ALORS
 				 AFFICHER "Catégorie Cadet"
 			FIN_SI
 
+FIN_ALGORITHME
+```
+
+**Corrigé de l'exercice**
+
+```bash
+FONCTIONS_UTILISEES
+
+VARIABLES
+age EST_DU_TYPE NOMBRE
+categorie EST_DU_TYPE CHAINE
+DEBUT_ALGORITHME
+AFFICHER "Indiquez l'âge de votre enfant"
+LIRE age
+
+
+SI (age < 3 ET age >= 18) ALORS
+	DEBUT_SI
+		 AFFICHER "Vous ne pouvez pas inscrire votre enfant"
+	FIN_SI
+	SINON
+			DEBUT_SINON
+			SI (age >= 3 ET age <= 6) ALORS
+					DEBUT_SI
+					categorie PREND_LA_VALEUR "baby"
+					FIN_SI
+					SINON
+						DEBUT_SINON
+						SI (age == 7 OU age == 8) ALORS
+							DEBUT_SI
+							categorie PREND_LA_VALEUR "poussin"
+							FIN_SI
+							SINON
+									DEBUT_SINON
+									SI (age == 9 OU age == 10) ALORS
+										DEBUT_SI
+										categorie PREND_LA_VALEUR "pupille"
+										FIN_SI
+										SINON
+										 	DEBUT_SINON
+										 	SI (age == 11 OU age ==12) ALORS
+										 		DEBUT_SI
+										 		categorie PREND_LA_VALEUR "minime"
+										 		FIN_SI
+										 		SINON
+										 				DEBUT_SINON
+										 				categorie PREND_LA_VALEUR "cadet"
+										 				FIN_SINON
+										 	FIN_SINON
+									FIN_SINON
+						FIN_SINON
+					
+			FIN_SINON
+
+AFFICHER categorie	
+	
+FIN_ALGORITHME
+```
+
+
+
+* Ecrire un programme qui détermine la taille d'un vêtement en fonction du poids et de la taille*
+
+```bash
+FONCTIONS_UTILISEES
+
+VARIABLES
+taille EST_DU_TYPE NOMBRE
+poids EST_DU_TYPE NOMBRE
+DEBUT_ALGORITHME
+AFFICHER "Indiquez votre taille en cm"
+LIRE taille
+AFFICHER "Indiquez votre poids en kg"
+LIRE poids
+
+SI ((poids < 43 OU poids > 77) OU (taille <145 OU taille >= 186)) ALORS
+	DEBUT_SI
+		 AFFICHER "Il n'y a aucune taille correspondante"
+	FIN_SI
+
+	SINON
+		DEBUT_SINON
+			SI (poids <= 47 ET taille < 172) ALORS
+				DEBUT_SI
+				AFFICHER "Taille 1"
+				FIN_SI			
+						
+				SINON
+					DEBUT_SINON
+						SI (poids <= 47 ET taille >= 172) ALORS
+							DEBUT_SI
+							AFFICHER "Il n'y a aucune taille correspondante"
+							FIN_SI
+											
+					SINON
+						DEBUT_SINON
+							SI (poids <= 53 ET taille < 169) ALORS
+								DEBUT_SI
+								AFFICHER "Taille 1"
+								FIN_SI							
+													
+					SINON
+						DEBUT_SINON
+							SI (poids <= 53 ET taille < 183) ALORS
+								DEBUT_SI
+								AFFICHER "Taille 2"
+								FIN_SI
+													
+					SINON
+						DEBUT_SINON
+							SI (poids <= 53 ET taille >= 183) ALORS
+								DEBUT_SI
+								AFFICHER "Il n'y a aucune taille correspondante"
+								FIN_SI
+														
+					SINON
+						DEBUT_SINON
+							SI (poids <= 59 ET taille < 166) ALORS
+								DEBUT_SI
+								AFFICHER "Taille 1"
+								FIN_SI
+														
+					SINON
+						DEBUT_SINON
+							SI (poids <= 59 ET taille < 178) ALORS
+								DEBUT_SI
+								AFFICHER "Taille 2"
+								FIN_SI
+
+					SINON
+						DEBUT_SINON
+							SI (poids <= 59 ET taille >= 178) ALORS
+								DEBUT_SI
+								AFFICHER "Taille 3"
+								FIN_SI
+																
+																
+					SINON
+						DEBUT_SINON
+							SI (poids <= 65 ET taille < 163) ALORS
+								DEBUT_SI
+								AFFICHER "Taille 1"
+								FIN_SI
+														
+					SINON
+						DEBUT_SINON
+							SI (poids <= 65 ET taille < 175) ALORS
+								DEBUT_SI
+								AFFICHER "Taille 2"
+								FIN_SI
+
+					SINON
+						DEBUT_SINON
+							SI (poids <= 65 ET taille >= 175) ALORS
+								DEBUT_SI
+								AFFICHER "Taille 3"
+								FIN_SI
+																		
+																		
+					SINON
+						DEBUT_SINON
+							SI (poids <= 71 ET taille < 160) ALORS
+								DEBUT_SI
+								AFFICHER "Il n'y a aucune taille correspondante"
+								FIN_SI
+														
+					SINON
+						DEBUT_SINON
+							SI (poids <= 71 ET taille < 172) ALORS
+								DEBUT_SI
+								AFFICHER "Taille 2"
+								FIN_SI
+
+					SINON
+						DEBUT_SINON
+							SI (poids <= 71 ET taille >= 172) ALORS
+								DEBUT_SI
+								AFFICHER "Taille 3"
+								FIN_SI
+							
+					SINON
+						DEBUT_SINON
+							SI (poids <= 77 ET taille < 163) ALORS
+								DEBUT_SI
+								AFFICHER "Il n'y a aucune taille correspondante"
+								FIN_SI
+
+					SINON
+						DEBUT_SINON
+							SI (poids <= 77 ET taille >= 163) ALORS
+								DEBUT_SI
+								AFFICHER "Taille 3"
+								FIN_SI
+															
+							FIN_SINON
+							FIN_SINON
+							FIN_SINON
+							FIN_SINON
+							FIN_SINON
+							FIN_SINON
+							FIN_SINON
+							FIN_SINON
+							FIN_SINON
+							FIN_SINON
+							FIN_SINON
+							FIN_SINON
+					FIN_SINON
+				FIN_SINON
+		FIN_SINON
+FIN_SINON
+
+FIN_ALGORITHME
+```
+---   
+
+## Structures itératives: les boucles
+
+
+- **while** (tant que): on y répète les instructions tant qu'une certaine condition est réalisée. La condition est évaluée avant chae itération (et avant le passage dans le jeu d'instruction) et on va boucler tant que l'instruction est vraie. Il faut que la conditions soit évolutive pour ne pas tomber dans une boucle infinie.
+- **do while** (jusqu'à): on y répète des instructions jusqu'à ce qu'une certaine condition soit réalisée (la condition est évaluée après chaque itération). On joue d'abord les instructions puis on rentre dans la condition (on boucle après avoir joué au moins une fois les instructions).
+- **for** (pour): on y répète des instructions en faisant évoluer un compteur entre une valeur initiale et une valeur finale (le nombre d'itérations dans une boucle `for` est connu avant le début de la boucle). Un compteur est une variable qui doit être déclarée. Le **pas** est un entier qui peut être positif ou négatif (très souvent, on va le faire avancer par pas de 1)
+
+### Exemple syntaxe pour la bloucle *for*  
+
+***Pour** compteur **allant de** initiale à finale **par pas** valeur du pas  
+instructions  
+**FinPour***
+
+---
+
+### Exercice
+
+*Ecrire un algortihme qui demande à l'utilisateur d'écrire un nombre compris entre 1 et 3 jusqu'à ce que la réponse convienne.*
+
+```bash
+FONCTIONS_UTILISEES
+
+VARIABLES
+n EST_DU_TYPE NOMBRE
+DEBUT_ALGORITHME
+AFFICHER "Ecrivez un nombre compris entre 1 et 3"
+LIRE n
+
+TANT_QUE (n<1 OU n>3) FAIRE
+		DEBUT_TANT_QUE
+			AFFICHER "Résultat non valide"
+			LIRE n
+		FIN_TANT_QUE	
+	
+AFFICHER n
+	
+FIN_ALGORITHME
+```
+
+
+*Déterminer combien d'années il faudra pour doubler le capital investi.*
+
+```bash
+FONCTIONS_UTILISEES
+
+VARIABLES
+capital EST_DU_TYPE NOMBRE
+taux EST_DU_TYPE NOMBRE
+annee EST_DU_TYPE NOMBRE
+somme EST_DU_TYPE NOMBRE
+DEBUT_ALGORITHME
+AFFICHER "Indiquez le capital initial:"
+LIRE capital
+AFFICHER "Indiquez le taux fixe en pourcentage:"
+LIRE taux
+annee PREND_LA_VALEUR 0
+
+
+TANT_QUE (somme < capital*2) FAIRE
+		DEBUT_TANT_QUE
+			annee PREND_LA_VALEUR annee + 1	
+			somme PREND_LA_VALEUR capital*pow(1+taux/100,annee)
+		FIN_TANT_QUE	
+	
+AFFICHER "Il faut "
+AFFICHER annee
+AFFICHER " ans pour doubler le capital"
+	
+FIN_ALGORITHME
+```
+
+
+## Boucles imbriquées
+
+Exemple de boucle imbriquée :
+
+```
+Pour i allant de 1 à 5  
+	Pour j allant de 1 à i  
+		Ecrire ("O")
+
+	FinPour
+	Ecrire("X")
+FinPour 
+```
+
+### Exercice
+
+*Ecrire l'algorithme permettant d'afficher la table de multiplication de 9*
+
+```bash
+FONCTIONS_UTILISEES
+
+VARIABLES
+tableNeuf EST_DU_TYPE NOMBRE
+i EST_DU_TYPE NOMBRE
+DEBUT_ALGORITHME
+
+POUR i ALLANT_DE 0 A 10
+	DEBUT_POUR
+		tableNeuf PREND_LA_VALEUR i * 9
+		AFFICHER* tableNeuf
+	FIN_POUR
+
+FIN_ALGORITHME
+```
+
+
+*Ecrire un algorithme qui demande successivement 6 nombres à l'utilisateur et qui lui dit ensuite quel était le plus grand parmi ces 6 nombres.*
+
+```bash
+FONCTIONS_UTILISEES
+
+VARIABLES
+nb EST_DU_TYPE NOMBRE
+nbBefore EST_DU_TYPE NOMBRE
+i EST_DU_TYPE NOMBRE
+DEBUT_ALGORITHME
+
+POUR i ALLANT_DE 1 A 6
+
+	DEBUT_POUR
+
+		AFFICHER " Veuillez rentrer un nombre"
+		LIRE nb
+		
+		SI (nb > nbBefore) ALORS
+			DEBUT_SI
+			 nbBefore PREND_LA_VALEUR nb
+			 	AFFICHER nbBefore
+			 	AFFICHER " Ce nombre est le plus grand"
+			FIN_SI
+
+	FIN_POUR  
+	
+AFFICHER "Le nombre le plus grand est "
+AFFICHER nbBefore
 FIN_ALGORITHME
 ```
