@@ -99,7 +99,7 @@ Structures conditionnelles
 	instructions  
 	(option) Sinon
 
-Les boucles  
+Structures itératives (les boucles)
 
 	- while (tant que): on y répète les instructions tant qu'une certaine condition est réalisée
 	- do while (jusqu'à): on y répète des instructions jusqu'à ce qu'une certaine condition soit réalisée
@@ -111,7 +111,7 @@ Les boucles
 
 ### Exercices
 
-*Déterminer le montant d'un capital c placé à un taux fixe t pendant un nombre d'années. On sippose que c, t, n sont lus.*
+*Déterminer le montant d'un capital c placé à un taux fixe t pendant un nombre d'années. On suppose que c, t, n sont lus.*
 
 ```bash
 FONCTIONS_UTILISEES
@@ -531,7 +531,7 @@ FONCTIONS_UTILISEES
 
 VARIABLES
 nb EST_DU_TYPE NOMBRE
-nbBefore EST_DU_TYPE NOMBRE
+nbMax EST_DU_TYPE NOMBRE
 i EST_DU_TYPE NOMBRE
 DEBUT_ALGORITHME
 
@@ -542,16 +542,230 @@ POUR i ALLANT_DE 1 A 6
 		AFFICHER " Veuillez rentrer un nombre"
 		LIRE nb
 		
-		SI (nb > nbBefore) ALORS
+		SI (nb > nbMax OU i == 1) ALORS
 			DEBUT_SI
-			 nbBefore PREND_LA_VALEUR nb
-			 	AFFICHER nbBefore
-			 	AFFICHER " Ce nombre est le plus grand"
+			 nbMax PREND_LA_VALEUR nb
 			FIN_SI
 
 	FIN_POUR  
 	
 AFFICHER "Le nombre le plus grand est "
-AFFICHER nbBefore
+AFFICHER nbMax
+FIN_ALGORITHME
+```
+
+
+*Ecrire un algorithme qui demande un nombre de départ et qui calcule la somme des entiers jusqu'à ce nombre.*
+
+```bash 
+FONCTIONS_UTILISEES
+
+VARIABLES
+userNb EST_DU_TYPE NOMBRE
+sum EST_DU_TYPE NOMBRE
+i EST_DU_TYPE NOMBRE
+
+DEBUT_ALGORITHME
+AFFICHER "Insérez un nombre"
+LIRE userNb
+sum PREND_LA_VALEUR 0
+
+POUR i ALLANT_DE 1 A userNb  #Avec une boucle FOR
+	DEBUT_POUR
+		sum PREND_LA_VALEUR sum + i	
+	
+	FIN_POUR
+
+AFFICHER "La somme des entiers jusqu'à "
+AFFICHER userNb
+AFFICHER " est "	
+AFFICHER sum
+
+FIN_ALGORITHME
+```
+*Solution alternative*
+
+```bash
+FONCTIONS_UTILISEES
+
+VARIABLES
+userNb EST_DU_TYPE NOMBRE
+sum EST_DU_TYPE NOMBRE
+i EST_DU_TYPE NOMBRE
+DEBUT_ALGORITHME
+AFFICHER "Insérez un nombre"
+LIRE userNb
+sum PREND_LA_VALEUR 0
+
+TANT_QUE (i < userNb) FAIRE  #Avec une boucle WHILE
+	DEBUT_TANT_QUE
+		i PREND_LA_VALEUR i + 1		
+		sum PREND_LA_VALEUR sum + i	
+	FIN_TANT_QUE
+	
+AFFICHER "La somme des entiers jusqu'à "
+AFFICHER userNb
+AFFICHER " est "	
+AFFICHER sum
+
+FIN_ALGORITHME
+```
+
+
+*Ecrire un algorithme qui permet d'afficher les tables de multiplication des nombres de 1 à 10 d'un seul coup*
+
+```bash
+FONCTIONS_UTILISEES
+
+VARIABLES
+table EST_DU_TYPE NOMBRE
+result EST_DU_TYPE NOMBRE
+i EST_DU_TYPE NOMBRE
+
+DEBUT_ALGORITHME
+
+POUR table ALLANT_DE 1 A 10
+	DEBUT_POUR
+		AFFICHER* "------"
+		AFFICHER "Table de "
+		AFFICHER* table
+		AFFICHER* "-------"
+
+		POUR i ALLANT_DE 1 A 10
+			DEBUT_POUR
+				result PREND_LA_VALEUR table * i
+				AFFICHER table
+				AFFICHER "x"
+				AFFICHER i
+				AFFICHER "="
+				AFFICHER result
+				AFFICHER* " "
+			FIN_POUR
+	FIN_POUR
+
+FIN_ALGORITHME
+```
+
+
+*Alternative avec une seule boucle **WHILE** et des structures conditionnelles*
+
+```bash
+FONCTIONS_UTILISEES
+
+VARIABLES
+table EST_DU_TYPE NOMBRE
+result EST_DU_TYPE NOMBRE
+i EST_DU_TYPE NOMBRE
+
+DEBUT_ALGORITHME
+table PREND_LA_VALEUR 1
+
+TANT_QUE (table < 11) FAIRE
+	DEBUT_TANT_QUE
+		SI (i < 10) ALORS
+			DEBUT_SI
+				i PREND_LA_VALEUR i + 1				
+				result PREND_LA_VALEUR table * i
+				AFFICHER table
+				AFFICHER "x"
+				AFFICHER i
+				AFFICHER "="
+				AFFICHER result
+				AFFICHER* " "
+			FIN_SI
+		SINON
+			DEBUT_SINON
+					i PREND_LA_VALEUR i - i
+					table PREND_LA_VALEUR table + 1
+				FIN_SINON
+			
+	FIN_TANT_QUE
+
+FIN_ALGORITHME
+```
+
+
+*Solution alternative avec une boucle **FOR***
+
+```bash
+FONCTIONS_UTILISEES
+
+VARIABLES
+i EST_DU_TYPE NOMBRE
+j EST_DU_TYPE NOMBRE
+
+DEBUT_ALGORITHME
+j PREND_LA_VALEUR 1
+
+POUR i ALLANT_DE 1 A 10
+	DEBUT_POUR
+		SI (j <= 10) ALORS
+				DEBUT_SI
+				SI (i == 1) ALORS
+					DEBUT_SI
+					AFFICHER* "-----"
+					AFFICHER "table de "
+					AFFICHER* j
+					AFFICHER* "-----"
+					FIN_SI
+					SI (i < 10) ALORS
+						DEBUT_SI
+						AFFICHER j
+						AFFICHER " x "
+						AFFICHER i
+						AFFICHER " = "
+						AFFICHERCALCUL* j*i
+						FIN_SI
+						SINON
+								DEBUT_SINON
+								AFFICHER j
+								AFFICHER " x "
+								AFFICHER i
+								AFFICHER " = "
+								AFFICHERCALCUL* j*i
+								j PREND_LA_VALEUR j + 1
+								i PREND_LA_VALEUR 0
+								FIN_SINON
+				FIN_SI
+				SINON
+						DEBUT_SINON
+						i PREND_LA_VALEUR 10
+						FIN_SINON
+	FIN_POUR
+
+FIN_ALGORITHME
+```
+
+*La ville de Tourcoing a un taux d'accroissement de 0.89%. Ecrire un algorithme donnant le nombre d'années nécessaires pour atteindre 120 000 habitants. On sait qu'en 2015 la ville de Tourcoing comptait 96 809 habitants.*
+
+```bash
+FONCTIONS_UTILISEES
+
+VARIABLES
+habInit EST_DU_TYPE NOMBRE
+hab EST_DU_TYPE NOMBRE
+n EST_DU_TYPE NOMBRE
+nInit EST_DU_TYPE NOMBRE
+nFinal EST_DU_TYPE NOMBRE
+
+DEBUT_ALGORITHME
+n PREND_LA_VALEUR 0
+nInit PREND_LA_VALEUR 2015
+habInit PREND_LA_VALEUR 96809
+
+TANT_QUE (hab < 120000) FAIRE
+	DEBUT_TANT_QUE
+		hab PREND_LA_VALEUR habInit * (1+0.89/100)
+		habInit PREND_LA_VALEUR hab
+		n PREND_LA_VALEUR n + 1
+	FIN_TANT_QUE
+
+AFFICHER "Il faudra "	
+AFFICHER n
+AFFICHER " années pour atteindre les 120 000 habitants"
+
+AFFICHER " Ce nombre sera atteint en "
+AFFICHERCALCUL nFinal = nInit + n
+
 FIN_ALGORITHME
 ```
