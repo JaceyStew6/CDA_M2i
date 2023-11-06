@@ -742,22 +742,23 @@ FIN_ALGORITHME
 FONCTIONS_UTILISEES
 
 VARIABLES
-habInit EST_DU_TYPE NOMBRE
 hab EST_DU_TYPE NOMBRE
 n EST_DU_TYPE NOMBRE
 nInit EST_DU_TYPE NOMBRE
 nFinal EST_DU_TYPE NOMBRE
 
 DEBUT_ALGORITHME
-n PREND_LA_VALEUR 0
+n PREND_LA_VALEUR 1
 nInit PREND_LA_VALEUR 2015
-habInit PREND_LA_VALEUR 96809
+hab PREND_LA_VALEUR 96809
 
 TANT_QUE (hab < 120000) FAIRE
 	DEBUT_TANT_QUE
-		hab PREND_LA_VALEUR habInit * (1+0.89/100)
-		habInit PREND_LA_VALEUR hab
-		n PREND_LA_VALEUR n + 1
+		hab PREND_LA_VALEUR hab * (1+0.89/100)
+		SI (hab < 120000) ALORS
+			DEBUT_SI
+			n PREND_LA_VALEUR n + 1
+			FIN_SI
 	FIN_TANT_QUE
 
 AFFICHER "Il faudra "	
@@ -766,6 +767,81 @@ AFFICHER " années pour atteindre les 120 000 habitants"
 
 AFFICHER " Ce nombre sera atteint en "
 AFFICHERCALCUL nFinal = nInit + n
+
+FIN_ALGORITHME
+```
+
+*Ecrire un programme qui permet de saisir les notes des élèves et qui permet d'afficher un menu indiquant la plus petite note, la plus grande note et la moyenne*
+
+```bash
+FONCTIONS_UTILISEES
+
+VARIABLES
+nbUser EST_DU_TYPE NOMBRE
+nbMax EST_DU_TYPE NOMBRE
+nbMin EST_DU_TYPE NOMBRE
+nbSum EST_DU_TYPE NOMBRE
+userChoice EST_DU_TYPE NOMBRE
+i EST_DU_TYPE NOMBRE
+DEBUT_ALGORITHME
+nbSum PREND_LA_VALEUR 0
+POUR i ALLANT_DE 1 A 3
+	DEBUT_POUR
+		AFFICHER "Veuillez saisir la note n°"
+		AFFICHER i
+		LIRE nbUser
+		nbSum PREND_LA_VALEUR nbSum + nbUser
+		
+		SI (i == 1) ALORS
+			DEBUT_SI
+			nbMax PREND_LA_VALEUR nbUser
+			nbMin PREND_LA_VALEUR nbUser
+			FIN_SI
+	SINON
+		DEBUT_SINON
+		SI (nbMin > nbUser) ALORS
+			DEBUT_SI
+			nbMin PREND_LA_VALEUR nbUser
+			FIN_SI
+			SINON
+				DEBUT_SINON
+				SI (nbMax < nbUser) ALORS
+					DEBUT_SI
+					nbMax PREND_LA_VALEUR nbUser
+					FIN_SI
+				FIN_SINON
+		FIN_SINON
+			
+	FIN_POUR
+
+
+userChoice PREND_LA_VALEUR -1
+
+TANT_QUE (userChoice != 0) FAIRE
+	DEBUT_TANT_QUE
+	AFFICHER* "1. Afficher la plus petite note"	
+	AFFICHER* "2. Afficher la plus grande note"
+	AFFICHER* "3. Afficher la moyenne des notes"
+	AFFICHER* "0. Quitter"	
+	LIRE userChoice
+	
+	SI (userChoice == 1) ALORS
+		DEBUT_SI
+		AFFICHER "La plus petite note est "
+		AFFICHER* nbMin
+		FIN_SI
+	SI (userChoice == 2) ALORS
+		DEBUT_SI
+		AFFICHER "La plus grande note est "
+		AFFICHER* nbMax
+		FIN_SI
+	SI (userChoice == 3) ALORS
+		DEBUT_SI
+		AFFICHER "La moyenne des notes est "
+		AFFICHERCALCUL* nbSum / (i-1)
+		FIN_SI
+	FIN_TANT_QUE
+
 
 FIN_ALGORITHME
 ```
