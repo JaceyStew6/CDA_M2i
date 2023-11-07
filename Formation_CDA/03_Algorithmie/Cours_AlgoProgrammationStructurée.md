@@ -1009,5 +1009,122 @@ Un tableau est une structure de données qui permet de rassemble un ensemble de 
 
  *Exemple de syntaxe pour chercher l'élément en troisième position:*  
  `notes[2]`
- 
-   
+
+ ---
+ *Ecrire un algorithme qui déclare et stocke dans un tableau 10 chiffres, puis qui affiche le 9ème élément de ma liste*
+
+ ```bash
+ FONCTIONS_UTILISEES
+		
+VARIABLES
+tableau EST_DU_TYPE LISTE
+i EST_DU_TYPE NOMBRE
+DEBUT_ALGORITHME
+	POUR i ALLANT_DE 0 A 9
+		DEBUT_POUR
+		tableau[i] PREND_LA_VALEUR i
+		FIN_POUR
+		
+		AFFICHER* tableau[2]
+FIN_ALGORITHME
+ ```  
+
+ *Ecrire un algorithme permettant de saisir 15 notes et de les afficher*
+
+ ```bash
+FONCTIONS_UTILISEES
+FONCTION SaisieTab()
+VARIABLES_FONCTION
+note EST_DU_TYPE NOMBRE
+	DEBUT_FONCTION
+		POUR i ALLANT_DE 0 A 14
+		DEBUT_POUR
+		AFFICHER "Saisir note "
+		LIRE note
+		tableau[i] PREND_LA_VALEUR note
+		FIN_POUR
+	FIN_FONCTION		
+
+FONCTION AfficherTab()
+VARIABLES_FONCTION
+	DEBUT_FONCTION
+	POUR i ALLANT_DE 0 A 14
+		DEBUT_POUR
+		AFFICHER "note n° "
+		AFFICHER i
+		AFFICHER " : "
+		AFFICHER* tableau[i]
+		FIN_POUR
+	FIN_FONCTION
+		
+VARIABLES
+tableau EST_DU_TYPE LISTE
+i EST_DU_TYPE NOMBRE
+DEBUT_ALGORITHME
+
+APPELER_FONCTION SaisieTab()	
+APPELER_FONCTION AfficherTab()
+		
+FIN_ALGORITHME
+ ```
+
+Il existe également des tableaux à plusieurs dimensions. Par exemple : `tableau [i][j]`
+
+---
+### Exercice
+
+*Ecire un algorithme permettant la saisie des notes d'une classe de 15 étudiants pour 3 matières*
+
+```bash
+FONCTIONS_UTILISEES
+
+FONCTION SaisieTab()
+VARIABLES_FONCTION
+	DEBUT_FONCTION
+		POUR student ALLANT_DE 0 A 2
+					DEBUT_POUR
+		POUR matiere ALLANT_DE 0 A 2
+
+				DEBUT_POUR
+				AFFICHER "Saisir note "
+				AFFICHERCALCUL student + 1
+				AFFICHER " pour la matière "
+				AFFICHERCALCUL matiere + 1
+				LIRE note
+				tableau[student * 3 + matiere] PREND_LA_VALEUR note
+				FIN_POUR
+			FIN_POUR	
+		
+	FIN_FONCTION		
+
+FONCTION AfficherTab()
+VARIABLES_FONCTION
+	DEBUT_FONCTION
+	POUR student ALLANT_DE 0 A 2
+		DEBUT_POUR
+			AFFICHER* "---------"
+			AFFICHER "L'étudiant "
+			AFFICHERCALCUL student + 1
+			AFFICHER* " a une note de "
+		POUR matiere ALLANT_DE 0 A 2
+			DEBUT_POUR
+			AFFICHER tableau[student * 3 + matiere] # il faut préciser à Algobox combien de dimensions le tableau comporte car il n'est pas capable de le gérer nativement d'où le *3
+			AFFICHER " pour la matière "
+			AFFICHERCALCUL* matiere + 1
+			FIN_POUR
+		FIN_POUR
+	FIN_FONCTION
+
+VARIABLES
+note EST_DU_TYPE NOMBRE
+tableau EST_DU_TYPE LISTE
+student EST_DU_TYPE NOMBRE
+matiere EST_DU_TYPE NOMBRE
+DEBUT_ALGORITHME
+
+APPELER_FONCTION SaisieTab()	
+APPELER_FONCTION AfficherTab()		
+
+FIN_ALGORITHME
+```
+
