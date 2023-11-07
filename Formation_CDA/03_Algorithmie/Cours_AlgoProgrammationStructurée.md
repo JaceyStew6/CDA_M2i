@@ -845,3 +845,169 @@ TANT_QUE (userChoice != 0) FAIRE
 
 FIN_ALGORITHME
 ```
+
+## Les fonctions et procédures
+
+Deux types de programmation:
+- procédurale (linéaire)
+- fonctionnelle (modulaire) : on a des groupes d'instructions isolés qu'on va désigner par un nom (fonction)
+
+*Créer une fonction qui permet de demander deux nombres à un utilisateur et de renvoyer le plus grand des deux*
+
+```bash
+FONCTIONS_UTILISEES
+FONCTION plusGrandNombre(nb1, nb2)
+VARIABLES_FONCTION
+		DEBUT_FONCTION	
+		
+		SI (nb1 > nb2) ALORS
+				DEBUT_SI
+				RENVOYER nb1
+				FIN_SI
+		SINON
+			DEBUT_SINON
+				RENVOYER nb2
+			FIN_SINON		
+
+		FIN_FONCTION
+
+
+VARIABLES
+nb1 EST_DU_TYPE NOMBRE
+nb2 EST_DU_TYPE NOMBRE
+result EST_DU_TYPE CHAINE
+
+DEBUT_ALGORITHME #Bien séparer l'affichage de la résolution logique
+
+AFFICHER "Veuillez entrer un premier nombre"
+LIRE nb1
+
+AFFICHER "Veuillez entrer un second nombre"
+LIRE nb2
+
+result PREND_LA_VALEUR plusGrandNombre(nb1, nb2)
+AFFICHER "Le plus grand nombre est "
+AFFICHER result
+
+FIN_ALGORITHME
+```
+
+
+## Les procédures
+
+Exactement la même chose qu'une fonction sauf qu'elle ne retourne pas de résultat (comme une fonction sans return).
+
+Une procédure s'écrit en dehors du programme principal. Une procédure peut ne pas avoir de paramètres.
+
+Une procédure peut par exemple servir à l'affichage.
+
+
+Il existe deux modes de transmission de paramètres dans les langages de programmation:
+- La transmission par valeur n'impactera pas le code principal (la référence de base). La valeur restera intacte. Ce mode de paramètre effectif ne subit aucune modification.
+- La transmission par adresse (ou par référence) impactera le code principal.
+
+**Attention: le paramètre effectif doit être une variable (et non une valeur) lorsqu'il s'agit d'une transmission par adresse.**     
+
+---
+
+Existe deux types de portée pour les variables:
+- variable globale : disponible dans tout le code
+- variable locale: disponible dans le cadre de la fonction qui l'appelle et est limitée à la durée d'exécution de la fonction. Favoriser ce mode là. Permet de laisser son code propre et épuré. **Par contre attention: sa valeur est tuée à la fin de l'exécution de la fonction (si on a besoin de garder la valeur pour plus tard dans le code, il faut alors la stocker dans une variable globale).**
+
+
+*Exemple de menu avec création d'une procédure*
+
+```bash
+FONCTIONS_UTILISEES
+FONCTION menu () #création de la procédure
+VARIABLES_FONCTION
+userChoice EST_DU_TYPE NOMBRE
+	DEBUT_FONCTION
+	userChoice PREND_LA_VALEUR -1
+
+TANT_QUE (userChoice != 0) FAIRE
+	DEBUT_TANT_QUE
+	AFFICHER* "1. Afficher la plus petite note"	
+	AFFICHER* "2. Afficher la plus grande note"
+	AFFICHER* "3. Afficher la moyenne des notes"
+	AFFICHER* "0. Quitter"	
+	LIRE userChoice
+	
+	SI (userChoice == 1) ALORS
+		DEBUT_SI
+		AFFICHER "La plus petite note est "
+		AFFICHER* nbMin
+		FIN_SI
+	SI (userChoice == 2) ALORS
+		DEBUT_SI
+		AFFICHER "La plus grande note est "
+		AFFICHER* nbMax
+		FIN_SI
+	SI (userChoice == 3) ALORS
+		DEBUT_SI
+		AFFICHER "La moyenne des notes est "
+		AFFICHERCALCUL* nbSum / (i-1)
+		FIN_SI
+	FIN_TANT_QUE
+	FIN_FONCTION
+
+VARIABLES
+nbUser EST_DU_TYPE NOMBRE
+nbMax EST_DU_TYPE NOMBRE
+nbMin EST_DU_TYPE NOMBRE
+nbSum EST_DU_TYPE NOMBRE
+i EST_DU_TYPE NOMBRE
+DEBUT_ALGORITHME
+nbSum PREND_LA_VALEUR 0
+POUR i ALLANT_DE 1 A 3
+	DEBUT_POUR
+		AFFICHER "Veuillez saisir la note n°"
+		AFFICHER i
+		LIRE nbUser
+		nbSum PREND_LA_VALEUR nbSum + nbUser
+		
+		SI (i == 1) ALORS
+			DEBUT_SI
+			nbMax PREND_LA_VALEUR nbUser
+			nbMin PREND_LA_VALEUR nbUser
+			FIN_SI
+	SINON
+		DEBUT_SINON
+		SI (nbMin > nbUser) ALORS
+			DEBUT_SI
+			nbMin PREND_LA_VALEUR nbUser
+			FIN_SI
+			SINON
+				DEBUT_SINON
+				SI (nbMax < nbUser) ALORS
+					DEBUT_SI
+					nbMax PREND_LA_VALEUR nbUser
+					FIN_SI
+				FIN_SINON
+		FIN_SINON
+			
+	FIN_POUR
+
+APPELER_FONCTION menu() #appel de la procédure
+
+FIN_ALGORITHME
+```
+
+## Les tableaux
+
+Une variable ne peut stocker qu'une seule valeur. Les tableaux palient à ce problème, puisqu'il s'agit d'une variable qui stocke plusieurs valeurs.
+
+Un tableau se déroule sous un seul axe et stocke un enchainement de valeurs.
+Un tableau est une structure de données qui permet de rassemble un ensemble de variables/éléments de même type (excpetion faite du Javascript) désignés par un identificateur unique.  
+
+*Exemple de syntaxe:*   
+ `notes = [11, 4, 6, 14]`
+
+ La déclaration d'un tableau s'effectue en précisant le type de ses éléments et sa dimension (le nombre de ses éléments). Quand on fait un tableau, on alloue un espace de stockage mémoire, c'est pourquoi il est important de définir sa taille à la base. Cela est toutefois de moins en moins le cas dans beaucoup de langages.
+
+ L'accès aux éléments d'un tableau se fait au moyen de l'indice. Selon les langages, le premier indice est soit 0 (le plus courant), soit 1.
+
+ *Exemple de syntaxe pour chercher l'élément en troisième position:*  
+ `notes[2]`
+ 
+   
