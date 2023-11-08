@@ -180,3 +180,21 @@ Une fois que j'ai défini mon type de liste, j'englobe chacun de ses éléments 
     <li>Ceci est une liste organisée</li>
 </ol>
 ```
+
+
+## Les images `<img>`
+
+C'est une balise auto-fermante.  
+Pour afficher une image, je dois indiquer à ma balise sa **source** sia l'attribut `src`. Elle peut provenir du web ou être stocké en local dans mon ordinateur.
+
+Attention, si l'image est stockée dans votre ordinateur, le fichier devra être fourni durant l'hébergement de votre site si vous souhaitez que tout le monde puisse le consulter. Dans tous les cas, on préfèrera indiquer le chemin des images sous forme de **chemin relatif**.
+
+On peut redimensionner nos images grâce à nos **attributs** `width` et `height` auxquels je donnerai une valeur en pixels.
+
+Enfin, **très important pour l'accessibilité**, j'essaye, dès que j'ai une balise image, de lui mettre un **attribut** `alt` (pour alternatif). C'est un texte qui va s'afficher si l'image n'arrive pas elle-même à s'afficher. Ce texte alternatif est également utile pour les personnes qui consultent le Web depuis un lecteur audio.
+
+Au sein de notre répertoire projet, on préfèrera **stocker nos images dans un dossier qui leur est dédié**. On nomera généralement ce répertoire "img".
+
+```html
+<img width="...px" src="URL" alt="descriptif de l'image">
+```
