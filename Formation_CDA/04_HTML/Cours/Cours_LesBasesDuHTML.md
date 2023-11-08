@@ -71,7 +71,7 @@ L'HTML fournit la structure fondamentale d'une page web mais pour définir le st
 <h6>Titre de niveau 6</h6>
 ```
 
-`<p></p>` : Balise de paragraphe  
+>`<p></p>` : Balise de paragraphe  
 `<br/>` : Balise de retour à la ligne (break)  
 `<hr/>` : Balise de séparateur
 
@@ -85,10 +85,10 @@ L'HTML fournit la structure fondamentale d'une page web mais pour définir le st
 
 On évitera d'utiliser ces trois balises, on préfèrera appliquer le style en CSS.
 
-`<strong></strong>` Indique l'importance d'une partie de texte (le navigateur appliquera du gras).  
+>`<strong></strong>` Indique l'importance d'une partie de texte (le navigateur appliquera du gras).  
 `<em></em>` Met l'emphase sur une partie de texte, donc isolera un élément (le navigateur appliquera de l'italique).
 
-`<code></code>` Vous pouvez entourer du code avec cette balise mais ne prendra pas en compte les espacements.
+>`<code></code>` Vous pouvez entourer du code avec cette balise mais ne prendra pas en compte les espacements.  
 `<pre></pre>` Similaire à `<code>`. Vous pouvez entourer du code avec cette balise et celle-ci prendra en compte les espacements et toute l'indentation. Cela peut être utile si vous avez un code HTML bien formaté que vous souhaitez afficher tel quel.
 
 ## Les liens et les ancres
@@ -103,8 +103,80 @@ La balise `<a>` en HTML est utilisée pour créer des hyperliens, communément a
 
 ### Attributs courants de la balise `<a>`:
 
-1. `href` : cet attribut spécifie l'URL de destination vers laquelle le lien pointe. Il peut s'agir d'une URL absolue (commençant par "https://") ou relative (par rapport à la page actuelle).
+>1. `href` : cet attribut spécifie l'URL de destination vers laquelle le lien pointe. Il peut s'agir d'une URL absolue (commençant par "https://") ou relative (par rapport à la page actuelle).
 
-2. `target` : Cet attribut détermine comment la page liée sera affichée. Les valeurs courantes sont:
+>2. `target` : Cet attribut détermine comment la page liée sera affichée. Les valeurs courantes sont:
     - `_blank` : Ouvre le lien dans une nouvelle fenêtre ou un nouvel onglet du navigateur.
     - `_self` : Ouvre le lien dans la même fenêtre ou onglet (par défaut).
+
+### Les liens internes (les ancres):
+
+La balise `<a>` peut également être utilisée pour créer des liens internes à une même page, généralement pour permettre aux utilisateurs de sauter vers différentes parties de la page. On va relier pour cela notre balise `<a>` à un identifiant (doit être unique);
+
+```html
+<a href="#section2">Aller à la section 2</a>
+...
+...
+...
+<h2 id="section 2">Section 2</h2>
+```
+
+### Autres utilisations:
+
+1. **Téléchargement de fichiers:**
+
+L'attribut `download` indique au navigateur que le lien doit être téléchargé au lieu d'être affiché.
+
+```html
+<a href="mon-fichier.pfd" download>Télécharger le fichier PDF</a>
+```
+
+2. **Liens par courriels:**
+
+Pour envoyer vers un courriel, on spécifie dans le chemin `mailto`.
+
+```html
+<a href="mailto:contact@example.com">Envoyer un e-mail</a>
+```
+
+### Conseils:
+
+>- Assurez-vous que les liens sont clairs et descriptifs pour les utilisateurs.
+>- Vérifiez que les URLs sont valides et fonctionnent correctement.
+>- Vous pouvez ajouter des attributs `title` pour fournir un texte alternatif (pour l'accessibilité) lorsque le texte du lien n'est pas suffisament descriptif.
+
+La balise `<a>` est l'un des éléments les plus importants pour la navigation et l'interaction dans une page web et elle offre de nombreuses possibilités pour améliorer l'expérience des utilisateurs.
+
+## Types d'éléments et flux de page (display)
+
+En HTML, les éléments sont classés en deux catégories principales: les éléments en ligne (inline elements) et les éléments de bloc (block-level elements). Ces catégories définissent comment les éléments sont affichés et comment ils interagissent les uns avec les autres dans une page web.
+
+1. **Eléments de bloc (Block-level Elements):**  
+    Les éléments de bloc sont des éléments HTML qui créent des boites de contenu distinctes dans la page.  
+    Ils commencent sur une nouvelle ligne et s'étendent sur toute la largeur disponible de leur conteneur (sauf s'ils ont une largeur spécifiée).  
+    Les éléments de bloc sont souvent utilisés pour structurer la mise en page d'une page web.  
+    Par exemple, des éléments comme `<div>, <h1>, <p>, <li>, <ul>, <table>` etc. sont des éléments de bloc.
+    Vous pouvez appliquer des styles tels que largeur, hauteur, marges, rembourrages (padding) ces éléments pour les personnaliser selon vos besoins.
+
+2. **Eléments en ligne (Inline Elements):**  
+    Les éléments en ligne sont des éléments HTML qui ne commençent pas sur une nouvelle ligne et occupent uniquement l'espace nécessaire autour de leur contenu?  
+    Ils sont utilisés pour marquer du texte ou d'autres éléments au sein d'un paragraphe ou d'un élément de bloc.  
+    Les éléments en ligne n'ont généralement pas de largeur ou de hauteur spécifiées, mais ils peuvent être stylisés en termes de couleur, style de police...   
+    Les éléments en ligne courants comprennent `<span>, <a>, <strong>, <em>, <img>, <br>` etc.
+
+## Les listes
+
+En HTML, il exite deux types de listes: les liste organisées et les listes non-organisées. Selon celle que je choisis, j'appliquerai une balise différente, `<ol>` pour une liste organisée, `<ul>` pour une liste non-organisée.
+
+Une fois que j'ai défini mon type de liste, j'englobe chacun de ses éléments indépendants autour d'une balise `<li>`.
+
+```html
+<ul>
+    <li>Ceci est une liste non-organisée</li>
+</ul>
+
+
+<ol>
+    <li>Ceci est une liste organisée</li>
+</ol>
+```

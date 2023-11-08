@@ -6,17 +6,28 @@
     <title>Ma première page HTML</title>
 </head>
 <body>
-    <h1>Titre de ma page</h1>
-    <p>Ceci est un <b>premier</b> paragraphe. <br/> Ceci est un <u>second</u> paragraphe.</p>
-    <hr/>
-
-    <h2>Titre de ma page</h2>
-    <p>Ceci est un <i>paragraphe</i></p>
-    <hr/>
-
-    <h3>Titre de ma page</h3>
-    <p>Ceci est un <strong>paragraphe</strong></p>
-    <hr/>
-
+    <table border="5" align="center" width="400px" height="100px">
+        <caption>Mon super tableau</caption>
+        <thead>
+            <tr>
+                <th>header 1</th>
+                <th>header 2</th>
+                <th>header 3</th>
+                <th>header 4</th>
+            </tr>
+            </thead>
+            <tbody align="center">
+            <tr>
+                <td rowspan="2">data 1</td> <!--la data prend 2 lignes-->
+                <td>data 2</td>
+                <td colspan="2">data 3</td> <!--la data prend 2 colonnes-->
+            </tr>
+            <tr>
+                <td>data 6</td>
+                <td>data 7</td>
+                <td>data 8</td>
+            </tr>
+        </tbody>
+    </table>
 </body>
 </html>
