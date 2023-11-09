@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Me contacter</title>
+</head>
+<body>
+
+    <header>
+        <h1 id="toppage">Mon premier blog</h1>
+        <nav>
+            <a href="./index.html">Blog</a>
+            <a href="./pageHoraires.html">Twitch</a>
+            <a href="./pageContact.html">Contact</a>
+            <a href="./aPropos.html">A propos</a>
+        </nav>
+        <hr>
+    </header>
+
+    <section>
+        <h1>Me contacter</h1>
+        <hr>
+        <form action="#" method="post">
+            <div>
+                <label for="nom">Nom :</label>
+                <input type="text" id="nom" name="name">
+            </div>
+            
+            <div>
+                <label for="email">Email :</label>
+                <input type="email" id="email" name="emailaddress">
+            </div>
+            
+            <div>
+                <label for="phone">Téléphone :</label>
+                <input type="tel" id="phone" name="tel_number">
+            </div>
+
+            <div>
+                <label for="msg">Message :</label>
+                <textarea name="message" id="msg" cols="20" rows="5"></textarea>
+            </div>
+
+            <div>
+                <label for="genre">Genre :</label>
+                <input type="radio" id="genre" name="gender" value="homme">Homme
+                <input type="radio" id="genre" name="gender" value="femme">Femme
+                <input type="radio" id="genre" name="gender" value="autre">Autre
+            </div>
+
+            <div>
+                <label for="interet">Intérêts :</label>
+                <input type="checkbox" id="interet" name="interest" value="webDev">Développement web
+                <input type="checkbox" id="interet"  name="interest" value="mobileDev">Développement mobile
+            </div>
+
+            <div>
+                <label for="pays">Pays :</label>
+                <select name="pays" id="pays">
+                    <option value="france">France</option>
+                    <option value="belgique">Belgique</option>
+                    <option value="angleterre">Angleterre</option>
+                </select>
+            </div>
+
+            <button type="submit">Envoyer</button>
+            <br/><br/>
+        </form>
+        <hr>
+    </section>
+    <a href="./index.html"><button type="button">Retour</button></a>
+</body>
+</html>

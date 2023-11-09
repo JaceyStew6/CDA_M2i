@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Me contacter</title>
+</head>
+<body>
+    <h1>Me contacter</h1>
+    <hr>
+    <form action="">
+        <div>
+            <label for="nom">Nom :</label>
+            <input type="text" name="nom">
+        </div>
+        
+        <div>
+            <label for="email">Email :</label>
+            <input type="email" name="email">
+        </div>
+        
+        <div>
+            <label for="tel_number">Téléphone :</label>
+            <input type="tel" name="tel_number">
+        </div>
+
+        <div>
+            <label for="message">Message :</label>
+            <textarea name="message" cols="20" rows="5"></textarea>
+        </div>
+
+        <div>
+            <label for="gender">Genre :</label>
+            <input type="radio" name="gender" value="homme">Homme
+            <input type="radio" name="gender" value="femme">Femme
+            <input type="radio" name="gender" value="autre">Autre
+        </div>
+
+        <div>
+            <label for="interest">Intérêts :</label>
+            <input type="checkbox" name="interest" value="webDev">Développement web
+            <input type="checkbox" name="interest" value="mobileDev">Développement mobile
+        </div>
+
+        <div>
+            <label for="pays">Pays :</label>
+            <select name="pays" id="pays">
+                <option value="france">France</option>
+                <option value="belgique">Belgique</option>
+                <option value="angleterre">Angleterre</option>
+            </select>
+        </div>
+
+        <button type="submit">Envoyer</button>
+        <br/><br/>
+    </form>
+    <hr>
+    <a href="./index.html"><button type="button">Retour</button></a>
+</body>
+</html>

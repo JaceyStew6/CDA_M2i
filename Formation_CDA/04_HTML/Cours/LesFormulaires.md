@@ -1,6 +1,6 @@
 # Les formulaires en HTML
 
-Pour ouvrir et fermer un formulaire, on applique les balises `<form></form>` (de type bloc). Cette balise contiendra beaucoup d'attributes importants pour notre Javascript. Mais nous allons d'abord voir le placement des inputs en HTML.
+Pour ouvrir et fermer un formulaire, on applique les balises `<form></form>` (de type bloc). Cette balise contiendra beaucoup d'attributs importants pour notre Javascript. Mais nous allons d'abord voir le placement des inputs en HTML.
 
 ## Les inputs
 

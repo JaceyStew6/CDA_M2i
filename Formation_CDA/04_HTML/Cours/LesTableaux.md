@@ -106,7 +106,7 @@ Si on veut que l'une de nos données prenne plus d'une ligne ou colonne, on lui 
 ## Les boutons
 
 Pour créer un bouton en HTML, j'utiliserai une balise `<button></button>`  
-Il est cependant intéressant de spécifier le type de bouton, grêce à l'attribut `type`:
+Il est cependant intéressant de spécifier le type de bouton, grâce à l'attribut `type`:
 >- `<button type="button">`: Il s'agit d'un bouton classique. C'est le choix par défaut si le type n'est pas spécifié.
 >- `<button type="submit">`: Utile au sein d'un formulaire, il envoie le formulaire.
 >- `<button type="reset">` : Utile au sein d'un formulaire, il réinitialise les champs de ce formulaire.
