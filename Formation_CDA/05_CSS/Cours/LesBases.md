@@ -164,11 +164,11 @@ p {
 En comprenant ces trois aspects de la priorité des styles, vous pouvez résoudre plus facilement les conflits de style et garantir que vous pages web s'affichent correctement.
 
 
-### Les Pseudo-Classes
+## Les Pseudo-Classes
 
 Les pseudo-classes en CSS sont des sélecteurs spéciaux qui permettent de cibler les éléments HTML en fonction de leur état ou de leur position dans la structure de document. Elles sont précédées de deux points (`:`) dans les règles CSS. Nous allons en voir plusieurs:
 
-#### Les Pseudo-Classes de base
+### Les Pseudo-Classes de base
 
 1. **:hover**: Cette pseudo classe permet de cibler un élément lorsque la souris le survole. Surtout utilisé sur les boutons et les liens. Par exemple, vous pouvez changer la couleur d'un lien lorsqu'il est survolé par la souris.
 
@@ -177,8 +177,66 @@ Les pseudo-classes en CSS sont des sélecteurs spéciaux qui permettent de cible
 3. **:focus**: Cible un élément lorsqu'il obtient le focus, généralement après avoir été cliqué ou lors de la navigation au clavier. Il est couramment utilisé pour styliser les champs de formulaire lorsqu'ils sont sélectionnés.
 
 
-#### Les Pseudo-classes de lien
+### Les Pseudo-Classes de lien
 
 1. **:link**: Cible les liens non visités, c'est à dire les liens vers lesquels l'utilisateur n'a pas encore navigué.
 
 2. **:visited**: Cible les liens déjà visités par l'utilisateur.
+
+### Les Pseudo-Classes de position
+
+1. **:first-child**:Cible le premier élément enfant par rapport à un parent. Vouspouvez l'utiliser pour, par exemple, ajouter des styles spéciaux au premier élément d'une liste.
+
+2. **:last-child**: Cible le dernier élément enfant d'un parent.
+
+3. **:nth-child(*n*)**: Cette pseudo-classe permet de cibler un élément enfant en fonction de sa position définie entre parenthèses. On peut cibler plusieurs enfants dans une même `:nth-child()`. Vous pouvez utiliser des formules comme `:nth-child(odd)` ou `:nth-child(even)` pour cibler des éléments pairs et impairs.
+
+**Attention à la syntaxe:**
+
+```css
+
+/* tous les enfants auxquels on applique la pseudo-classe, ici orange */
+orange:only-child
+/* tous les enfants uniques d'un parent, ici une plate */
+plate :only-child
+/* tout se joue dans l'espace qu'il y a entre le sélecteur et la pseudo-classe */
+```
+
+### Les Pseudo-Classes de formulaires
+
+1. **:checked**: Cible les éléments d'entrée (comme les cases à cocher ou les boutons radio) qui sont cochés ou sélectionnés.
+
+2. **:disabled**: Cible les éléments d'entrée qui sont désactivés.
+
+
+>*S'entrainer sur [CSS Diner](https://flukeout.github.io/) pour travailler la logique et la syntaxe!*
+
+## Les propriétés CSS
+
+Le CSS offre un large éventail de propriétés pour contrôler l'apparence et la mise en page des éléments HTML. Voici quelques-unes des propriétés couramment utilisées:
+
+### Les propriétés de texte
+
+1. **`font-family`:** Cette propriété permet de spécifier la famille de police utilisée pour afficher du texte dans un élément HTML. Elle peut être définie avec une liste de nom de police, séparés par des virgules, pour spécifier des alternatives en cas d'indisponibilité de la première police. Toujours laisser `serif` ou `sans-serif` en dernier choix, car c'est LA police qui se trouve partout.
+
+2. **`font-size`:** Cette propriété détermine la taille de la police utilisée pour le texte à l'intérieur d'un élément. Elle peut être définie en pixels (`px`), points (`pt`), en pourcentages (`%`), ou d'autres unités de mesures (`em`, `rem`...). Pour des polices on utilisera essentiellement le `rem`.
+
+    >La taille par défaut sur un site est de 16px. Donc si on prend 1.5 rem, on prendra une police de 24px.   
+    Il n'est pas recommandé de modifier la taille de la police par défaut.
+
+3. **`font-weight` :** Cette propriété détermine l'épaisseur de la police utilisée pour le texte à l'intérieur d'un élément. Elle peut être définie avec des valeurs telles que `normal`, `bold`, `bolder`, `lighter`, ou des numériques pour des épaisseurs spécifiques.
+
+    >Le "niveau de gras" par défaut est de 400. On évolue par pas de 100. 
+
+4. **`font-style` :** Cette propriété permet de définir le style de la police, tel que `normal` (par défaut), `italic`, ou `oblique` (le `oblique` est rarement géré par les polices).
+
+5. **`color` :** Cette propriété définit la couleur du texte à l'intérieur d'un élément HTML. Vous pouvez utiliser des noms de couleurs, des codes hexadécimaux, ou des valeurs `rgb` pour définir la couleur.
+
+6. **`line-height` :** La propriété `line-height` contrôle la hauteur de ligne, c'est à dire l'espace vertical entre les lignes de texte. Elle peut être définie en tant que valeur numérique ou en pourcentage de la taille de la police. 
+    >Sa valeur de base est 1.2. On privilégiera une taille entre 1.4 et 1.7 pour une lecture confortable.
+
+7. **`text-align` :** Cette propriété règle l'alignement horizontal du texte à l'intérieur de son parent. Les valeurs courantes sont `left`, `right`, `center` et `justify`. **Attention: ne sert qu'à centrer du texte au sein de son bloc**
+
+8. **`text-transform` :** Cette propriété permet de modifier la casse du texte. Vous pouvez l'utiliser pour mettre en majuscules (`uppercase`), en minuscules (`lowercase`), ou pour capitaliser la première lettre de chaque mot (`capitalize`).
+
+9. **`text-decoration` :** Cette propriété contrôle la décoration du texte, telle que les soulignements (`underline`), les surlignements (`overline`), et les mots barrés (`line-through`). Elle peut également être utilisée pour supprimer ces décorations si elles sont mises par défaut en mettant la valeur `none`.
