@@ -240,3 +240,88 @@ Le CSS offre un large éventail de propriétés pour contrôler l'apparence et l
 8. **`text-transform` :** Cette propriété permet de modifier la casse du texte. Vous pouvez l'utiliser pour mettre en majuscules (`uppercase`), en minuscules (`lowercase`), ou pour capitaliser la première lettre de chaque mot (`capitalize`).
 
 9. **`text-decoration` :** Cette propriété contrôle la décoration du texte, telle que les soulignements (`underline`), les surlignements (`overline`), et les mots barrés (`line-through`). Elle peut également être utilisée pour supprimer ces décorations si elles sont mises par défaut en mettant la valeur `none`.
+
+
+### Les propriétés de mise en page
+
+#### Le box-model (modèle de boîte)
+
+Le box-model est l'un des concepts fondamentaux en CSS. Il décrit comment les éléments HTML sont rendus visuellement dans une page. Le modèle de boîte divise chaque élément HTML en plusieurs parties, qui définissent la taille, la marge, la bordure, le rembourrage et le contenu de l'élément.
+
+![BoxModel](./box_model.png)
+
+1. **Contenu (content):** C'est la zone intérieure de l'élément ou le contenu réel, comme du texte ou des images, est affiché. La taille du contenu est généralement déterminée par les propriétés de largeur (`width`) et de hauteur (`height`).
+    - `width`
+    - `height`
+
+2. **Rembourrage (padding):** Le rembourrage est l'espace entre le contenu et la bordure de l'élément. 
+    - `padding`
+
+3. **Bordure (border):** La bordure constitue les limites de notre boîte (box). Elle entoure donc le rembourrage de l'élément (ou le contenu directement s'il n'y a pas de rembourrage).
+    - `border-width`: Définit la largeur de la bordure.
+    - `border-style`: Définit le style de la bordure, comme `solid` (plein), `dashed` (traits pointillés), `dotted` (pointillés), `double` (double bordure)...
+    - `border-color`: Définit la couleur de la bordure.
+
+    - `border`: Réunit les trois commandes précédentes en une seule.  
+    Par exemple `border: 1px solid black` définit une bordure d'une taille de 1px, solide et noire.
+    - `border-radius`: Définit les rayons des coins de l'élément, créant des coins arrondis. Vous pouvez spécifier un rayon unique pour tous les coins ou des rayons individuels pour chaque coin.
+
+4. **Marge (margin):** La marge est l'espace autour de la bordure de l'élément qui sépare cet élément des autres éléments voisins.
+    - `margin`
+
+5. **Largeur totale (total width):** C'est la taille totale de l'élément qui comprend le contenu, le rembourrage, la bordure et la marge. Elle est calculée en cumulant la largeur de tous ces éléments.
+
+6. **Autres propriétés:**
+    - `box-sizing`: Cette propriété permet de définir comment la largeur et la hauteur de l'élément sont calculés. La valeur par défaut est `content-box`, ce qui signifie que la largeur et la hauteur ne tiennent compte que du contenu, excluant le padding et la bordure. Vous pouvez à la place utiliser `border-box` pour que la largeur et la hauteur tiennent compte du padding et de la bordure.
+    - `outline`: Définit un contour autour de l'élément. Contrairement à la bordure, l'outline n'affecte pas la mise en page et ne prend pas d'espace supplémentaire. Vient se mettre autour du padding.
+    - `box-shadow`: Ajoute une ombre à l'élément, créant un effet de profondeur ou de mise en évidence.
+
+Le box-model est essentiel pour comprendre comment les éléments HTML sont dimensionnés et espacés les uns par rapport aux autres sur une page web.
+
+### Propriétés de fond (background)
+
+Ces propriétés CSS vous permettent de personnaliser complètement l'arrière plan d'un élément HTML en définissant sa couleur, son image, sa répétition, sa position, sa taille etc... en fonction de vos besoins de conception.
+
+1. **`background-color`:** Définit la couleur d'arrière-plan d'un élément.
+
+2. **`background-image`:** Spécifie une image d'arrière-plan à utiliser.  
+Exemple: `background-image: url("./example.jpg")`
+
+3. **`background-size`:** Permet de définir la taille de l'image de fond. Vous pouvez spécifier des dimensions en pixels, en pourcentages ou utiliser des valeurs spéciales comme `cover` (pour couvrir tout l'élément) ou `contain` (pour s'assurer que l'image s'adapte entièrement à l'élément sans être coupé).
+
+4. **`background-repeat`:** Contrôle la répétition de l'image de fond. Les valeurs courantes sont `repeat` (répétition par défaut), `no-repeat` (pas de répétition) et `repeat-x` ou `repeat-y` pour une répétition seulement sur un axe.
+
+5. **`background-position`:** Détermine la position initiale de l'image de fond par rapport à son élément. Vous pouvez utiliser des valeurs fixes commes `top`, `bottom`, `left`, `right` ou des coordonnées spécifiques (par exemple "50% 25%).
+
+6. **`background-attachment`:** Détermine si l'image de fond défile avec le contenu de l'élément lorsqu'on scroll. Les valeurs courantes sont `scroll` (défilement normal) et `fixed` (l'image reste en place alors que le reste défile).
+
+### Contrôle de flux de page (display)
+
+La propriété display détermine comment un élément HTML est rendu dans la mise en page d'une page web. Elle contrôle le comportement de rendu, tel que le fait de rendre un élément sous forme de bloc, de ligne, de grille, d'éléments flex... Le choix de la valeur display influence la façon dont l'élément interagit avec d'autres éléments et comment il occupe l'espace dans la mise en page.
+
+1. **`display: block`**
+    - L'élément est rendu comme un bloc de niveau.
+    - Par défaut, il occupe toute la largeur disponible et commence sur une nouvelle ligne.
+    - La hauteur, la largeur, la marge, le padding et la bordure peuvent être définis.
+
+2. **`display: inline`**
+    - L'élément est rendu comme une ligne de texte.
+    - Il ne commence pas sur une nouvelle ligne et occupe seulement l'espace nécessaire à son contenu.
+    - La hauteur, la largeur, la marge, le padding et la bordure ne peuvent pas être définis.
+
+3. **`display: inline-block`**
+    - L'élément est rendu comme une ligne de texte (inline).
+    - Il ne commence pas sur une nouvelle ligne et occupe seulement l'espace nécessaire à son contenu.
+    - La hauteur, la largeur, la marge, le padding et la bordure peuvent être définis.
+
+4. **`display: none`**
+    - L'élément est complètement masqué et ne prend pas d'espace dans la mise en page.
+
+5. **`display: flex`**
+    - L'élément devient un conteneur flexible permettant de créer des mises en page responsives en utilisant les propriétés associées au flex.
+
+6. **`display: grid`**
+    - L'élément devient un conteneur de grille, permettant de créer des mises en page basées sur une grille en utilisant des propriétés associées (bien plus stable que le flex et prend en compte beaucoup plus de cas de figure grace aux frames).
+
+>***ATTENTION: Ces valeurs de la propriété `display` sont essentielles pour contrôler la mise en page et la présentation des éléments HTML dans une page web, en leur donnant différents comportements de rendu en fonction des besoins de conception.***
+

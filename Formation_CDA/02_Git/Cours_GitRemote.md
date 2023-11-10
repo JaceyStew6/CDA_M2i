@@ -14,7 +14,7 @@ git config --global user.email "votre@email.com"
 
 4. **Créer un nouveau référentiel sur GitHub:** Connectez vous à votre compte gitHub, cliquez sur le bouton "+" en haut de l'écran pour créer un nouveau référentiel (repository). Suivez les étapes pour le configurer selon vos besoins.
 
-5. **Cloner le réferentiel GitHub en local:** Pour cloner le référentiel GitHub sur votre ordinateurs, utilisez la commande `git clone` en spécifiant l'URL du référentiel distant.
+5. **Cloner le réferentiel GitHub en local:** Pour cloner le référentiel GitHub sur votre ordinateur, utilisez la commande `git clone` en spécifiant l'URL du référentiel distant.
 
 ```bash
 git clone URL_du_référentiel
