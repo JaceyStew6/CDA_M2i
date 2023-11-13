@@ -308,6 +308,7 @@ La propriété display détermine comment un élément HTML est rendu dans la mi
     - L'élément est rendu comme une ligne de texte.
     - Il ne commence pas sur une nouvelle ligne et occupe seulement l'espace nécessaire à son contenu.
     - La hauteur, la largeur, la marge, le padding et la bordure ne peuvent pas être définis.
+    - Ne prend que la taille nécessaire à son contenu. Ne peut pas être redimmensionné.
 
 3. **`display: inline-block`**
     - L'élément est rendu comme une ligne de texte (inline).
