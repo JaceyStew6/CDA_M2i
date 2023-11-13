@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+</head>
+
+<body>
+    <header>
+        <h1>John Doe</h1>
+        <h2>Contact</h2>
+        <nav>
+            <ul>
+                <li><a href="./index.html">Accueil</a></li>
+                <li><a href="./horaires.html">Horaires</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <form action="mailto:test@exemple.com" method="post">
+            <fieldset>
+                <legend>Qui êtes-vous?</legend>
+
+                <div class="form-group">
+                    <label for="form-lastname">Nom :</label>
+                    <input type="text" name="form-lastname" placeholder="MARTIN">
+                </div>
+
+                <div class="form-group">
+                    <label for="form-fistname">Prénom :</label>
+                    <input type="text" name="form-fistname" placeholder="John">
+                </div>
+
+                <div class="form-group">
+                    <label for="form-date-of-birth">Date de naissance :</label>
+                    <input type="date" name="form-date-of-birth">
+                </div>
+
+                <div class="form-group">
+                    <label for="form-gender">Sexe :</label>
+                    <input type="radio" name="form-gender" value="male">
+                    <label for="form-gender">Homme</label>
+                    <input type="radio" name="form-gender" value="female">
+                    <label for="form-gender">Femme</label>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Sujet de votre question</legend>
+
+                <div class="form-group">
+                    <label for="form_urgent">Est-ce urgent?</label>
+                    <input type="checkbox" name="form_urgent">
+                </div>
+
+                <div class="form-group">
+                    <label for="form-question-type">Type de problème :</label>
+                    <select name="form-question-type" id="form-question-type">
+                        <optgroup label="Compte">
+                            <option value="account-access">Je n'arrive pas à accéder à mon compte</option>
+                            <option value="account-hacked">Je crois que j'ai été piraté</option>
+                            <option value="account-change-password">Je n'arrive pas à changer de mot de passe</option>
+                            <option value="account-lost-credentials">J'ai perdu mes identifiants</option>
+                        </optgroup>
+                        <optgroup label="Achat">
+                            <option value="buy-unable">Je n'arrive pas à confirmer mes achats</option>
+                            <option value="buy-delivery">J'aimerai avoir des nouvelles de ma livraison</option>
+                        </optgroup>
+                    </select>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Commentaires</legend>
+
+                <div class="form-group">
+                    <label for="form-comments">Notes :</label>
+                    <textarea name="form-comments" id="form-comments" cols="30" rows="10"></textarea>
+                </div>
+            </fieldset>
+
+            <button type="submit">Envoyer ma question</button>
+
+        </form>
+    </main>
+</body>
+
+</html>
