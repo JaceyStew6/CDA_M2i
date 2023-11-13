@@ -1,0 +1,51 @@
+body {
+    background-color: rgb(19, 148, 137)
+}
+
+.title {
+    text-align: center;
+    color: whitesmoke;
+}
+
+nav {
+    text-align: center;
+    margin: 2%;
+}
+
+a {
+    outline: none;
+    text-decoration: none;
+    text-align: center;
+    color: whitesmoke;
+    margin: 1%;
+}
+
+img {
+    margin-left: 35%;
+    height: 300px;
+    width: 600px;
+    border-radius: 6%;
+}
+
+p {
+    text-align: justify;
+}
+
+table {
+    border: solid 2px;
+    border-radius: 10%;
+    border-color: blue;
+    margin-left: 48em;
+    border-collapse: collapse;
+}
+
+th {
+    background-color: blue;
+    color: white;
+}
+
+td {
+    border: solid 2px;
+    background-color: antiquewhite;
+    border-color: blue;
+}

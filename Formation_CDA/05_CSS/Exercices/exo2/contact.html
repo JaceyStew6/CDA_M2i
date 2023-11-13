@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <title>Contact</title>
+</head>
+<body>
+    <header>
+        <h1 class="title">Antoine DIEUDONNE</h1>
+        <h2 class="title">Contact</h2>
+        <nav>
+            <a href="./index.html">Accueil</a>
+            <a href="./horaires.html">Horaires</a>
+            <a href="./contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <form action="#" method="post">
+                <fieldset>
+                    <legend>Qui êtes-vous?</legend>
+                    <div>
+                        <label for="nom" placeholder="MARTIN">Nom :</label>
+                        <input type="text" id="nom" name="name">
+                    </div>
+                    
+                    <div>
+                        <label for="prenom">Prénom :</label>
+                        <input type="text" id="prenom" name="firstname">
+                    </div>
+
+                    <div>
+                        <label for="date">Date de naissance :</label>
+                        <input type="date" id="date" name="birthdate">
+                    </div>
+
+                    <div>
+                        <label for="genre">Sexe :</label>
+                        <input type="radio" id="genre" name="gender" value="homme">Homme
+                        <input type="radio" id="genre" name="gender" value="femme">Femme
+                    </div>
+                </fieldset> 
+
+                <fieldset>
+                    <legend>Sujet de votre question</legend>
+
+                    <div>
+                        <label for="urgent">Est-ce urgent ?</label>
+                        <input type="checkbox" id="urgent" name="urgent" value="urgent">
+                    </div>
+
+                    <div>
+                        <label for="problem">Type de problème :</label>
+                        <select name="problem" id="problem">
+                            <option value="noAccess">Je n'arrive pas à accéder à mon compte</option>
+                            <option value="pirate">Je crois que j'ai été piraté</option>
+                            <option value="changePassword">Je n'arrive pas à changer mon mot de passe</option>
+                            <option value="lostId">J'ai perdu mes identifiants</option>
+                            <option value="cantBuy">Je n'arrive pas à confirmer mon achat</option>
+                            <option value="newsDelivery">J'aimerai avoir des nouvelles de ma livraison</option>
+                        </select>
+                    </div>
+
+                </fieldset>
+
+    
+                <button type="submit">Envoyer ma question</button>
+                <br/><br/>
+            </form>
+        </section>
+
+    </main>
+</body>
+</html>
