@@ -1,0 +1,27 @@
+body {
+    width: auto;
+    height: auto;
+    margin: 0px;
+}
+
+header {
+    background-color: white;
+}
+
+h1 {
+    text-align: center;
+}
+
+.flex-container {
+    display: flex;
+    /* justify-content: center; */
+    flex-direction: row;
+}
+
+section {
+    
+}
+
+.column-2 {
+    flex-grow: 2;
+}
