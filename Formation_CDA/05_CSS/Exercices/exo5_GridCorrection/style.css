@@ -1,0 +1,52 @@
+:root {
+    --blue: blue;  /*Déclarer une variable*/
+    --white: white;
+    --red: red;
+    --yellow: yellow;
+    --green: green;
+    --size-font: 42px;
+}
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-areas: 
+    "header header header header"
+    "left middle middle right"
+    "footer footer footer footer";
+}
+
+.header {
+    background-color: var(--white);
+    grid-area: header;
+    text-align: center;
+}
+
+.footer {
+    background-color: var(--yellow);
+    grid-area: footer;
+    text-align: center;
+}
+
+.left {
+    background-color: var(--red);
+    grid-area: left;
+    height: 500px;
+}
+
+.right {
+    background-color: var(--blue);
+    grid-area: right;
+    height: 500px;
+}
+
+.middle {
+    background-color: var(--green);
+    grid-area: middle;
+    height: 500px;
+}
+

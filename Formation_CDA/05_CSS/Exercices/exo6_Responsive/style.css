@@ -1,0 +1,64 @@
+:root {
+    --blue: blue;  /*Déclarer une variable*/
+    --white: white;
+    --red: red;
+    --yellow: yellow;
+    --black: black;
+    --size-font: 42px;
+    --column-font-size: 30px;
+}
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.header {
+    background-color: var(--white);
+    padding: 30px;
+    text-align: center;
+    font-size: var(--size-font);
+}
+
+.row {
+    display: flex;
+}
+
+.column {
+    padding: 10px;
+    height: 500px;
+    font-size: var(--column-font-size);
+}
+
+.column.side {
+    background-color: var(--red);
+    flex: 1;
+}
+
+.column.middle {
+    background-color: var(--blue);
+    flex: 3;
+}
+
+.column.end {
+    background-color: var(--yellow);
+    flex: 1;
+}
+
+.footer {
+    background-color: var(--black);
+    color: var(--white);
+    padding: 30px;
+    text-align: center;
+    font-size: var(--size-font);
+}
+
+@media only screen and (min-width: 600px) {
+    .row {
+        display: inline;
+    }
+
+    .column {
+        height: auto;
+    } 
+}
