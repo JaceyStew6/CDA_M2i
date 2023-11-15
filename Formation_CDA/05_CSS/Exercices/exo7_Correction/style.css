@@ -1,0 +1,163 @@
+:root {
+    --primaryColor: rgba(30, 144, 255, 1);
+    --secondaryColor: orange;
+}
+
+html, body {
+    margin: 0;
+}
+
+header, main, footer {
+    padding: 0 10px;
+}
+
+.nav-button {
+    padding: 5px 10px;
+    background-color: var(--secondaryColor);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    opacity: 0.8;
+}
+
+.nav-button:hover {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+#website-header {
+    background-color: var(--primaryColor);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#website-logo {
+    width: 100px;
+    height: 100px;
+    background-color: var(--secondaryColor);
+    border-radius: 50%;
+}
+
+#website-logo img {
+    width: 100px;
+    height: 100px;
+}
+
+
+#website-title {
+    text-align: right;
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+#website-nav ul {
+    padding: 0;
+    display: flex;
+    width: 80vw;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+}
+
+#website-nav li {
+    display: inline;
+    margin: 0 10px;
+}
+
+
+#objects {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.object {
+    margin: 5px 10px;
+    height: 350px;
+    border: 1px solid var(--primaryColor);
+    flex: 0 1 auto;
+}
+
+.object-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    padding: 5px;
+}
+
+.object-body {
+    display: flex;
+    flex-flow: column;
+}
+
+.object-img {
+    width: calc(100% - 10px);
+    height: 90px;
+    background-color: var(--primaryColor);
+    padding: 5px;
+}
+
+.object-desc {
+    height: 190px;
+    padding: 5px;
+    overflow: hidden;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    background-color: var(--primaryColor);
+    color: white;
+}
+
+
+/* Dimensions mobile */
+@media only screen and (max-width:575px) {
+    .object {
+        width: calc(100% - 40px);
+    }
+
+    #website-logo {
+        display: none;
+    }
+
+    #website-header {
+        flex-direction: column;
+    }
+
+    #website-nav {
+        margin: auto;
+    }
+
+    #website-nav ul {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #website-title {
+        text-align: center;
+    }
+
+    .nav-button {
+        width: 80%;
+        margin: 0 auto 10px auto;
+    }
+}
+
+/* Dimensions tablette */
+@media only screen and (min-width:576px) {
+    .object {
+        width: calc(50% - 40px);
+    }
+}
+
+/* Dimensions desktop */
+@media only screen and (min-width:992px) {
+    .object {
+        width: calc(25% - 40px);
+    }
+}
+
