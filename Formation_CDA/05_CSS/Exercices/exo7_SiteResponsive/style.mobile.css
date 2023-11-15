@@ -1,0 +1,31 @@
+@media only screen and (max-width:574px) {
+
+
+.titleSite {
+    text-align: center;
+}
+
+/*Gestion des liens de nav*/
+
+.logo {
+    display: none;
+}
+
+.nav-link {
+    background-color: yellow;
+    display: block;
+    margin: 2px;
+    text-align: center;
+}
+
+
+/*Gestion des cards*/
+
+.card {
+    border: 1px solid var(--primaryColor);
+    width: auto;
+    height: 15rem;
+    margin: 10px;
+}
+
+}
