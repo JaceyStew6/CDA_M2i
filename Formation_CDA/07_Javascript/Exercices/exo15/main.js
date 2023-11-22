@@ -3,4 +3,5 @@ function soustraire(a, b) {
     return a - b;
 }
 
-alert(`resultat = ${soustraire(2, 1)}`);
+
+console.log(`resultat = ${soustraire(2, 1)}`);
