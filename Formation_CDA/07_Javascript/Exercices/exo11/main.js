@@ -2,7 +2,7 @@ let paper = 0.0001;
 let fold = 0;
 
 while (paper <= 400) {
-    paper = paper * 2;
+    paper *= 2;
     fold++;
 }
 
@@ -14,7 +14,7 @@ let unfold = 0;
 paper = 400;
 
 while (paper >= 0.0001) {
-    paper = paper / 2;
+    paper /= 2;
     unfold++;
 }
 
