@@ -29,8 +29,6 @@ saisieSequence(verificationAdn);*/
 
 //------------------------------------------------------------------------
 
-// Correction (ne fonctionne pas: erreur à trouver ou remplacer code)
-
 function verificationAdn(chaineAdn){
     for(let i = 0; i < chaineAdn.length; i++){
         // if(chaineAdn[i] !== "a" || chaineAdn[i] !== "c" ||chaineAdn[i] !== "t" ||chaineAdn[i] !== "g")
@@ -51,9 +49,9 @@ function saisieChaineAdn(message){
 
 function pourcentageSequence(chaine, sequence){
     let regex = new RegExp(sequence, "g") 
-    let occurrences = chaine.match(regex)?.length ?? 0 // compte le nombre de fois où la chaine apparaît
-    let pourcentage = occurrences * sequence.length / chaine.length * 100
-    return pourcentage
+    let occurrences = chaine.match(regex)?.length ?? 0; // compte le nombre de fois où la chaine apparaît
+    let pourcentage = occurrences * sequence.length / chaine.length * 100;
+    return pourcentage;
 }
 
 // Programme principal

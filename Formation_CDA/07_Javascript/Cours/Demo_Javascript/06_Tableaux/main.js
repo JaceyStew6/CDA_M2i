@@ -68,3 +68,24 @@ tab.forEach((item, index) => console.log(`tab[${index}] = ${item}`));
 //map
 let newTab = tab4.map(value => value.toUpperCase()); //Permet de transformer et d'avoir un nouveau tableau /!\ Ici on aura une erreur car seul les types string peuvent prendre une méthode .toUpperCase()
 console.table(newTab);
+
+// reduce
+
+let tab5 = [1,2,3,4,5,6,7,8,9];
+
+let add = (x, y) => x+y; // x est l'agrégat et y est la nouvelle valeur à chaque fois
+// let add = (accum, next) => accum*next; //prend 2 valeurs en entrée et 1 valeur en sortie systèmatiquement
+
+let val = tab5.reduce(add, 1000); //reduce va appliquer la fonction add et va donc additionner les éléments du tableau à la valeur 1000 (valeur de départ pour x qui va évoluer au fil de l'addition)
+
+console.log((val)); //affichera donc x
+
+
+
+let tab6 = ["Pomme", "Orange", "Ananas", "fleur", "pierre"];
+
+let concat = (str, strNext) => str " + " strNext;
+
+let value = tab6.reduce(concat, "test"); 
+
+console.log((value));
