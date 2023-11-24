@@ -84,7 +84,7 @@ console.log((val)); //affichera donc x
 
 let tab6 = ["Pomme", "Orange", "Ananas", "fleur", "pierre"];
 
-let concat = (str, strNext) => str " + " strNext;
+let concat = (str, strNext) => str + " + " + strNext;
 
 let value = tab6.reduce(concat, "test"); 
 
