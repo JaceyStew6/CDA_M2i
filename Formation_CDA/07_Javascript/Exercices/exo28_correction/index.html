@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercice 28</title>
+  <script src="./main.js"></script>
+</head>
+<body>
+  <main>
+    <h1>eContacts</h1>
+    <hr>
+    <div>
+      <label for="firstname">Prénom: </label>
+      <input type="text" id="firstname" class="mon-input" name="firstname">
+    </div>
+    <div>
+      <label for="lastname">Nom: </label>
+      <input type="text" id="lastname" class="mon-input" name="lastname">
+    </div>
+    <div>
+      <label for="birthDate">Date de naissance: </label>
+      <input type="date" id="birthDate" class="mon-input" name="birthDate">
+    </div>
+    <div>
+      <button id="add-btn">Ajouter</button>
+    </div>
+    <hr>
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Nom</th>
+          <th>Prénom</th>
+          <th>Date de naissance</th>
+        </tr>
+      </thead>
+      <tbody id="tbody-result"></tbody>
+    </table>
+  </main>
+</body>
+</html>
