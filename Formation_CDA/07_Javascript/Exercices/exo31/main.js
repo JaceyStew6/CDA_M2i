@@ -1,7 +1,7 @@
 import Person from "./person.js";
 
 let personTable = [];
-let id = 1;
+let id = 2;
 
 
 function getNewPerson() {
@@ -29,4 +29,4 @@ function getNewPerson() {
 
 }
 
-document.getElementById("add-btn").addEventListener("click", getNewPerson());
+document.getElementById("add-btn").addEventListener("click", getNewPerson);

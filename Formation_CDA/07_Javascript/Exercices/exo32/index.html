@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercice 32</title>
+    <script type="module" src="./main.js"></script>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div style="display: none" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1>Ajouter un jeu</h1>
+          <button id="modal-btn-close">X</button>
+        </div>
+        <div class="modal-body">
+          <form action="#" id="my-form">
+            <div>
+                <label for="game-title">Titre du jeu : </label>
+                <input type="text" name="game-title" id="game-title" autocomplete="off" required/>
+                <p id="game-title-validation" style="display: none;">Le champ est invalide</p>
+            </div>
+            <div>
+                <label for="game-type">Type du jeu : </label>
+                <input type="text" name="game-type" id="game-type" autocomplete="off" required/>
+                <p id="game-type-validation" style="display: none;">Le champ est invalide</p>
+            </div>
+            <div>
+                <button id="add-btn">Ajouter</button>
+            </div>
+        </form>
+        </div>
+      </div>
+    </div>
+    <main>
+      <h1>Jeux vidéo</h1>
+      <hr />
+      <button id="btn-add-element-modal">Ajouter un jeu</button>
+      <ul id="mon-ul"></ul>
+      <table>
+        <thead id="my-table">
+          <tr>
+            <th>#</th>
+            <th>Titre du jeu</th>
+            <th>Type</th>
+            <th>Supprimer</th>
+          </tr>
+        </thead>
+        <tbody id="mon-tbody"></tbody>
+      </table>
+      <hr />
+      <div>
+        <input type="text" id="id-to-del" />
+        <button id="delete-btn">Supprimer</button>
+      </div>
+    </main>
+  </body>
+</html>
