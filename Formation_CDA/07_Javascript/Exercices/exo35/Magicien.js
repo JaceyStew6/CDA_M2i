@@ -9,9 +9,10 @@ export default class Magician extends Character {
         // super.attack(target);
         console.log(`Personnage: ${this.name}, Cible: ${target.name}, Force: ${this.strength}, Dégats infligés: ${this.strength + this.mana}`);
     }
-    charactersLife(){
+    soigner(character){
         super.charactersLife();
         console.log(`Mana: ${this.mana}`);
-        console.log(`Vie totale: ${this.mana + this.life}`);
+        console.log(`Restaure ${this.mana + this.life} points de vie`);
+        console.log(`${character.name} a maintenant ${character.life + this.mana + this.life} points de vie`)
     }
 }

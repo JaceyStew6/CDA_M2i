@@ -27,3 +27,11 @@ let monObjet = {};
 let monSecondObjet = new Object();
 
 Ces deux syntaxes permettent de créer un objet.
+
+L'héritage multiple ne fonctionne pas en JS, par contre l'héritage en cascade oui.
+
+Une classe peut implémenter plusieurs interfaces.
+
+
+
+Programmation défensive = traiter d'abord tous les cas où il peut y avoir une erreur puis exécuter le code normalement.

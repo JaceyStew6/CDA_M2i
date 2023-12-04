@@ -17,4 +17,6 @@ kratos.charactersLife();
 let hermione = new Magician("Hermione", 10, 12, 12);
 target = new Character("Voldemort", 15, 5);
 hermione.attack(target);
-hermione.charactersLife()
+hermione.soigner(hermione)
+
+hermione.soigner(kratos)
