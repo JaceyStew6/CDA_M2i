@@ -1,0 +1,29 @@
+Une promesse est une fonction qui retourne une fonction de succès et une fonction d'échec!
+
+On a tendance à "promessifier" nos traitements synchrones pour les rendre plus simples.
+
+Dès qu'on fait appelle à des ressources extérieurs, faire de l'asynchrone systèmatiquement, car pourrait bloquer l'ordinateur, les ressources ...
+
+
+## Récap POO:
+
+### Trois grands principes de la POO
+
+- Héritage: classe mère a ses propores attributs et classes enfants qui dérivent de la classe mère/
+- Polymorphisme : 3 types:
+	1. Ad-hoc: fait d'avoir plusieurs fois un méthode qui a le même non mais des signatures différente (des paramètres différents) par utilisation (n'existe pas en JS).
+	2. Par héritage: avoir le même nom pour une méthode, qu'on va pouvoir réutiliser dans l'enfant  et voire même l'étendre.
+	3. Générique: méthode qui peut fonctionner avec plusieurs types différents. Les interfaces, les classes et le sméthodes peuvent être génériques.
+- Encapsulation (avec getter et setter): fait de protéger des membres internes d'un objet, d'une classe). En Javascript ça n'existe pas vraiment. Encapsultation = fait de protéger son objet, de le mettre en capsule. Dans notre objet, on va encapsuler les membres (ex: attributs...).
+
+Ces trois grand principes sont liés.
+
+
+Toutes les classes héritent de l'objet "Object" en JS. En JS, tout objet hérite de Object.
+
+EN JS, il y a deux syntaxes pour créer un objet:
+
+let monObjet = {};
+let monSecondObjet = new Object();
+
+Ces deux syntaxes permettent de créer un objet.
