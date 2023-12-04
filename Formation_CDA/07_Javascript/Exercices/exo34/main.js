@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         event.preventDefault();
     })
     
-    const ditto = await getPokemonByName("ditto");
+    const ditto = await getPokemon("ditto");
     const datas = [ditto].map(mapPokemon);
     console.log(datas);
 
