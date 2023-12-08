@@ -15,6 +15,11 @@ function enterInputHandler() {
   inputValue.value = '';
 }
 
+function sayHelloTo(name, e) {
+  console.log(e);
+  console.log(name)
+}
+
 </script>
 
 <template>
@@ -31,6 +36,9 @@ function enterInputHandler() {
   <!-- Utilisation des modificateurs d'évènements -->
   <a href="#" @click.prevent="console.error('aie')">Mon lien</a>
   <a href="#" @click.once="console.error('once')">Mon lien</a>
+
+  <!-- Vue fourni une variable spéciale $event pour récupérer l'évènement du DOM -->
+  <a href="#" @click="sayHelloTo(monInput, $event)">Variable $event</a>
 
   <p>{{ inputValue }}</p>
   <!-- Ecouter des évènements du clavier -->
