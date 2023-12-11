@@ -3,7 +3,7 @@ import CounterButton from './components/CounterButton.vue';
 </script>
 
 <template>
-  <CounterButton color="red" increment="1" default-value="0"></CounterButton> 
+  <CounterButton color="red" increment="1" default-value="0"></CounterButton> <!--On récupère ici la classe .red-->
   <CounterButton color="blue" increment="2" default-value="10"> </CounterButton> 
 
 </template>

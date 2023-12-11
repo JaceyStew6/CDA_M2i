@@ -163,13 +163,13 @@ document.addEventListener("DOMContentLoaded", () => {
       chatSelectionne.birthDate =
         document.querySelector("input#birthDate").valueAsDate;
 
-      // ON va chercher dans le DOM la ligne du tableau portant le même ID que le chat en cours d'édition
+      // On va chercher dans le DOM la ligne du tableau portant le même ID que le chat en cours d'édition
       const rowToEdit = document.querySelector(
         `tr[data-cat-id="${chatSelectionne.id}"]`
       );
       // Si on en trouve une...
       if (rowToEdit) {
-        // ON modifier les cellules de la ligne à partir des champs du chat édité
+        // On modifie les cellules de la ligne à partir des champs du chat édité
         rowToEdit.children[1].textContent = chatSelectionne.name;
         rowToEdit.children[2].textContent = chatSelectionne.breed;
         rowToEdit.children[3].textContent =
