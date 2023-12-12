@@ -16,10 +16,9 @@ const removeTodo = index => {
 let editedTodoValue = new ref('');
 
 const editTodo = index => {
-    editedTodoValue = prompt("Quelle modification?");
-    todos.value[index] = editedTodoValue;
+    editedTodoValue.value = prompt("Quelle modification?");
     console.log(index);
-    todos.value[index] = editedTodoValue.value;
+    todos.value[index].text = editedTodoValue.value;
     console.log(todos.value[index]);
 
 }
