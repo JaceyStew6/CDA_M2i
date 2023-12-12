@@ -20,7 +20,6 @@ const editTodo = index => {
     console.log(index);
     todos.value[index].text = editedTodoValue.value;
     console.log(todos.value[index]);
-
 }
 
 </script>
