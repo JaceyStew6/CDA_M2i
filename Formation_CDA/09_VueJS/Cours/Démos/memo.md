@@ -67,3 +67,8 @@ Permet de créer une variable réactive à partir d'une autre variable réactive
 
 Signifie que quand une variable réactive est modifiée, la variable sera mise à jour.
 Dès qu'on ajoute ou supprime un élément, va permettre de recalculer certaines variables qui vont dépendre d'une autre variable réactive.
+
+
+### La balise template
+
+La balise `<template>` n'a pas d'incidence sur le DOM, contrairement à une balise `<div>`.
