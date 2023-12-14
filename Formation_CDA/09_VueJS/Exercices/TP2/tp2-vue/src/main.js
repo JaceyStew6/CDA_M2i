@@ -3,7 +3,8 @@ import './assets/main.css'
 import { createApp, ref } from 'vue'
 import App from './App.vue'
 import router from './router'
-import {v4 as uuid} from 'uuid'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import { v4 as uuid } from 'uuid'
 
 
 const customers = ref([
@@ -17,7 +18,7 @@ const customers = ref([
         country: "India",
         organization: "Company 1",
         jobProfile: "Software Developer",
-        additionalInfo: "Ce client a acheté de nombreux produits auparavant et est un client de haute valeur"   
+        additionalInfo: "Ce client a acheté de nombreux produits auparavant et est un client de haute valeur"
     },
     {
         id: 2,
@@ -46,7 +47,7 @@ const customers = ref([
 ])
 
 const app = createApp(App);
-app.provide("customers",{
+app.provide("customers", {
     customers
 });
 
