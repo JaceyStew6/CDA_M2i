@@ -2,7 +2,7 @@
 import { useGameStore } from '../../store/games'
 import { useAuthStore } from '../../store/auth'
 
-const gameStore = useGameStore();
+const gamesStore = useGameStore();
 const authStore = useAuthStore();
 
 </script>

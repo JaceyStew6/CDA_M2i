@@ -1,7 +1,7 @@
 import {ref, computed} from 'vue';
 import {defineStore} from 'pinia'
 
-export const useGameStore = defineStore('games', ()=> {
+export const useGamesStore = defineStore('games', ()=> {
   
   const games = ref([]);
 
