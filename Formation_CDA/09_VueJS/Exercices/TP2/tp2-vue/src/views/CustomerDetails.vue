@@ -9,7 +9,7 @@ const router = useRouter();
 
 const {customerId} = route.params
 
-const customerFound = customers.value.find(c=>c.id === customerId);
+const customerFound = customers.value.find(c=>c.id == customerId);
 
 if(!customerFound){
     router.push('/not-found')
@@ -33,6 +33,7 @@ if(!customerFound){
         <li>Job profile : {{ customerFound?.jobProfile }}</li>
         <li>Additional info : {{ customerFound?.additionalInfo }}</li>
     </ul>
+    <button><RouterLink :to="`/`">Go back</RouterLink></button>
 </div>
 
 </template>

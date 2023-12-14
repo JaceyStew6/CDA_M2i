@@ -6,6 +6,7 @@ import NotFoundView from '../views/NotFoundView.vue';
 const router = createRouter({
     history: createWebHistory(),
     routes: [
+        {path: '/', component : CustomerView},
         {path: '/:pathMatch(.*)', redirect : '/not-found'},
         {path: '/not-found', component : NotFoundView},
         {path: '/customer', component : CustomerView},

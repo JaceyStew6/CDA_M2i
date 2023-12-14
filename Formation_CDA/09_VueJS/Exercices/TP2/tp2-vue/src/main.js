@@ -8,7 +8,7 @@ import {v4 as uuid} from 'uuid'
 
 const customers = ref([
     {
-        id: uuid(),
+        id: 1,
         name: "John Smith",
         email: "jsmith@test.com",
         phone: "123456789",
@@ -20,7 +20,7 @@ const customers = ref([
         additionalInfo: "Ce client a acheté de nombreux produits auparavant et est un client de haute valeur"   
     },
     {
-        id: uuid(),
+        id: 2,
         name: "Thomas Pierre",
         email: "thomas@test.com",
         phone: "987654321",
@@ -32,7 +32,7 @@ const customers = ref([
         additionalInfo: "Achète des produits rarement."
     },
     {
-        id: uuid(),
+        id: 3,
         name: "Tyrion",
         email: "tyrion@test.com",
         phone: "123412345",
