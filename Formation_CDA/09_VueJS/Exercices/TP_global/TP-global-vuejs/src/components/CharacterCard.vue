@@ -15,7 +15,8 @@ const setCurrentCharacter = (character) => {
 
 <template>
     <!-- card component -->
-    <div class="card" style="width: 16rem;" data-bs-toggle="modal" :data-bs-target="'#characterModal' + props.characterCard.id" @click="setCurrentCharacter(props.characterCard)">
+    <div class="card" style="width: 16rem;" data-bs-toggle="modal"
+        :data-bs-target="'#characterModal' + props.characterCard.id" @click="setCurrentCharacter(props.characterCard)">
         <img class="card-img-top" :src="characterCard.image" alt="character-image">
         <div class="card-body">
             <h5 class="card-title">{{ characterCard.name }}</h5>
@@ -28,18 +29,27 @@ const setCurrentCharacter = (character) => {
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
                 <!-- Modal body -->
-                <div class="modal-body">
+                <div class="modal-body ">
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                    <img class="card-img-top" :src="currentCharacter.image" alt="character-image">
+                    <div class="wrapper">
+                        <div class="img-position">
+                            <img class="card-img" :src="currentCharacter.image" alt="character-image">
+                        </div>
 
-                    <h1>{{ currentCharacter.name }}</h1>
-                    <p><span>Status : </span>{{ currentCharacter.status }}</p>
-                    <p><span>Species : </span>{{ currentCharacter.species }}</p>
-                    <p><span>Type : </span>{{ currentCharacter.type }}</p>
-                    <p><span>Gender : </span>{{ currentCharacter.gender }}</p>
-                    <p><span>Origin : </span>{{ currentCharacter.origin?.name }}</p>
-                    <p><span>Location : </span>{{ currentCharacter.location?.name }}</p>
-                    <p><span>Created : </span>{{ currentCharacter.created }}</p>
+                        <div class="text-position">
+                            <h1>{{ currentCharacter.name }}</h1>
+                            <p><span>Status : </span>{{ currentCharacter.status }}</p>
+                            <p><span>Species : </span>{{ currentCharacter.species }}</p>
+                            <p><span>Type : </span>{{ currentCharacter.type }}</p>
+                            <p><span>Gender : </span>{{ currentCharacter.gender }}</p>
+                            <p><span>Origin : </span>{{ currentCharacter.origin?.name }}</p>
+                            <p><span>Location : </span>{{ currentCharacter.location?.name }}</p>
+                            <p><span>Created : </span>{{ currentCharacter.created }}</p>
+                        </div>
+
+                    </div>
+
+
 
                 </div>
 
@@ -75,6 +85,29 @@ const setCurrentCharacter = (character) => {
 .card:hover>.card-title {
     left: 0;
     color: yellowgreen
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+}
+
+.img-position {
+    grid-column: 1 / 4;
+    grid-row: 1;
+}
+
+.text-position {
+    grid-column: 4 / 7;
+    grid-row: 1;
+    
+    /* height: 100px; */
+}
+
+.text-position p {
+    margin-bottom: 1rem;
 }
 
 /* .card-picture>img {
