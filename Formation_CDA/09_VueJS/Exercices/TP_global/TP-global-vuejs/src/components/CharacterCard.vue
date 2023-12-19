@@ -110,6 +110,11 @@ const setCurrentCharacter = (character) => {
     margin-bottom: 1rem;
 }
 
+span {
+    color: rgb(111, 176, 14);
+    font-weight: 500;
+}
+
 /* .card-picture>img {
     height: 100%;
     width: 100%;
