@@ -7,9 +7,9 @@ export const useCharactersStore = defineStore('characters', () => {
     const characters = ref();
 
 
-    async function getCharactersByPage(page) {
+    async function getCharactersByPage(page, name, charstatus, species, chartype, gender) {
         try {
-            const response = await fetch(`https://rickandmortyapi.com/api/character/?page=${page}`);
+            const response = await fetch(`https://rickandmortyapi.com/api/character/?page=${page}&name=${name}&status=${charstatus}&species=${species}&type=${chartype}&gender=${gender}`);
             if (!response.ok) {
                 throw new Error('Erreur lors du chargement des données');
             }

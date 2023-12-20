@@ -25,7 +25,8 @@ header {
     height: 5em;
     margin-bottom: 1rem;
     font-size: 16px;
-    padding: 1rem
+    padding: 1rem;
+    margin-bottom: 10px;
 }
 
 footer {

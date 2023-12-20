@@ -1,38 +1,348 @@
 <script setup>
 import { useCharactersStore } from '../stores/characters';
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, computed, defineProps, defineEmits } from 'vue';
 import CharacterCard from './CharacterCard.vue';
 
 const characterStore = useCharactersStore();
 const { getCharactersByPage } = characterStore;
 
-const pageId = ref(1);
+let data = ref();
+let pageId = ref(1);
+let charStatus = "";
+let species = "";
+let charType = "";
+let gender = "";
+let name = "";
+let showFilter = ref(false);
 
 onMounted(() => {
-    getCharactersByPage(pageId);
+    getCharactersByPage(pageId, "", "", "", "", "");
 })
 
 // setTimeout(() => {
 //     console.log(characterStore.characters.results);
 // }, 5000);
 
-let data = ref();
-data = getCharactersByPage(pageId)
+
+data = getCharactersByPage(pageId, '', '', '', '', '')
 // console.log(characterStore.characters.info);
 
+function onChangeStatus(event) {
+    charStatus = event.target.value;
+    pageId = 1;
+    console.log(charStatus);
+    getCharactersByPage(pageId, name, charStatus, species, charType, gender)
+}
+
+function onChangeSpecies(event) {
+    species = event.target.value;
+    pageId = 1;
+    console.log(species);
+    getCharactersByPage(pageId, name, charStatus, species, charType, gender)
+}
+
+function onChangeType(event) {
+    charType = event.target.value;
+    pageId = 1;
+    console.log(charType);
+    getCharactersByPage(pageId, name, charStatus, species, charType, gender)
+}
+
+function onChangeGender(event) {
+    gender = event.target.value;
+    pageId = 1;
+    console.log(gender);
+    getCharactersByPage(pageId, name, charStatus, species, charType, gender)
+}
+
+
+function filteredbyName(event) {
+    name = event.target.value;
+    getCharactersByPage(pageId, name, charStatus, species, charType, gender)
+}
+
+function clearFilter() {
+    pageId = 1,
+        name = '',
+        charStatus = '',
+        species = '',
+        charType = '',
+        gender = ''
+    getCharactersByPage(pageId, name, charStatus, species, charType, gender)
+    select_status.value = "default";
+    select_species.value = "default";
+    select_type.value = "default";
+    select_gender.value = "default";
+}
 
 </script>
 
 
 <template>
     <main>
-        <form action="#" class="">
-            <input class="input-search" type="text" placeholder="Search by name..." @keyup.enter="name = $event.target.value">
-        </form>
 
+        <!-- Bouton d'affichage des filtres -->
+        <div class="show-filter-btn">
+            <span v-if="!showFilter" @click="showFilter = !showFilter" class="show-filter-btn-true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="yellowgreen" class="bi bi-funnel"
+                    viewBox="0 0 16 16" stroke="yellowgreen" stroke-width="1">
+                    <path
+                        d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5zm1 .5v1.308l4.372 4.858A.5.5 0 0 1 7 8.5v5.306l2-.666V8.5a.5.5 0 0 1 .128-.334L13.5 3.308V2z" />
+                </svg>
+            </span>
+
+            <span v-else @click="showFilter = !showFilter" class="show-filter-btn-false">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="yellowgreen" class="bi bi-funnel-fill"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5z" />
+                </svg>
+            </span>
+
+        </div>
+
+        <!-- input pour la recherche dynamique de personnages par leur nom -->
+        <div v-if="showFilter">
+            <form action="#" class="">
+                <input v-model="name" @input="filteredbyName" class="input-search" type="text"
+                    placeholder="Search by name...">
+            </form>
+
+            <!-- Gestion des filtres -->
+
+            <div class="options-wrapper">
+                <!-- Filtre par statut -->
+                <div class="options-status">
+                    <label for="select_status">Status</label><br>
+                    <select @change="onChangeStatus" id="select_status">
+                        <option value="default">-</option>
+                        <option value="alive">Alive</option>
+                        <option value="unknown">Unknown</option>
+                        <option value="dead">Dead</option>
+                    </select>
+                </div>
+                <!-- Filtre par espèce -->
+                <div class="options-species">
+                    <label for="select_species">Species</label><br>
+                    <select @change="onChangeSpecies" id="select_species">
+                        <option value="default">-</option>
+                        <option value="human">Human</option>
+                        <option value="alien">Alien</option>
+                        <option value="humanoid">Humanoid</option>
+                        <option value="unknown">Unknown</option>
+                        <option value="poopybutthole">Poopybutthole</option>
+                        <option value="mythological%20creature">Mythological creature</option>
+                        <option value="animal">Animal</option>
+                        <option value="robot">Robot</option>
+                        <option value="cronenberg">Cronenberg</option>
+                        <option value="disease">Disease</option>
+                    </select>
+                </div>
+
+                <!-- Filtre par type -->
+                <div class="options-type">
+                    <label for="select_type">Type</label><br>
+                    <select @change="onChangeType" id="select_type">
+                        <option value="default">-</option>
+                        <option value="genetic experiment">Genetic experiment</option>
+                        <option value="superhuman">Superhuman (Ghost trains summoner)</option>
+                        <option value="Parasite">Parasite</option>
+                        <option value="Human with antennae">Human with antennae</option>
+                        <option value="Human with ants in his eyes">Human with ants in his eyes</option>
+                        <option value="Fish-Person">Fish-Person</option>
+                        <option value="Cromulon">Cromulon</option>
+                        <option value="Self-aware arm">Self-aware arm</option>
+                        <option value="Cat-Person">Cat-Person</option>
+                        <option value="Human with baby legs">Human with baby legs</option>
+                        <option value="Bepisian">Bepisian</option>
+                        <option value="Hivemind">Hivemind</option>
+                        <option value="Mytholog">Mytholog</option>
+                        <option value="Human with giant head">Human with giant head</option>
+                        <option value="Dog">Dog</option>
+                        <option value="Bird-Person">Bird-Person</option>
+                        <option value="Korblock">Korblock</option>
+                        <option value="Boobloosian">Boobloosian</option>
+                        <option value="Elephant-Person">Elephant-Person</option>
+                        <option value="Superhuman">Superhuman</option>
+                        <option value="Gromflomite">Gromflomite</option>
+                        <option value="Centaur">Centaur</option>
+                        <option value="Organic gun">Organic gun</option>
+                        <option value="Microverse inhabitant">Microverse inhabitant</option>
+                        <option value="Vampire">Vampire</option>
+                        <option value="Light bulb-Alien">Light bulb-Alien</option>
+                        <option value="Animal">Animal</option>
+                        <option value="Robot-Crocodile hybrid">Robot-Crocodile hybrid</option>
+                        <option value="Zigerion">Zigerion</option>
+                        <option value="Giant">Giant</option>
+                        <option value="Cone-nippled alien">Cone-nippled alien</option>
+                        <option value="Demon">Demon</option>
+                        <option value="Shapeshifter">Shapeshifter</option>
+                        <option value="Game">Game</option>
+                        <option value="Amoeba-Person">Amoeba-Person</option>
+                        <option value="Cronenberg">Cronenberg</option>
+                        <option value="Clone">Clone</option>
+                        <option value="Robot">Robot</option>
+                        <option value="Interdimensional gaseous being">Interdimensional gaseous being</option>
+                        <option value="Flansian">Flansian</option>
+                        <option value="Zombodian">Zombodian</option>
+                        <option value="Garblovian">Garblovian</option>
+                        <option value="Gazorpian">Gazorpian</option>
+                        <option value="Eat shiter-Person">Eat shiter-Person</option>
+                        <option value="Goddess">Goddess</option>
+                        <option value="Gazorpian reproduction robot">Gazorpian reproduction robot</option>
+                        <option value="Hammerhead-Person">Hammerhead-Person</option>
+                        <option value="Hole">Hole</option>
+                        <option value="Tuskfish">Tuskfish</option>
+                        <option value="Alphabetrian">Alphabetrian</option>
+                        <option value="Cat">Cat</option>
+                        <option value="Time God">Time God</option>
+                        <option value="Unknown-nippled alien">Unknown-nippled alien</option>
+                        <option value="Krootabulan">Krootabulan</option>
+                        <option value="Plutonian">Plutonian</option>
+                        <option value="Jellybean">Jellybean</option>
+                        <option value="Tentacle alien">Tentacle alien</option>
+                        <option value="Miniverse inhabitant">Miniverse inhabitant</option>
+                        <option value="Cyborg">Cyborg</option>
+                        <option value="Larva alien">Larva alien</option>
+                        <option value="Snail alien">Snail alien</option>
+                        <option value="Tinymouth">Tinymouth</option>
+                        <option value="Lizard-Person">Lizard-Person</option>
+                        <option value="Alligator-Person">Alligator-Person</option>
+                        <option value="Monster">Monster</option>
+                        <option value="Conjoined twin">Conjoined twin</option>
+                        <option value="Sentient ant colony">Sentient ant colony</option>
+                        <option value="Human Gazorpian">Human Gazorpian</option>
+                        <option value="Boobie buyer reptilian">Boobie buyer reptilian</option>
+                        <option value="Meeseeks">Meeseeks</option>
+                        <option value="The Devil">The Devil</option>
+                        <option value="Cat controlled dead lady">Cat controlled dead lady</option>
+                        <option value="Numbericon">Numbericon</option>
+                        <option value="Octopus-Person">Octopus-Person</option>
+                        <option value="Hairy alien">Hairy alien</option>
+                        <option value="Pickle">Pickle</option>
+                        <option value="Bread">Bread</option>
+                        <option value="Mega Gargantuan">Mega Gargantuan</option>
+                        <option value="Rat">Rat</option>
+                        <option value="Gear-Person">Gear-Person</option>
+                        <option value="Blue ape alien">Blue ape alien</option>
+                        <option value="Ring-nippled alien">Ring-nippled alien</option>
+                        <option value="Lobster-Alien">Lobster-Alien</option>
+                        <option value="Scrotian">Scrotian</option>
+                        <option value="Shimshamian">Shimshamian</option>
+                        <option value="Omniscient being">Omniscient being</option>
+                        <option value="Slug">Slug</option>
+                        <option value="Stair goblin">Stair goblin</option>
+                        <option value="Leprechaun">Leprechaun</option>
+                        <option value="Morty's toxic side">Morty's toxic side</option>
+                        <option value="Rick's toxic side">Rick's toxic side</option>
+                        <option value="Traflorkian">Traflorkian</option>
+                        <option value="Teenyverse inhabitant">Teenyverse inhabitant</option>
+                        <option value="Trunk-Person">Trunk-Person</option>
+                        <option value="Tumblorkian">Tumblorkian</option>
+                        <option value="Chair">Chair</option>
+                        <option value="Drumbloxian">Drumbloxian</option>
+                        <option value="Floop Floopian">Floop Floopian</option>
+                        <option value="Greebybobe">Greebybobe</option>
+                        <option value="Corn-person">Corn-person</option>
+                        <option value="Phone-Person">Phone-Person</option>
+                        <option value="Teddy Bear">Teddy Bear</option>
+                        <option value="Little Human">Little Human</option>
+                        <option value="Mexican">Mexican</option>
+                        <option value="Giant Cat Monster">Giant Cat Monster</option>
+                        <option value="Old Amazons">Old Amazons</option>
+                        <option value="Mannie">Mannie</option>
+                        <option value="Necrophiliac">Necrophiliac</option>
+                        <option value="Eel">Eel</option>
+                        <option value="Pizza">Pizza</option>
+                        <option value="Grandma">Grandma</option>
+                        <option value="Phone">Phone</option>
+                        <option value="Doopidoo">Doopidoo</option>
+                        <option value="Pripudlian">Pripudlian</option>
+                        <option value="Nano Alien">Nano Alien</option>
+                        <option value="Human with a flower in his head">Human with a flower in his head</option>
+                        <option value="Hologram">Hologram</option>
+                        <option value="Shrimp">Shrimp</option>
+                        <option value="Caterpillar">Caterpillar</option>
+                        <option value="Wasp">Wasp</option>
+                        <option value="Toy">Toy</option>
+                        <option value="Monogatron">Monogatron</option>
+                        <option value="Lizard">Lizard</option>
+                        <option value="Fly">Fly</option>
+                        <option value="God">God</option>
+                        <option value="Dummy">Dummy</option>
+                        <option value="Human with tusks">Human with tusks</option>
+                        <option value="Gramuflackian">Gramuflackian</option>
+                        <option value="Dragon">Dragon</option>
+                        <option value="Snake">Snake</option>
+                        <option value="Human-Snake hybrid">Human-Snake hybrid</option>
+                        <option value="Soulless Puppet">Soulless Puppet</option>
+                        <option value="Half Soulless Puppet">Half Soulless Puppet</option>
+                        <option value="Glorzo">Glorzo</option>
+                        <option value="Planet">Planet</option>
+                        <option value="Zeus">Zeus</option>
+                        <option value="Clay-Person">Clay-Person</option>
+                        <option value="Sexy Aquaman">Sexy Aquaman</option>
+                        <option value="Narnian">Narnian</option>
+                        <option value="Starfish">Starfish</option>
+                        <option value="Squid">Squid</option>
+                        <option value="Decoy">Decoy</option>
+                        <option value="Whenwolf">Whenwolf</option>
+                        <option value="Summon">Summon</option>
+                        <option value="Morglutzian">Morglutzian</option>
+                        <option value="Weasel">Weasel</option>
+                        <option value="Super Sperm Monster">Super Sperm Monster</option>
+                        <option value="CHUD">CHUD</option>
+                        <option value="Giant Incest Baby">Giant Incest Baby</option>
+                        <option value="CHUD Human Mix">CHUD Human Mix</option>
+                        <option value="Changeformer">Changeformer</option>
+                        <option value="Artificial Intelligence">Artificial Intelligence</option>
+                        <option value="Guinea Pig for the Polio Vaccine">Guinea Pig for the Polio Vaccine</option>
+                        <option value="Turkey">Turkey</option>
+                        <option value="Turkey Human Mix">Turkey Human Mix</option>
+                        <option value="Anime">Anime</option>
+                        <option value="Memory">Memory</option>
+                        <option value="Bird-Person Human Mix">Bird-Person Human Mix</option>
+                        <option value="Crow">Crow</option>
+                        <option value="Cookie">Cookie</option>
+                        <option value="Normal Size Bug">Normal Size Bug</option>
+                        <option value="Slartivartian">Slartivartian</option>
+                        <option value="Ferkusian">Ferkusian</option>
+                        <option value="Mascot">Mascot</option>
+                        <option value="Scarecrow">Scarecrow</option>
+                        <option value="Tiger">Tiger</option>
+                        <option value="Crow Horse">Crow Horse</option>
+                        <option value="Ferret Robot">Ferret Robot</option>
+                        <option value="Passing Butter Robot">Passing Butter Robot</option>
+                    </select>
+                </div>
+
+                <!-- Filtre par genre -->
+                <div class="options-gender">
+                    <label for="select_gender">Gender</label><br>
+                    <select @change="onChangeGender" id="select_gender">
+                        <option value="default">-</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="unknown">Unknown</option>
+                        <option value="genderless">Genderless</option>
+                    </select>
+                </div>
+
+            </div>
+
+
+            <!-- Bouton permettant de clear les filtres -->
+            <button @click="clearFilter">Clear</button>
+
+        </div>
+
+
+        <!-- Boutons de navigation entre les pages (premier, précedent, suivant, dernier) -->
         <div class="btn-nav">
-            <button @click="pageId = 1, getCharactersByPage(pageId)">First</button>
-            <button @click="pageId > 1 ? pageId-- : '', getCharactersByPage(pageId)">
+            <button
+                @click="pageId = 1, getCharactersByPage(pageId, name, charStatus, species, charType, gender)">First</button>
+            <button
+                @click="pageId > 1 ? pageId-- : '', getCharactersByPage(pageId, name, charStatus, species, charType, gender)">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-left"
                     viewBox="0 0 16 16">
                     <path
@@ -40,25 +350,30 @@ data = getCharactersByPage(pageId)
                 </svg>
             </button>
             <button class="btn-show-page">{{ pageId }}</button>
-            <button @click="pageId < 41 ? pageId++ : '', getCharactersByPage(pageId)">
+            <button
+                @click="pageId < characterStore.characters.info.pages ? pageId++ : '', getCharactersByPage(pageId, name, charStatus, species, charType, gender)">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right"
                     viewBox="0 0 16 16">
                     <path
                         d="M6 12.796V3.204L11.481 8zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z" />
                 </svg>
             </button>
-            <button @click="pageId = 42, getCharactersByPage(pageId)">Last</button>
+            <button
+                @click="pageId = characterStore.characters.info.pages, getCharactersByPage(pageId, name, charStatus, species, charType, gender)">Last</button>
         </div>
 
-
+        <!-- Appel des cards pour chaques personnages présents -->
         <div class="character-card-container">
             <CharacterCard v-if="characterStore.characters" v-for="character in characterStore.characters.results"
                 :key="character.id" :characterCard="character" />
         </div>
 
+        <!-- Boutons de navigation entre les pages (premier, précedent, suivant, dernier) -->
         <div class="btn-nav">
-            <button @click="pageId = 1, getCharactersByPage(pageId)">First</button>
-            <button @click="pageId > 1 ? pageId-- : '', getCharactersByPage(pageId)">
+            <button
+                @click="pageId = 1, getCharactersByPage(pageId, name, charStatus, species, charType, gender)">First</button>
+            <button
+                @click="pageId > 1 ? pageId-- : '', getCharactersByPage(pageId, name, charStatus, species, charType, gender)">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-left"
                     viewBox="0 0 16 16">
                     <path
@@ -66,14 +381,16 @@ data = getCharactersByPage(pageId)
                 </svg>
             </button>
             <button class="btn-show-page">{{ pageId }}</button>
-            <button @click="pageId < 41 ? pageId++ : '', getCharactersByPage(pageId)">
+            <button
+                @click="pageId < characterStore.characters.info.pages ? pageId++ : '', getCharactersByPage(pageId, name, charStatus, species, charType, gender)">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right"
                     viewBox="0 0 16 16">
                     <path
                         d="M6 12.796V3.204L11.481 8zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z" />
                 </svg>
             </button>
-            <button @click="pageId = 42, getCharactersByPage(pageId)">Last</button>
+            <button
+                @click="pageId = characterStore.characters.info.pages, getCharactersByPage(pageId, name, charStatus, species, charType, gender)">Last</button>
         </div>
 
 
@@ -124,4 +441,51 @@ button {
     border-radius: 15px;
     text-align: center;
 }
+
+.show-filter-btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
+.options-wrapper {
+    display: grid;
+    grid-template-columns: repeat(11, 1fr);
+    grid-template-rows: 2;
+    grid-gap: 10px;
+    /* grid-auto-rows: minmax(100px, auto); */
+}
+
+.options-status {
+    grid-column: 5 / 6;
+    grid-row: 1;
+}
+
+.options-species {
+    grid-column: 7 / 8;
+    grid-row: 1;
+    margin-left: 5px;
+}
+
+.options-type {
+    grid-column: 5 / 6;
+    grid-row: 2;
+}
+
+.options-gender {
+    grid-column: 7 / 8;
+    grid-row: 2;
+    margin-left: 5px;
+}
+
+select {
+    width: 100px ;
+    border: solid 1px rgb(150, 226, 36);
+    width: 20rem;
+    border-radius: 15px;
+}
+
+
+
 </style>
