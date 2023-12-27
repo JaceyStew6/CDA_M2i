@@ -332,7 +332,10 @@ function clearFilter() {
 
 
             <!-- Bouton permettant de clear les filtres -->
-            <button @click="clearFilter">Clear</button>
+            <div class="btn-clear">
+                <button @click="clearFilter" class="btn-clear-style">Clear</button>
+            </div>
+
 
         </div>
 
@@ -440,6 +443,7 @@ button {
     width: 20rem;
     border-radius: 15px;
     text-align: center;
+    color: rgb(44, 121, 31);
 }
 
 .show-filter-btn {
@@ -480,12 +484,51 @@ button {
 }
 
 select {
-    width: 100px ;
+    width: 100px;
     border: solid 1px rgb(150, 226, 36);
     width: 20rem;
     border-radius: 15px;
 }
 
+.btn-clear {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
 
+.btn-clear-style {
+    border: solid 1px rgb(142, 214, 33);
+    background-color: yellowgreen;
+    width: 4rem;
+    font-weight: 500;
+    color: rgb(82, 124, 18);
+    border-radius: 15px;
+}
 
+#select_status {
+    color: rgb(44, 121, 31);
+    padding-left: 8px;
+}
+
+#select_species {
+    color: rgb(44, 121, 31);
+    padding-left: 8px;
+}
+
+#select_type {
+    color: rgb(44, 121, 31);
+    padding-left: 8px;
+}
+
+#select_gender {
+    color: rgb(44, 121, 31);
+    padding-left: 8px;
+}
+
+label {
+    color: rgb(44, 121, 31);
+    font-weight: 500;
+}
 </style>

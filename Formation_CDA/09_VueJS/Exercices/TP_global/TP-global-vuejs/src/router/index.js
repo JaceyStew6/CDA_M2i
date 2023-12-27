@@ -8,7 +8,8 @@ import CharacterNotFoundView from '../views/CharacterNotFoundView.vue';
 const router = createRouter({
   history: createWebHistory(),
   routes: [
-    { path: '/', component: HomeView },
+    // { path: '/', component: HomeView },
+    { path: '/', component: CharactersView },
     { path: '/characters', component: CharactersView },
     { path: '/not-found', component: CharacterNotFoundView },
   ],
