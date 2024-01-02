@@ -7,6 +7,15 @@
     - Structuré en tables
     - Ici on a une relation colonne/valeur
     - Une case = un type de valeur (chaine de caractères, nbr, blob...)
+    - La base pourra avoir plusieurs tables dont la relation s'effectue par un système de clés (clé primaire et clé étrangère). La clé étrangère permet de relier une table vers notre enregistrement.
+    - Plusieurs types de relation:
+        - One to one (ex: un seul prof peut enseigner une seule matière.) 
+            - Généralement on indique la clé étrangère des deux côtés dans ce cas
+        - One to many 
+            - la clé étrangère ne sera que dans le one
+        - Many to many 
+            - nécessite une table de liaison qui va faire la relation
+
 - **SGBD Non-relationnel**
     - NoSQL
     - Non structuré
