@@ -1,0 +1,13 @@
+- **Entités**:
+   - Employé => Docteur, Infirmier
+   - Service
+   - Salle
+   - Patient
+
+- **Relations**:
+  - affecter
+  - diriger
+  - soigner
+  - surveiller
+  - avoir
+  - hospitaliser

@@ -14,7 +14,8 @@
         - One to many 
             - la clé étrangère ne sera que dans le one
         - Many to many 
-            - nécessite une table de liaison qui va faire la relation
+            - nécessite une table de liaison (jointure) qui va faire la relation
+            - une table de jointure peut contenir des attributs
 
 - **SGBD Non-relationnel**
     - NoSQL
@@ -43,3 +44,37 @@ Une même application peut tourner avec plusieurs SGBD qu'ils soient relationnel
 >- **Variété** d’informations
 
 Il s'agit d'une règle en BigData.
+
+
+> **Attention à la rigueur en fonction des différents diagrammes.**
+
+
+## Règles pour le MCD
+
+>Modèle Conceptuel de Données
+
+### Règle 1
+- Une relation entre deux entités
+### Règle 2
+- Deux relations ne peuvent jamais être reliées entre elles.
+### Règle 3
+- Un attribut est unique à une entité.   
+ *exemple : si dans la table `Prof` on a l'attribut nom_prof, ce même attribut ne doit pas se retrouver dans la classe `Cours`.*
+### Règle 4
+- Les entités ne doivent contenir que des données élémentaires.  
+*exemple : on ne doit pas retrouver les données calculées. On peut retrouver un prix, une quantité, une TVA, mais pas un total.*
+### Règle 5
+- Lorsqu'une relation peut être déduite, elle n'est pas représentée.
+
+Un MCD ne comporte pas de types, ni de clés primaire ou étrangères. 
+Il consiste en une représentation simple des tables et des attributs qu'elles contiennent.
+
+Le MCD reste une abstraction de la base et ne permet pas de concevoir les tables avec précision. Il s'agit plutôt ici du modèle fonctionnel des données.
+
+
+## MLD
+>Modèle Logique de Données
+
+
+## MPD
+>Modèle Physique de Données
