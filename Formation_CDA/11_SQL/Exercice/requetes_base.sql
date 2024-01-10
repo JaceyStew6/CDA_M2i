@@ -88,7 +88,7 @@ SELECT *
 FROM users
 WHERE salary BETWEEN 2500 AND 3000;
 
--- 6.Utilisateurs dont le traavail n'est ni developer ni designer
+-- 6.Utilisateurs dont le travail n'est ni developer ni designer
 SELECT *
 FROM users
 WHERE NOT job IN ('Developer', 'Designer');
@@ -251,10 +251,22 @@ SELECT *
 FROM users
 WHERE birth_location = (SELECT birth_location
 						FROM users
-                        WHERE age = (SELECT MIN(age)
+                        WHERE age = (SELECT usersMIN(age)
 									FROM users));
 
-SELECT MIN(age)
-FROM users;
+-- 2. Utilisateurs dont le salaire est inférieur à la moyenne des salaires des "Developers".
+SELECT *
+FROM users
+WHERE salary < (SELECT AVG(salary)
+						FROM users
+                        WHERE job = 'Developer');
+                        
 
-
+-- 3. Utilisateurs dont le salaire est supérieur à la moyenne des salaires des utilisateurs nés dans la même ville que "John Doe"
+SELECT *
+FROM users
+WHERE salary > (SELECT AVG(salary)
+				FROM users
+				WHERE  birth_location = (SELECT birth_location
+										FROM users
+										WHERE last_name='Doe' AND first_name='John'));

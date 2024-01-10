@@ -2,7 +2,7 @@ SHOW databases;
 USE test_bdd;
 
 
-CREATE TABLE person (
+CREATE TABLE IF NOT EXISTS person (
 	person_id INT AUTO_INCREMENT PRIMARY KEY,
     gender VARCHAR(10) CHECK (gender IN ('M', 'Mme')),
     first_name VARCHAR(50) NOT NULL,
@@ -11,7 +11,7 @@ CREATE TABLE person (
     email_address VARCHAR(100)
 );
 
-CREATE TABLE address (
+CREATE TABLE IF NOT EXISTS address (
 	address_id INT AUTO_INCREMENT PRIMARY KEY,
     id_person INT NOT NULL,
     street_number VARCHAR(10) NOT NULL,
@@ -21,9 +21,7 @@ CREATE TABLE address (
     FOREIGN KEY (id_person) REFERENCES person(person_id)
 );
 
-SHOW TABLES;
-
-CREATE TABLE account (
+CREATE TABLE IF NOT EXISTS account (
 	account_id INT AUTO_INCREMENT PRIMARY KEY,
     login VARCHAR(50) NOT NULL,
     password_account VARCHAR(50) NOT NULL,
@@ -32,4 +30,5 @@ CREATE TABLE account (
     derniere_connexion VARCHAR(50)
 );
 
+SHOW TABLES;
     

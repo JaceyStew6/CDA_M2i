@@ -37,6 +37,8 @@ FROM users
 WHERE job = 'Developer';
 ```
 
+Un alias peut aussi s'appliquer à des tables.
+
 - **Fonctions d'agrégation**
 
 `MIN()`
