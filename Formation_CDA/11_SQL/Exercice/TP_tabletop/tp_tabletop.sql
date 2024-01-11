@@ -3,11 +3,11 @@
 CREATE DATABASE IF NOT EXISTS tabletoptreasures_database;
 USE tabletoptreasures_database;
 
-DROP TABLE IF EXISTS Games;
-DROP TABLE IF EXISTS Orders;
-DROP TABLE IF EXISTS Categories;
-DROP TABLE IF EXISTS Customers;
-
+-- DROP TABLE IF EXISTS Games_Orders;
+-- DROP TABLE IF EXISTS Games;
+-- DROP TABLE IF EXISTS Orders;
+-- DROP TABLE IF EXISTS Categories;
+-- DROP TABLE IF EXISTS Customers;
 
 -- 2. Création des tables
 -- Création de la table Customers (Clients)
@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS Customers (
 	customer_id INT PRIMARY KEY AUTO_INCREMENT,
     last_name VARCHAR(50) NOT NULL,
     first_name VARCHAR(50) NOT NULL,
-    email_address VARCHAR(150) NOT NULL,
+    email_address VARCHAR(250) UNIQUE NOT NULL,
     delivery_address VARCHAR(250),
     phone_number VARCHAR(15)
 );
@@ -29,9 +29,9 @@ CREATE TABLE IF NOT EXISTS Categories (
 -- Création de la table Games (Jeux)
 CREATE TABLE IF NOT EXISTS Games (
 	game_id INT PRIMARY KEY AUTO_INCREMENT,
-    game_name VARCHAR(100) NOT NULL,
+    game_name VARCHAR(250) NOT NULL,
     game_desc TEXT(1000),
-    price INT NOT NULL,
+    price DECIMAL(5, 2) NOT NULL,
     id_category INT NOT NULL,
     FOREIGN KEY (id_category) REFERENCES Categories(category_id)
 );
@@ -44,6 +44,14 @@ CREATE TABLE IF NOT EXISTS Orders (
     order_status VARCHAR(50),
     id_customer INT NOT NULL,
     FOREIGN KEY (id_customer) REFERENCES Customers(customer_id)
+);
+
+-- Création table de jointure Games_Order
+CREATE TABLE IF NOT EXISTS Games_Orders(
+	id_order INT NOT NULL,
+    id_game INT NOT NULL,
+    FOREIGN KEY (id_order) REFERENCES Orders(order_id ),
+    FOREIGN KEY (id_game) REFERENCES Games(game_id  )
 );
 
 SHOW TABLES;
@@ -118,6 +126,15 @@ VALUES
     FROM Customers
     WHERE customer_id = 12), 'Validé');
 
+
+INSERT INTO Games_Orders (id_order, id_game)
+VALUES 
+	(1, 4),
+	(2, 6),
+    (2, 5),
+    (2, 15),
+	(3, 1);
+
 SELECT *
 FROM Orders;
 
@@ -153,15 +170,152 @@ FROM Categories
 WHERE category_id BETWEEN 2 AND 5;
 
 -- 4. Combien de catégories différentes existent?
-SELECT COUNT(*) 
+SELECT COUNT(DISTINCT nom) 
 FROM Categories;
 
 -- 5. Quelle est la catégorie ayant le nom le plus long ?
-SELECT MAX(category_name) AS longest_category_name
-FROM Categories;
+/*SELECT MAX(category_name) AS longest_category_name
+FROM Categories;*/
 
--- 6. Montrez le nombre de jeux dans chaque catégorie
+SELECT category_name
+FROM Categories
+ORDER BY LENGTH(category_name) DESC
+LIMIT 1;
+
+-- 6. Montrez le nombre de jeux dans chaque catégorie 
+-- PAS SURE DE LA SOLUTION PROPOSEE
+/**SELECT id_category, COUNT(*) AS numberOfGamesByCategory
+FROM Games
+GROUP BY id_category;*/
+
+SELECT Categories.category_name, COUNT(Games.game_id) AS nb_games
+FROM Categories
+INNER JOIN Games
+ON Categories.category_id = Games.id_category
+GROUP BY Categories.category_name;
 
 
 -- 7. Affichez les catégories triées par ordre alphabétique inversé.
+SELECT *
+FROM Categories
+ORDER BY category_name DESC;
 
+
+-- Table Games :
+-- 1. Sélectionnez tous les noms de jeux distincts
+SELECT DISTINCT game_name
+FROM Games;
+
+-- 2. Montrez les jeux avec un prix entre 25 et 40
+SELECT *
+FROM Games
+WHERE price BETWEEN 25 AND 40;
+
+-- 3. Quels jeux appartiennent à la catégorie avec l'ID 3 ?
+SELECT *
+FROM Games
+WHERE id_category = 3;
+
+-- 4. Combien de jeux ont une description contenant le mot "aventure" ?
+SELECT COUNT(*)
+FROM Games
+WHERE game_desc LIKE '%aventure%';
+
+SELECT *
+FROM Games
+WHERE game_desc LIKE '%aventure%';
+
+-- 5. Quel est le jeu le moins cher ?
+SELECT game_name, price
+FROM Games
+ORDER BY price ASC
+LIMIT 1;
+
+-- 6. Montrez la somme totale des prix de tous les jeux
+SELECT SUM(price) AS allGamesPricesSum
+FROM Games;
+
+-- 7. Affichez les jeux triés par ordre alphabétique des noms en limitant les résultats à 5
+SELECT *
+FROM Games
+ORDER BY game_name ASC
+LIMIT 5;
+
+
+-- Table Customers :
+-- 1. Sélectionnez tous les prénoms des clients distincts
+SELECT DISTINCT first_name
+FROM Customers;
+
+-- 2. Montrez les clients dont l'adresse contient "Rue" et dont le numéro de téléphone commence par "+1"
+SELECT *
+FROM Customers
+WHERE delivery_address LIKE '%Rue%' AND phone_number LIKE '+1%';
+
+-- 3. Quels clients ont un nom commençant par "M" ou "R" ?
+SELECT *
+FROM Customers
+WHERE last_name LIKE 'M%' OR last_name LIKE 'R%';
+
+-- 4. Combien de clients ont une adresse e-mail valide (contenant "@") ?
+SELECT COUNT(*) AS numberOfCustomersWithValidEmail
+FROM Customers
+WHERE email_address LIKE '%@%';
+
+-- 5. Quel est le prénom le plus court parmi les clients ?
+/*SELECT MIN(first_name ) AS shortest_first_name
+FROM Customers;*/
+
+SELECT *
+FROM Customers
+ORDER BY CHAR_LENGTH(first_name)
+LIMIT 1;
+
+-- 6. Montrez le nombre total de clients enregistrés
+SELECT COUNT(*)
+FROM Customers;
+
+-- 7. Affichez les clients triés par ordre alphabétique des noms de famille, mais en excluant les premiers 3
+SELECT *
+FROM Customers
+ORDER BY last_name ASC
+LIMIT 9999 OFFSET 3;
+
+
+-- Étape 4 : Requêtes SQL avancées
+-- 1. Sélectionnez les noms des clients, noms de jeux et date de commande pour chaque commande passée
+SELECT c.last_name, g.game_name, o.order_date 
+FROM Games AS g
+INNER JOIN Games_Orders AS go ON g.game_id  = go.id_game 
+INNER JOIN Orders AS o ON o.order_id  = go.id_order
+INNER JOIN Customers AS c ON c.customer_id = o.id_customer;
+
+-- 2. Sélectionnez les noms des clients et le montant total dépensé par chaque client. Triez les résultats par montant total décroissant
+SELECT c.last_name, SUM(g.price) AS invoiceByCustomer
+FROM Customers AS c
+INNER JOIN Orders AS o ON c.customer_id = o.id_customer
+INNER JOIN Games_Orders AS go ON o.order_id = go.id_order 
+INNER JOIN Games AS g ON g.game_id  = go.id_game 
+GROUP BY c.customer_id
+ORDER BY SUM(g.price) DESC;
+
+-- 3. Sélectionnez les noms des jeux, noms de catégories et prix de chaque jeu.
+SELECT g.game_name, c.category_name, g.price
+FROM Games AS g
+INNER JOIN Categories AS c ON g.id_category = c.category_id;
+
+-- 4. Sélectionnez les noms des clients, date de commande et noms de jeux pour toutes les commandes passées
+SELECT c.last_name, g.game_name, o.order_date 
+FROM Games AS g
+INNER JOIN Games_Orders AS go ON g.game_id  = go.id_game 
+INNER JOIN Orders AS o ON o.order_id  = go.id_order
+INNER JOIN Customers AS c ON c.customer_id = o.id_customer;
+
+-- 5. Sélectionnez les noms des clients, nombre total de commandes par client et montant total dépensé par client. Incluez uniquement les clients ayant effectué au moins une commande.
+SELECT c.last_name, SUM(g.price) AS invoiceByCustomer, COUNT(DISTINCT o.order_id) AS totalOrdersByClient
+FROM Customers AS c
+INNER JOIN Orders AS o ON c.customer_id = o.id_customer
+INNER JOIN Games_Orders AS go ON o.order_id = go.id_order 
+INNER JOIN Games AS g ON g.game_id  = go.id_game 
+GROUP BY c.customer_id
+ORDER BY SUM(g.price) DESC;
