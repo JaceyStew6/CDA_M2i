@@ -1,0 +1,229 @@
+use hospital_v2_database
+switched to db hospital_v2_database
+
+db.patients.insertMany([
+  { firstname: 'Dolores', lastname: 'Ombrage', age: 55, history: [{disease: 'piétinée par des centaures', treatment: 'placebo'}]},
+  { firstname: 'Tom', lastname: 'Jedusor', age: 70, history: [{disease: 'abberation physique', treatment: 'sortilège d\'illusion'},{disease: 'plus de nez', treatment: 'potion poussoss'}]},
+  { firstname: 'Harry', lastname: 'Potter', age: 16, history: [{disease: 'plus d\'os dans le bras', treatment: 'potion poussoss'}]}
+])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('65a53e2fbc1cf00ddc32fe85'),
+    '1': ObjectId('65a53e2fbc1cf00ddc32fe86'),
+    '2': ObjectId('65a53e2fbc1cf00ddc32fe87')
+  }
+}
+db.patients.find().pretty()
+{
+  _id: ObjectId('65a53e2fbc1cf00ddc32fe85'),
+  firstname: 'Dolores',
+  lastname: 'Ombrage',
+  age: 55,
+  history: [
+    {
+      disease: 'piétinée par des centaures',
+      treatment: 'placebo'
+    }
+  ]
+}
+{
+  _id: ObjectId('65a53e2fbc1cf00ddc32fe86'),
+  firstname: 'Tom',
+  lastname: 'Jedusor',
+  age: 70,
+  history: [
+    {
+      disease: 'abberation physique',
+      treatment: "sortilège d'illusion"
+    },
+    {
+      disease: 'plus de nez',
+      treatment: 'potion poussoss'
+    }
+  ]
+}
+{
+  _id: ObjectId('65a53e2fbc1cf00ddc32fe87'),
+  firstname: 'Harry',
+  lastname: 'Potter',
+  age: 16,
+  history: [
+    {
+      disease: "plus d'os dans le bras",
+      treatment: 'potion poussoss'
+    }
+  ]
+}
+db.patients.updateOne({firstname:'Harry'}, {$set: {lastname:'Potier', age: 18}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+db.patients.find().pretty()
+{
+  _id: ObjectId('65a53e2fbc1cf00ddc32fe85'),
+  firstname: 'Dolores',
+  lastname: 'Ombrage',
+  age: 55,
+  history: [
+    {
+      disease: 'piétinée par des centaures',
+      treatment: 'placebo'
+    }
+  ]
+}
+{
+  _id: ObjectId('65a53e2fbc1cf00ddc32fe86'),
+  firstname: 'Tom',
+  lastname: 'Jedusor',
+  age: 70,
+  history: [
+    {
+      disease: 'abberation physique',
+      treatment: "sortilège d'illusion"
+    },
+    {
+      disease: 'plus de nez',
+      treatment: 'potion poussoss'
+    }
+  ]
+}
+{
+  _id: ObjectId('65a53e2fbc1cf00ddc32fe87'),
+  firstname: 'Harry',
+  lastname: 'Potier',
+  age: 18,
+  history: [
+    {
+      disease: "plus d'os dans le bras",
+      treatment: 'potion poussoss'
+    }
+  ]
+}
+                                                         ^
+db.patients.updateOne({firstname:'Harry'}, {$push: {history: {disease: 'avada kedavra', treatment: 'potion de résurrection'}}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+db.patients.find().pretty()
+{
+  _id: ObjectId('65a53e2fbc1cf00ddc32fe85'),
+  firstname: 'Dolores',
+  lastname: 'Ombrage',
+  age: 55,
+  history: [
+    {
+      disease: 'piétinée par des centaures',
+      treatment: 'placebo'
+    }
+  ]
+}
+{
+  _id: ObjectId('65a53e2fbc1cf00ddc32fe86'),
+  firstname: 'Tom',
+  lastname: 'Jedusor',
+  age: 70,
+  history: [
+    {
+      disease: 'abberation physique',
+      treatment: "sortilège d'illusion"
+    },
+    {
+      disease: 'plus de nez',
+      treatment: 'potion poussoss'
+    }
+  ]
+}
+{
+  _id: ObjectId('65a53e2fbc1cf00ddc32fe87'),
+  firstname: 'Harry',
+  lastname: 'Potier',
+  age: 18,
+  history: [
+    {
+      disease: "plus d'os dans le bras",
+      treatment: 'potion poussoss'
+    },
+    {
+      disease: 'avada kedavra',
+      treatment: 'potion de résurrection'
+    }
+  ]
+}
+                              ^
+db.patients.find({ age: {$gt: 29}})
+{
+  _id: ObjectId('65a53e2fbc1cf00ddc32fe85'),
+  firstname: 'Dolores',
+  lastname: 'Ombrage',
+  age: 55,
+  history: [
+    {
+      disease: 'piétinée par des centaures',
+      treatment: 'placebo'
+    }
+  ]
+}
+{
+  _id: ObjectId('65a53e2fbc1cf00ddc32fe86'),
+  firstname: 'Tom',
+  lastname: 'Jedusor',
+  age: 70,
+  history: [
+    {
+      disease: 'abberation physique',
+      treatment: "sortilège d'illusion"
+    },
+    {
+      disease: 'plus de nez',
+      treatment: 'potion poussoss'
+    }
+  ]
+}
+
+db.patients.deleteMany({"history.disease": "piétinée par des centaures"})
+{
+  acknowledged: true,
+  deletedCount: 1
+}
+db.patients.find().pretty()
+{
+  _id: ObjectId('65a53e2fbc1cf00ddc32fe86'),
+  firstname: 'Tom',
+  lastname: 'Jedusor',
+  age: 70,
+  history: [
+    {
+      disease: 'abberation physique',
+      treatment: "sortilège d'illusion"
+    },
+    {
+      disease: 'plus de nez',
+      treatment: 'potion poussoss'
+    }
+  ]
+}
+{
+  _id: ObjectId('65a53e2fbc1cf00ddc32fe87'),
+  firstname: 'Harry',
+  lastname: 'Potier',
+  age: 18,
+  history: [
+    {
+      disease: "plus d'os dans le bras",
+      treatment: 'potion poussoss'
+    },
+    {
+      disease: 'avada kedavra',
+      treatment: 'potion de résurrection'
+    }
+  ]
+}
