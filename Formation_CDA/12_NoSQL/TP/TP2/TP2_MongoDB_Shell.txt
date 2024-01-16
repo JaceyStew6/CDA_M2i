@@ -1,0 +1,104 @@
+//Création de la base tp2_bdd
+use tp2_bdd
+switched to db tp2_bdd
+
+//Création de la collection users
+db.createCollection("users")
+{ ok: 1 }
+show dbs
+admin                  40.00 KiB
+config                108.00 KiB
+example_bdd            40.00 KiB
+first_mongo_database   40.00 KiB
+hospital_database      72.00 KiB
+hospital_v2_database   72.00 KiB
+local                  72.00 KiB
+tp2_bdd                 8.00 KiB
+
+//1.CREER UN ELEMENT
+//Ajout de l'utilisateur "Chuck Norris"
+
+db.users.insertOne({"age": 77,"name": "Chuck Norris","hobbies": ["Karate", "Kung-fu", "Ruling the world"]})
+{
+  acknowledged: true,
+  insertedId: ObjectId('65a64c8de0efd0b5961357eb')
+}
+
+//2.LECTURE D'UN ELEMENT
+//Afficher Chuck Norris
+db.users.findOne({ name: "Chuck Norris"})
+{
+  _id: ObjectId('65a64c8de0efd0b5961357eb'),
+  age: 77,
+  name: 'Chuck Norris',
+  hobbies: [
+    'Karate',
+    'Kung-fu',
+    'Ruling the world'
+  ]
+}
+
+
+//Afficher Chuck Norris sans l'id
+db.users.find({name: "Chuck Norris"}, { _id: 0})
+{
+  age: 77,
+  name: 'Chuck Norris',
+  hobbies: [
+    'Karate',
+    'Kung-fu',
+    'Ruling the world'
+  ]
+}
+
+
+//Afficher tous les utilisateurs qui ont entre 20 et 25 ans
+db.users.find({age: {$gte:20,$lte:25}}).toArray()
+
+//Afficher les hommes entre 30 et 40 ans
+db.users.find({$and: [{age: {$gte:30,$lte:40}, gender: "male"}]}).toArray()
+
+//Afficher les utilisateurs habitant en Louisiane
+db.users.find({"address.state": "Louisiana"}).toArray()
+
+// Afficher les 20 premiers utilisateurs triés par ordre décroissant d'age
+db.users.find().sort({ age: -1 }).limit(20)
+
+//Combien y a-t-il de femmes âgées de 30 ans?
+db.users.find({age: 30, gender: "female"}).count()
+63
+
+//3.MODIFIER/SUPPRIMER UN ELEMENT
+//Supprimer le champs phone de tous les enregistrements
+db.users.updateMany({}, { $unset: { phone: "" }})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 6999,
+  modifiedCount: 6998,
+  upsertedCount: 0
+}
+
+//Changer l'age de Chuck Norris à infinity
+db.users.updateOne({name: "Chuck Norris"}, {$set: { age: "Infinity" }})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+db.users.find({name:"Chuck Norris"})
+{
+  _id: ObjectId('65a64c8de0efd0b5961357eb'),
+  age: 'Infinity',
+  name: 'Chuck Norris',
+  hobbies: [
+    'Karate',
+    'Kung-fu',
+    'Ruling the world'
+  ]
+}
+
+//Ajouter le hobby jardinage à tous les utilisateurs de plus de 50 ans
+db.users.updateMany({age: {$gt:50}}, { $push: { hobbies: "jardinage"}})

@@ -84,7 +84,7 @@ Il existe aussi une autre méthode, `update(filter, data, options)` qui n'a pas 
 
 Pour supprimer des éléments, il existe deux méthodes qui se nomment `deleteOne(filter, options)` pour la suppression unitaire et `deleteMany(filter, options)` pour la suppression multiple. 
 
-Si l'on veut supprimer d'un seul coup l'ensemble d'une collection, alors le plus simple est d'utiliser la méthode de supression multiple avec un filtre vide. De la sorte, on obtient une collections vide. Sans le cas où l'on veut supprimer un élément correspondant à un critère, la syntaxe se présente de la sorte:
+Si l'on veut supprimer d'un seul coup l'ensemble d'une collection, alors le plus simple est d'utiliser la méthode de supression multiple avec un filtre vide. De la sorte, on obtient une collections vide. Dans le cas où l'on veut supprimer un élément correspondant à un critère, la syntaxe se présente de la sorte:
 
 Pour supprimer une base de données, on peut utiliser la commande:
 
