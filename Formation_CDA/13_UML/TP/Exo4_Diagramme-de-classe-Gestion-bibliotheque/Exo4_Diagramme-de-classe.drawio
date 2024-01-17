@@ -1,0 +1,25 @@
+<mxfile host="65bd71144e">
+    <diagram id="UAru15Q06mG_JpxNSIoz" name="Page-1">
+        <mxGraphModel dx="1489" dy="926" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;movable=0;resizable=0;rotatable=0;deletable=0;editable=0;connectable=0;" vertex="1" parent="1">
+                    <mxGeometry x="100" y="120" width="630" height="990" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="Système automatisé Bibliothèque municipale" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=#2D7600;fillColor=#60a917;fontColor=#ffffff;fontSize=18;" vertex="1" parent="1">
+                    <mxGeometry x="224" y="50" width="380" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="Adhérent" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fontSize=18;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="30" y="370" width="30" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="Bibliothécaire" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fontSize=18;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="770" y="340" width="30" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="Système de&lt;br&gt;Gestion des&lt;br&gt;Stocks" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fontSize=18;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="770" y="700" width="30" height="60" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
