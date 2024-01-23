@@ -94,3 +94,62 @@ La structure de dossiers d'un projet vise à organiser le code de manière à fa
   - Les vues décrivent la structure et le format du contenu HTML généré dynamiquement.
 
 L'utilisation du SSR (Server Side Rendering) a des avantages, notamment en termes de référencement (SEO) et de temps de chargement initial pour le client, car le contenu est présent dès le départ dans la réponse HTML. Cependant, cela peut également entraîner une charge plus importante du côté serveur, car le serveur doit générer le HTML pour chaque requête.
+
+4. `config` (Configuration):
+  - Le dossier `config` peut contenir des fichiers de configuration pour diverses parties de l'application.
+  - Par exemple, vous pourriez avoir des fichiers de configuration pour la base de données, les variables d'environnement, etc.
+
+5. `middlewares`:
+  - Le dossier `middlewares` peut contenir des fonctions middleware réutilisables utilisées par Express.
+  - Les middlewares sont des fonctions qui interviennent dans le cycle de vie des requêtes et des réponses.
+
+6. `tests` (Tests unitaires):
+  - Le dossier `test` est destiné uniquement aux tests unitaires. L'utilisation de test garanti la stabilité et la qualité du code.
+
+
+**Exemple de structure:**
+
+```
+project-root
+|-- src
+|   |-- routes
+|   |-- controllers
+|   |-- models
+|   |-- utils
+|-- public
+|   |-- css
+|   |-- js
+|   |-- images
+|-- views
+|-- config
+|   |-- database.js
+|   |-- env.js
+|-- middlewares
+|   |-- authentication.js
+|   |-- errorHandling.js
+|-- tests
+|-- app.js
+|-- package.json
+|-- README.md
+```
+
+
+En Express.js, il n'existe pas de fonctionnalité intégrée permettant de créer automatiquement une structure de fichiers pour votre application. Cependant, il existe plusieurs outils et générateurs qui peuvent vous aider à initialiser rapidement une structure de projet.
+
+Parmi ces outils, le générateur de projet Express officiel appelé `Express Generator` est très populaire.
+
+1. **Installation d'Express Generator**
+
+```shell
+npm install -g express-generator
+```
+
+2. **Création du projet Express**
+
+```shell
+express nom-du-projet
+```
+
+Cette commande génèrera une structure de fichiers de base pour votre application Express dans un répertoire que vous avez nommé.
+
+Vous pouvez également utiliser des alternatives à Express Generator, comme `Yeoman`, également très populaire.
