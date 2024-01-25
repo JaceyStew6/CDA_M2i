@@ -3,6 +3,9 @@ const app = express();
 const bookRoutes = require("./routes/bookRoutes");
 const path = require('path');
 
+// Connexion à MySQL
+const connection = require("./config/db")
+
 // Utliser le routeur bookRoutes
 app.use("/", bookRoutes);
 
@@ -12,6 +15,10 @@ app.set("views", path.join(__dirname, "views")); // Spécification du répertoir
 // Texte HTML
 app.get("/bienvenue", (req, res) => {
   res.render('index');
+});
+
+app.get("/contact", (req, res) => {
+  res.render('contact');
 });
 
 // Contenu en JSON

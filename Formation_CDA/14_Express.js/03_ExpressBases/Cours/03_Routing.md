@@ -70,9 +70,9 @@ app.listen(port, () => {
 });
 ```
 
-Le routeur a été implémenté grâce au `app.use`, dans ce cas précis, il s'agit d'un routeur principal, il n'a donc pas de nécessité à être préfixé. Si j'avais décidé d'implémenter un routeur spécifique, j'aurai pu préfixer chacune de mes routes. Par exemple, pour un routeur lié aux utilisateurs:
+Le routeur a été implémenté grâce au `app.use`, dans ce cas précis, il s'agit d'un routeur principal, il n'a donc pas de nécessité à être préfixé. Si j'avais décidé d'implémenter un routeur spécifique, j'aurai pu préfixé chacune de mes routes. Par exemple, pour un routeur lié aux utilisateurs:
 ```js
-const userRouter = require("./routes");
+const userRouter = require(./routes);
 app.use('/users', userRouter);
 ```
 
@@ -97,3 +97,58 @@ app.get('/utilisateur/:id/articles/:articleId', (req, res) => {
 })
 ```
 Dans cet exemple, si la requête est faite à l'URL `/utilisateur/123/articles/456`; alors `req.params.id` sera égal à `123` et `req.params.articleId` sera égal à `456`.
+
+## Organisation avancée des routes
+
+Au fur et à mesure de l'avancement de votre projet, le noombre de vos routeurs peut s'accumuler, devenant difficilement lisible. Dans ce genre de cas, le fichier `index.js` dans le dossier `routes` est souvent utilisé pour regrouper et exporter tous les routeurs présents dans le dossier. Cela simplifie l'importation des routeurs dans le fichier principal de l'application (`app.js`).
+Voici comment cela peut être mis en oeuvre:
+
+**Structure du dossier `routes`:**
+```
+- routes
+  - index.js
+  - userRouter.js
+  - productRouter.js
+  - bookRouter.js
+  - movieRouter.js
+```
+
+**Contenu du fichier `routes/index.js`:**
+```js
+const express = require('express');
+const router = express.Router();
+
+const userRouter = require('./userRouter');
+const productRouter = require('./productRouter');
+const bookRouter = require('./bookRouter');
+const movieRouter = require('./movieRouter');
+
+// Utilisation des routeurs spécifiques
+router.use('/users', userRouter);
+router.use('/products', productRouter);
+router.use('/books', bookRouter);
+router.use('/movies', movieRouter);
+
+module.exports = router;
+```
+
+**Utilisation dans le fichier principal (`app.js`)**
+
+```js
+const express = require('express');
+const app = express();
+const allRouters = require('./routes') 
+
+app.use('/', allRouters);
+
+app.listen(3000, () => {
+  console.log('Serveur en écoute sur le port 3000');
+})
+```
+Dans cet exemple, le fichier `routes/index.js` regroupe tous les routeurs spécifiques et les exporte comme un seul routeur (`allRouters`). Cela simplifie l'utilisation dans le fichier principal, où vous pouvez utiliser `app.use('/', allRouters)` pour monter les routeurs sous le préfixe "/".
+
+Maintenant que nous savons classer efficacement nos routes, il est temps de mettre en place la logique interne à celles-ci, c'est à dire **les controllers**.
+
+
+
+
