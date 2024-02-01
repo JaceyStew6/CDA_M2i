@@ -31,6 +31,7 @@
 - List of requirements : cahier des charges
 - Compliance : conformité
 - Shortage : pénurie
+- an outline : un plan
 
 
 ## Email
