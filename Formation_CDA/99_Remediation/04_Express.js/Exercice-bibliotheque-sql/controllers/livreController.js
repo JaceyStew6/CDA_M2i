@@ -13,7 +13,7 @@ const bookController = {
         const { title, author, release_year } = req.body;
         Book.addBook(title, author, release_year, (err, result) => {
             if (err) throw err;
-            res.send(`Livre ${result} ajouté avec succès`);
+            res.send(`Livre ${Book.title} ajouté avec succès`);
         });
     },
 
