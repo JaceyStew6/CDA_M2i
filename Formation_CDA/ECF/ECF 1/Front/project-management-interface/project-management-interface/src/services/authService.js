@@ -22,6 +22,7 @@ class AuthService {
 
     logout() {
         localStorage.removeItem('user');
+        router.push('/')
     }
 
     register(lastname, firstname, username, password) {
