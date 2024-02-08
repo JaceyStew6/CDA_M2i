@@ -44,7 +44,7 @@
 <script setup>
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
-import {useUserStore} from '../stores/auth';
+import { useUserStore } from '../stores/auth';
 
 const email = ref('');
 const password = ref('');
@@ -52,11 +52,11 @@ const router = useRouter();
 const userStore = useUserStore();
 
 const submitForm = async () => {
-  try {
-    userStore.loginUser(email.value, password.value);
-    router.push('/caracteres');
-  } catch (error) {
-    alert(error.message);
-  }
+    try {
+        userStore.loginUser(email.value, password.value);
+        router.push('/caracteres');
+    } catch (error) {
+        alert(error.message);
+    }
 };
 </script>

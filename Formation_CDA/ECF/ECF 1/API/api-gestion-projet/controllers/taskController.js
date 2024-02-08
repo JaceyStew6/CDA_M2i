@@ -45,8 +45,8 @@ exports.updateTaskById = async (req, res) => {
         const decodedToken = jwt.verify(token, "RANDOM_TOKEN_SECRET");
         const user_Id = decodedToken.userId;
         const projects = await Project.findAll( {where: {user_Id: user_Id}});
-        await Task.update({  task_title, task_description, priority, deadline} = req.body, { where: { project_Id: req.params.id, user_Id: user_Id }});
-        const tasks = await Task.findOne({ where: { project_Id: req.params.id, taskId: req.params.id } }); //permet de récupérer les infos complètes du projet modifié
+        await Task.update({ task_title, task_description, priority, deadline} = req.body, { where: {taskId: req.params.idT }});
+        const tasks = await Task.findOne({ where: { project_Id: req.params.id, taskId: req.params.idT } }); //permet de récupérer les infos complètes de la tâche modifiée
         res.json(tasks);
     } catch (error) {
         res
@@ -55,22 +55,24 @@ exports.updateTaskById = async (req, res) => {
     }
 };
 
+//----- NE FONCTIONNE PAS/ CONTINUER ----------------
 //Supprimer un projet par id
 exports.deleteTaskById = async (req, res) => {
     try {
         const token = req.headers.authorization.split(" ")[1];
         const decodedToken = jwt.verify(token, "RANDOM_TOKEN_SECRET");
         const user_Id = decodedToken.userId;
-        const deletedProject = await Project.destroy({ where: { projectId: req.params.id, user_Id: user_Id } });
+        const projects = await Project.findAll( {where: {user_Id: user_Id}});
+        const deletedTask = await Task.destroy({ where: { project_Id: req.params.id, taskId: req.params.idT } });
 
-        if (!deletedProject) {
-            return res.status(404).json("Projet non trouvé")
+        if (!deletedTask) {
+            return res.status(404).json("Tâche non trouvée")
         }
-        res.status(201).json({ message: "Projet supprimé" });
+        res.status(201).json({ message: "Tâche supprimé" });
 
     } catch (error) {
         res
             .status(500)
-            .json({ message: "Erreur lors de la récupération des projets" });
+            .json({ message: "Erreur lors de la récupération des tâches" });
     }
 };
