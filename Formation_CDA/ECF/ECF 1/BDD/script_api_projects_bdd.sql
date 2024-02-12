@@ -13,5 +13,3 @@ FROM projects;
 
 SELECT *
 FROM tasks;
-
-DROP TABLE users;

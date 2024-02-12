@@ -1,7 +1,7 @@
 const Sequelize = require("sequelize");
 
 //Liaison de l'api à la base de données api_projects_bdd
-const sequelize = new Sequelize("api_projects_bdd", "root", "Starbucks@6", {
+const sequelize = new Sequelize("api_projects_bdd", "root", "password", {
     host: "localhost",
     dialect: "mysql",
 });
