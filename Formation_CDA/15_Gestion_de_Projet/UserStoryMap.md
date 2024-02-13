@@ -1,6 +1,6 @@
 Pitch de l'application :
  
-My Entertainment Storage, est une application qui permets à ses utilisateurs de recenser tous les jeux vidéo, de société, films,séries,livres en tous genres en leur possession.
+My Entertainment Storage, est une application qui permet à ses utilisateurs de recenser tous les jeux vidéo, de société, films,séries,livres en tous genres en leur possession.
  
 Version 1 _____
  
@@ -34,7 +34,7 @@ Version 3  ____
  
 2. Je veux pouvoir visualiser les statistiques de ma liste de possesions.
  
-3. Je veux pouvoir obtenir les informations sur ou je pourrais me procurer les articles de ma wishlist
+3. Je veux pouvoir être réorienté vers des sites d'achats pour les biens mis en wishlist et bénéficie de partenariats avantageux (ex: cashback...)
 
 
 
@@ -64,10 +64,35 @@ Recenser leurs articles et avoir une meilleure visibilité sur leurs collections
 - Transférer les articles depuis la wishlist vers la liste des biens possedés correspondant
 - Recevoir des suggestions en fonctions des oeuvres de la liste et de la wishlist
 - Obtenir des statistiques des biens possédés en fonction des catégories
-- Pouvoir être réorienté vers des sites d'achats pour les biens mis en wishlist.
+- Pouvoir être réorienté vers des sites d'achats pour les biens mis en wishlist et créer des partenariats qui donnent des avantages (ex: cashback...)
 
 
 5. PROPOSITION DE VALEUR : ce qui va permettre au produit de se différencier
+
+- Rendre la connexion et le partage possible est un élément différenciant par rapport aux applications du genre existant sur le marché.
+
+- Les liens de redirection vers des sites d'achats sont un élément différenciant par rapport aux applications du genre existant sur le marché, auxquels nous pourrions rajouter des partenariats/avantages en cashback.
+
 6. OBJECTIFS ET MÉTRIQUES : comment mesurer la progression et la réussite ?
+
+- nombre d'utilisateurs après 6 mois d'utilisation : 40 000 - 60 000
+- pourcentage d'utilisation des catégories pour l'ensemble des utilisateurs afin d'en retirer des métriques permettant d'optimiser notre application.
+- après V3: 
+    - accroissement du nombre de partenariats
+    - nombre de liens générés pour la vente via partenariats en 2 mois : 2 500 - 5 000
+
 7. PHRASE DE CLIENT : on se met à la place du client en proposant des phrases types
+
+- C'est bien, on peut mettre plein de détails
+- C'est laborieux de tout renseigner manuellement
+- C'est cool, je peux retrouver facilement une oeuvre grâce à une barre de recherche
+- J'aime bien avoir les stats de mes possessions (genres, auteurs, %age de progression)
+- J'aime le fait de pouvoir avoir une liste partagée avec ma famille
+- C'est dommage de ne pas pouvoir ajouter des notes personnelles sur les biens possédés et dans ma wishlist
+
 8. ÉNONCÉ FINAL DE LA VISION PRODUIT : une ou deux phrases inspirantes à communiquer à l ’équipe
+
+Aidons les gens à agencer et organiser leur esprit et leurs armoires.
+Rendons le divertissement plus accessible et organisé pour en tirer le meilleur.
+
+Entertainment is great, entertainment is beautiful, but it's even better when it's organized.
