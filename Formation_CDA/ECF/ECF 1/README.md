@@ -1,4 +1,8 @@
 <!-- PROJECT SHIELDS -->
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3c82adb2fb39d4d5759a76dd2b36c6afa23b33c3
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
 <!-- PROJECT LOGO -->
@@ -26,6 +30,11 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
+<<<<<<< HEAD
+=======
+    <li><a href="#api-doc">API Doc</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+>>>>>>> 3c82adb2fb39d4d5759a76dd2b36c6afa23b33c3
     <li><a href="#contact">Contact</a></li>
   </ol>
 </details>
@@ -132,6 +141,234 @@ npm run dev
 npm run build
 ```
 
+<<<<<<< HEAD
+=======
+
+## API Doc
+
+Wrote with apiary.io 
+[APIDoc](https://projectmanagementapi4.docs.apiary.io/)
+
+FORMAT: 1A  
+HOST: https://localhost:3000/api
+
+
+## Authentication Collection [/auth]
+
+### Create a new user (signup) [POST/auth/signup]
+
++ Request (application/json)
+
+        ``{
+            "lastname": "Doe",
+            "firstname": "Jane",
+            "username": "JDoe",
+            "password": "azerty"
+        }``
+
++ Response 201 (application/json)
+
+        {
+            "message": "User added !"
+        }
+
+
+### Log In [POST/auth/login]
+
++ Request (application/json)
+
+        {
+            "username": "JDoe",
+            "password": "azerty"
+        }
+
++ Response 200
+
+        {
+          "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTcwNzQ3NzI5NCwiZXhwIjoxNzA3NTYzNjk0fQ.jyWoa2eP0ieyimvGV81BpNz1lS8LC1D4b0KdFM8HMXk"
+        }
+
+
+## Project Collection [/project]
+
+For each new request, open the Auth category and add your user token in the bearer field.
+
+### Create a new project [POST/project/create]
+
++ Request (application/json)
+
+        {
+            "project_name": "My first project",
+            "project_description": "Something new to do"
+        }
+
++ Response 201 (application/json)
+
+        {
+          "projectId": 1,
+          "project_name": "My first project",
+          "project_description": "Something new to do",
+          "user_Id": 1,
+          "updatedAt": "2024-02-09T11:17:09.383Z",
+          "createdAt": "2024-02-09T11:17:09.383Z"
+        }
+
+### Get all projects [GET/project/]
+
++ Response 200
+
+        [
+          {
+            "projectId": 1,
+            "project_name": "My first project",
+            "project_description": "Something new to do",
+            "user_Id": 1,
+            "createdAt": "2024-02-09T11:17:09.000Z",
+            "updatedAt": "2024-02-09T11:17:09.000Z"
+          },
+          {
+            "projectId": 2,
+            "project_name": "My second project",
+            "project_description": "Something else to do",
+            "user_Id": 1,
+            "createdAt": "2024-02-09T11:26:55.000Z",
+            "updatedAt": "2024-02-09T11:26:55.000Z"
+          }
+        ]
+
+### Update project by id [PUT/project/create/2]
+
++ Request (application/json)
+
+        {
+            "project_name": "My second project",
+            "project_description": "New description"
+        }
+
++ Response 200 (application/json)
+
+        {
+          "projectId": 2,
+          "project_name": "My second project",
+          "project_description": "New description",
+          "user_Id": 1,
+          "createdAt": "2024-02-09T11:26:55.000Z",
+          "updatedAt": "2024-02-09T11:28:10.000Z"
+        }
+
+### Delete project by id [DELETE/project/delete/1]
+
++ Response 201 (application/json)
+
+        {
+          "message": "Project deleted"
+        }
+
+
+## Task Collection [/task]
+
+For each new request, open the Auth category and add your user token in the bearer field.
+
+### Create a new task [POST/task/create/2]
+
++ Request (application/json)
+
+        {
+            "task_title": "First task",
+            "task_description": "First task description",
+            "priority": "urgent"
+        }
+
++ Response 201 (application/json)
+
+        {
+          "message": "Task created"
+        }
+
+### Get all tasks [GET/task/2]
+Get all tasks related to project_Id 2
+
++ Response 200
+
+        [
+          {
+            "taskId": 1,
+            "task_title": "First task",
+            "task_description": "First task description",
+            "priority": "urgent",
+            "deadline": null,
+            "project_Id": 2,
+            "createdAt": "2024-02-09T11:35:49.000Z",
+            "updatedAt": "2024-02-09T11:41:16.000Z"
+          },
+          {
+            "taskId": 2,
+            "task_title": "Second task",
+            "task_description": "Second task description",
+            "priority": "urgent",
+            "deadline": null,
+            "project_Id": 2,
+            "createdAt": "2024-02-09T11:42:49.000Z",
+            "updatedAt": "2024-02-09T11:42:49.000Z"
+          }
+        ]
+
+### Update task by id [PUT/task/update/2/1]
+Update task 1 related to project_Id 2
+
++ Request (application/json)
+
+        {
+            "priority": "none"
+        }
+
++ Response 200 (application/json)
+
+        {
+          "taskId": 1,
+          "task_title": "First task",
+          "task_description": "First task description",
+          "priority": "none",
+          "deadline": null,
+          "project_Id": 2,
+          "createdAt": "2024-02-09T11:35:49.000Z",
+          "updatedAt": "2024-02-09T11:41:16.000Z"
+        }
+
+### Delete project by id [DELETE/task/delete/2/2]
+Delete task 2 related to project_Id 2
+
++ Response 201 (application/json)
+
+        {
+          "message": "Task deleted"
+        }
+
+<!-- ROADMAP -->
+## Roadmap
+
+- [x] Conception
+  - [x] UML Diagram (Use Case, Class Diagram)
+  - [x] Logical Data Model (LDM)
+- [x] Create SQL database (MySQL Workbench)
+- [x] API development
+  - [x] Authentication Model
+  - [x] Authentication Controller
+  - [x] Authentication Routes
+  - [x] Project Model
+  - [x] Project Controller
+  - [x] Project Routes
+  - [x] Task Model
+  - [x] Task Controller
+  - [x] Task Routes
+- [] Frontend interface
+  - [x] Authentication Service
+  - [x] SignUp and Login View
+  - [ ] Project Store (create, get, update and delete projects and tasks)
+  - [ ] Project & task Views
+
+
+>>>>>>> 3c82adb2fb39d4d5759a76dd2b36c6afa23b33c3
 ## Contact
 
 Project Link: [https://github.com/JaceyStew6/Project-Management-Application.git](https://github.com/JaceyStew6/Project-Management-Application.git)
@@ -143,7 +380,11 @@ Project Link: [https://github.com/JaceyStew6/Project-Management-Application.git]
 <!-- MARKDOWN LINKS & IMAGES -->
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/p-roxane/
+<<<<<<< HEAD
 [interface-screenshot]: ./Documentation%20projet/Captures%20d'ecran/Auth-view.png
+=======
+[interface-screenshot]: ./Documentation%20projet/Auth-view.png
+>>>>>>> 3c82adb2fb39d4d5759a76dd2b36c6afa23b33c3
 <!-- front-end links -->
 [Vue.js]: https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D
 [Vue-url]: https://vuejs.org/
