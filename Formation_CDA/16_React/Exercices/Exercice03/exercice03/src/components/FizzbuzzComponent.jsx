@@ -32,8 +32,8 @@ const FizzbuzzComponent = () => {
         <div>
 
             <p>Nombre actuel: {number}</p>
-            <button disabled={number == 0} onClick={decreaseNumber}>Moins</button>
-            <button disabled={number == 100} onClick={increaseNumber}>Plus</button>
+            <button disabled={number <= 0} onClick={decreaseNumber}>-</button>
+            <button disabled={number >= 100} onClick={increaseNumber}>+</button>
             <p>{fizzOrBuzz(number)}</p>
             <br />
             <div className={classes.helper}>
