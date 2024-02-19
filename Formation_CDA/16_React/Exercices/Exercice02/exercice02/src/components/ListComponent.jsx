@@ -1,6 +1,6 @@
 import React from 'react';
 
-const RepertoireComponent = () => {
+const ListComponent = () => {
 
     const personArray = [
         { name: "Black", firstname: "Max" },
@@ -29,5 +29,4 @@ const RepertoireComponent = () => {
         </div>
     );
 }
-
-export default RepertoireComponent;
+export default ListComponent;
