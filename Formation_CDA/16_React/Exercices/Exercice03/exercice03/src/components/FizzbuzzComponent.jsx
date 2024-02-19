@@ -7,15 +7,17 @@ const FizzbuzzComponent = () => {
 
     const [number, setNumber] = useState(0)
 
+    //Fonction permettant d'incrémenter de 1
     const increaseNumber = () => {
         setNumber(number + 1)
     }
 
+    //Fonction permettant de décrémenter de 1
     const decreaseNumber = () => {
         setNumber(number - 1)
     }
 
-
+    //Fonction permettant de vérifier si un nombre est un multiple de 3, 5 ou les deux et d'afficher un résultat en conséquence
     function fizzOrBuzz(number) {
         if (number % 3 === 0 && number % 5 === 0 && number != 0) {
             return "FizzBuzz";
@@ -23,18 +25,16 @@ const FizzbuzzComponent = () => {
             return "Fizz";
         } else if (number % 5 === 0 && number != 0) {
             return "Buzz";
-        } else {
-            return number;
         }
-
     }
 
     return (
         <div>
-            <p>{fizzOrBuzz(number)}</p>
+
+            <p>Nombre actuel: {number}</p>
             <button disabled={number == 0} onClick={decreaseNumber}>Moins</button>
             <button disabled={number == 100} onClick={increaseNumber}>Plus</button>
-            <p>Nombre actuel: {number}</p>
+            <p>{fizzOrBuzz(number)}</p>
             <br />
             <div className={classes.helper}>
                 <p>Fizz si multiple de 3</p>
