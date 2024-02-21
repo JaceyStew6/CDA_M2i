@@ -10,7 +10,7 @@ const TaskComponent = (props) => {
     //Fonction de suppression d'une tâche via récupération d'index
     const deleteByIndex = index => {
         setTodos(oldValues => {
-            return oldValues.filter((_, i) => i !== index) //met à jour la liste de tâches en retirant l'élément à l'index indiqué
+            return oldValues.filter((_, i) => i !== index) //on garde tous les éléments qui ne correspondent pas à l'index à supprimer
         })
     }
 
