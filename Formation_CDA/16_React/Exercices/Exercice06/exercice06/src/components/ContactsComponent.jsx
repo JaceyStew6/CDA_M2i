@@ -1,10 +1,10 @@
 import React from 'react';
 
 const ContactsComponent = (props) => {
-    const {contacts} = props
+    const { contacts } = props
 
     return (
-<div>
+        <div>
             <table class="table table-striped table-dark">
                 <thead>
                     <tr>
@@ -15,12 +15,12 @@ const ContactsComponent = (props) => {
                     </tr>
                 </thead>
                 <tbody>
-                        {contacts.map((contact, index) => <tr key={index}>
-                            <td>{index+1}</td>
-                            <td>{contact.lastname}</td>
-                            <td>{contact.firstname}</td>
-                            <td>{contact.phoneNumber}</td>
-                        </tr>)}
+                    {contacts.map((contact, index) => <tr key={index}>
+                        <td>{index + 1}</td>
+                        <td>{contact.lastname}</td>
+                        <td>{contact.firstname}</td>
+                        <td>{contact.phoneNumber}</td>
+                    </tr>)}
                 </tbody>
             </table>
         </div>
