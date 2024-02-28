@@ -17,11 +17,13 @@ Le but de cet exercice est de créer une application React qui utilise l'API RES
 
 ### Affichage des données :
   - Une fois les données chargées, parcourez le tableau des pays et affichez :
-    - Le nom du pays en **français**.
+    - Le nom du pay en **français**.
     - La capitale
     - la région
     - le drapeau en png
-    - la population
+    - la population (nombre)
 
 ### Fonctionnalité :
   - Ajoutez la fonctionnalité de recherche pour permettre aux utilisateurs de rechercher des pays par leur nom.
+
+  npm create vite@latest
