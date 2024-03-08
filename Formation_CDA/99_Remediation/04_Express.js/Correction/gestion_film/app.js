@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const movieRoutes = require("./routes/movieRoutes");
 
 const app = express();
-const port = 3000;
+const port = 7777;
 
 mongoose.connect("mongodb://localhost:27017/cinema", {
   useNewUrlParser: true,
