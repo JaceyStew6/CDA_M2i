@@ -46,7 +46,7 @@ export default function listCourses() {
                 keyExtractor={(item, index) => {
                     return index;
                 }}
-
+                ListEmptyComponent={() => <Text>Aucun article dans la liste</Text>}
             />
             <View style={styles.button}>
                 <Button title='Ajouter article' onPress={getModal} />

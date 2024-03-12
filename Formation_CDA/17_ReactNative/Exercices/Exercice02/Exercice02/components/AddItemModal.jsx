@@ -6,10 +6,11 @@ export default function AddItemModal(props) {
     return (
         <Modal visible={props.visible}>
             <View>
-                <Image 
-                style={styles.myImage}
-                source={{uri: 'https://worldartfoundations.com/wp-content/uploads/2023/06/shopping-cart-icon-512x462-yrde1eu0.png'}}/>
-                <TextInput onChangeText={text => props.setInputValue(text)} style={styles.inputStyle}/>
+                <Image
+                    style={styles.myImage}
+                    source={{ uri: 'https://worldartfoundations.com/wp-content/uploads/2023/06/shopping-cart-icon-512x462-yrde1eu0.png' }}
+                    resizeMode='contain' />
+                <TextInput onChangeText={text => props.setInputValue(text)} style={styles.inputStyle} placeholder='Saisir un article' />
                 <View style={styles.button}>
                     <Button title='Ajouter article' onPress={props.addCourse} />
                     <Button title='Annuler' onPress={props.closeModal} />

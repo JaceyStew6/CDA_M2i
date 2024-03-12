@@ -12,6 +12,8 @@ export default function SecondDemo() {
     setTextInput(enteredText)
   }
 
+  
+
   const tab = [
     { text: "toto", id: 1},
     { text: "tata", id: 2},
