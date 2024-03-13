@@ -7,7 +7,7 @@ export default function Boutons(props) {
     const textStyle = props.primaryText ? styles.primaryText : styles.secondaryText;
 
     return (
-        <Pressable onPress={props.onPress} style={({pressed})=> pressed && styles.pressedButton}>
+        <Pressable onPress={props.onPress} style={({pressed}) => pressed && styles.pressedButton}>
             <View style={buttonStyle}>
                 <Text style={textStyle}>{props.text}</Text>
             </View>

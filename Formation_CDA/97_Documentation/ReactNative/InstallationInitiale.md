@@ -47,10 +47,10 @@ Android Device Manager => Tools/Device Manager
 *L'émulateur prend 10 Go d'espace disque.*  
 *Avoir à minima 4 Go de RAM*
 
+Dans la configuration d'Android Studio, `Android Virtual Device` doit être coché.
+
 Il faut vérifier la présence des variables d'environnement Windows.  
 On doit avoir `JAVA_HOME` et `ANDROID_HOME` (cette dernière est à installer manuellement).
-
-Dans la configuration d'Android Studio, `Android Virtual Device` doit être coché.
 
 ## Créer et configuer un Virtual Device Manager (dans Android Studio)
 

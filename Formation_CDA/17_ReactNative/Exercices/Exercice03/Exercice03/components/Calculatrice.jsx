@@ -1,70 +1,86 @@
 import { StyleSheet, Text, View } from 'react-native'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Boutons from './Boutons'
 
 export default function Calculatrice() {
 
-    //Display value of the calculator
-    const [display, setDisplay] = useState(0);
     //Value of the first number
-    const [firstNumber, setFirstNumber] = useState();
+    const [currentValue, setCurrentValue] = useState(0);
     //Value of the second number
-    const [secondNumber, setSecondNumber] = useState();
+    const [savedValue, setSavedValue] = useState(0);
     //Value of the operator
     const [operator, setOperator] = useState(null);
     //Value of the result
-    const [result, setResult] = useState(null);
+    const [result, setResult] = useState(0);
+    
 
+    //Fonctionnel (mais pas encore pour les nombres à virgule, ni pour les opérations successives)
     const handleNumberPressed = (number) => {
-        if (display === 0) {
-            setDisplay(number.toString());
-        } else {
-            setDisplay(display + number);
+        if (currentValue != 0) {
+            setCurrentValue(currentValue + number.toString());
+        }
+        // else if (operator === '.') {
+        //     setCurrentValue(currentValue.toString() + '.' + number.toString());
+        // } 
+        else {
+            setCurrentValue(number.toString());
         }
     }
 
+    //Fonctionnel (mais pas encore pour les nombres à virgule, ni pour les opérations successives)
     const handleOperatorPressed = (operator) => {
-        setOperator(operator);
-        setFirstNumber(display);
-        setDisplay(0);
+        //Fonctionnel
+        if (operator === 'Del') {
+            setCurrentValue(currentValue.slice(0, -1));
+        } 
+        // else if (savedValue != '' && currentValue != 0) {
+        //     setOperator(operator);
+        //     setSavedValue(result);
+        //     setCurrentValue(0);
+        // } 
+        else{
+            setOperator(operator);
+            setSavedValue(currentValue);
+            setCurrentValue(0);
+        }
     }
 
+    //Fonctionnel
     const handleClear = () => {
-        setDisplay(0);
+        setResult(0);
         setOperator(null);
-        setFirstNumber('');
+        setCurrentValue('');
+        setSavedValue('');
     };
 
 
+    //Fonctionnel
     const handleResult = () => {
-        setSecondNumber(display);
         if (operator === '+') {
-            setResult(parseFloat(firstNumber) + parseFloat(secondNumber));
+            setResult(parseFloat(savedValue) + parseFloat(currentValue));
         } else if (operator === '-') {
-            setResult(parseFloat(firstNumber) - parseFloat(secondNumber));
+            setResult(parseFloat(savedValue) - parseFloat(currentValue));
         } else if (operator === 'X') {
-            setResult(parseFloat(firstNumber) * parseFloat(secondNumber));
+            setResult(parseFloat(savedValue) * parseFloat(currentValue));
         } else if (operator === '/') {
-            setResult(parseFloat(firstNumber) / parseFloat(secondNumber));
+            setResult(parseFloat(savedValue) / parseFloat(currentValue));
         } else if (operator === '%') {
-            setResult(parseFloat(firstNumber) % parseFloat(secondNumber));
+            setResult(parseFloat(savedValue) % parseFloat(currentValue));
         } else if (operator === '^') {
-            setResult(parseFloat(firstNumber) ** parseFloat(secondNumber));
+            setResult(parseFloat(savedValue) ** parseFloat(currentValue));
         }
-        setDisplay(result);
+        setCurrentValue(result);
     }
-
-
-
-
-
 
 
     return (
         <View style={styles.container}>
             <Text style={styles.title}>Calculatrice</Text>
-            <View>
-                <Text style={styles.displayStyle}>{display}</Text>
+            <View style={styles.row}>
+                {/* <Text style={styles.displayStyle}>{display}</Text> */}
+                <Text style={styles.displayStyle}>C:{currentValue}</Text>
+                <Text style={styles.displayStyle}>S:{savedValue}</Text>
+                <Text style={styles.displayStyle}>R:{result}</Text>
             </View>
 
 
@@ -75,26 +91,26 @@ export default function Calculatrice() {
                 <Boutons primary={false} primaryText={false} text="/" onPress={() => handleOperatorPressed('/')} />
             </View>
             <View style={styles.row}>
-                <Boutons primary={true} primaryText={true} text="7" onPress={() => handleNumberPressed('7')} />
-                <Boutons primary={true} primaryText={true} text="8" onPress={() => handleNumberPressed('8')} />
-                <Boutons primary={true} primaryText={true} text="9" onPress={() => handleNumberPressed('9')} />
+                <Boutons primary={true} primaryText={true} text="7" onPress={() => handleNumberPressed(7)} />
+                <Boutons primary={true} primaryText={true} text="8" onPress={() => handleNumberPressed(8)} />
+                <Boutons primary={true} primaryText={true} text="9" onPress={() => handleNumberPressed(9)} />
                 <Boutons primary={false} primaryText={false} text="X" onPress={() => handleOperatorPressed('X')} />
             </View>
             <View style={styles.row}>
-                <Boutons primary={true} primaryText={true} text="4" onPress={() => handleNumberPressed('4')} />
-                <Boutons primary={true} primaryText={true} text="5" onPress={() => handleNumberPressed('5')} />
-                <Boutons primary={true} primaryText={true} text="6" onPress={() => handleNumberPressed('6')} />
+                <Boutons primary={true} primaryText={true} text="4" onPress={() => handleNumberPressed(4)} />
+                <Boutons primary={true} primaryText={true} text="5" onPress={() => handleNumberPressed(5)} />
+                <Boutons primary={true} primaryText={true} text="6" onPress={() => handleNumberPressed(6)} />
                 <Boutons primary={false} primaryText={false} text="-" onPress={() => handleOperatorPressed('-')} />
             </View>
             <View style={styles.row}>
-                <Boutons primary={true} primaryText={true} text="1" onPress={() => handleNumberPressed('1')} />
-                <Boutons primary={true} primaryText={true} text="2" onPress={() => handleNumberPressed('2')} />
-                <Boutons primary={true} primaryText={true} text="3" onPress={() => handleNumberPressed('3')} />
+                <Boutons primary={true} primaryText={true} text="1" onPress={() => handleNumberPressed(1)} />
+                <Boutons primary={true} primaryText={true} text="2" onPress={() => handleNumberPressed(2)} />
+                <Boutons primary={true} primaryText={true} text="3" onPress={() => handleNumberPressed(3)} />
                 <Boutons primary={false} primaryText={false} text="+" onPress={() => handleOperatorPressed('+')} />
             </View>
             <View style={styles.row}>
                 <Boutons primary={true} primaryText={true} text="." onPress={() => handleOperatorPressed('.')} />
-                <Boutons primary={true} primaryText={true} text="0" onPress={() => handleNumberPressed('0')} />
+                <Boutons primary={true} primaryText={true} text="0" onPress={() => handleNumberPressed(0)} />
                 <Boutons primary={true} primaryText={true} text="Del" onPress={() => handleOperatorPressed('Del')} />
                 <Boutons primary={false} primaryText={false} text="=" onPress={() => handleResult()} />
             </View>
