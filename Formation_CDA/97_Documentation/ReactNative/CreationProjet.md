@@ -22,7 +22,7 @@ En passant par cette commande, on peut directement ouvrir le projet sur l'émula
 npm install @react-navigation/native
 ```
 
-La commande suivante installera deux dépendances. Elle est recommandée pour un projet fonctionnant sous Expo.
+La commande suivante installera deux dépendances. Elle est recommandée pour un projet fonctionnant sous Expo mais est aussi à installer pour un projet en CLI.
 ```bash
 npm install react-native-screens react-native-safe-area-context
 ```
