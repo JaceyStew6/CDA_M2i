@@ -29,6 +29,13 @@ export default function Calculatrice() {
         setDisplay(0);
     }
 
+    const handleClear = () => {
+        setDisplay(0);
+        setOperator(null);
+        setFirstNumber('');
+    };
+
+
     const handleResult = () => {
         setSecondNumber(display);
         if (operator === '+') {
@@ -62,7 +69,7 @@ export default function Calculatrice() {
 
 
             <View style={styles.row}>
-                <Boutons primary={false} primaryText={false} text="AC" onPress={() => handleOperatorPressed('AC')} />
+                <Boutons primary={false} primaryText={false} text="AC" onPress={() => handleClear()} />
                 <Boutons primary={false} primaryText={false} text="^" onPress={() => handleOperatorPressed('^')} />
                 <Boutons primary={false} primaryText={false} text="%" onPress={() => handleOperatorPressed('%')} />
                 <Boutons primary={false} primaryText={false} text="/" onPress={() => handleOperatorPressed('/')} />
@@ -89,7 +96,7 @@ export default function Calculatrice() {
                 <Boutons primary={true} primaryText={true} text="." onPress={() => handleOperatorPressed('.')} />
                 <Boutons primary={true} primaryText={true} text="0" onPress={() => handleNumberPressed('0')} />
                 <Boutons primary={true} primaryText={true} text="Del" onPress={() => handleOperatorPressed('Del')} />
-                <Boutons primary={false} primaryText={false} text="=" onPress={() => handleOperatorPressed('=')} />
+                <Boutons primary={false} primaryText={false} text="=" onPress={() => handleResult()} />
             </View>
         </View>
     )
