@@ -14,14 +14,26 @@ Avant de lancer le projet, démarrer l'émulateur.
 npx react-native run-android
 ```
 
-En passant par cette commande, on peut directement ouvrir le projet sur l'émulateur et obtenir le terminal de metro en dehors de l'IDE.
+En passant par cette commande, on peut directement ouvrir le projet sur l'émulateur et obtenir le terminal de metro.
 
-On a également l'option suivante qui va ouvrir l'application sur l'émulateur pui afficher le terminal de metro directement dans le terminal de l'IDE.
+## La navigation 
 
 ```bash
-npm start
+npm install @react-navigation/native
 ```
 
 ```bash
-npm run android
+npm install react-native-screens react-native-safe-area-context
 ```
+Cette commande là installera deux dépendances.
+
+Ensuite nous englobons (wrapping) nos différents écrans (screens) dans un composant `NavigationContainer`.
+
+Pour fonctionner, le `NavigationContainer` a besoin de la méthode `createNativeStackNavigator` qui va nous fournir 2 propriétés:
+- `Navigator`
+- `Screen`
+
+
+Le composant `NavigationContainer` doit tout englober pour que notre App fonctionne.  
+
+*Voir le cours p26 pour la structure.*

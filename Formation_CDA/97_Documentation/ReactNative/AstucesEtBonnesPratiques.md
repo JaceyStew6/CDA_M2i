@@ -7,13 +7,13 @@
 <View>
     <FlatList
         data={tab} //où est-ce qu'on récupère
-        renderItem={(itemData) => { //Comment est-ce qu'on rend
+        renderItem=(itemData) => { //Comment est-ce qu'on rend
             return(
                 <View>
                     <Text>{itemData.item.text} {itemData.item.id}</Text>
                 </View>
             )
-        }}
+        }
         keyExtractor={(item, index) => {
             return index;
         }}
@@ -26,3 +26,7 @@ On récupère ici les données d'un tableau `tab` qu'on a déclaré au préalabl
 
 
 - Déclarer les states (`useState()`) tout en haut (juste après l'export) fait partie des bonnes pratiques.
+
+### Async Storage
+
+C'est comme le Local Storage, mais pour la partie mobile. C'est un espace mémoire dans lequel on met les données brutes, qui peuvent par exxemple conserver les préférences de l'utilisateur...
