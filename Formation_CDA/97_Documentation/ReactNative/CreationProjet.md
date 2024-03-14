@@ -32,6 +32,16 @@ npm install react-native-screens react-native-safe-area-context
 npm i @react-navigation/native-stack
 ```
 
+Pour installer les dépendances nécessaires à la mise en place d'une barre de navigation en pied de page.
+```bash
+npm i @react-navigation/bottom-tabs
+```
+
+Pour utiliser des icones
+```bash
+npm install react-native-vector-icons
+```
+
 ### Structure du NavigatorContainer
 
 Ensuite nous englobons (wrapping) nos différents écrans (screens) dans un composant `NavigationContainer`.
@@ -95,3 +105,19 @@ Type         |                Description                                       
 
 
 [Documentation Linking](https://reactnative.dev/docs/linking)
+
+
+## Utiliser des icones
+
+Aller dans le fichier suivant: 
+
+`android > app > src > build.gradle`
+
+Ajouter la ligne suivante dans le fichier `build.gradle`
+
+```gradle
+apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
+```
+Cette ligne permet au build de gradle (gestionnaire de projet) d'aller utiliser un module qui vient de l'extérieur.
+
+**/!\ ATTENTION: faire cette manipulation quand l'appli est arrêtée.**

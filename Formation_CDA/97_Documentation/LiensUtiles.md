@@ -7,11 +7,6 @@
 * [![CSS][CSS.dev]][CSS-url]
 * [![Bootstrap][Bootstrap.com]][Bootstrap-url]
 
-### Outils
-* [![FontAwsome]][FontAwsome-url]
-* [![GoogleFont]][GoogleFont-url]
-* [![SimpleIcons]][SimpleIcons-url]
-
 
 ## Front-end: Langages, Frameworks et Outils
 ### Langages
@@ -65,6 +60,9 @@
 * [![Postman]][Postman-url]
 * [![Thunderclient]][Thunderclient-url]
 
+#### Rédaction documentation API
+* [![Apiary]][Apiary-url]
+
 
 ## Conception
 ### UX/UI
@@ -76,6 +74,27 @@
 * [![DrawIO]][DrawIO-url]
 
 
+### Outils de conception
+
+#### Icônes
+
+* [![FontAwsome]][FontAwsome-url]
+* [![SimpleIcons]][SimpleIcons-url]
+* [![AntDesign]][AntDesign-url]
+* [![Oblador]][Oblador-url]
+
+
+#### Palettes
+
+* [![Toptal]][Toptal-url]
+* [![ColorHunt]][ColorHunt-url]
+* [![ColorDot]][ColorDot-url]
+* [![HTMLColorCode]][HTMLColorCode-url]
+
+
+#### Polices
+
+* [![GoogleFont]][GoogleFont-url]
 
 ## Outils divers
 
@@ -156,6 +175,9 @@
 [Thunderclient]: https://img.shields.io/badge/ThunderClient-ED8B00?style=for-the-badge&logo=thunderstore&logoColor=white&color=%235B69C2
 [Thunderclient-url]: https://www.thunderclient.com/
 
+[Apiary]: https://img.shields.io/badge/Apiary-2FACA0?style=for-the-badge&logo=htmx&logoColor=white
+[Apiary-url]: https://apiary.io/
+
 
 <!-- conception links -->
 [AdobeXD]: https://img.shields.io/badge/Adobe%20XD-470137?style=for-the-badge&logo=Adobe%20XD&logoColor=#FF61F6
@@ -166,6 +188,25 @@
 [StarUML-url]: https://staruml.io/
 [DrawIO]: https://img.shields.io/badge/Draw.io-ED8B00?style=for-the-badge&logo=diagramsdotnet&logoColor=white&color=%23F08705
 [DrawIO-url]: https://app.diagrams.net/
+
+[Toptal]: https://img.shields.io/badge/Toptal-3863A0?style=for-the-badge&logo=toptal&logoColor=white
+[Toptal-url]: https://www.toptal.com/designers/colourcode/monochrome-color-builder
+
+[AntDesign]: https://img.shields.io/badge/Ant_Design-0170FE?style=for-the-badge&logo=antdesign&logoColor=white
+[AntDesign-url]: https://ant.design/components/icon
+
+[Oblador]: https://img.shields.io/badge/Oblador-DBB00D?style=for-the-badge&logo=htmx&logoColor=white
+[Oblador-url]: https://oblador.github.io/react-native-vector-icons/
+
+
+[ColorHunt]:  https://img.shields.io/badge/Color_Hunt-DBB00D?style=for-the-badge&logo=htmx&logoColor=white
+[ColorHunt-url]: https://www.colorhunt.co/
+
+[ColorDot]:  https://img.shields.io/badge/Color_Dot-91C413?style=for-the-badge&logo=htmx&logoColor=white
+[ColorDot-url]: https://color.hailpixel.com/
+
+[HTMLColorCode]:  https://img.shields.io/badge/HTML_Color_Code-C41313?style=for-the-badge&logo=htmx&logoColor=white
+[HTMLColorCode-url]: https://htmlcolorcodes.com/fr/selecteur-de-couleur/
 
 <!-- other tools -->
 [Codepen]: https://img.shields.io/badge/Codepen-000000?style=for-the-badge&logo=codepen&logoColor=white
