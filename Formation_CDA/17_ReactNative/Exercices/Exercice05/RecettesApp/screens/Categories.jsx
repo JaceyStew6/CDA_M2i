@@ -38,6 +38,10 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         width: 200,
         height: 200,
+        shadowColor: 'grey',
+        shadowOpacity: 0.26,
+        shadowRadius: 10,
+        elevation: 3,
     },
     textCategories: {
         fontSize: 25,
