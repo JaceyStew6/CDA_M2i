@@ -42,6 +42,6 @@ const styles = StyleSheet.create({
     textCategories: {
         fontSize: 25,
         fontWeight: 'bold',
-        color: 'white',
+        // color: 'white',
     }
 })

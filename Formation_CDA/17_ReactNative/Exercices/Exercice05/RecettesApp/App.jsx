@@ -14,8 +14,8 @@ export default function App() {
         <NavigationContainer>
             <Stack.Navigator>
                 <Stack.Screen name="Categories" component={Categories} options={{title: 'All Categories'}}/>
-                <Stack.Screen name="RecipesList" component={RecipesList} />
-                <Stack.Screen name="RecipesDetails" component={RecipesDetails} />
+                <Stack.Screen name="RecipesList" component={RecipesList} options={{title: 'Meals Overview'}}/>
+                <Stack.Screen name="RecipesDetails" component={RecipesDetails} options={{title: 'About the Meal'}}/>
             </Stack.Navigator>
         </NavigationContainer>
     )
