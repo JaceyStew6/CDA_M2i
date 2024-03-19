@@ -19,7 +19,7 @@ export default function ContactDetailScreen({ navigation, route }) {
 
     //On utilise useLayoutEffect pour changer le titre de la page en utilisant les paramètres passés dans le navigate
     useLayoutEffect(() => {
-        navigation.setOptions({ title: `${contact.name} ${contact.username}` })
+        navigation.setOptions({ title: `${contact.name}` })
     }
         , [])
 
