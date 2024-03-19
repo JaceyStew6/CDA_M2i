@@ -1,8 +1,11 @@
-import { StyleSheet, Text, View, Image, FlatList, ScrollView } from 'react-native'
-import React from 'react'
+import { StyleSheet, Text, View, Image, ScrollView, TouchableHighlight, Button, FlatList } from 'react-native'
+import React, { useState } from 'react'
+import Categories from './Categories';
 
 export default function RecipesDetails({ navigation, route }) {
     const meal = route.params.meal;
+
+
     return (
         <ScrollView style={styles.container}>
             <Image
@@ -18,12 +21,18 @@ export default function RecipesDetails({ navigation, route }) {
                         <Text style={styles.textDesc}>{meal.complexity.toUpperCase()}</Text>
                         <Text style={styles.textDesc}>{meal.affordability.toUpperCase()}</Text>
                     </View>
+                    {/* Ajout du bouton Favoris - Non fonctionnel */}
+                    {/* <Button title="Favoris" onPress={() => addFavorite(meal)}></Button> */}
                 </View>
 
                 {/* Liste des ingrédients */}
                 <View style={styles.descriptionContainer}>
                     <Text style={styles.descriptionTitle}>Ingredients</Text>
                     <View style={styles.separator}></View>
+
+
+                    {/* Méthode avec FlatList à ne pas favoriser si on stocke une Flatlist qui est scrollable dans un autre élément scrollable avec la ScrollView. 
+                    Il peut donc y avoir des conflits. Pour éviter cela, on a deux solutions: passer par un .map ou désactiver le côté scrollable de la FlatList */}
                     <FlatList
                         data={meal.ingredients}
                         renderItem={(itemData) => {
@@ -34,6 +43,7 @@ export default function RecipesDetails({ navigation, route }) {
                             )
                         }}
                         keyExtractor={(item, index) => index}
+                        scrollEnabled={false}
                     />
                 </View>
 
@@ -42,6 +52,9 @@ export default function RecipesDetails({ navigation, route }) {
                     <Text style={styles.descriptionTitle}>Steps</Text>
                     <View style={styles.separator}></View>
 
+
+                    {/* Méthode avec FlatList à ne pas favoriser si on stocke une Flatlist qui est scrollable dans un autre élément scrollable avec la ScrollView. 
+                    Il peut donc y avoir des conflits. Pour éviter cela, on a deux solutions: passer par un .map ou désactiver le côté scrollable de la FlatList */}
                     <FlatList
                         data={meal.steps}
                         renderItem={(itemData) => {
@@ -52,6 +65,7 @@ export default function RecipesDetails({ navigation, route }) {
                             )
                         }}
                         keyExtractor={(item, index) => index}
+                        scrollEnabled={false}
                     />
                 </View>
 

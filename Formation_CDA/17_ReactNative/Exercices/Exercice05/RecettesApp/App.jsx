@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import Categories from './screens/Categories'
 import RecipesList from './screens/RecipesList'
 import RecipesDetails from './screens/RecipesDetails'
+import FavoriteScreen from './screens/FavoriteScreen'
 
 
 const Stack = createNativeStackNavigator()
@@ -16,6 +17,7 @@ export default function App() {
                 <Stack.Screen name="Categories" component={Categories} options={{title: 'All Categories'}}/>
                 <Stack.Screen name="RecipesList" component={RecipesList} options={{title: 'Meals Overview'}}/>
                 <Stack.Screen name="RecipesDetails" component={RecipesDetails} options={{title: 'About the Meal'}}/>
+                <Stack.Screen name="Favorites" component={FavoriteScreen} options={{title: 'Favorites'}}/>
             </Stack.Navigator>
         </NavigationContainer>
     )

@@ -1,4 +1,4 @@
-import { FlatList, ScrollView, StyleSheet, Text, TouchableHighlight, View } from 'react-native'
+import { FlatList, StyleSheet, Text, TouchableHighlight, View, SafeAreaView } from 'react-native'
 import React from 'react'
 import { CATEGORIES } from '../data/data'
 
@@ -6,7 +6,7 @@ import { CATEGORIES } from '../data/data'
 export default function Categories({navigation}) {
 
     return (
-        <ScrollView>
+        <SafeAreaView>
             <FlatList
                 data={CATEGORIES}
                 numColumns={2}
@@ -23,7 +23,7 @@ export default function Categories({navigation}) {
                 }}
                 keyExtractor={(item) => item.id}
             />
-        </ScrollView>
+        </SafeAreaView>
     )
 }
 
