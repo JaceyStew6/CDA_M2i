@@ -32,7 +32,7 @@ export default function ContactListScreen({navigation}) {
                         //L'appel des paramètres peut être optimisé en utilisant ...itemData.item et en appelant un objet global, puis en destructurant les paramètres dans le composant ContactDetailScreen. Cela permet de mieux gérer les paramètres et de ne pas avoir à les passer un par un.
                         <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("ContactDetail",{ contact: itemData.item})}>
                             <View>
-                                <Text style={styles.text}>{itemData.item.name} {itemData.item.username}</Text>
+                                <Text style={styles.text}>{itemData.item.name}</Text>
                             </View>
                         </TouchableOpacity>
 

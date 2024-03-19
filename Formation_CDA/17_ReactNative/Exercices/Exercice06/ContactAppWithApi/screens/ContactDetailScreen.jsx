@@ -27,8 +27,8 @@ export default function ContactDetailScreen({ navigation, route }) {
         //On affiche les détails du contact sélectionné et on utilise handleCallPress() pour appeler le numéro de téléphone du contact
         <View style={styles.container}>
             <View style={styles.first}>
-            <Text style={styles.textName}>{contact.name}</Text>
-                <Text style={styles.textName}>{contact.username} </Text>
+                <Text style={styles.textName}>{contact.name}</Text>
+                <Text style={styles.text}>{contact.username} </Text>
                 <Text style={styles.text}>{contact.phone}</Text>
                 <Text style={styles.text}>{contact.email}</Text>
             </View>
