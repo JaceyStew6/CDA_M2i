@@ -2,9 +2,9 @@ import { StyleSheet, Text, View, FlatList, Image, Button, ScrollView, TouchableO
 import React, { useEffect, useState, useCallback } from 'react'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { useFocusEffect } from '@react-navigation/native'
+import Icon from 'react-native-vector-icons/MaterialIcons'
 
 export default function MyPokedex() {
-
     const [pokedex, setPokedex] = useState([]);
 
     useFocusEffect(
@@ -15,11 +15,9 @@ export default function MyPokedex() {
                     setPokedex(JSON.parse(storedPokedex));
                 }
             };
-
             showPokedex();
         }, [])
     );
-
 
     const deletePokemonFromPokedex = async (id) => {
         try {
@@ -35,10 +33,17 @@ export default function MyPokedex() {
         }
     }
 
-
-
     return (
-        <ScrollView>
+        <ScrollView style={styles.mainContainer}>
+            <View style={styles.rowTitle}>
+                <Text style={styles.myPokedexTitle}>My Pokedex
+                </Text>
+                <Icon
+                    name='catching-pokemon'
+                    size={45}
+                    color='#ae9205' />
+            </View>
+
             <FlatList
                 data={pokedex}
                 numColumns={2}
@@ -48,7 +53,7 @@ export default function MyPokedex() {
                             <View style={styles.cardContainer}>
                                 <Image
                                     source={{ uri: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${item.id}.png` }}
-                                    style={{ width: '90%', height: 160 }}
+                                    style={{ width: '80%', height: 150, resizeMode: 'contain' }}
                                 />
                                 <View style={styles.row}>
                                     <Text style={styles.textStyle}>{item.name.toUpperCase()}</Text>
@@ -67,16 +72,44 @@ export default function MyPokedex() {
 }
 
 const styles = StyleSheet.create({
+
+    mainContainer: {
+        display: 'flex',
+        flexDirection: 'column',
+        backgroundColor: '#a9b5bc',
+        height: '100%',
+        width: '100%',
+    },
+
+    myPokedexTitle: {
+        fontSize: 30,
+        fontWeight: 'bold',
+        textAlign: 'center',
+        marginVertical: 10,
+        color: '#ae9205',
+        marginRight: 10,
+    },
+
+    rowTitle: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+
     touchableContainer: {
         display: 'flex',
-        backgroundColor: 'lightgrey',
+        backgroundColor: '#c5ced2',
         marginHorizontal: 11,
         marginVertical: 10,
-        // padding: 10,
         borderRadius: 10,
         width: 200,
         height: 200,
         justifyContent: 'center',
+        shadowColor: '#343d43',
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 5,
     },
     cardContainer: {
         display: 'flex',
@@ -93,6 +126,6 @@ const styles = StyleSheet.create({
     textStyle: {
         fontSize: 20,
         fontWeight: 'bold',
-        color: 'white',
+        color: '#6f8490',
     },
 })
