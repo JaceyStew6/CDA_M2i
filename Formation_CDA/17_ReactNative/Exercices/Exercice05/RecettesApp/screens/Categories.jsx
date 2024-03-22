@@ -1,4 +1,4 @@
-import { FlatList, ScrollView, StyleSheet, Text, TouchableHighlight, View } from 'react-native'
+import { FlatList, StyleSheet, Text, TouchableHighlight, View, SafeAreaView } from 'react-native'
 import React from 'react'
 import { CATEGORIES } from '../data/data'
 
@@ -6,8 +6,7 @@ import { CATEGORIES } from '../data/data'
 export default function Categories({ navigation }) {
 
     return (
-        <ScrollView>
-            {/* Flatlist est utilisé pour afficher les catégories de recettes dans une grille de 2 colonnes */}
+        <SafeAreaView>
             <FlatList
                 //On utilise data pour afficher les catégories de recettes récupérées depuis le fichier data.js
                 data={CATEGORIES}
@@ -29,7 +28,7 @@ export default function Categories({ navigation }) {
                 //On utilise keyExtractor pour extraire l'id de chaque catégorie et l'utiliser comme clé pour chaque catégorie dans la liste des catégories de recettes
                 keyExtractor={(item) => item.id}
             />
-        </ScrollView>
+        </SafeAreaView>
     )
 }
 
