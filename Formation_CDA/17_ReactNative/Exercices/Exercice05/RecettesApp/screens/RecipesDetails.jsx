@@ -2,6 +2,7 @@ import { StyleSheet, Text, View, Image, FlatList, ScrollView } from 'react-nativ
 import React from 'react'
 
 export default function RecipesDetails({ navigation, route }) {
+    //On récupère la recette passée en paramètre à la fonction RecipesDetails pour afficher les détails de cette recette dans l'écran RecipesDetails
     const meal = route.params.meal;
     return (
         <ScrollView style={styles.container}>

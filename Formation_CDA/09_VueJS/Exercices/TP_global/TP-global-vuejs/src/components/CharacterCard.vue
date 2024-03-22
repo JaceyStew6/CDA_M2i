@@ -102,7 +102,7 @@ const setCurrentCharacter = (character) => {
 .text-position {
     grid-column: 4 / 7;
     grid-row: 1;
-    
+
     /* height: 100px; */
 }
 

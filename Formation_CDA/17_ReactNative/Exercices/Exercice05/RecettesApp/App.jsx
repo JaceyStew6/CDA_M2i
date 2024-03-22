@@ -13,6 +13,7 @@ export default function App() {
     return (
         <NavigationContainer>
             <Stack.Navigator>
+                {/* Les écrans sont définis ici et le nom de l'écran est utilisé pour la navigation dans les autres écrans */}
                 <Stack.Screen name="Categories" component={Categories} options={{title: 'All Categories'}}/>
                 <Stack.Screen name="RecipesList" component={RecipesList} options={{title: 'Meals Overview'}}/>
                 <Stack.Screen name="RecipesDetails" component={RecipesDetails} options={{title: 'About the Meal'}}/>
