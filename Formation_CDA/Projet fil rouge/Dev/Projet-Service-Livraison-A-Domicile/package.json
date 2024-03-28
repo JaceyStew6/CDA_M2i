@@ -1,0 +1,31 @@
+{
+  "name": "ProjetServiceLivraisonDomicile",
+  "private": true,
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "cd FrontWeb && vite",
+    "android": "cd FrontMobile && npm i &&  react-native run-android",
+    "build": "cd FrontWeb && vite build",
+    "preview": "cd FrontWeb && vite preview",
+    "express": "nodemon Back/app.js"
+  },
+  "dependencies": {
+    "axios": "^1.6.8",
+    "bcrypt": "^5.1.1",
+    "bootstrap": "^5.3.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.1",
+    "express": "^4.19.1",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.9.1",
+    "nodemon": "^3.0.3",
+    "pinia": "^2.1.7",
+    "sequelize": "^6.36.0",
+    "vue": "^3.4.21",
+    "vue-router": "^4.3.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.4",
+    "vite": "^5.2.0"
+  }
+}
