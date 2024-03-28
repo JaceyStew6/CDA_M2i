@@ -3,8 +3,12 @@ import React from 'react'
 import { MEALS } from '../data/data'
 
 export default function RecipesList({ navigation, route }) {
+    //On récupère l'id de la catégorie de recettes passée en paramètre à la fonction RecipesList
+    //On utilise cet id pour afficher les recettes de cette catégorie
     const { categoryId } = route.params;
 
+    //On utilise la méthode filter pour récupérer les recettes de cette catégorie
+    //On utilise la méthode indexOf pour vérifier si l'id de la catégorie de la recette est égale à l'id de la catégorie passée en paramètre à la fonction RecipesList
     const displayedMeals = MEALS.filter(
         meal => meal.categoryIds.indexOf(categoryId) >= 0
     );

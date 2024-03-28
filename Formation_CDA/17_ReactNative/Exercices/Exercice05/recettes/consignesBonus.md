@@ -1,0 +1,1 @@
+L'utilisateur doit pouvoir ajouter et retirer des recettes a une liste de favoris qu'il pourra accéder depuis la homepage, challenge dans le bonus mettre le bouton ajouter aux favoris dans le header de la navigation
