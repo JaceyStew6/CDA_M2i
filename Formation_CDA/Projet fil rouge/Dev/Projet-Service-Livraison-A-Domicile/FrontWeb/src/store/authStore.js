@@ -3,7 +3,8 @@ import { ref } from "vue";
 import axios from 'axios';
 import { useRouter } from 'vue-router';
 
-const API_URL = 'http://10.125.52.56:3000/api/manager/';
+// const API_URL = 'http://10.125.52.56:3000/api/manager/';
+const API_URL = 'http://localhost:3000/api/manager/';
 
 export const useAuthStore = defineStore('manager', () => {
     const router = useRouter();
