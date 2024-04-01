@@ -1,5 +1,6 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router';
+import FooterComponent from "./components/FooterComponent.vue";
 import NavbarComponent from './components/NavbarComponent.vue';
 
 </script>
@@ -14,7 +15,9 @@ import NavbarComponent from './components/NavbarComponent.vue';
     <RouterView />
   </main>
 
-  
+	<footer>
+		<!--		<FooterComponent/>-->
+	</footer>
 </template>
 
 <style scoped>
@@ -31,11 +34,11 @@ import NavbarComponent from './components/NavbarComponent.vue';
 
 .mainContainer {
     display: flex;
-    /* flex-direction: row;
-    align-items: center; */
+    flex-direction: row;
+    align-items: center;
     width: 100%;
     height: 100%;
-    position: fixed;
+	position: absolute;
 }
 
 </style>

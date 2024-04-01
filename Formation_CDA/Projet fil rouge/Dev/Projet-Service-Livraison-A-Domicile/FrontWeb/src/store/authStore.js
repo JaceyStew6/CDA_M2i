@@ -41,7 +41,7 @@ export const useAuthStore = defineStore('manager', () => {
         localStorage.removeItem('token');
         console.log('logged out');
         console.log(localStorage.getItem('token'))
-        router.push('/Login')
+        router.push('/RestaurantLogin')
     }
 
     async function register(firstName, lastName, email, password) {

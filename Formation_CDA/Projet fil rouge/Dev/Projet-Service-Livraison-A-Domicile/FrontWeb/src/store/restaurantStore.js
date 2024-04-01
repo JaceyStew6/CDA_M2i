@@ -52,6 +52,25 @@ export const useRestaurantStore = defineStore('restaurants', () => {
             })
     }
 
+    async function removeRestaurant(id){
+        const response = await axios
+            .delete(API_URL + 'deleteRestaurant', {
+                id: id,
+            }, {headers: { Authorization: `Bearer ${localStorage.getItem('token')}`}})
+            .then((response) => {
+                console.log()
+                if(response){
+                localStorage.getItem('restaurant', JSON.stringify(response.data));
+
+                    getRestaurants();
+                }
+            }
+            )
+            .catch((error) => {
+                console.error('Error:', error.response.data)
+            })
+    }
+
     async function addArticle(restaurantId, name, ingredients, price, type, preparationTimeSec) {
         const response = await axios
             .post(API_URL + 'addArticle', {
@@ -68,5 +87,7 @@ export const useRestaurantStore = defineStore('restaurants', () => {
         return response.data;
     }
 
-    return { restaurants, getRestaurants, addRestaurant, addArticle }
+
+
+    return { restaurants, getRestaurants, addRestaurant, addArticle, removeRestaurant }
 })
