@@ -330,5 +330,26 @@ public class Main {
             userPoints = 0;
         }while (userPoints <= nbrQuestions);
         System.out.println("Bravo!");
+
+        //Exercice 4
+        System.out.print("Saisir un motif : ");
+        char motif = scanner.next().charAt(0);
+
+        System.out.print("Saisir le nombre de lignes : ");
+        int nombreLignes = scanner.nextInt();
+
+        int nombreEspace = nombreLignes - 1;
+
+        for (int ligne = 1; ligne <= nombreLignes; ligne++) {
+            for (int i = 0; i < nombreEspace; i++) {
+                System.out.print(" ");
+            }
+            for (int colonne = 1; colonne <= ligne; colonne++) {
+                System.out.print(motif + " ");
+            }
+            nombreEspace--;
+            System.out.println();
+        }
+
     }
 }
