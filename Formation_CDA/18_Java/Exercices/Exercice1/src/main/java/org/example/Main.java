@@ -34,17 +34,20 @@ public class Main {
 
         //Exercice 3
 
-        System.out.println("Première valeur");
+        System.out.println("Premier message");
         int firstInput = scanner.nextInt();
+        //Bug si on lance avec String. Pas la possibilité de saisir le premier message
+        //String firstMessage = scanner.nextLine();
         Instant start = Instant.now();
 
-        System.out.println("Seconde valeur");
+        System.out.println("Second message");
         int secondInput = scanner.nextInt();
+        //String secondMessage = scanner.nextLine();
         Instant end = Instant.now();
 
         Duration interval = Duration.between(start, end);
 
-        System.out.println("Temps écoulé entre les deux entrées " + (interval.getSeconds()) + " secondes");
+        System.out.println("Temps écoulé entre les deux entrées: " + (interval.getSeconds()) + " secondes");
 
     }
 }
