@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="Exercice1" />
+        <module name="Exercices_Tableaux" />
+        <module name="Exercices4-5-6" />
+        <module name="TP_Structure_Iterative" />
+        <module name="Exercices_Structure_Iterative" />
+        <module name="Exercices_Jeux" />
+      </profile>
+    </annotationProcessing>
+  </component>
+</project>
