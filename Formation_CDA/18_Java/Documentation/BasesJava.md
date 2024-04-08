@@ -13,6 +13,8 @@ Caractéristiques:
 - La JVM peut être installée sur n'importe quel environnement (est portable)
 - Elle est multithread (peut ouvrir plusieurs process).
 
+=> Multiplateforme grâce à la JVM.
+
 
 ## Environnement Java
 
@@ -62,16 +64,21 @@ On peut avoir des variables primitives ou des variables de référence aux objet
 
 ### Variables primitives
 - Entier
-    - int
+    - int (le plus utilisé)
     - byte
     - short
     - long (très très grand entier)
 - Décimaux
-    - float
-    - double
+    - float 
+    - double (le plus utilisé)
 - boolean (c'est en fait un tiny int qui vaut entre 0 et 1)
 - char
+- String (c'est une classe et non un type primitif, d'où le fait de l'écrire avec un "S" majuscule).
+- Integer (c'est une classe et non un type primitif, d'où le fait de l'écrire avec un "I" majuscule. C'est comme un wrapper).
 
+- var (plus explicite mais bel et bien typé. Prend le type de sa valeur une fois initialisée).
+
+***Choisir le bon type permet d'attribuer le bon espace mémoire. Toutefois, on ne fait plus trop de micro optimisation dans la mesure où les pc sont beaucoup plus performants qu'avant.***
 
 *Les variables de référence aux objets peuvent posséder des méthodes.*
 
@@ -88,3 +95,67 @@ System.out  //classe System qui utilise par exemple la fonction .out
 En Javascript c'est plutôt une structure chaînée qui n'a pas de limite de taille. Seulement, si on ne lui donne pas le type, en bas niveau, le programme ne va pas savoir combien d'adresses mémoire il va devoir réserver. Chaque élément contient l'adresse vers lui-même ainsi que vers l'élément suivant. En JS, on a pas vraiment la possibilité d'implémenter un tableau bas niveau.
 
 En Java, on a au contraire une implémentation bas niveau, même si on ne gère pas directement les adresses mémoire (gérées par la garbage collector). En Java, un tableau doit être typé. Si on indique qu'on veut un tableau d'entier par exemple, ce sera forcément composé uniquement d'entier. Aussi, il ne peut pas être illimité. Quand on crée un tableau, il faut obligatoirement lui fournir le type et la taille. Ainsi, la place mémoire est déjà réservée, même s'il n'y a pas encore de valeurs allouées. 
+
+
+### Liste
+
+Non dimensionnée et adaptable contrairement aux tableaux. Si on veut y ajouter ou retirer un élément, la liste va se réadapter et termes de taille.
+
+
+### Les fonctions
+
+Lorsqu'on crée une fonction, on lui passe des paramètres (qui sont comme des variables) qui n'existent qu'à l'intérieur de la fonction. Lors de l'appel de la fonction, on lui passe des arguments.
+
+La fonction contient un bloc de code qui pourra être exécuté plusieurs fois et qui retourne quelque chose (avec un ou plusieurs return)
+
+Une fonction est un procédé qu'on cherche à exécuter plusieurs fois.
+
+
+En Java, tout se qu'on fait se trouve à l'intérieur d'une méthode.
+En Java, les fonctions locales n'existent pas. On va ainsi travailler avec des méthodes statiques (ex: `public static void main (String[] args)`).
+
+Si on veut créer des fonctions, on peut faire des méthodes statiques. 
+
+
+ex: 
+
+```java
+//ici on a la signature de notre méthode. Notre méthode s'appelle add (c'est son symbol ou identificateur), elle prend 2 int en entrée et elle prend un int en sortie.
+public static int add(int int1, int int2){
+    //var result = int1 + int2; //result ici est de type int
+    //return result;
+    return int1 + int2; //instruction de sortie de la méthode
+}
+
+public static void main (String[] args){
+    var result = add(1,2);
+    System.out.println(result);
+}
+
+```
+
+***Une fonction est typée avec son type de retour.***
+
+
+Une fonction peut avoir un même nom mais avec une signature différente. Elle peut ainsi prendre plusieurs formes. Ici, il s'agit de polymorphisme paramétrique.
+
+```java
+public static int add(int int1, int int2){
+}
+
+public static int add(int int1, int int2, int int3){
+}
+```
+
+Il existe aussi un autre type de polymorphisme par le type. Il faut toutefois que les paramètres d'entrée soient différents. Par exemple:
+
+```java
+public static int add(int int1, int int2, int int3){
+}
+
+public static double add(double int1, double int2, double int3){
+}
+```
+
+> **Polymorphisme** = plusieurs formes pour une fonction avec un même nom/identificateur/symbol.
+
