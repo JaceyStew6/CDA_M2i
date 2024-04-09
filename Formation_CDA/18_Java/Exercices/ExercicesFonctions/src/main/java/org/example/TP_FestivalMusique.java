@@ -15,11 +15,34 @@ public class TP_FestivalMusique {
 //        return endurance;
 //    };
 
-    public static int energy (int endurance, int enduranceLoss, int time, int timeLoss){
-        endurance -= enduranceLoss;
-        time -= timeLoss;
-        return endurance;
+//    public static int energy (int endurance, int enduranceLoss, int time, int timeLoss){
+//        endurance -= enduranceLoss;
+//        time -= timeLoss;
+//        return endurance;
+//
+//    }
 
+    public static void selectScene() {
+        System.out.println("Sélectionnez votre scène:");
+        System.out.println("[1] Jazz\n[2] Rock\n[3] Metäl\n[4] La buvette");
+        return;
+    }
+
+    public static int addEnergyOrTime(double randomEvent, int endurance, int maxEndurance, int tps){
+        if (randomEvent > .75) {
+            System.out.println("Boisson énergiseante gratuite! [Energie +20]");
+            endurance += 20;
+            if (endurance > maxEndurance) {
+                endurance = maxEndurance;
+                return endurance;
+            }
+        } else if (randomEvent > .50) {
+            System.out.println("Les parents rentrent tard! [Temps +10]");
+            tps += 10;
+            return tps;
+        }
+//        System.out.println("Energie : " + endurance + "\nTemps : " + tps);
+        return endurance;
     }
 
 
@@ -36,36 +59,38 @@ public class TP_FestivalMusique {
         String userExperience = "";
 
         do {
-            System.out.println("Bienvenue au festival de musique virtuelle");
-            System.out.println("Sélectionnez votre scène:");
-            System.out.println("[1] Jazz\n[2] Rock\n[3] Metäl\n[4] La buvette");
+            System.out.println("Bienvenue au festival de musique virtuel");
+            selectScene();
 
             //Bonus pour ajouter de l'énergie ou du temps en fonction d'une valeur random
             double randomEvent = Math.random();
-            if (randomEvent > .75){
-                System.out.println("Boisson énergiseante gratuite! [Energie +20]");
-                endurance += 20;
-                if (endurance > maxEndurance){
-                    endurance = maxEndurance;
-                }
-            }else if (randomEvent > .50) {
-                System.out.println("Les parents rentrent tard! [Temps +10]");
-                tps += 10;
-            }
-            System.out.println("Energie : "+endurance+"\nTemps : "+tps);
+
+            addEnergyOrTime(randomEvent, endurance, maxEndurance, tps);
+
+//            if (randomEvent > .75) {
+//                System.out.println("Boisson énergiseante gratuite! [Energie +20]");
+//                endurance += 20;
+//                if (endurance > maxEndurance) {
+//                    endurance = maxEndurance;
+//                }
+//            } else if (randomEvent > .50) {
+//                System.out.println("Les parents rentrent tard! [Temps +10]");
+//                tps += 10;
+//            }
+//            System.out.println("Energie : " + endurance + "\nTemps : " + tps);
             //Fin partie Bonus random
 
             userInput = input.nextInt();
-            switch (userInput){
+            switch (userInput) {
                 case 1:
                     userExperience += "[Jazz]";
                     System.out.println("[1] Scene 1 [Energie - 10 | Temps - 20]\n[2] Scene 2 [Energie - 15 | Temps - 10]\n");
                     userInput = input.nextInt();
-                    if( userInput == 1) {
+                    if (userInput == 1) {
                         userExperience += " Scene 1\n";
                         endurance -= 10;
                         tps -= 20;
-                    }else if( userInput == 2) {
+                    } else if (userInput == 2) {
                         userExperience += " Scene 2\n";
                         endurance -= 15;
                         tps -= 10;
@@ -78,7 +103,7 @@ public class TP_FestivalMusique {
                     if (userInput == 1) {
                         userExperience += " Scene 1\n";
                         endurance -= 30;
-                        if (endurance > maxEndurance){
+                        if (endurance > maxEndurance) {
                             endurance = maxEndurance;
                         }
                         tps -= 20;
@@ -86,7 +111,7 @@ public class TP_FestivalMusique {
                         userExperience += " Scene 2\n";
                         endurance -= 20;
                         tps -= 20;
-                    } else  if (userInput == 3) {
+                    } else if (userInput == 3) {
                         userExperience += " Scene 3\n";
                         endurance -= 25;
                         tps -= 25;
@@ -105,14 +130,14 @@ public class TP_FestivalMusique {
                 case 4:
                     System.out.println("[1] Boisson énergiseante [Energie +20 | Temps - 5]\n[2] Bière [Energie -5 | Temps - 5]");
                     userInput = input.nextInt();
-                    if( userInput == 1) {
+                    if (userInput == 1) {
                         endurance += 20;
-                    }else {
+                    } else {
                         endurance -= 5;
                     }
                     tps -= 5;
             }
-        }while (endurance > 0 && tps > 0);
+        } while (endurance > 0 && tps > 0);
 
         System.out.println("Merci d'avoir participé à ce festival virtuel");
         System.out.println("Votre expérience :");
