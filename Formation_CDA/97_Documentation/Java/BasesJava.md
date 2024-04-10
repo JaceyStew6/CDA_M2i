@@ -159,8 +159,11 @@ public static double add(double int1, double int2, double int3){
 
 > **Polymorphisme** = plusieurs formes pour une fonction avec un même nom/identificateur/symbol.
 
+## POO
 
 ## Constructeur
+
+Une classe est un concept. A différencier d'un objet qui est une instance de cette classe.
 
 Quant on crée une classe, on a nécessairement un **constructeur par défaut** qui perdure tant que l'on a pas créé de nouveau constructeur à l'intérieur de la classe. **Dès que l'on ajoute un nouveau constructeur, quelqu'il soit, le constructeur par défaut disparait.**
 On peut donc instancier une classe, même si on ne lui ajoute pas de constructeur.
@@ -172,7 +175,7 @@ Il a comme ojectif de créer une instance. Un **constructeur ne peut donc pas ê
 En revanche, les attributs de la classe (variables d'instances) peuvent être statiques.
 Dans ce cas, ce sont des variables de classe ou statiques.
 Le getter d'un attribut statique doit lui aussi être statique.
-Les variables statiques sont utiles dans des cas très précis (par exemple si on veut savoir le nombre de fois où la classe a été appelée).
+Les variables statiques sont utiles dans des cas très précis (par exemple si on veut savoir le nombre de fois où la classe a été appelée). Ce sont des variables qui sont vraies à un instant T.
 
 *voir p.16 du cours poo*
 
@@ -203,3 +206,13 @@ Pour pouvoir y accéder en dehors de la classe, il faut définir dans la classe 
     - toujours de type `void`
 
 ***Un attribut doit toujours être en 'private' ou 'protected'.***
+
+Une méthode statique se réfère à la classe et non à l'instance (dans une méthode statique on ne peut donc pas utiliser `this.`)
+
+
+
+### Dans la classe, respecter l'ordre suivant :
+- Attributs
+- Constructeur
+- Méthodes
+- Getters/Setters

@@ -7,9 +7,9 @@ public class Main {
 
         System.out.println("---------------------------");
 
-        // Instanciation, appel aux constructeur pour créer de nouveaux chats
+        // Instanciation, appel aux constructeurs pour créer de nouveaux chats
         Chat chat1 = new Chat(5, "Angora");
-        Chat chat2 = new Chat(12, "Chat de goutiere");
+        Chat chat2 = new Chat(12, "Chat de gouttière");
         Chat chat3 = new Chat();
 
         System.out.println("---------------------------");

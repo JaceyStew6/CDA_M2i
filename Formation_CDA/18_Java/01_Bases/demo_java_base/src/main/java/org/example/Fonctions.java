@@ -21,7 +21,7 @@ public class Fonctions {
         return int1 + int2 + int3;
     }
 
-    // les types et nombre de paramètres sont identique à add(int,int) donc c'est impossible
+    // les types et nombre de paramètres sont identique à add(int,int) donc c'est impoissible
 //    public static double add(int int1, int int2){ //
 //        return int1 + int2;
 //    }
