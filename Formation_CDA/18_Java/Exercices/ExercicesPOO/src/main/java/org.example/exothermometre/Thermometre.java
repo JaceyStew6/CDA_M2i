@@ -6,40 +6,40 @@ public class Thermometre {
     private UnitTemperature unit;
 
     public enum UnitTemperature {
-        KELVIN,
-        CELSIUS,
-        FAHRENHEIT,
+        KELVIN, CELSIUS, FAHRENHEIT,
     }
 
 
-//    public Thermometre(double temperature, UnitTemperature unit) {
-////        this.unit = unit;
-//        switch (unit){
-//            case KELVIN:
-//                this.temperatureKelvin = temperature;
-//                break;
-//            case CELSIUS:
-//                this.temperatureKelvin = temperature + 273.15;
-//                break;
-//            case FAHRENHEIT:
-//                this.temperatureKelvin = (temperature - 32) * 5/9 + 273.15;
-//                break;
-//            default:
-//                break;
-//        }
-//    }
-//
-//    public double getTemperatureKelvin(){
-//        return this.temperatureKelvin;
-//    }
-//     public double getTemperatureCelsius(){
-//        return this.temperatureKelvin - 273.15;
-//     }
-//
-//     public double getTemperatureFahrenheit(){
-//        return (this.temperatureKelvin - 273.15)* 9/5 + 32;
-//     }
-//
+    public Thermometre(double temperature, UnitTemperature unit) {
+        switch (unit){
+            case KELVIN:
+                this.temperatureKelvin = temperature;
+                break;
+            case CELSIUS:
+                double celsius = temperature + 273.15;
+
+                break;
+            case FAHRENHEIT:
+                this.temperatureKelvin = (temperature - 32) * 5/9 + 273.15;
+                break;
+            default:
+                break;
+        }
+    }
+
+    public double getTemperatureKelvin(){
+        return this.temperatureKelvin;
+    }
+     public double getTemperatureCelsius(){
+        return this.temperatureKelvin - 273.15;
+     }
+
+     public double getTemperatureFahrenheit(){
+        return (this.temperatureKelvin - 273.15)* 9/5 + 32;
+     }
+
+
+
 //    public void setTemperature(double temperature, UnitTemperature unit) {
 //        switch (unit) {
 //            case KELVIN:
@@ -49,13 +49,17 @@ public class Thermometre {
 //                this.temperatureKelvin = temperature + 273.15;
 //                break;
 //            case FAHRENHEIT:
-//                this.temperatureKelvin = (temperature + 459.67) * 5/9;
+//                this.temperatureKelvin = (temperature - 32) * 5/9 + 273.15;
 //                break;
 //        }
 //    }
 
 
-    public Thermometre(double temperature, UnitTemperature unit) {
+
+//------------------------------------------------------------------------------------
+//AUTRE ESSAI
+
+/*    public Thermometre(double temperature, UnitTemperature unit) {
         this.temperatureKelvin = temperature;
         this.unit = unit;
     }
@@ -84,5 +88,5 @@ public class Thermometre {
 
     public double getTemperatureKelvin() {
         return temperatureKelvin;
-    }
+    }*/
 }

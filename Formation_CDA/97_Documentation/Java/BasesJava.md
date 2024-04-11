@@ -161,9 +161,11 @@ public static double add(double int1, double int2, double int3){
 
 ## POO
 
+La POO permet de structurer le code de manière simple et précise.
+
 ## Constructeur
 
-Une classe est un concept. A différencier d'un objet qui est une instance de cette classe.
+**Une classe est un concept. A différencier d'un objet qui est une instance de cette classe.**
 
 Quant on crée une classe, on a nécessairement un **constructeur par défaut** qui perdure tant que l'on a pas créé de nouveau constructeur à l'intérieur de la classe. **Dès que l'on ajoute un nouveau constructeur, quelqu'il soit, le constructeur par défaut disparait.**
 On peut donc instancier une classe, même si on ne lui ajoute pas de constructeur.
@@ -211,8 +213,47 @@ Une méthode statique se réfère à la classe et non à l'instance (dans une m�
 
 
 
-### Dans la classe, respecter l'ordre suivant :
+### Dans la classe, respecter l'ordre suivant pour ses membres :
 - Attributs
 - Constructeur
 - Méthodes
 - Getters/Setters
+
+
+
+### Astuce:
+
+***Pour définir le comportement qu'on veut avoir dans notre programme de manière plus claire, on peut faire un diagramme d'activité UML***
+
+> **Debugger:** mode de lancement de notre programme qui permet de débugger notre programme. On peut y mettre des points d'arrêts qui nous permettent de nous arrêter sur une instruction ou une strucure (conditionnelle, itérative...).
+
+
+## Héritage
+
+L'héritage multiple n'est pas possible. Une classe doit hériter d'un seul et unique parent. Une classe mère peut avoir deux enfants (ou plus) mais ces deux enfants ne peuvent pas avoir un enfant ensemble. 
+*voir plus en détail l'héritage en diamant.*
+
+
+### Ce qu'il est possible de faire par exemple:
+
+Une classe Animal, a deux enfants (Canidé et Félin) qui ont chacun deux enfants (Canidé: Chien, Hyenne / Félin: Chat, Tigre).
+
+
+Pour indiquer qu'une classe vient du parent, on utilise la méthode `@Override`.
+
+Par exemple:
+
+```java
+public class Animal {
+
+    @Override
+    public String toString() {
+        return "Animal { méthode du parent => " + super.toString() + "}"
+    }
+}
+```
+
+
+Si on a une méthode abstraite, on ne peut plus l'instancier!
+
+**La classe mère de toutes les classes et la classe Object**

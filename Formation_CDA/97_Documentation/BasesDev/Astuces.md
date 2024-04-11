@@ -18,3 +18,6 @@
 **I**t
 
 *Toujours garder en mémoire ces précepts, même s'ils ne sont pas toujours applicables, notamment sur les gros projets avec une part importante d'architecture*.
+
+
+***Pour définir le comportement qu'on veut avoir dans notre programme de manière plus claire, on peut faire un diagramme d'activité UML***
