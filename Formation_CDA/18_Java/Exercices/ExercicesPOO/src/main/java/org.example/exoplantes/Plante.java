@@ -12,14 +12,11 @@ public class Plante {
         this.couleurFeuille = couleurFeuille;
     }
 
-    public String afficher(){
-        return "Nom: " + nom
-                + " / Hauteur (cm): " + hauteur
-                + " / Couleur des feuilles: " + couleurFeuille;
-    }
-
     @Override
     public String toString() {
-        return "Plante: \n" + this.afficher();
+        return getClass().getSimpleName()
+                + "\nNom: " + nom
+                + "\nHauteur (cm): " + hauteur
+                + "\nCouleur des feuilles: " + couleurFeuille;
     }
 }

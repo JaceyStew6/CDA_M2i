@@ -1,6 +1,6 @@
 package org.example.exociternes;
 
-public class main {
+public class Main {
     public static void main(String[] args) {
         WaterTank waterTank1 = new WaterTank();
         WaterTank waterTank2 = new WaterTank(15, 30, 10);

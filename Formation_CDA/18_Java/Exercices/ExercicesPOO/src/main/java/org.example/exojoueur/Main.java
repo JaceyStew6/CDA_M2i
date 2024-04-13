@@ -1,6 +1,6 @@
 package org.example.exojoueur;
 
-public class main {
+public class Main {
 
     public static void main(String[] args) {
         Joueur joueur1 = new Joueur("Jacey", 1, 40);

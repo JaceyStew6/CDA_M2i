@@ -1,6 +1,6 @@
 package org.example.exofilm;
 
-public class main {
+public class Main {
     public static void main(String[] args) {
 
         Film film1 = new Film("La Haine", "Mathieu Kassovitz", 1995, 05, 31, "Drame");
