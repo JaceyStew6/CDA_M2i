@@ -24,6 +24,8 @@ Pour que ça fonctionne, on a besoin d'un compilateur, de la JVM et de l'ensembl
 
 Standard Edition comprend plusieurs versions.
 
+Il nous faut un JDK pour faire fonctionner tout ça. Le JDK contient les bibliothèques de base et la JVM. Les bibliothèques sont du code écrit par d'autres développeurs.
+
 
 ## Gestion des packages
 
@@ -60,7 +62,9 @@ Permet d'exécuter le code en mode run ou en mode debug. Quand le code ne marche
 
 **/!\ En Java, toute variable possède un type (permet d'optimiser l'espace mémoire).**
 
-On peut avoir des variables primitives ou des variables de référence aux objets.  
+On peut avoir des variables primitives ou des variables de référence aux objets.
+
+Java fonctionne par classe. Une classe permet d'instancier un objet.
 
 ### Variables primitives
 - Entier
@@ -104,6 +108,8 @@ Non dimensionnée et adaptable contrairement aux tableaux. Si on veut y ajouter 
 
 ### Les fonctions
 
+***/!\ Attention! Etant donné qu'on est forcément dans une classe en Java (puisqu'orienté objet), les fonctions sont appelées des méthodes.***
+
 Lorsqu'on crée une fonction, on lui passe des paramètres (qui sont comme des variables) qui n'existent qu'à l'intérieur de la fonction. Lors de l'appel de la fonction, on lui passe des arguments.
 
 La fonction contient un bloc de code qui pourra être exécuté plusieurs fois et qui retourne quelque chose (avec un ou plusieurs return)
@@ -114,7 +120,7 @@ Une fonction est un procédé qu'on cherche à exécuter plusieurs fois.
 En Java, tout se qu'on fait se trouve à l'intérieur d'une méthode.
 En Java, les fonctions locales n'existent pas. On va ainsi travailler avec des méthodes statiques (ex: `public static void main (String[] args)`).
 
-Si on veut créer des fonctions, on peut faire des méthodes statiques. 
+Si on veut créer des fonctions, on peut faire des méthodes statiques.
 
 
 ex: 
@@ -157,7 +163,7 @@ public static double add(double int1, double int2, double int3){
 }
 ```
 
-> **Polymorphisme** = plusieurs formes pour une fonction avec un même nom/identificateur/symbol.
+> **Polymorphisme** = plusieurs formes pour une fonction avec un même nom/identificateur/symbol (même nom de méthode, mais avec des propriétés différentes).
 
 ## POO
 
@@ -178,6 +184,8 @@ En revanche, les attributs de la classe (variables d'instances) peuvent être st
 Dans ce cas, ce sont des variables de classe ou statiques.
 Le getter d'un attribut statique doit lui aussi être statique.
 Les variables statiques sont utiles dans des cas très précis (par exemple si on veut savoir le nombre de fois où la classe a été appelée). Ce sont des variables qui sont vraies à un instant T.
+
+On peut avoir autant de constructeurs différents qu'on le souhaite, tant qu'ils ont une signature différente (plus ou moins de paramètres, types différents, ordre différent des paramètres...).
 
 *voir p.16 du cours poo*
 
@@ -218,6 +226,7 @@ Une méthode statique se réfère à la classe et non à l'instance (dans une m�
 - Constructeur
 - Méthodes
 - Getters/Setters
+- Méthode toString()
 
 
 
@@ -239,7 +248,7 @@ L'héritage multiple n'est pas possible. Une classe doit hériter d'un seul et u
 Une classe Animal, a deux enfants (Canidé et Félin) qui ont chacun deux enfants (Canidé: Chien, Hyenne / Félin: Chat, Tigre).
 
 
-Pour indiquer qu'une classe vient du parent, on utilise la méthode `@Override`.
+Pour indiquer qu'une classe vient du parent, on utilise la méthode `@Override`. Cela indique que cette méthode est surchargée par rapport à sa classe mère (permet de réécrire une méthode si on veut qu'elle soit différente en fonction de la classe enfant).
 
 Par exemple:
 
@@ -253,7 +262,73 @@ public class Animal {
 }
 ```
 
-
+## Abstract
 Si on a une méthode abstraite, on ne peut plus l'instancier!
+Classe abstraite = va essentiellement servir à l'héritage. On ne peut juste plus l'instancier et ça peut même offrir un certain niveau de sécurité.
+Peut être intéressant de mettre du `Static` dans une classe `Abstract`.
 
 **La classe mère de toutes les classes et la classe Object**
+
+
+## .equals()
+
+Si on veut comparer deux chaines de caractère il faut faire .equals(), puisque String est une classe et non un type primitif. Si on utilisait un "==", on obtiendrait alors l'emplacement mémoire de l'objet.
+
+```java
+String mot1 = "Bonjour"
+String mot2 = "Bonjour"
+
+System.out.println(mot1.equals(mot2))
+```
+Retournera `true`.
+
+## final
+
+La variable devient non modifiable une fois qu'on lui a attribué une valeur. Permet d'avoir l'équivalent d'une constante.
+
+```java
+private final int nbrPieds;
+```
+
+## Les génériques
+
+Les génériques en Java (generics) sont un ensemble de caractéristiques du langage liées à la définition et à l'utilisation de types et de méthodes génériques. En Java, les types ou méthodes génériques diffèrent des types et méthodes ordinaires dans le fait qu'ils possèdent des paramètres de type.
+
+Les génériques ont été introduits dans le but d'ajouter une couche supplémentaire d'abstraction sur les types et de renforcer la sécurité des types. Les génériques permettent d'accroître la lisibilité du code et surtout d'en renforcer la sécurité grâce à un typage plus exigeant. Ils permettent de préciser explicitement le type d'un objet et rendent le cast vers ce type implicite. Cette fonctionnalité est spécifiée dans la JSR 14 et intégrée dans Java 1.5.
+
+Les génériques permettent à un type ou à une méthode d'opérer sur des objets de différents types tout en assurant la sécurité des types au moment de la compilation. Les génériques permettent de définir certains types et des méthodes pour lesquelles un ou plusieurs types utilisés sont précisés lors de leur utilisation en tant que paramètre.
+
+Ils permettent par exemple de spécifier quel type d'objets une collection peut contenir et ainsi éviter l'utilisation d'un cast pour obtenir un élément de la collection.
+
+
+>Classe générique = pour que la classe puisse s'adapter à un autre contenu que je ne connais pas.
+
+Syntaxe pour déclarer une classe générique :
+
+```java
+//Déclaration de la classe générique
+public class Boite<T> {
+    private T contenu; //Attribut générique
+
+    //Constructeur 
+    public Boite(T contenu){
+        this.contenu = contenu;
+    }
+
+    //Getter
+    public T getContenu(){
+        return contenu;
+    }
+
+    //Setter
+    public void setContenu(T contenu) {
+        this.contenu = contenu;
+    }
+}
+```
+
+
+## Interface
+
+On ne peut pas instancier une interface.
+Une interface peut hériter d'une autre interface.
