@@ -301,7 +301,7 @@ Les génériques permettent à un type ou à une méthode d'opérer sur des obje
 Ils permettent par exemple de spécifier quel type d'objets une collection peut contenir et ainsi éviter l'utilisation d'un cast pour obtenir un élément de la collection.
 
 
->Classe générique = pour que la classe puisse s'adapter à un autre contenu que je ne connais pas.
+> Classe générique = pour que la classe puisse s'adapter à un autre contenu que je ne connais pas.
 
 Syntaxe pour déclarer une classe générique :
 
@@ -327,8 +327,94 @@ public class Boite<T> {
 }
 ```
 
+---
+---
+## Les collections (attention: un peu en vrac)
+
+## List
+- ArrayList
+- Vector
+
 
 ## Interface
 
-On ne peut pas instancier une interface.
+On ne peut pas instancier une interface. Ce n'est pas une classe.
 Une interface peut hériter d'une autre interface.
+
+
+## Iterable
+
+Objet, un peu comme un pointeur sur une collection, qui va nous aider à parcourir cette collection.
+
+Il existe 3 iterable:
+- boucle for améliorée (for-each)
+- boucle ForEach
+- boucle for ? (revérifier)
+
+L'interface Iterator est fournie dans la bibliothèque de base.
+Possible d'obtenir un iterator à partir de chaque collection.
+
+Un iterator ne pointe sur aucun objet au départ. Il pointe sur le début de la liste.
+La méthode `it.hasNext()` permet de vérifier qu'il y a un élément à la suite. 
+
+
+`[Pomme, Orange]`  
+ ^  
+*Index au départ (devant la collection)*
+Puisqu'il y a deux éléments dans le tableau, avec la méthode `it.hasNext()` on identifie qu'il y a bien un élément "Pomme" à la suite du pointeur. Il renvoie donc `true`. On itère ainsi jusqu'à ce que la méthode renvoie `false`.
+
+
+
+## Set
+
+Utilise le code hash pour les éléments. 
+Avec SortedSet, il va mettre ces hash dans les collections et va trier les éléments par ordre alphabétique ou alphanumérique.
+Existe aussi TreeSet.
+
+## Queue
+- ArrayDeque
+- LinkedList
+- PriorityQueue
+
+Va utiliser un système de gestion au niveau de la rentrée et sortie des éléments.
+Offre des méthodes pour venir récupérer le premier élément de la file d'attente et le dernier élément. 
+
+Premier entré => Premier supprimé.
+Un peu similaire à la méthode FIFO (First In First Out).
+
+Méthodes avec le queue:
+- add()
+    - insère élément spécifié dans la file d'attente
+    - si tâche réussie => add() => true
+    - si se passe mal, lève une exception
+- offer()
+    - insère élément spécifié dans la file d'attente
+    - si tâche réussie => offer() => true
+    - sinon => false
+- element()
+- peek()
+- remove()
+- poll()
+
+La file d'attente prend en charge toutes le méthodes de la collection Java.
+
+---
+---
+## Les Map
+
+Différent des collections. On ne cible plus un élément avec un index, mais avec un système de clé/valeur.
+
+***Une Map ne peut pas contenir de clés en double.***
+> Une clé = une valeur
+
+Le Map n'est qu'une interface. Il nous faut quelque chose qui l'implémente:
+
+- SortedMap : maintient ses mappages dans l'ordre croissant des clés.
+
+- HashMap: classe qui implémente l'interface Map. Permet de créer un tableau dynamique d'objet de type Object qui sont identifiés par une clé.
+
+Pour ajouter un élément dans le tableau, contrairement à une Collection de type List, on ne fait pas un `.add()` mais un `.put()`.
+
+Pour récupérer un objet, on applique la méthode `.get()`, comme pour une Collection.
+
+Il ne va pas directement stocker dans le tableau nos objets, mais plutôt les adresses mémoire de nos objets.
