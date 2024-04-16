@@ -123,7 +123,7 @@ npx react-native run-android
     - [ ] Get the Pokemon Evolutions
     - [ ] Implement an optimized description
     - [ ] Optimize the code with different components
-  - [x] Detail Screen
+  - [x] Favorite Screen
     - [x] List of Pokemons with their pic, name and ID
     - [x] Feature to delete a Pokemon when user press on the selected Pokemon
     - [ ] Feature to go to a Pokemon detail when the user do a short press on the selected Pokemon
