@@ -418,3 +418,59 @@ Pour ajouter un élément dans le tableau, contrairement à une Collection de ty
 Pour récupérer un objet, on applique la méthode `.get()`, comme pour une Collection.
 
 Il ne va pas directement stocker dans le tableau nos objets, mais plutôt les adresses mémoire de nos objets.
+
+
+## Stream
+
+Outil qui permet de rajouter des possibilités à nos collections (ex: filtrer, etc).
+
+API Stream offre une nouvelle manière de parcourir les tableaux et les Collections. Nous permet d'effectuer des traitements sur des structures de données (une Collection). 
+
+Ne modifie pas les données de la source originale, mais permet de les manipuler.
+Permet de parcourir un flux de données.
+
+Les données ne sont chargées que lorsque cela est nécessaire. Evite le chargement inutile de données, contrairement à une boucle ou un Iterator. 
+
+Deux catégories d'opérations sur les Streams:
+- **Opérations intermédiaires** : 
+    - filter(Predicate)
+    - distinct()
+    - limit()
+    - skip()
+    - map()
+    - flatMap()
+    - sorted()
+    - *effectuées de manière paresseuses et renvoient un nouveau Stream, qui retransforme en une nouvelle Collection. N'écrase pas la source*
+
+- **Opérations terminales** : 
+    - sum()
+    - forEach()
+    - collect()
+    - reduce()
+    - anyMatch(Predicate)
+    - allMatch(Predicate)
+    - noneMatch(Predicate)
+    - findAny()
+    - findFirst()
+    - count()
+    - *consomment le Stream en produisant un résultat final. Ne peut pas être réutilisé pour effectuer d'autres opérations. Elles peuvent renvoyer différents types, notamment void*
+
+Permet de simplifier et d'optimiser les traitements sur les Collections et les tableaux en Java.
+
+On peut créer un Stream de différentes manières:
+- en utilisant un objet de type builder
+- à partir d'un tableau grâce à la méthode `Array.stream()`
+- à partir d'une collection, car l'interface Collection définit la méthode `Collection.stream()`
+
+/!\ Un Stream n'est pas une Collection. 
+
+
+### Optional
+
+Classe introduite dans Java pour représenter une valeur qui peut être absente. Permet de rendre explicite la possibilité qu'un résultat puisse être nul (évite les erreurs de type `NullPointerException`).
+Souvent utilisé en conjonction avec les Streams.
+
+Plusieurs méthodes:
+
+- isPresent(): vérifie si une valeur est présente
+- get(): récupère la valeur si présente, sinon lance une exception.
