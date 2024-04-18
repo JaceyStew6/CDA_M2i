@@ -474,3 +474,14 @@ Plusieurs méthodes:
 
 - isPresent(): vérifie si une valeur est présente
 - get(): récupère la valeur si présente, sinon lance une exception.
+
+## Exceptions
+
+Les exceptions dont on doit se soucier sont:
+- Les exceptions surveillées (obligé de les traiter. Elles sont signalées par le compilateur. Obligé de s'en occuper ou de la remonter à la méthode supérieure)
+- Les exceptions non surveillées (peuvent être traitées ou non. Elles ne sont pas signalées par le compilateur.) Par exemple, le Scanner soulève une exception non surveillée.
+
+
+Quand une exceptiona arrive au niveau de la JVM, cette dernière ne sait pas quoi faire et affiche donc une erreur.
+
+Pour traiter les exceptions, on doit utiliser un `try catch`

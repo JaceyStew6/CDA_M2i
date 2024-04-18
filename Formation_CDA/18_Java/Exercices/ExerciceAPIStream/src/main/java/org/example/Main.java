@@ -5,6 +5,7 @@ import org.example.model.Transaction;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 
 public class Main {
     public static void main(String[] args) {
@@ -37,6 +38,41 @@ public class Main {
         //Quelles sont toutes les villes uniques où les traders travaillent : stocker ses données dans une liste de villes
         // (chaîne de caractères). 2 possibilités (dont une en utilisant les Set).
         System.out.println("Question 2");
+
+        transactions.stream()
+                .map(t -> t.getTrader().getCity())
+                .distinct()
+                .forEach(System.out::println);
+
+        System.out.println();
+
+        //En vous basant, toujours uniquement sur les transactions, renvoyez une chaîne de noms de tous les traders triés par ordre alphabétique
+        System.out.println("Question 3");
+
+        transactions.stream()
+                .map(t -> t.getTrader().getName())
+                .distinct()
+                .sorted()
+                .forEach(System.out::println);
+
+        System.out.println();
+
+        //Y a-t-il des Traders basés à Milan ? On récupère un booléen dans les résultats.
+        System.out.println("Question 4");
+
+        Optional<Transaction> containsMilan = transactions.stream()
+                .filter(t -> t.getTrader().getCity().contains("Milan"))
+                .findFirst();
+
+        System.out.println("Y a t'il des traders basés à Milan? " + containsMilan.isPresent());
+
+        System.out.println();
+
+        //Quelle est la valeur la plus élevée de toutes les transactions ? (On récupère un optional d’entier).
+        System.out.println("Question 5");
+
+
+
 
 
 
