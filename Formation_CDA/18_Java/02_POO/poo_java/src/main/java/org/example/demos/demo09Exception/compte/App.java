@@ -13,7 +13,7 @@ public class App {
         System.out.println("Solde Actuel:"+cp.getSolde());
         System.out.print("Montant à retirer:");
         float mt2=clavier.nextFloat();
-        // cp.retirer(mt2); // Le compilateur signe l’Exception
+       //  cp.retirer(mt2); // Le comilateur signe l’Exception
 
 
         // solution 1

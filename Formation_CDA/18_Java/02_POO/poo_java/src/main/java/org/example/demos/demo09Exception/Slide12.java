@@ -22,7 +22,7 @@ public class Slide12 {
             System.out.println("Division par zero");
             System.out.println(e.getMessage());
             System.out.println(e.toString());
-//            e.printStackTrace();
+          //  e.printStackTrace();
             System.out.println("fin print");
         }
         System.out.println("Resultat=" + resultat);

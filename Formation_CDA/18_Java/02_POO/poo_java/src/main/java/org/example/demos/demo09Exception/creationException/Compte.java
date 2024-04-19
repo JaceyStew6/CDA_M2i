@@ -10,6 +10,11 @@ public class Compte {
         if(mt>solde) throw new SoldeInsuffisantException("Solde Insuffisant");
         solde=solde-mt;
     }
+
+    public void retirer2(float mt)  {
+        if(mt>solde) throw new SoldeInsuffisantException2("Solde Insuffisant");
+        solde=solde-mt;
+    }
     public float getSolde(){
         return solde;
     }
