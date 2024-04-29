@@ -86,6 +86,8 @@ Java fonctionne par classe. Une classe permet d'instancier un objet.
 
 *Les variables de référence aux objets peuvent posséder des méthodes.*
 
+*Les primitives sont imutables et elles ne peuvent pas être modifiées. Leur emplacement mémoire ne change pas. En cas de modification, on a alors une nouvelle adresse mémoire qui est attribuée et la précédente est détruite par le garbage collector.*
+
 
 
 Au niveau du SDK, on a des fonctionnalités qui font partie du JDK.
@@ -485,3 +487,14 @@ Les exceptions dont on doit se soucier sont:
 Quand une exceptiona arrive au niveau de la JVM, cette dernière ne sait pas quoi faire et affiche donc une erreur.
 
 Pour traiter les exceptions, on doit utiliser un `try catch`
+
+
+
+
+---
+
+## Définitions
+
+> **Classe générique :** c'est une classe Java qui peut être réutilisée pour des objets de différents types. Prenons l'exemple de la classe ArrayList de Java 4, qui permet de stocker des objets dans une liste. Ce sont des objets qui ont un comportement qui leur permet de s'adapter à n'importe quel type.
+
+> **Ordonnancement :** il se fait par rapport à l'adresse mémoire. Il est différent en fonction de si on utilise un Set ou un List. Le Set est plus performant. Attention, l'ordonnancement est différent du tri.
