@@ -1,6 +1,9 @@
 package org.example;
 
 import org.example.correction.Pizza;
+import org.example.correction.tp.entity.Building;
+import org.example.correction.tp.entity.Castle;
+import org.example.correction.tp.factory.CastleFactory;
 import org.example.demo_abstract_factory.Application;
 import org.example.demo_abstract_factory.MacFactory;
 import org.example.demo_abstract_factory.WinFactory;
@@ -30,8 +33,10 @@ public class Main {
 
         //Démo abstract Factory
 
-        Application application = new Application(new WinFactory());
+        /*Application application = new Application(new WinFactory());
 
-        Application applicationMac = new Application(new MacFactory());
+        Application applicationMac = new Application(new MacFactory());*/
+
+        Building castle = new CastleFactory().createBuilding(new Castle.CastleBuilder().style("s1").size(10).name("c1"));
     }
 }
