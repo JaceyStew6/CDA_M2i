@@ -4,9 +4,17 @@ import org.example.correction.Pizza;
 import org.example.correction.tp.entity.Building;
 import org.example.correction.tp.entity.Castle;
 import org.example.correction.tp.factory.CastleFactory;
+import org.example.correction.tp2.builder.ProcessorBuilder;
+import org.example.correction.tp2.entity.Computer;
+import org.example.correction.tp2.entity.Processor;
+import org.example.correction.tp2.entity.RAM;
+import org.example.correction.tp2.factory.ComputerFactory;
 import org.example.demo_abstract_factory.Application;
 import org.example.demo_abstract_factory.MacFactory;
 import org.example.demo_abstract_factory.WinFactory;
+import org.example.demo_observable.Tablette;
+import org.example.demo_observable.Telephone;
+import org.example.demo_observable.WeatherStation;
 
 public class Main {
     public static void main(String[] args) {
@@ -37,6 +45,19 @@ public class Main {
 
         Application applicationMac = new Application(new MacFactory());*/
 
-        Building castle = new CastleFactory().createBuilding(new Castle.CastleBuilder().style("s1").size(10).name("c1"));
+        //Building castle = new CastleFactory().createBuilding(new Castle.CastleBuilder().style("s1").size(10).name("c1"));
+
+        /*ComputerFactory computerFactory = new ComputerFactory();
+        computerFactory.withRAM(RAM.builder().taille(10000).type("DDR4").build());
+        computerFactory.withProcessor(new ProcessorBuilder().type("intel").nbCoeur(4).build());
+        Computer computer = computerFactory.createComputer();*/
+        WeatherStation weatherStation = new WeatherStation();
+        weatherStation.notifyObservers();
+        weatherStation.registerObserver(new Telephone());
+        Tablette tablette = new Tablette();
+        weatherStation.registerObserver(tablette);
+        weatherStation.notifyObservers();
+        weatherStation.removeObserver(tablette);
+        weatherStation.notifyObservers();
     }
 }

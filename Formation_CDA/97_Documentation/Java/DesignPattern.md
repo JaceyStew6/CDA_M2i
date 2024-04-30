@@ -21,9 +21,23 @@ Il y a des builders déjà existants, comme le `StringBuilder`. Mais on peut aus
 
 Abstract Factory est un modèle de conception créationnel qui résout le problème de la création de familles de produits entières sans spécifier leurs classes concrètes.
 
+Le but est de séparer et de permettre une évolutivité dans le temps, avec le minimum de dette technique possible.
+
 
 https://www.baeldung.com/java-abstract-factory-pattern  
 https://refactoring.guru/design-patterns/abstract-factory/java/example
 
 
 Le `Builder` et le `Factory` sont les patterns de construction les plus utilisés.
+
+
+## Design Pattern de comportement
+
+### Observable
+
+Créer un observable et des observeurs permet d'éviter d'ajouter sans cesse des modifications à l'observable. 
+Il faut que les observers s'actualisent par rapport à l'observable, tout en étant "indépendant". Dans l'observable, il faudrait qu'on récupère une liste d'observers. Les observers doivent respecter la même interface.
+
+Ex: une station météo, n'a pour but que d'actualiser la météo et non pas de gérer les périphériques à utiliser par exemple. Ainsi, une station météo sera un observable et les périphériques, tels que téléphone, tablette... seront des observers (qui sont une interface). 
+
+*Voir démo pour plus de détails.*
