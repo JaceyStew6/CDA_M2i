@@ -25,3 +25,5 @@ Abstract Factory est un modèle de conception créationnel qui résout le probl�
 https://www.baeldung.com/java-abstract-factory-pattern  
 https://refactoring.guru/design-patterns/abstract-factory/java/example
 
+
+Le `Builder` et le `Factory` sont les patterns de construction les plus utilisés.

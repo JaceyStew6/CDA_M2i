@@ -1,4 +1,13 @@
 package org.example.factory;
 
-public class BarrackFactory {
+import org.example.entity.AbstractBuildingBuilder;
+import org.example.entity.Building;
+
+public class BarrackFactory extends BuildingFactory{
+
+    @Override
+    public Building createBuilding(AbstractBuildingBuilder barrackBuilder){
+        return barrackBuilder.build();
+    }
+
 }
