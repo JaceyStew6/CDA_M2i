@@ -41,3 +41,5 @@ Il faut que les observers s'actualisent par rapport à l'observable, tout en ét
 Ex: une station météo, n'a pour but que d'actualiser la météo et non pas de gérer les périphériques à utiliser par exemple. Ainsi, une station météo sera un observable et les périphériques, tels que téléphone, tablette... seront des observers (qui sont une interface). 
 
 *Voir démo pour plus de détails.*
+
+Le Subject apporte les modifications et l'Observer est celui qui écoute.
