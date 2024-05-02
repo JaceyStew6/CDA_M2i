@@ -2,9 +2,9 @@ package org.example;
 
 public class Main {
     public static void main(String[] args) {
-        NavigationSystem n = NavigationSystem.builder().destination("Arras").build();
-        n.navigate(new RoadStrategy());
-        n.navigate(new OffroadStrategy());
-        n.navigate(new EconomicStrategy());
+        NavigationSystem arras = NavigationSystem.builder().destination("Arras").build();
+        arras.navigate(new RoadStrategy());
+        arras.navigate(new OffroadStrategy());
+        arras.navigate(new EconomicStrategy());
     }
 }
