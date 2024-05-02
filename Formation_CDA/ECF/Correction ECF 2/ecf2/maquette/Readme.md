@@ -1,2 +1,0 @@
-# Maquette Figma
-
