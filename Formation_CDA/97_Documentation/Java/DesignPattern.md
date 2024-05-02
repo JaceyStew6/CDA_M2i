@@ -23,6 +23,8 @@ Abstract Factory est un modèle de conception créationnel qui résout le probl�
 
 Le but est de séparer et de permettre une évolutivité dans le temps, avec le minimum de dette technique possible.
 
+Permet de créer des objets via une Factory et donc en dehors de l'objet "principal". Partir du principe que des objets possèdent eux même des sous objets. On va les construire via des factory.
+
 
 https://www.baeldung.com/java-abstract-factory-pattern  
 https://refactoring.guru/design-patterns/abstract-factory/java/example
@@ -42,4 +44,18 @@ Ex: une station météo, n'a pour but que d'actualiser la météo et non pas de 
 
 *Voir démo pour plus de détails.*
 
+Il faut un `Subject` pour mettre en place un observateur, ainsi qu'un `Observer` qui sont tous les deux des `interfaces`.  
 Le Subject apporte les modifications et l'Observer est celui qui écoute.
+
+
+## Design Pattern de Strategie
+
+Il s'agit en fait d'un pattern qui se base sur la notion d'injection de dépendances. La stratégie est de découpler et de rendre les stratégies interchangeables.
+
+Il faut donc définir une interface de strategie
+
+
+
+
+
+### Singleton
