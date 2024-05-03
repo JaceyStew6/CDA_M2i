@@ -11,7 +11,9 @@ Caractéristiques:
 - La JVM gère la mémoire.
 - Interprète en JIT (Just In Time). 
 - La JVM peut être installée sur n'importe quel environnement (est portable)
-- Elle est multithread (peut ouvrir plusieurs process).
+- Elle est multithread (peut ouvrir plusieurs process)
+- Haute sécurité
+- Evolutivité
 
 => Multiplateforme grâce à la JVM.
 
@@ -26,16 +28,72 @@ Standard Edition comprend plusieurs versions.
 
 Il nous faut un JDK pour faire fonctionner tout ça. Le JDK contient les bibliothèques de base et la JVM. Les bibliothèques sont du code écrit par d'autres développeurs.
 
+L'environnement de développement Java est:
+- Multiplateformes
+- Opensource
+- Gratuit
+- Librement distribuable dans les applications
+
+### Le JDK (Java Development Kit)
+C'est un ensemble de bibliothèques logicielles de base du langage de programmation Java, aisnique les outils avec lesquels le code Java peut être compilé, transformé en `bytecode` destiné à la machine vituelle. Il fournit les outils nécessaires au développement d'applications Java. 
+
+Le JDK comprend:
+- l'environnement d'exécution Java (JRE)
+- un interpreteur/ chargeur (Java)
+- un compilateur (javac)
+- un archiveur (jar)
+- un générateur de documentation (Javadoc)
+*ainsi que d'autres outils nécessaire au développement Java*
+
+### Le JRE (Java Runtime Environmment)
+Il s'agit de l'environnement d'exécution Java. Il est intégré au JDK.
+Il founit la configuration minimale requise pour l'exécution d'une application Java.
+
+Le JRE comprend:
+- la machine virtuelle Java (JVM)
+- les classes principales
+- les fichiers de support
+
+### La JVM (Java Virtual Machine)
+C'est une partie très importante du JDK et du JRE car elle est contenue ou intégrée dans les deux. 
+
+Quel que soit le programme Java qu'on exécute à l'aide du JRE ou du JDK, il est intégré à la JVM et celle-ci est chargée de l'exécution ligne par ligne du programme Java. 
+Il est donc également appelé **interpréteur**.
+
+C'est un environnement d'exécution pour applications Java.
+
+Elle permet:
+- l'interprétation du bytecode
+- l'interaction avec le système d'exploitation
+- la gestion de sa mémoire grâce au "ramasse-miettes" (*garbage collector*)
+
+**La JVM ne connait pas le langage Java. Elle ne connait que le bytecode qui est issu de la compilation de codes source écrits en Java**
+
 
 ## Gestion des packages
 
 2 technos majeures en Java:
-- **Maven**: se base sur une description dans un document XML (POM: Project Object Model) et va aller chercher pour nous les packages (comme npm).
+- **Maven**: se base sur une description dans un document XML (POM: Project Object Model) et va aller chercher pour nous les packages (comme npm). Il est géré par l'organisation *Apache Software Foundation*. Il est utilisé pour automatiser l'intégration continue lors d'un développement de logiciel.
 - **Gradle**: se base sur une description dans un document Groovy et va aller chercher pour nous les packages sauf qu'on pourra pousser d'autant plus l'utilisation. Utilisation plus complexe que Maven.
 
+***Il s'agit plus précisemment d'outils d'automatisation et de conception de projet Java.***
+
+### Maven
+
+Maven permet:
+- La simplification du processus de construction d'une application
+- De fournir les bonnes pratiques de développement
+- Uniformiser le processus de construction d'un logiciel
+- Vérifier la qualité du code
+- Faciliter la maitenance d'un projet
+
+Il utilise le paradigme ***POM*** (Project Object Model) afin de:
+- Décrire un projet logiciel
+- Décrire ses dépendances avec des modules externes
+- Décrire l'ordre à suivre pour sa production
 
 Maven ne vient pas avec le JDK. Il faut l'installer manuellement ou via un Maven Wrapper.
-
+Elles nécessite la présence d’un JDK et la configuration de certaines variables d’environnement.
 
 ### Installer Maven
 
