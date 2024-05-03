@@ -21,3 +21,46 @@ Développer un simulateur flexible qui utilise le pattern Strategy pour permettr
 
 
 
+```
+========================================================
+     SIMULATEUR DE POLITIQUE FISCALE - MENU PRINCIPAL
+========================================================
+
+Veuillez choisir une option :
+1. Sélectionner la stratégie fiscale et lancer la simulation
+2. Quitter
+
+Votre choix: _
+```
+
+```
+========================================================
+   SÉLECTION DE LA STRATÉGIE FISCALE ET SIMULATION
+========================================================
+
+Choisissez une stratégie fiscale pour la simulation :
+1. Impôt progressif sur le revenu
+2. TVA (Taxe sur la valeur ajoutée)
+3. Impôt forfaitaire
+
+Votre choix: _
+```
+
+
+```
+Vous avez choisi la stratégie de la TVA.
+Entrez le taux de TVA (%): _
+```
+
+```
+========================================================
+   RÉSULTATS DE LA SIMULATION
+========================================================
+
+Recettes fiscales totales de la TVA : _ millions d'euros
+
+
+Appuyez sur une touche pour revenir au menu principal...
+```
+
+
