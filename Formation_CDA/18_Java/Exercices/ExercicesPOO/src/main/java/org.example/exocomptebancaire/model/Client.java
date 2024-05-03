@@ -1,4 +1,4 @@
-package org.example.exocomptebancaire;
+package org.example.exocomptebancaire.model;
 
 import java.util.List;
 
