@@ -7,6 +7,8 @@
     <list default="true" id="e19e8bba-c4cc-47ed-bbb0-9c6f56a327e5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/../../03_DESIGN_PATTERN/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../03_DESIGN_PATTERN/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ExerciceFlyWeight_GestionVehiculesLocation/src/main/java/org/example/FlyWeightFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/ExerciceFlyWeight_GestionVehiculesLocation/src/main/java/org/example/FlyWeightFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ExerciceFlyWeight_GestionVehiculesLocation/src/main/java/org/example/Vehicule.java" beforeDir="false" afterPath="$PROJECT_DIR$/ExerciceFlyWeight_GestionVehiculesLocation/src/main/java/org/example/Vehicule.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TP_AppProduitsPersonnalises/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/TP_AppProduitsPersonnalises/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../97_Documentation/Java/DesignPattern.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../../97_Documentation/Java/DesignPattern.md" afterDir="false" />
     </list>
