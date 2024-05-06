@@ -1,5 +1,8 @@
 # Le Design Pattern
 
+https://refactoring.guru/fr/design-patterns
+
+
 Permet de suivre une structure/une méthodologie pour répondre à des problématiques.  
 Dans la POO on va nécessairement rencontrer des problèmes. Pour y palier, on va mettre en place des méthodologies/des structures de conception.
 
@@ -32,6 +35,9 @@ https://refactoring.guru/design-patterns/abstract-factory/java/example
 
 Le `Builder` et le `Factory` sont les patterns de construction les plus utilisés.
 
+### Singleton
+Permet de ne faire qu'une seule instance de la classe. Permet à un seul thread de la créer.
+
 
 ## Design Pattern de comportement
 
@@ -47,8 +53,7 @@ Ex: une station météo, n'a pour but que d'actualiser la météo et non pas de 
 Il faut un `Subject` pour mettre en place un observateur, ainsi qu'un `Observer` qui sont tous les deux des `interfaces`.  
 Le Subject apporte les modifications et l'Observer est celui qui écoute.
 
-
-## Design Pattern de Strategie
+### Strategy
 
 Il s'agit en fait d'un pattern qui se base sur la notion d'injection de dépendances. La stratégie est de découpler et de rendre les stratégies interchangeables.
 
@@ -56,6 +61,33 @@ Il faut donc définir une interface de strategie
 
 
 
+## Design Pattern de Structure
 
+### Proxy
 
-### Singleton
+Utilisés à chaque fois que le comportement de notre objet va être vérifié
+
+Utilités: 
+- chargement des images en fonction de certains types/critères (chargement conditionné)
+- lazy loading
+- ajouter des vérifications de sécurité
+- log
+
+*Largement utilisé dans énormément de frameworks.*
+
+### Adapter
+
+Rôle primordial dans le cadre où on souhaite faire évoluer des applications qu'on a déjà.
+
+Pouvoir adapter des comportements qui ont déjà été développés à des comportements qu'on souhaite mettre en place.
+
+L'idée c'est de garder tout ce qui a été fait et d'y ajouter un `adapter`.
+
+Design Pattern très populaire. Il permet par exemple de faire un patch rapidement, pour indiquer le nouveau comportement de l'appli dans le cas où une ancienne bibliothèque vient à lâcher.
+
+### Flyweight (Poids mouche)
+
+> C'est un patron de conception structurel qui permet de stocker plus d’objets dans la RAM en partageant les états similaires entre de multiples objets, plutôt que de stocker les données dans chaque objet.
+
+Il y a un état partagé et un mécanisme de construction qui permet de construire les états partagés et non partagés.
+
