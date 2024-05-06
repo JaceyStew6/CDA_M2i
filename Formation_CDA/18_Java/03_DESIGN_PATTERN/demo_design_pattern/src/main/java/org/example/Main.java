@@ -15,6 +15,8 @@ import org.example.demo_abstract_factory.WinFactory;
 import org.example.demo_observable.Tablette;
 import org.example.demo_observable.Telephone;
 import org.example.demo_observable.WeatherStation;
+import org.example.demo_singleton.Singleton;
+import org.example.demo_singleton.Singleton;
 
 public class Main {
     public static void main(String[] args) {
@@ -51,7 +53,7 @@ public class Main {
         computerFactory.withRAM(RAM.builder().taille(10000).type("DDR4").build());
         computerFactory.withProcessor(new ProcessorBuilder().type("intel").nbCoeur(4).build());
         Computer computer = computerFactory.createComputer();*/
-        WeatherStation weatherStation = new WeatherStation();
+        /*WeatherStation weatherStation = new WeatherStation();
         weatherStation.notifyObservers();
         weatherStation.registerObserver(new Telephone());
         Tablette tablette = new Tablette();
@@ -59,5 +61,8 @@ public class Main {
         weatherStation.notifyObservers();
         weatherStation.removeObserver(tablette);
         weatherStation.notifyObservers();
+        */
+        Singleton.getInstance();
+
     }
 }

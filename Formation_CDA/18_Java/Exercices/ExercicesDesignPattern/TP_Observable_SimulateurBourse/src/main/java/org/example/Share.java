@@ -27,6 +27,4 @@ public class Share implements Subject<Share> {
         observers.forEach(o->o.update(this));
     }
 
-
-
 }
