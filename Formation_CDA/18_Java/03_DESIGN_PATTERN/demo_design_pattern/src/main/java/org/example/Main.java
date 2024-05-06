@@ -16,7 +16,6 @@ import org.example.demo_observable.Tablette;
 import org.example.demo_observable.Telephone;
 import org.example.demo_observable.WeatherStation;
 import org.example.demo_singleton.Singleton;
-import org.example.demo_singleton.Singleton;
 
 public class Main {
     public static void main(String[] args) {
