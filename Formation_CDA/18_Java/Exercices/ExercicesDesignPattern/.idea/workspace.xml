@@ -7,10 +7,6 @@
     <list default="true" id="e19e8bba-c4cc-47ed-bbb0-9c6f56a327e5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/../../03_DESIGN_PATTERN/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../03_DESIGN_PATTERN/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ExerciceFlyWeight_GestionVehiculesLocation/src/main/java/org/example/FlyWeightFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/ExerciceFlyWeight_GestionVehiculesLocation/src/main/java/org/example/FlyWeightFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ExerciceFlyWeight_GestionVehiculesLocation/src/main/java/org/example/Vehicule.java" beforeDir="false" afterPath="$PROJECT_DIR$/ExerciceFlyWeight_GestionVehiculesLocation/src/main/java/org/example/Vehicule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TP_AppProduitsPersonnalises/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/TP_AppProduitsPersonnalises/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../97_Documentation/Java/DesignPattern.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../../97_Documentation/Java/DesignPattern.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,21 +27,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Administrateur/Documents/CDA_M2I/CDA_M2i/Formation_CDA/18_Java/Exercices/ExercicesDesignPattern",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Administrateur/Documents/CDA_M2I/CDA_M2i/Formation_CDA/18_Java/Exercices/ExercicesDesignPattern&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\M2i_Cours\CDA_M2i\Formation_CDA\18_Java\Exercices\ExercicesDesignPattern\TP_DesignPatternGlobal_GestionCourseVoitures\src\main\java\org.example" />
@@ -69,7 +65,8 @@
       <workItem from="1714377373393" duration="84000" />
       <workItem from="1714458936526" duration="22000" />
       <workItem from="1714721407174" duration="245000" />
-      <workItem from="1715004822473" duration="811000" />
+      <workItem from="1715004822473" duration="812000" />
+      <workItem from="1715064475581" duration="14000" />
     </task>
     <servers />
   </component>
