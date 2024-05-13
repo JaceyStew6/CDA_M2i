@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="11f06f04-90e3-4584-91c6-5a47d709f59f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../Exercices/ExercicesJDBC/exercice02Film/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Exercices/ExercicesJDBC/exercice02Film/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Exercices/ExercicesJDBC/exercice02Film/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Exercices/ExercicesJDBC/exercice02Film/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Exercices/ExercicesJDBC/exercice02Film/Film.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Exercices/ExercicesJDBC/exercice02Film/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Exercices/ExercicesJDBC/exercice02Film/exercice02Film.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/JDBC.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo/jdbc_demo/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo/jdbc_demo/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo/jdbc_demo/src/main/java/org/example/Demo1/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo/jdbc_demo/src/main/java/org/example/Demo2/DAO/PlanteDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo/jdbc_demo/src/main/java/org/example/Demo2/Entity/Plante.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo/jdbc_demo/src/main/java/org/example/Demo2/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo/jdbc_demo/src/main/java/org/example/Demo2/Util/DataBaseManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo/jdbc_demo/src/main/java/org/example/Demo2/Util/Ihm.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Support/java_jdbc_m2i.pdf" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2gPKUSXXJuqnRtoMJxJ1GlcTZAs" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Administrateur/Documents/CDA_M2I/CDA_M2i/Formation_CDA/18_Java/JDBC&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-17.0.10-corretto-17.0.10-4caba194b151-5cd809f4" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="11f06f04-90e3-4584-91c6-5a47d709f59f" name="Changes" comment="" />
+      <created>1715593787718</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1715593787718</updated>
+      <workItem from="1715593788758" duration="2821000" />
+      <workItem from="1715600504206" duration="4685000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
