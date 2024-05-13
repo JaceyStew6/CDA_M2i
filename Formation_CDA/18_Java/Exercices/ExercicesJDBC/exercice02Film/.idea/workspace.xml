@@ -5,27 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d01d3c1c-73c8-475b-bd31-f5c8542906f4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Film.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercice02Film.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../JDBC/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../JDBC/.idea/JDBC.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../JDBC/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../JDBC/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../JDBC/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../JDBC/Demo/jdbc_demo/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../JDBC/Demo/jdbc_demo/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../JDBC/Demo/jdbc_demo/src/main/java/org/example/Demo1/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../JDBC/Demo/jdbc_demo/src/main/java/org/example/Demo2/DAO/PlanteDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../JDBC/Demo/jdbc_demo/src/main/java/org/example/Demo2/Entity/Plante.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../JDBC/Demo/jdbc_demo/src/main/java/org/example/Demo2/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../JDBC/Demo/jdbc_demo/src/main/java/org/example/Demo2/Util/DataBaseManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../JDBC/Demo/jdbc_demo/src/main/java/org/example/Demo2/Util/Ihm.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../JDBC/Support/java_jdbc_m2i.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../JDBC/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../JDBC/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

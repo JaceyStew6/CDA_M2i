@@ -6,38 +6,58 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PlanteDAO {
-
-    private Connection connection;
-    private PreparedStatement preparedStatement;
-    private String request;
-    private ResultSet resultSet;
-
+public class PlanteDAO extends BaseDAO<Plante> {
 
     public PlanteDAO (Connection connection){
-        this.connection = connection;
+        super(connection);
     }
 
-    public Plante createPlant (String nom , String color , int age) throws SQLException {
-        request = "INSERT INTO plante (name,color,age) VALUE (?,?,?)";
-        preparedStatement = connection.prepareStatement(request, Statement.RETURN_GENERATED_KEYS);
-        preparedStatement.setString(1,nom);
-        preparedStatement.setString(2,color);
-        preparedStatement.setInt(3,age);
-        preparedStatement.executeUpdate();
-        resultSet = preparedStatement.getGeneratedKeys();
-        Plante plante = null;
-        if(resultSet.next()){
-            plante = Plante.builder().name(nom).color(color).age(age).id_plante(resultSet.getInt(1)).build();
+    @Override
+    public Plante save(Plante element) throws SQLException {
+        try{
+            request = "INSERT INTO plante (name,color,age) VALUE (?,?,?)";
+            preparedStatement = _connection.prepareStatement(request, Statement.RETURN_GENERATED_KEYS);
+            preparedStatement.setString(1,element.getName());
+            preparedStatement.setString(2,element.getColor());
+            preparedStatement.setInt(3,element.getAge());
+            int nbrow = preparedStatement.executeUpdate();
+            resultSet = preparedStatement.getGeneratedKeys();
+            Plante plante = null;
+            if(resultSet.next()){
+                plante = Plante.builder().name(element.getName()).color(element.getColor()).age(element.getAge()).id_plante(resultSet.getInt(1)).build();
+            }
+            if(nbrow != 1){
+                _connection.rollback();
+            }
+            _connection.commit();
+            return plante;
+        }catch(SQLException e){
+            _connection.rollback();
+            return null;
         }
 
-        return plante;
     }
 
-    public List<Plante> getAllPlante () throws SQLException {
+    @Override
+    public Plante update(Plante element) throws SQLException {
+        return null;
+    }
+
+    @Override
+    public boolean delete(Plante element) throws SQLException {
+        return false;
+    }
+
+    @Override
+    public Plante get(int id) throws SQLException {
+        return null;
+    }
+
+    @Override
+    public List<Plante> get() throws SQLException {
         List<Plante> plantes = new ArrayList<>();
         request = "SELECT * FROM plante";
-        preparedStatement = connection.prepareStatement(request);
+        preparedStatement = _connection.prepareStatement(request);
         resultSet = preparedStatement.executeQuery();
         while (resultSet.next()){
             plantes.add(Plante.builder().id_plante(resultSet.getInt("id"))
@@ -48,4 +68,5 @@ public class PlanteDAO {
         }
         return plantes;
     }
+
 }
