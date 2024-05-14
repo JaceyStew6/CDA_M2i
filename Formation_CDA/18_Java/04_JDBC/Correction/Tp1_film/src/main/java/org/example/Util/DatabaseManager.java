@@ -11,6 +11,8 @@ public class DatabaseManager {
     private static String PASSWORD = "Root";
 
     public static Connection getConnection () throws SQLException{
-        return DriverManager.getConnection(URI,USER,PASSWORD);
+        Connection connection = DriverManager.getConnection(URI,USER,PASSWORD);
+        connection.setAutoCommit(false);
+        return connection;
     }
 }

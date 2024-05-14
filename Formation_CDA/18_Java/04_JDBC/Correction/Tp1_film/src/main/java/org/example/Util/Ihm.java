@@ -11,18 +11,13 @@ import java.util.Scanner;
 
 public class Ihm {
 
-    private Connection connection;
     private FilmDAO filmDAO;
     private Scanner scanner;
 
     public Ihm (){
         scanner = new Scanner(System.in);
-        try{
-            connection = DatabaseManager.getConnection();
-            filmDAO = new FilmDAO(connection);
-        }catch (SQLException e){
-            throw new RuntimeException(e);
-        }
+        filmDAO = new FilmDAO();
+
     }
 
     public void start (){
@@ -50,11 +45,6 @@ public class Ihm {
                     getAllFilm();
                     break;
                 default:
-                    try{
-                        connection.close();
-                    }catch(SQLException e){
-                        throw new RuntimeException(e);
-                    }
                     return;
             }
         }
@@ -81,7 +71,7 @@ public class Ihm {
         LocalDate dateDeSortie = LocalDate.of(year,month,day);
 
         try {
-            System.out.println(filmDAO.createFilm(title,realisateur,dateDeSortie,genre));
+            System.out.println(filmDAO.save(Film.builder().titre(title).realisateur(realisateur).genre(genre).dateSortie(dateDeSortie).build()));
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -116,7 +106,7 @@ public class Ihm {
             LocalDate dateDeSortie = LocalDate.of(year,month,day);
 
             try {
-                System.out.println("film mis a jour "+filmDAO.updateFilm(id,titre,realisateur,dateDeSortie,genre));
+                System.out.println("film mis a jour "+filmDAO.update(filmDAO.save(Film.builder().titre(titre).realisateur(realisateur).genre(genre).dateSortie(dateDeSortie).id(id).build())));
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
@@ -132,7 +122,7 @@ public class Ihm {
         scanner.nextLine();
 
         try {
-             if(filmDAO.deleteFilm(id)){
+             if(filmDAO.delete(id)){
                  System.out.println("film supprimé");
              }else{
                  System.out.println("erreur lors de la suppresion");

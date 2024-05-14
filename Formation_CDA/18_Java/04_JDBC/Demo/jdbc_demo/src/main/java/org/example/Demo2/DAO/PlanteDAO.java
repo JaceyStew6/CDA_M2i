@@ -50,6 +50,17 @@ public class PlanteDAO extends BaseDAO<Plante> {
 
     @Override
     public Plante get(int id) throws SQLException {
+        request = "SELECT * FROM plante WHERE id = ?";
+        preparedStatement = _connection.prepareStatement(request);
+        preparedStatement.setInt(1,id);
+        resultSet = preparedStatement.executeQuery();
+        if (resultSet.next()){
+            return Plante.builder().id_plante(resultSet.getInt("id"))
+                    .name(resultSet.getString("name"))
+                    .color(resultSet.getString("color"))
+                    .age(resultSet.getInt("age"))
+                    .build();
+        }
         return null;
     }
 
@@ -67,6 +78,27 @@ public class PlanteDAO extends BaseDAO<Plante> {
                     .build());
         }
         return plantes;
+    }
+
+    public void multipleAdd (List<Plante> plantes){
+        try {
+            request = "INSERT INTO plante (name,color,age) VALUE (?,?,?)";
+            preparedStatement = _connection.prepareStatement(request);
+            for(Plante plante : plantes){
+                preparedStatement.setString(1,plante.getName());
+                preparedStatement.setString(2,plante.getColor());
+                preparedStatement.setInt(3,plante.getAge());
+
+                preparedStatement.addBatch();
+            }
+
+            int[] result = preparedStatement.executeBatch();
+            _connection.commit();
+            System.out.println("nombre de ligne inserées :" +result.length);
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }
