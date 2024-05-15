@@ -3,8 +3,8 @@ USE zoo_database;
 
 SHOW DATABASES;
 
-DROP TABLE IF EXISTS Animal;
-DROP TABLE IF EXISTS Food;
+-- DROP TABLE IF EXISTS Animal;
+-- DROP TABLE IF EXISTS Food;
 
 -- Création de la table Animal
 CREATE TABLE IF NOT EXISTS Animal(
@@ -25,6 +25,22 @@ CREATE TABLE IF NOT EXISTS Food(
     FOREIGN KEY (id_animal) REFERENCES Animal(animal_id)
 );
 
+-- Création de la table Enclosure
+CREATE TABLE IF NOT EXISTS Enclosure(
+	enclosure_id INT PRIMARY KEY AUTO_INCREMENT,
+    enclosureName VARCHAR(50),
+    id_animal INT,
+    FOREIGN KEY (id_animal) REFERENCES Animal(animal_id)
+);
+
+-- Création table de jointure Animal_Enclosure
+CREATE TABLE IF NOT EXISTS Animal_Enclosure(
+	id_animal INT NOT NULL,
+    id_enclosure INT NOT NULL,
+    FOREIGN KEY (id_animal) REFERENCES Animal(animal_id),
+    FOREIGN KEY (id_enclosure) REFERENCES Enclosure(enclosure_id)
+);
+
 SHOW TABLES;
 SELECT *
 FROM Animal;
@@ -32,3 +48,10 @@ FROM Animal;
 SHOW TABLES;
 SELECT *
 FROM Food;
+
+SHOW TABLES;
+SELECT *
+FROM Enclosure;
+
+
+SELECT * FROM Animal WHERE animalName = "Stitch";

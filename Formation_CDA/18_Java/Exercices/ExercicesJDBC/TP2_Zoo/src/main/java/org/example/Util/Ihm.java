@@ -1,8 +1,11 @@
 package org.example.Util;
 
 import org.example.DAO.AnimalDAO;
+import org.example.DAO.AnimalEnclosureDAO;
+import org.example.DAO.EnclosureDAO;
 import org.example.DAO.FoodDAO;
 import org.example.Entity.Animal;
+import org.example.Entity.Enclosure;
 import org.example.Entity.Food;
 
 import java.sql.Connection;
@@ -16,6 +19,8 @@ public class Ihm {
     private Connection connection;
     private AnimalDAO animalDAO;
     private FoodDAO foodDAO;
+    private EnclosureDAO enclosureDAO;
+    private AnimalEnclosureDAO animalEnclosureDAO;
     private Scanner scanner;
 
     public Ihm (){
@@ -36,6 +41,7 @@ public class Ihm {
             System.out.println("1/ Création d'une fiche animal");
             System.out.println("2/ Afficher tous les animaux du zoo");
             System.out.println("3/ Enregistrer un repas pour un animal");
+            System.out.println("4/ Création d'un enclos");
 //            System.out.println("4/ Recherche un animal par son nom");
             entry = scanner.nextInt();
             scanner.nextLine();
@@ -49,6 +55,9 @@ public class Ihm {
                     break;
                 case 3:
                     addFood();
+                    break;
+                case 4:
+                    createEnclosure();
                     break;
 //                case 4:
 //                    commandeById();
@@ -117,6 +126,19 @@ public class Ihm {
             Food foodCreated = foodDAO.save(food);
             System.out.println("Le repas a été crée" + foodCreated);
 
+        }catch (SQLException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    private void createEnclosure(){
+        System.out.println("------Création d'un enclos'------");
+        System.out.println("Nom :");
+        String enclosureName = scanner.nextLine();
+
+        try {
+            Enclosure enclosure = enclosureDAO.save(Enclosure.builder().enclosureName(enclosureName).build());
+            System.out.println("L'enclos : " + enclosure + " a bien été créé");
         }catch (SQLException e){
             throw new RuntimeException(e);
         }

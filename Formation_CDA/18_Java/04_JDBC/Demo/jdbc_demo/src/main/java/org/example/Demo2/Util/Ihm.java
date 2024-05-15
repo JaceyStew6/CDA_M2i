@@ -1,8 +1,12 @@
 package org.example.Demo2.Util;
 
 import org.example.Demo2.DAO.CommandeDAO;
+import org.example.Demo2.DAO.CommandeFleuristeDAO;
+import org.example.Demo2.DAO.FleuristeDao;
 import org.example.Demo2.DAO.PlanteDAO;
 import org.example.Demo2.Entity.Commande;
+import org.example.Demo2.Entity.CommandeFleuriste;
+import org.example.Demo2.Entity.Fleuriste;
 import org.example.Demo2.Entity.Plante;
 
 import java.sql.Connection;
@@ -16,6 +20,8 @@ public class Ihm {
     private Connection connection;
     private PlanteDAO planteDAO;
     private CommandeDAO commandeDAO;
+    private FleuristeDao fleuristeDao;
+    private CommandeFleuristeDAO commandeFleuristeDAO;
 
     private Scanner scanner;
 
@@ -25,6 +31,8 @@ public class Ihm {
             connection = DataBaseManager.getConnection();
             planteDAO = new PlanteDAO(connection);
             commandeDAO = new CommandeDAO(connection,planteDAO);
+            fleuristeDao = new FleuristeDao(connection);
+            commandeFleuristeDAO = new CommandeFleuristeDAO(connection);
         }catch (SQLException e){
             throw new RuntimeException(e);
         }
@@ -38,6 +46,9 @@ public class Ihm {
             System.out.println("2/ afficher toutes les plantes");
             System.out.println("3/ ajouter une commande");
             System.out.println("4/ commande par l'id");
+            System.out.println("5/cree un fleuriste");
+            System.out.println("6/ assigner une commande a un fleuriste");
+            System.out.println("7/all fleuriste");
             entry = scanner.nextInt();
             scanner.nextLine();
 
@@ -53,6 +64,15 @@ public class Ihm {
                     break;
                 case 4:
                     commandeById();
+                    break;
+                case 5:
+                    createFleuriste();
+                    break;
+                case 6:
+                    assignCommand();
+                    break;
+                case 7:
+                    geTAllFleuriste();
                     break;
                 default:
                     return;
@@ -73,6 +93,52 @@ public class Ihm {
 
             Plante plante =planteDAO.save(Plante.builder().name(name).color(color).age(age).build());
             System.out.println("la plante a ete cree" + plante);
+        }catch(SQLException e){
+            throw new RuntimeException(e);
+        }
+    }
+    private void createFleuriste (){
+        System.out.println("--- creation de fleuriste ---");
+        System.out.println("nom du fleuriste :");
+        String name = scanner.nextLine();
+
+        try{
+
+            Fleuriste fleuriste = fleuristeDao.save( Fleuriste.builder().name(name).build());
+            System.out.println("le fleuriste a ete cree" + fleuriste);
+        }catch(SQLException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    private void geTAllFleuriste (){
+        try {
+            System.out.println("-- afficher un fleuriste --");
+            System.out.println("id du fleuriste");
+            int id = scanner.nextInt();
+            scanner.nextLine();
+            Fleuriste fleuriste = fleuristeDao.get(id);
+            System.out.println(fleuriste);
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private void assignCommand  (){
+        System.out.println("--- assigner une commande a un fleuriste ---");
+        System.out.println("id du fleuriste :");
+        int id_fleuriste = scanner.nextInt();
+        scanner.nextLine();
+
+        System.out.println("id du commande :");
+        int id_commande = scanner.nextInt();
+        scanner.nextLine();
+
+        try{
+
+            CommandeFleuriste commandeFleuriste = commandeFleuristeDAO.save(CommandeFleuriste.builder().id_fleuriste(id_fleuriste).id_commande(id_commande).build());
+            System.out.println("le fleuriste a ete assigner a la commande" + commandeFleuriste);
         }catch(SQLException e){
             throw new RuntimeException(e);
         }

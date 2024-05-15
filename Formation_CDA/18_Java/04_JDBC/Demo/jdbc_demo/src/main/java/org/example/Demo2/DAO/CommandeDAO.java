@@ -73,4 +73,6 @@ public class CommandeDAO extends BaseDAO<Commande> {
     public List<Commande> get() throws SQLException {
         return null;
     }
+
+
 }
