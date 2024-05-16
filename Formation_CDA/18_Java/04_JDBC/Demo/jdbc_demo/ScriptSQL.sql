@@ -62,3 +62,16 @@ foreign key (id_fleuriste) references fleuriste(id) on delete cascade
 );
 
 SELECT * FROM commande AS c INNER JOIN commande_fleuriste as cf ON cf.id_commande = c.id WHERE cf.id_fleuriste = 1;
+
+create table enclos (
+id int primary key auto_increment,
+name varchar(50)
+);
+
+create table enclos_animal (
+id int auto_increment primary key,
+id_enclos int not null,
+id_animal int not null,
+foreign key (id_enclos) references enclos(id) on delete cascade,
+foreign key (id_animal) references animal(id) on delete cascade
+);
