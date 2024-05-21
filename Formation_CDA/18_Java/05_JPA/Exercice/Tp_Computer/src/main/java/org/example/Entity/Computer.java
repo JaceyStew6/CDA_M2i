@@ -11,19 +11,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-@Builder
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-
-public class SSD {
+public class Computer {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) //Important de préciser la stratégie pour éviter qu'il vienne créer de nouvelles tables non désirées
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
-    private String brand;
-    private int size;
-    private String ssdType;
-
+    private String name;
+    private float price;
 
 }

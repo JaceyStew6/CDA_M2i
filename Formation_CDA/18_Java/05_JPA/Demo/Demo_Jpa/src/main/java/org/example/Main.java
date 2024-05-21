@@ -1,6 +1,7 @@
 package org.example;
 
 import org.example.Entity.Plante;
+import org.example.Entity.Pot;
 
 import javax.persistence.*;
 import java.util.List;
@@ -11,14 +12,17 @@ public class Main {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpa_demo");
         EntityManager em = emf.createEntityManager();
 
-        Plante plante = Plante.builder().name("Rose").age(1).color("Red").build();
-
         em.getTransaction().begin();
+
+        Pot pot = Pot.builder().height(10).width(10).build();
+        Plante plante = Plante.builder().name("Rose").age(1).color("Red").pot(pot).build();
+
+//        em.persist(pot);
         em.persist(plante);
         em.getTransaction().commit();
 
         try{
-            Plante plantefound = em.getReference(Plante.class,2);
+            Plante plantefound = em.find(Plante.class,2);
             if(plantefound != null){
                 System.out.println(plantefound);
             }

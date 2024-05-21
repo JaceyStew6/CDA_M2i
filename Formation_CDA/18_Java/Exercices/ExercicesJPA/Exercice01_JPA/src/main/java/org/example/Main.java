@@ -13,10 +13,12 @@ public class Main {
         EntityManager em = emf.createEntityManager();
 
         SSD ssd = SSD.builder().brand("Samsung").size(16).ssdType("NVME").build();
+        SSD ssd1 = SSD.builder().brand("Samsung").size(8).ssdType("mSATA").build();
 
         em.getTransaction().begin();
         em.persist(ssd);
-        em.getTransaction().commit();
+        em.persist(ssd1);
+        em.getTransaction().commit(); //push les modifications directement dans la BDD
 
         try{
             SSD ssdFound = em.getReference(SSD.class,2);
@@ -41,6 +43,16 @@ public class Main {
         for (Object ssdInList : ssdList){
             System.out.println("from list : "+ssdInList);
         }
+
+//        SSD ssd2 = em.find(SSD.class, 2);
+//        if(ssd == null){
+//            System.out.println("SSD not found");
+//        }else {
+//            em.remove(ssd2);
+//        }
+//
+//        em.getTransaction().commit();
+
 
         em.close();
         emf.close();

@@ -5,10 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @Builder
@@ -22,4 +19,9 @@ public class Plante {
     private String name;
     private int age;
     private String color;
+//    @OneToOne
+//    @JoinColumn(name="id_pot")
+//    private Pot pot;
+    @Embedded
+    private Pot pot;
 }
