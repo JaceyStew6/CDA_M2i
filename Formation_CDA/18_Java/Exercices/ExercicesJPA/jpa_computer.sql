@@ -1,13 +1,12 @@
 -- Création de la base de données
-CREATE DATABASE IF NOT EXISTS jpa_exo1;
-USE jpa_exo1;
+CREATE DATABASE IF NOT EXISTS jpa_computer;
+USE jpa_computer;
 
 
-CREATE TABLE IF NOT EXISTS ssd(
+CREATE TABLE IF NOT EXISTS computer(
 	id INT PRIMARY KEY AUTO_INCREMENT,
-    brand VARCHAR(50) NOT NULL,
-    size INT NOT NULL,
-    ssdType VARCHAR(50) NOT NULL
+    computerName VARCHAR(50) NOT NULL,
+    price FLOAT NOT NULL,
 );
 
 -- DROP table ssd

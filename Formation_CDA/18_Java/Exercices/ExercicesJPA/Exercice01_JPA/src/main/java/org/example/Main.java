@@ -13,11 +13,11 @@ public class Main {
         EntityManager em = emf.createEntityManager();
 
         SSD ssd = SSD.builder().brand("Samsung").size(16).ssdType("NVME").build();
-        SSD ssd1 = SSD.builder().brand("Samsung").size(8).ssdType("mSATA").build();
+//        SSD ssd1 = SSD.builder().brand("Samsung").size(8).ssdType("mSATA").build();
 
         em.getTransaction().begin();
         em.persist(ssd);
-        em.persist(ssd1);
+//        em.persist(ssd1);
         em.getTransaction().commit(); //push les modifications directement dans la BDD
 
         try{

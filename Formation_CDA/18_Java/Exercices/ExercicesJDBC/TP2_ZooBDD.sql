@@ -53,5 +53,9 @@ SHOW TABLES;
 SELECT *
 FROM Enclosure;
 
+insert into Enclosure (enclosureName)
+values
+	('Enclos 1')
+
 
 SELECT * FROM Animal WHERE animalName = "Stitch";
