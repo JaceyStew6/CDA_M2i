@@ -83,7 +83,7 @@ public class PlanteDAO extends BaseDAO<Plante> {
     public void multipleAdd (List<Plante> plantes){
         try {
             request = "INSERT INTO plante (name,color,age) VALUE (?,?,?)";
-            preparedStatement = _connection.prepareStatement(request);
+            preparedStatement = _connection.prepareStatement(request,Statement.RETURN_GENERATED_KEYS);
             for(Plante plante : plantes){
                 preparedStatement.setString(1,plante.getName());
                 preparedStatement.setString(2,plante.getColor());
@@ -93,6 +93,7 @@ public class PlanteDAO extends BaseDAO<Plante> {
             }
 
             int[] result = preparedStatement.executeBatch();
+            resultSet = preparedStatement.getGeneratedKeys();
             _connection.commit();
             System.out.println("nombre de ligne inserées :" +result.length);
 
