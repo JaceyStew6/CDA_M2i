@@ -5,10 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @Data
@@ -22,4 +19,27 @@ public class Computer {
     private String name;
     private float price;
 
+//    @Embedded
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_identifiant")
+    private Identifiant identifiant;
+
+    @ManyToOne
+    @JoinColumn(name = "processor_id")
+    private Processor processor;
+
+    @ManyToOne
+    @JoinColumn(name = "os_id")
+    private OS os;
+
+    @Override
+    public String toString() {
+        return "Computer{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", identifiant=" + identifiant +
+                ", processor=" + processor +
+                '}';
+    }
 }

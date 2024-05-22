@@ -1,6 +1,9 @@
 package org.example;
 
 import org.example.Entity.Computer;
+import org.example.Entity.Identifiant;
+import org.example.Entity.OS;
+import org.example.Entity.Processor;
 
 import javax.persistence.*;
 import java.util.List;
@@ -21,6 +24,9 @@ public class IHM {
             System.out.println("3/ afficher par id");
             System.out.println("4/ supprimer");
             System.out.println("5/ editer");
+            System.out.println("6/ create os");
+            System.out.println("7/ create processor");
+            System.out.println("8/ Show OS");
             int entry = sc.nextInt();
             sc.nextLine();
             switch (entry){
@@ -39,6 +45,15 @@ public class IHM {
                 case 5:
                     editComputer();
                     break;
+                case 6 :
+                    createOs();
+                    break;
+                case 7 :
+                    createProcessor();
+                    break;
+                case 8 :
+                    showInfo();
+                    break;
                 default:
                     return;
             }
@@ -47,7 +62,11 @@ public class IHM {
     }
 
     private void createComputer (){
-        Computer computer = Computer.builder().name("MyComputer").price(1200.50f).build();
+
+        Identifiant identifiant = Identifiant.builder().iMac("Mon adresse imac").ip("mon adress ip").build();
+        Processor processor = em.find(Processor.class,1);
+        OS os = em.find(OS.class,1);
+        Computer computer = Computer.builder().name("MyComputer").price(1200.50f).identifiant(identifiant).processor(processor).os(os).build();
 
         em.getTransaction().begin();
         em.persist(computer);
@@ -61,6 +80,20 @@ public class IHM {
         for (Object computer : computerList){
             System.out.println(computer);
         }
+    }
+
+    private void createOs (){
+        OS os = OS.builder().name("Windows").Version("10.12").build();
+        em.getTransaction().begin();
+        em.persist(os);
+        em.getTransaction().commit();
+    }
+
+    private void createProcessor (){
+        Processor processor = Processor.builder().heart(5).thread(8000).generation(7).build();
+        em.getTransaction().begin();
+        em.persist(processor);
+        em.getTransaction().commit();
     }
 
     private Computer getComputerById (){
@@ -96,5 +129,10 @@ public class IHM {
             computer.setPrice(1000.99f);
         }
         transaction.commit();
+    }
+
+    private void showInfo (){
+        OS os = em.find(OS.class,1);
+        System.out.println( "Os found : "+os);
     }
 }

@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Builder
@@ -24,4 +26,33 @@ public class Plante {
 //    private Pot pot;
     @Embedded
     private Pot pot;
+
+    @ManyToOne
+    @JoinColumn(name = "id_fleuriste")
+    private Fleuriste fleuriste;
+
+    @OneToMany
+    @JoinColumn(name = "id")
+    private List<Fleure> fleures;
+
+    @ManyToMany(mappedBy = "plantes")
+    private List<Serre> serres ;
+
+    public void add (Fleure fleure){
+        fleures.add(fleure);
+    }
+
+    @Override
+    public String toString() {
+        return "Plante{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                ", color='" + color + '\'' +
+                ", pot=" + pot +
+                ", fleures=" + fleures +
+                '}';
+    }
+
+
 }

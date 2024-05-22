@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.Entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 
 @Entity
@@ -28,8 +29,32 @@ public class Computer {
 
 
 
-    //    //Avec méthode @OneToOne
+    //Avec méthode @OneToOne
     @OneToOne
     @JoinColumn(name = "id_identification")
     private Identification identification;
+
+    @ManyToOne
+    @JoinColumn(name = "id_processor")
+    private Processor processor;
+
+    @OneToMany
+    @JoinColumn(name = "id")
+    private List<OperatingSystem> operatingSystems;
+
+    public void add(OperatingSystem operatingSystem){
+        operatingSystems.add(operatingSystem);
+    }
+
+    @Override
+    public String toString() {
+        return "Computer{" +
+                "id=" + id +
+                ", computerName='" + computerName + '\'' +
+                ", price=" + price +
+                ", identification=" + identification +
+                ", processor=" + processor +
+                ", operatingSystems=" + operatingSystems +
+                '}';
+    }
 }
