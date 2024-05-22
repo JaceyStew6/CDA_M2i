@@ -6,9 +6,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+
+import javax.persistence.*;
+
 
 @Entity
 @Data
@@ -22,4 +22,14 @@ public class Computer {
     private String computerName;
     private float price;
 
+    //Avec méthode @Embedded
+/*    @Embedded
+    private Identification identification;*/
+
+
+
+    //    //Avec méthode @OneToOne
+    @OneToOne
+    @JoinColumn(name = "id_identification")
+    private Identification identification;
 }

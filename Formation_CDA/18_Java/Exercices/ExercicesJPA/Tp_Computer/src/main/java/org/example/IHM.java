@@ -1,13 +1,15 @@
 package org.example;
 
 import org.example.Entity.Computer;
+import org.example.Entity.Identification;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class IHM {
-    EntityManagerFactory emf =  Persistence.createEntityManagerFactory("Computer_Jpa");
+    EntityManagerFactory emf =  Persistence.createEntityManagerFactory("jpa_computer");
     EntityManager em = emf.createEntityManager();
 
     Scanner sc = new Scanner(System.in);
@@ -47,9 +49,11 @@ public class IHM {
     }
 
     private void createComputer (){
-        Computer computer = Computer.builder().computerName("MyComputer").price(1200.50f).build();
+        Identification identification = Identification.builder().ipAddress("192.168.123.132").macAddress("5E:FF:56:A2:AF:15").build();
+        Computer computer = Computer.builder().computerName("MyComputer").price(1200.50f).identification(identification).build();
 
         em.getTransaction().begin();
+        em.persist(identification);
         em.persist(computer);
         em.getTransaction().commit();
     }

@@ -6,15 +6,23 @@ USE jpa_computer;
 CREATE TABLE IF NOT EXISTS computer(
 	id INT PRIMARY KEY AUTO_INCREMENT,
     computerName VARCHAR(50) NOT NULL,
-    price FLOAT NOT NULL,
+    price FLOAT NOT NULL
+    id_identification INT,
+    FOREIGN KEY (id_identification) REFERENCES identification(identification_id)
 );
 
--- DROP table ssd
+CREATE TABLE IF NOT EXISTS identification(
+	identification_id INT PRIMARY KEY AUTO_INCREMENT,
+    ipAddress VARCHAR(50) NOT NULL,
+    macAddress VARCHAR(50) NOT NULL
+);
+
+-- DROP table computer
 
 SHOW TABLES;
 
 SELECT *
-FROM ssd;
+FROM computer;
 
 -- DELETE FROM ssd
 -- WHERE id = 2;
