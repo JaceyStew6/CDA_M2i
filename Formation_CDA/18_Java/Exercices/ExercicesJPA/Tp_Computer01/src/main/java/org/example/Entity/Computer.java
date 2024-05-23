@@ -17,16 +17,16 @@ public class Computer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String name;
+    private String computerName;
     private float price;
 
 //    @Embedded
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_identifiant")
-    private Identifiant identifiant;
+    @JoinColumn(name = "id_identification")
+    private Identification identification;
 
     @ManyToOne
-    @JoinColumn(name = "processor_id")
+    @JoinColumn(name = "id_processor")
     private Processor processor;
 
     @ManyToOne
@@ -34,15 +34,15 @@ public class Computer {
     private OS os;
 
     @ManyToMany(mappedBy = "computers")
-    private List<Peripherique> peripheriques;
+    private List<Peripheral> peripherals;
 
     @Override
     public String toString() {
         return "Computer{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
+                ", name='" + computerName + '\'' +
                 ", price=" + price +
-                ", identifiant=" + identifiant +
+                ", identifiant=" + identification +
                 ", processor=" + processor +
                 '}';
     }

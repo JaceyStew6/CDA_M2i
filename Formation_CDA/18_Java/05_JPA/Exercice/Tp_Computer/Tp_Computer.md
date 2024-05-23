@@ -12,4 +12,4 @@ Rajouter a notre computer un object Identification (Adress Imac et Adress Ip) qu
 
  ### partie 4 :
 
- Notre computer va pouvoir posséder plusieurs péripheriques, qui pourront être eux mpemes associé à different computer, on veut un crud complet sur nos péripheriques, et un affichage des ordinateurs associés ainsi que la possibilité de voir les différents péripheriques d'un computer.
+ Notre computer va pouvoir posséder plusieurs péripheriques, qui pourront être eux memes associé à different computer, on veut un crud complet sur nos péripheriques, et un affichage des ordinateurs associés ainsi que la possibilité de voir les différents péripheriques d'un computer.

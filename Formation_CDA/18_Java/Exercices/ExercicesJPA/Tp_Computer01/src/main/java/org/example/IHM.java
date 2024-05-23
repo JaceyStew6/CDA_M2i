@@ -1,12 +1,9 @@
 package org.example;
 
 import org.example.Entity.Computer;
-import org.example.Entity.Identifiant;
+import org.example.Entity.Identification;
 import org.example.Entity.OS;
 import org.example.Entity.Processor;
-import org.example.Repository.ComputerRepository;
-import org.example.Repository.OSRepsitory;
-import org.example.Repository.ProcessorRepository;
 
 import javax.persistence.*;
 import java.util.List;
@@ -15,18 +12,9 @@ import java.util.Scanner;
 public class IHM {
     EntityManagerFactory emf =  Persistence.createEntityManagerFactory("Computer_Jpa");
     EntityManager em = emf.createEntityManager();
-    ComputerRepository computerRepository;
-    OSRepsitory osRepsitory;
 
-    ProcessorRepository processorRepository;
-    Scanner sc ;
+    Scanner sc = new Scanner(System.in);
 
-    public IHM() {
-        computerRepository = new ComputerRepository(em);
-        osRepsitory = new OSRepsitory(em);
-        processorRepository = new ProcessorRepository(em);
-        sc = new Scanner(System.in);
-    }
 
     public void start (){
         while (true){
@@ -39,7 +27,6 @@ public class IHM {
             System.out.println("6/ create os");
             System.out.println("7/ create processor");
             System.out.println("8/ Show OS");
-            System.out.println("9: peripheriqueIhm");
             int entry = sc.nextInt();
             sc.nextLine();
             switch (entry){
@@ -67,10 +54,6 @@ public class IHM {
                 case 8 :
                     showInfo();
                     break;
-                case 9:
-                    IhmPeripherique ihmPeripherique = new IhmPeripherique(sc,em);
-                    ihmPeripherique.start();
-                    break;
                 default:
                     return;
             }
@@ -80,30 +63,37 @@ public class IHM {
 
     private void createComputer (){
 
-        Identifiant identifiant = Identifiant.builder().iMac("Mon adresse imac").ip("mon adress ip").build();
+        Identification identification = Identification.builder().macAddress("Mon adresse imac").ipAddress("mon adresse ip").build();
         Processor processor = em.find(Processor.class,1);
         OS os = em.find(OS.class,1);
-        Computer computer = Computer.builder().name("MyComputer").price(1200.50f).identifiant(identifiant).processor(processor).os(os).build();
+        Computer computer = Computer.builder().computerName("MyComputer").price(1200.50f).identification(identification).processor(processor).os(os).build();
 
-        computerRepository.save(computer);
+        em.getTransaction().begin();
+        em.persist(computer);
+        em.getTransaction().commit();
     }
 
     private void getAllComputer (){
-        List<Computer> computerList = computerRepository.findAll();
+        Query query = em.createQuery("select c from Computer c");
+        List computerList = query.getResultList();
 
-        for (Computer computer : computerList){
+        for (Object computer : computerList){
             System.out.println(computer);
         }
     }
 
     private void createOs (){
-        OS os = OS.builder().name("Windows").Version("10.12").build();
-        osRepsitory.save(os);
+        OS os = OS.builder().osName("Windows").Version("10.12").build();
+        em.getTransaction().begin();
+        em.persist(os);
+        em.getTransaction().commit();
     }
 
     private void createProcessor (){
         Processor processor = Processor.builder().heart(5).thread(8000).generation(7).build();
-        processorRepository.save(processor);
+        em.getTransaction().begin();
+        em.persist(processor);
+        em.getTransaction().commit();
     }
 
     private Computer getComputerById (){
@@ -111,7 +101,7 @@ public class IHM {
         int id = sc.nextInt();
         sc.nextLine();
 
-        Computer computer = computerRepository.findById(id);
+        Computer computer = em.find(Computer.class,id);
         if(computer != null){
             System.out.println(computer);
         }else {
@@ -122,23 +112,27 @@ public class IHM {
 
     private void deleteComputer (){
         Computer computer = getComputerById();
+        EntityTransaction transaction = em.getTransaction();
+        transaction.begin();
         if(computer != null){
-            computerRepository.delete(computer);
+            em.remove(computer);
         }
+        transaction.commit();
     }
 
     private void editComputer (){
         Computer computer = getComputerById();
+        EntityTransaction transaction = em.getTransaction();
+        transaction.begin();
         if(computer != null){
-            computer.setName("myComputer2");
+            computer.setComputerName("myComputer2");
             computer.setPrice(1000.99f);
-            computerRepository.save(computer);
         }
-
+        transaction.commit();
     }
 
     private void showInfo (){
-        OS os = osRepsitory.findById(1);
+        OS os = em.find(OS.class,1);
         System.out.println( "Os found : "+os);
     }
 }
