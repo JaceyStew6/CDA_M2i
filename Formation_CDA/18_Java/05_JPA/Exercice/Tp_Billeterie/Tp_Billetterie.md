@@ -1,20 +1,20 @@
 ## Tp Billetterie
 
-- Nous voullon crée une application de gestion de billets pour des evenements :
+- Nous voulons créer une application de gestion de billets pour des évènements :
 
-- nos classe seront :
+- nos classes seront :
     - adresse 
         - rue
         - ville 
 
-   - Lieu (herite de adresse) : 
+   - Lieu (hérite de adresse) : 
         - capacité
     
    - billet :
-        - numeros de place
+        - numéros de place
         - client
         - Evenement
-        - type de place (standar , gold, vip)
+        - type de place (standard , gold, vip)
 
 
    - Evenement :
@@ -27,10 +27,10 @@
 
   - Client 
         - nom
-        - prenom
+        - prénom
         - adresse (One to one / embedded)
         - age 
-        - numeros de telephone
+        - numéros de telephone
 
 
 ---
