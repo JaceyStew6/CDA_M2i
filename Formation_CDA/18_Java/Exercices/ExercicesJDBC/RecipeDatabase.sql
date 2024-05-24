@@ -53,3 +53,4 @@ CREATE TABLE IF NOT EXISTS Recipe_Ingredient(
     FOREIGN KEY (id_ingredient) REFERENCES Ingredient(ingredient_id)
 );
 
+SHOW TABLES;
