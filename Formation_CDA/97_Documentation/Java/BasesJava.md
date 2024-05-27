@@ -1,5 +1,18 @@
 # Bases de Java
 
+## Conventions de nommage
+
+Packages: 
+- en minuscule
+
+Classes: 
+- en Majuscule
+- sans espaces ni symboles
+- au singulier
+
+https://www.oracle.com/java/technologies/javase/codeconventions-namingconventions.html 
+
+
 ## JVM (Java Virtual Machine)
 
 Est installé sur chaque device et on va compiler avec une version du SDK et du JDK et qui va comprendre du ByteCode, compris par la JVM, qui va l'interpréter et l'exécuter sur l'OS.
