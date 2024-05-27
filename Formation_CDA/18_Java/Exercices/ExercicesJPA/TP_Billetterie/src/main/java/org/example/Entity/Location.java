@@ -4,7 +4,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 
 @Entity
 @SuperBuilder
@@ -13,7 +13,14 @@ import javax.persistence.Entity;
 
 public class Location extends Address{
 
+/*    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "location_id")
+    private int location_id;*/
     private int capacity;
+
+    @OneToOne(mappedBy = "location")
+    private Event event;
 
     @Override
     public String toString() {

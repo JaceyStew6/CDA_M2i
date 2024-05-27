@@ -25,12 +25,12 @@
         - nombre de place
 
 
-  - Client 
-        - nom
-        - prénom
-        - adresse (One to one / embedded)
-        - age 
-        - numéros de telephone
+  - Client  
+       - nom
+       - prénom
+       - adresse (One to one / embedded)
+       - age 
+       - numéros de telephone
 
 
 ---
