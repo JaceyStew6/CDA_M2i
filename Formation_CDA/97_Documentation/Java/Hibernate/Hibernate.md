@@ -15,7 +15,7 @@ Hibernate est bien optimisé (bonnes performances) et supporte de nombreuses pas
 
 Pour fonctionner, Hibernate a besoin de:
 - une classe de type javabean (encapsule les données d'une occurence d'une table)
-- un fichier de configuration pour les infos de la BDD et le mapping (2 choix de fichier mais préférer le fichier `hibernate.properties`) et le placer dans le fichier `ressources`.
+- un fichier de configuration pour les infos de la BDD et le mapping (2 fichiers à placer dans le fichier `ressources`).
     - `hibernate.properties` (contient les principales propriétés pour configurer la connexion JDBC, mais aussi d'autres propriétés)
     - `hibernate.cfg.xml`
 - un fichier de correspondance qui configure la correspondance entre la classe et la table (`.hbm.xml`) ou bien l'utilisation des annotations.
@@ -37,3 +37,7 @@ Comme en JPA, on crée notre entité, on la fait persister (avec la méthode `sa
 La méthode `save` n'a aucune action directe sur la base de données. Il faut réaliser un commit sur la transaction de la classe.
 
 Pour la gestion des ID, on peut utiliser une strategy UUID avec Hibernate.
+
+
+Il faut bien penser à fermer la session et la session factory à la fin.
+Pour chaque besoin, on en crée une et on la ferme.

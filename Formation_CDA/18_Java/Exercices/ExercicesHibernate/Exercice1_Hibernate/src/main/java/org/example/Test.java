@@ -88,18 +88,24 @@ public class Test {
         session.getTransaction().commit();
 
         //On modifie les informations du produit à l'id 1
-/*        session.getTransaction().begin();
+        session.getTransaction().begin();
         Product p1Update = session.load(Product.class, 1);
         System.out.println("Marque: " + p1Update.getBrand() + " Référence: " + p1Update.getReference() + " Date de vente: " + p1Update.getProductDate() + " Prix: " + p1Update.getProductPrice() + " Stock: " + p1Update.getStock());
         p1Update.setStock(20);
         session.update(p1Update);
         session.getTransaction().commit();
 
-        System.out.println("Marque: " + p1Update.getBrand() + " Référence: " + p1Update.getReference() + " Date de vente: " + p1Update.getProductDate() + " Prix: " + p1Update.getProductPrice() + " Stock: " + p1Update.getStock());*/
+        System.out.println("Marque: " + p1Update.getBrand() + " Référence: " + p1Update.getReference() + " Date de vente: " + p1Update.getProductDate() + " Prix: " + p1Update.getProductPrice() + " Stock: " + p1Update.getStock());
 
-        session.getTransaction().begin();
+        //Autre façon de procéder en connaissant le nom de l'objet mais en ne passant pas par l'id
+/*        session.getTransaction().begin();
         p1.setStock(20);
         session.update(p1);
+        session.getTransaction().commit();*/
+
+        session.getTransaction().begin();
+        p5.setProductPrice(99);
+        session.update(p5);
         session.getTransaction().commit();
 
         //Fermeture de la session et de la session factory
