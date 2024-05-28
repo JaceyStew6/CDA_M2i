@@ -12,7 +12,7 @@ Hibernate fournit JPA et lui apporte des choses complémentaires. Ce n'est pas l
 
 Pour utiliser JPA, il faut aller chercher un ***Entity Manager Factory*** qui fournit un ***Entity Manager*** qui *fournit les méthodes pour créer un CRUD complet*. Pour savoir quoi mapper, il faut implémenter le fichier `persistence.xml`.
 
-Le fichier `persistence.xml` sert à **configurer notre projet** et se place dans le dossier `ressources`.
+Le fichier `persistence.xml` sert à **configurer notre projet** et se place dans le dossier `ressources`, dans un sous dossier `META-INF`.
 
 S'il faut mettre un mot de passe dans persistence.xml, préférer plutôt faire un `.env` pour éviter que le mot de passe ne se retrouve poussé par Git par exemple.
 
