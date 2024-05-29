@@ -19,7 +19,7 @@ public class Test {
 
         //Ajout des produits
         //Produit 1
-        session.getTransaction().begin();
+/*        session.getTransaction().begin();
         Product p1 = new Product();
         p1.setBrand("Samsung");
         p1.setReference("SAM5");
@@ -76,7 +76,7 @@ public class Test {
         p5.setProductPrice(699.0);
         session.save(p5);
         System.out.println("ID du produit" + p5.getId());
-        session.getTransaction().commit();
+        session.getTransaction().commit();*/
 
         //Afficher informations du produit à l'id 2
         session.getTransaction().begin();

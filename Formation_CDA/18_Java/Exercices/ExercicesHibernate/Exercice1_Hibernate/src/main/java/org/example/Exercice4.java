@@ -42,10 +42,10 @@ public class Exercice4 {
         p7.setProductPrice(1299.9);
         session.save(p7);
         System.out.println("ID du produit" + p7.getId());
-        session.getTransaction().commit();*/
+        session.getTransaction().commit();
 
         //Produit 8
-/*        session.getTransaction().begin();
+        session.getTransaction().begin();
         Product p8 = new Product();
         p8.setBrand("HP");
         p8.setReference("HP01");
