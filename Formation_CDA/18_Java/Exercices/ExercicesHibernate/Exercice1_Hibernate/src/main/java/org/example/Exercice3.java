@@ -24,7 +24,7 @@ public class Exercice3 {
         Scanner sc = new Scanner(System.in);
 
         //1. Afficher la liste des produits commandés entre deux dates lus au clavier.
-/*        System.out.println("Indiquer les dates d'achat des produits à afficher");
+        System.out.println("Indiquer les dates d'achat des produits à afficher");
 
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 
@@ -43,9 +43,9 @@ public class Exercice3 {
         List<Product> productList3 = queryProduct3.list();
         for (Product p : productList3){
             System.out.println("Marque: " + p.getBrand() + " Référence: " + p.getReference() + " Date de vente: " + p.getProductDate() + " Prix: " + p.getProductPrice() + " Stock: " + p.getStock());
-        }*/
+        }
 
-        //2. Retourner les numéros et reference des articles dont le stock est inférieur à une valeur lue au clavier.
+        //2. Retourner les numéros et references des articles dont le stock est inférieur à une valeur lue au clavier.
         System.out.println("  ");
         System.out.println("--- Produits dont le stock est inférieur à la quantité renseignée ---");
 

@@ -23,3 +23,20 @@ Pour créer une entité, il faut absolument mettre les annotations `@Entity` et 
 
 Aussi, JPA a besoin d'un **constructeur vide** quand on ajoute un objet.
 
+
+
+### Relation OneToMany
+/!\ Dans une relation OneToMany, la colonne de jointure se met forcément du côté Many.
+
+Exemple:  
+>Dans une entreprise, on a des personnes qui travaillent.  
+Entreprise: One  
+Personne: Many  
+On ne met pas la colonne de jointure du côté de l'entreprise, parce qu'autrement, on ne pourra pas indiquer que plusieurs personnes travaillent dans l'entreprise. On aura un seul Id de personne associé à la colonne de jointure et donc à l'entreprise, ce qui n'est pas réaliste.  
+*C'est pour cela qu'on met le Many du côté de Personne.*
+
+
+
+### Relation bi-directionnelle:  
+Si on reprend l'ecemple précédent:  
+On peut trouver les informations des personnes à partir de l'entreprise et on peut trouver les informations sur les entreprises à partir des personnes.
