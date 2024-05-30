@@ -2,6 +2,7 @@ package org.example.entity;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Produit {
@@ -20,6 +21,13 @@ public class Produit {
 
     @Temporal(TemporalType.DATE)
     private Date dateAchat;
+
+    // Exercice 5
+    @OneToMany(mappedBy = "produit")
+    private List<Image> images;
+
+    @OneToMany(mappedBy = "produit")
+    private List<Comment> comments;
 
     public Produit() {
     }
@@ -78,6 +86,22 @@ public class Produit {
 
     public void setDateAchat(Date dateAchat) {
         this.dateAchat = dateAchat;
+    }
+
+    public List<Image> getImages() {
+        return images;
+    }
+
+    public void setImages(List<Image> images) {
+        this.images = images;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
     }
 
     @Override

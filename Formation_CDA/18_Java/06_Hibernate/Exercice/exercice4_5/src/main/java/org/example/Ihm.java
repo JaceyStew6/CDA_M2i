@@ -29,6 +29,7 @@ public class Ihm {
                 case "5" -> ajouterImage();
                 case "6" -> ajouterCommentaire();
                 case "7" -> afficherProduitsAvecNote();
+                case "0" -> System.out.println("Aurevoir !!!");
                 default -> System.out.println("choix invalide");
             }
 
@@ -56,6 +57,8 @@ public class Ihm {
         System.out.println("6. Ajouter un commentaire à un produit.");
        // 4. Afficher les produits ave une note de 4 ou plus.
         System.out.println("7. Afficher les produits ave une note min.");
+        System.out.println("0. Quitter");
+        System.out.println("Votre choix :");
     }
 
     private void valeurParMarque(){

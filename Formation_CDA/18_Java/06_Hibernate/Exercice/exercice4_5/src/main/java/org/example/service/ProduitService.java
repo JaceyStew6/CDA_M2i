@@ -1,5 +1,7 @@
 package org.example.service;
 
+import org.example.entity.Comment;
+import org.example.entity.Image;
 import org.example.entity.Produit;
 import org.example.interfaces.Repository;
 import org.hibernate.query.Query;
@@ -154,5 +156,50 @@ public class ProduitService extends BaseService implements Repository<Produit> {
          session.close();
          return rows > 0;
      }
+
+    // Exercice 5
+     // 2. Ajouter la possibilité d'ajouter une image à un produit.
+    public boolean addNewImage(Image image, int id) {
+        boolean result = false;
+        Produit produit = this.findById(id);
+        session =sessionFactory.openSession();
+        session.getTransaction().begin();
+        if(produit != null) {
+            image.setProduit(produit);
+            session.save(image);
+            result = true;
+        }
+        session.getTransaction().commit();
+        session.close();
+        return result;
+    }
+
+
+    // 3. Ajouter la possibilité d'ajouter un commentaire à un produit.
+    public boolean addNewComment(Comment comment, int id) {
+        boolean result = false;
+        Produit produit = this.findById(id);
+        session =sessionFactory.openSession();
+        session.getTransaction().begin();
+        if(produit != null) {
+            comment.setProduit(produit);
+            session.save(comment);
+            result = true;
+        }
+        session.getTransaction().commit();
+        session.close();
+        return result;
+    }
+
+
+    // 4. Afficher les produits ave une note de 4 ou plus.
+    public List<Produit> getProduitsParNoteMin(int note) {
+        session = sessionFactory.openSession();
+        Query<Produit> produitQuery = session.createQuery("select distinct produit from Comment where note >=:note");
+        produitQuery.setParameter("note", note);
+        List<Produit> produitList = produitQuery.list();
+        session.close();
+        return produitList;
+    }
 
 }
