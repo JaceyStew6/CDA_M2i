@@ -21,9 +21,7 @@ public class FibTest {
         List<Integer> result = fib.getFibSeries();
 
         //Assert
-        for (Integer i : result) {
-            Assert.assertEquals(Integer.valueOf(0), i);
-        }
+        Assert.assertTrue(result.contains(0));
     }
 
     //Le résultat n’est pas vide

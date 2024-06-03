@@ -1,9 +1,7 @@
-import org.example.Calcul;
-import org.example.DivideByZeroException;
+import org.example.Demo1.Calcul;
+import org.example.Demo1.DivideByZeroException;
 import org.junit.Assert;
 import org.junit.Test;
-
-import java.sql.SQLException;
 
 public class CalculTest {
 
