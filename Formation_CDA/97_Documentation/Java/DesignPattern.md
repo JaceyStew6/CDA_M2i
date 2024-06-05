@@ -1,6 +1,6 @@
 # Le Design Pattern
 
-https://refactoring.guru/fr/design-patterns
+[RefactoringGuru](https://refactoring.guru/fr/design-patterns)
 
 
 Permet de suivre une structure/une méthodologie pour répondre à des problématiques.  
