@@ -77,8 +77,6 @@ Tout ce qui est dans ce dossier est disponible. En revanche, tout ce qui sera mi
 Dans le projet, le dossier `webapp` est la racine de notre projet.
 
 
-
-
 ### En cas de récupération d'un projet qui n'est pas le notre, il faut définir la configuration.
 
 
@@ -96,3 +94,8 @@ Par exemple
 - demo_bases::war (mode déploiement)
 - demo_bases::war exploded (mode développement)  
 Apply
+
+
+### Types de ContentType
+
+![ContentType](./ContentType.jpg)
