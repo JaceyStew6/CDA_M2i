@@ -25,8 +25,19 @@ public class ServletHTML extends HttpServlet {
         resp.setContentType("text/html");
 
         PrintWriter writer = resp.getWriter();
+        writer.println("<html>");
+        writer.println("<head>");
+        writer.println("<style>");
+        writer.println("body { background-color: #d0e4fe; text-align: center}");
+        writer.println("h1 { color: #2FACA0; text-align: center; }");
+        writer.println("</style>");
+        writer.println("</head>");
+        writer.println("<body>");
         writer.println("<h1>Page HTML</h1>");
         writer.println("<p>Jeu annoncé lors du Xbox Showcase : " + videoGame + "<p>");
+        writer.println("</body>");
+        writer.println("</html>");
+
     }
 
     @Override
