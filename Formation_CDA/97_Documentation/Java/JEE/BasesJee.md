@@ -42,6 +42,8 @@ Il faut construire le projet et le donner à un serveur d'applications qui va ê
 
 ## Servlet
 
+Utilisé pour la partie Controller
+
 C'est un composant logiciel écrit en Java fonctionnant du côté serveur.
 Permet de gérer des requêtes HTTP et de fournir au client une réponse HTTP.
 
@@ -59,10 +61,38 @@ Le serveur d'application fait le lien entre le moteur de Servlet et le conteneur
 
 ### API Servlet
 
-On implémente des interfaces `Servlet` et `ServletConfig` grâce à la classe abstraite `GenericServlet`. On peut étendre cette classe pour construire des Servlets propre au protocole HTTP, grâce à la classe `HttpServlet`.
+On implémente des interfaces `Servlet` et `ServletConfig` grâce à la classe abstraite `GenericServlet`. On peut étendre cette classe pour construire des Servlets propres au protocole HTTP, grâce à la classe `HttpServlet`.
 
 
+## JSP (Java Server Pages)
+
+Utilisé pour la partie Vue.
+Les JSP sont en réalité des Servlets. 
+
+On redispatche vers une page `.jsp`. Ces fichiers sont placés dans le dossier `webapp`.
+Tout ce qui est dans ce dossier est disponible. En revanche, tout ce qui sera mis dans le dossier `WEB-INF` sera privé.
 
 
 ---
 Dans le projet, le dossier `webapp` est la racine de notre projet.
+
+
+
+
+### En cas de récupération d'un projet qui n'est pas le notre, il faut définir la configuration.
+
+
+**Edit configuration**  
+
+Add New Configuration  
+Choisir: Tomcat Server -> Local  
+Choisir: navigateur par défaut (Open browser qu'on peut définir)  
+Apply  
+
+**Onglet Deployment**  
+
+Ajouter un artefact à déployer (parmi plusieurs choix)  
+Par exemple
+- demo_bases::war (mode déploiement)
+- demo_bases::war exploded (mode développement)  
+Apply
