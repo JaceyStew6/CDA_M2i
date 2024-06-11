@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1244f4d1-9955-4b15-b68c-ddae308dbae6" name="Changes" comment="" />
+    <list default="true" id="1244f4d1-9955-4b15-b68c-ddae308dbae6" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../97_Documentation/Java/JEE/BasesJee.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../../97_Documentation/Java/JEE/BasesJee.md" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -87,6 +89,7 @@
       <updated>1717051916470</updated>
       <workItem from="1717051917543" duration="26456000" />
       <workItem from="1717082054877" duration="621000" />
+      <workItem from="1718096890941" duration="16000" />
     </task>
     <servers />
   </component>

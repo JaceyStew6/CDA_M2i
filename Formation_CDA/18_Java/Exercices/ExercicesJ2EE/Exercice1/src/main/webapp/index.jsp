@@ -14,6 +14,8 @@
 <br/>
 <a href="servletJSP">Servlet JSP</a><br/>
 <a href="servletJSP2">Servlet JSP 2</a><br/>
-<a href="servletJSP3">Servlet JSP 3</a>
+<a href="servletJSP3">Servlet JSP 3</a><br/>
+<a href="personServlet">Person List</a>
+
 </body>
 </html>

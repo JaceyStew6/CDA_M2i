@@ -96,6 +96,11 @@ Par exemple
 Apply
 
 
-### Types de ContentType
+### Types de ContentType (contenu MIME)
+
+> MIME = Multipurpose Internet Mail Extension  
+Permet d'identifier le format du fichier.
 
 ![ContentType](./ContentType.jpg)
+
+
