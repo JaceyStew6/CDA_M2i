@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<form method="post" action="form">
+<form method="post" action="${pageContext.request.contextPath}/dogs">
     <div>
         <label for="name">  Name :</label>
         <input type="text" name="name" id="name">
@@ -34,7 +34,7 @@
 </form>
 <div>
     <h1>Liste de chiens</h1>
-    
+
 </div>
 </body>
 </html>
