@@ -14,7 +14,7 @@ https://tomcat.apache.org/download-10.cgi
 
 Il est nécessaire d'installer Tomcat 10 (télécharger la version core .zip)
 Une fois que le dossier est dezippé, on peut ouvrir notre IDE et créer un nouveau projet.
-Sélectionner un projet Jakarta EE
+Sélectionner un projet Jakarta EE  
 Choix à faire lors de la création du projet:
 - Template: Web Application
 - Application Server -> New -> Tomcat -> Choisir le dossier issu de l'installation de Tomcat.  
@@ -22,7 +22,7 @@ Next
 Vient ensuite le choix des dépendances.
 - Servlet est nécessaire.
 
-Une fois que le projet s'ouvre, cliquer que `Load Maven Project` sur la fenêtre pop up en bas à droite.
+Une fois que le projet s'ouvre, cliquer sur `Load Maven Project` sur la fenêtre pop up en bas à droite.
 
 Pour s'assurer que Tomcat est bien associé, on a le logo Tomcat en haut à doite.
 

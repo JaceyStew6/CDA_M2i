@@ -1,45 +1,44 @@
-package org.example.exercice5.service;
+package org.example.exercice6.service;
 
-import org.example.exercice5.model.Dog;
-import org.example.exercice5.repository.DogRepository;
+import org.example.exercice6.model.Product;
+import org.example.exercice6.repository.ProductRepository;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 import java.time.LocalDate;
 import java.util.List;
 
-public class DogService {
-
-    private DogRepository dogRepository;
+public class ProductService {
+    private ProductRepository productRepository;
     private SessionFactory _sessionFactory;
     private Session session;
 
-    public DogService(SessionFactory sessionFactory){
+    public ProductService(SessionFactory sessionFactory){
         _sessionFactory = sessionFactory;
     }
 
-    public Dog getDog(int id){
-        Dog dog = null;
+    public Product getProduct(int id){
+        Product product = null;
         session = _sessionFactory.openSession();
-        dogRepository = new DogRepository(session);
+        productRepository = new ProductRepository(session);
         try {
-            dog = dogRepository.findById(id);
+            product = productRepository.findById(id);
         }catch (Exception e){
             e.printStackTrace();
         }finally {
             session.close();
         }
-        return dog;
+        return product;
     }
 
-    public boolean createDog(String name, String breed, LocalDate birthday){
+    public boolean createProduct(String brand, String reference, LocalDate purchaseDate, double price, int stock){
         boolean result = false;
         session = _sessionFactory.openSession();
         session.beginTransaction();
-        dogRepository= new DogRepository(session);
-        Dog dog = new Dog(name,breed,birthday);
+        productRepository = new ProductRepository(session);
+        Product product = new Product(brand, reference, purchaseDate, price, stock);
         try {
-            dogRepository.create(dog);
+            productRepository.create(product);
             session.getTransaction().commit();
             result = true;
         }catch (Exception except){
@@ -53,18 +52,19 @@ public class DogService {
         }
         return result;
     }
-    public List<Dog> getDogs(){
-        List<Dog> dogs = null;
+
+    List<Product> getProducts(){
+        List<Product> products = null;
         session = _sessionFactory.openSession();
-        dogRepository = new DogRepository(session);
+        productRepository = new ProductRepository(session);
         try {
-            dogs = dogRepository.findAll();
+            products = productRepository.findAll();
         }catch (Exception e){
             System.out.println(e.getMessage());
         }finally {
             session.close();
         }
-        return dogs;
+        return products;
     }
 
 }
