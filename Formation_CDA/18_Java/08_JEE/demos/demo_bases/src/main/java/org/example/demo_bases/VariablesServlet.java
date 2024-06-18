@@ -33,6 +33,8 @@ public class VariablesServlet extends HttpServlet {
         req.setAttribute("prenom",prenom);
         req.setAttribute("prenoms",prenoms);
         req.setAttribute("nom",nom);
-        getServletContext().getRequestDispatcher("/variables.jsp").forward(req,resp);
+       getServletContext().getRequestDispatcher("/variables.jsp").forward(req,resp);
+
+
     }
 }
