@@ -8,8 +8,8 @@ Créer une application web en Java EE permettant de gérer la création et l'aff
 ## Description du Projet
 Vous devez développer une application web qui permet les fonctionnalités suivantes :
 
-Création de produits : Un utilisateur authentifié peut ajouter un nouveau produit.  
-Affichage des produits : Tout utilisateur connecté peut voir la liste des produits disponibles.  
+Création de produits : Un utilisateur authentifié peut ajouter un nouveau produit.
+Affichage des produits : Tout utilisateur connecté peut voir la liste des produits disponibles.
 Gestion des utilisateurs : Un système de connexion et de déconnexion permettant d'acceder à l'application.
 
 Un utilisateur sera défini par (au moins) :
