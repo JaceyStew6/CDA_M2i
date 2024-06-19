@@ -28,25 +28,3 @@ public class CarRessource {
         return cars;
     }
 }
-
-
-
-
-
-/*
-@GET
-@Path("/single")
-@Produces("application/json")
-public Person getOnePerson(){
-
-    return new Person(1,"toto",50);
-}
-
-
-@GET
-@Path("/other")
-@Produces(MediaType.APPLICATION_JSON)
-public Person getOtherPerson(){
-
-    return new Person(2,"tata",24);
-}*/
