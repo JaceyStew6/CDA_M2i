@@ -21,6 +21,7 @@ public class CarController {
         this.carService = carService;
     }
 
+    //GET ALL
     @GET
     @Path("get")
     @Produces("application/json")
@@ -28,6 +29,7 @@ public class CarController {
         return FakeDB.cars;
     }
 
+    //GET BY ID
     @GET
     @Path("/{id}")
     @Produces("application/json")
@@ -40,6 +42,7 @@ public class CarController {
         throw new NotFoundException("Car with ID " + id + " not found");
     }
 
+    //ADD
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
@@ -48,9 +51,11 @@ public class CarController {
         return car;
     }
 
-/*    @POST
+    //UPDATE
+    @POST
+    @Path("/update/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Car updateCar(@QueryParam("id") int id, @QueryParam("brand") String brand, @QueryParam("manufacturingYear") String manufacturingYear, @QueryParam("color") String color){
+    public Car updateCar(@PathParam("id") int id, @QueryParam("brand") String brand, @QueryParam("manufacturingYear") String manufacturingYear, @QueryParam("color") String color){
         for (Car car : FakeDB.cars) {
             if (car.getId() == id) {
                 car.setBrand(brand);
@@ -59,9 +64,10 @@ public class CarController {
                 return car;
             }
         }
-        return carService.save()
-    }*/
+        throw new NotFoundException("Car with ID " + id + " not found");
+    }
 
+    // DELETE BY INDEX
     @DELETE
     @Path("{id}")
     public int delete(@PathParam("id") int id){
