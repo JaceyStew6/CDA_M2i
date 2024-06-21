@@ -1,14 +1,17 @@
 package org.example.tphopital.controller;
 
+import jakarta.persistence.TemporalType;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import org.example.tphopital.model.Patient;
 import org.example.tphopital.service.PatientService;
 
 import java.io.IOException;
+import java.time.LocalDate;
 
 @WebServlet(name = "patientServlet", value = "/patient/*")
 public class PatientServlet extends HttpServlet {
@@ -53,57 +56,41 @@ public class PatientServlet extends HttpServlet {
         doGet(req,resp);
     }
 
-    private void showNewForm(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
-        req.setAttribute("patient", patientService.findAllPatients());
+    private void listPatient(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
+        req.setAttribute("patients", patientService.findAllPatients());
         req.getRequestDispatcher("WEB-INF/views/patients.jsp").forward(req,resp);
     }
-}
 
-
-
-/*
-
-private void listProduct(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-    req.setAttribute("products",productService.findAll());
-    req.getRequestDispatcher("/WEB-INF/views/products.jsp").forward(req,resp);
-}
-
-private void showNewForm(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-    if(req.getParameter("id") != null){
-        req.setAttribute("product",productService.findById(Integer.parseInt(req.getParameter("id"))));
-    }else {
-        req.setAttribute("product",new Product());
-    }
-    req.getRequestDispatcher("/WEB-INF/views/form-products.jsp").forward(req,resp);
-}
-
-private void showProduct(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-    if(req.getParameter("id")  != null){
-        int id = Integer.parseInt(req.getParameter("id"));
-        Product product = productService.findById(id);
-        req.setAttribute("product",product);
-        req.getRequestDispatcher("/WEB-INF/views/product.jsp").forward(req,resp);
-    }else {
-        req.setAttribute("products",productService.findAll());
-        req.getRequestDispatcher("/WEB-INF/views/products.jsp").forward(req,resp);
-    }
-}
-
-private void insertProduct(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-    String brand = req.getParameter("marque");
-    String reference = req.getParameter("reference");
-    int stock = Integer.parseInt(req.getParameter("stock"));
-    double prix = Double.parseDouble(req.getParameter("prix"));
-    LocalDate dateOfPurchase = LocalDate.parse(req.getParameter("dateAchat"));
-
-    Product product = productService.add(brand,reference,dateOfPurchase,prix,stock);
-
-    if(product.getId() > 0){
-        resp.sendRedirect("list");
-    }else {
-        resp.sendRedirect("new");
+    private void showNewForm(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
+        if (req.getParameter("id") != null){
+            req.setAttribute("patient", patientService.findById(Integer.parseInt(req.getParameter("id"))));
+        }else {
+            req.setAttribute("patient", new Patient());
+        }
+        req.getRequestDispatcher("/WEB-INF/views/form-patients.jsp").forward(req,resp);
     }
 
+    private void showPatient(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        if(req.getParameter("id")  != null){
+            int id = Integer.parseInt(req.getParameter("id"));
+            Patient patient = patientService.findById(id);
+            req.setAttribute("patient",patient);
+            req.getRequestDispatcher("/WEB-INF/views/patient.jsp").forward(req,resp);
+        }else {
+            req.setAttribute("patients",patientService.findAllPatients());
+            req.getRequestDispatcher("/WEB-INF/views/patients.jsp").forward(req,resp);
+        }
+    }
 
+    private void insertPatient(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String lastName = req.getParameter("lastname");
+        String firstName = req.getParameter("firstname");
+        LocalDate birthDate = LocalDate.parse(req.getParameter("birthdate"));
+        Patient patient = patientService.add(lastName, firstName, birthDate);
+        if (patient.getPatientId() > 0) {
+            resp.sendRedirect("list");
+        } else {
+            resp.sendRedirect("new");
+        }
+    }
 }
-}*/
