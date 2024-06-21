@@ -16,7 +16,7 @@
 
 <div class="container mt-4">
     <table class="table table-dark text-center">
-        <caption><h2>Liste des patients</h2></caption>
+        <h2>Liste des patients</h2>
         <tr>
             <th>Id</th>
             <th>Lastname</th>

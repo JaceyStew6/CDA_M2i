@@ -17,7 +17,7 @@ public class Patient {
 
     //TODO Ajouter image
 
-    @OneToMany(mappedBy = "patient")
+    @OneToMany(mappedBy = "patient", fetch = FetchType.LAZY)
     private List<Consultation> consultations;
 
     public Patient() {

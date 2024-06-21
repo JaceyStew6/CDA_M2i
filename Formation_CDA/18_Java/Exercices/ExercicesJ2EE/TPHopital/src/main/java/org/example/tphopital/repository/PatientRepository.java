@@ -40,9 +40,10 @@ public class PatientRepository extends BaseRepository<Patient>{
             if (patient == null){
                 throw new NotFoundException("Patient not found");
             }
+            patient.getConsultations().size();
         }catch (Exception e){
             e.printStackTrace();
-        }finally {
+        } finally {
             session.close();
         }
         return patient;

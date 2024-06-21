@@ -20,10 +20,10 @@ public class Consultation {
     @JoinColumn(name = "patient_id")
     private Patient patient;
 
-    @OneToMany(mappedBy = "consultation")
+    @OneToMany(mappedBy = "consultation", fetch = FetchType.LAZY)
     private List<Prescription> prescriptions;
 
-    @OneToMany(mappedBy = "consultation")
+    @OneToMany(mappedBy = "consultation", fetch = FetchType.LAZY)
     private List<CareSheet> careSheets;
 
     public Consultation() {

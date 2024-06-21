@@ -58,7 +58,7 @@ public class PatientServlet extends HttpServlet {
 
     private void listPatient(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
         req.setAttribute("patients", patientService.findAllPatients());
-        req.getRequestDispatcher("WEB-INF/views/patients.jsp").forward(req,resp);
+        req.getRequestDispatcher("/WEB-INF/views/patients.jsp").forward(req,resp);
     }
 
     private void showNewForm(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
