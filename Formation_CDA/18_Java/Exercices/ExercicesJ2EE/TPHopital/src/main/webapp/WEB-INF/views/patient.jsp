@@ -26,8 +26,8 @@
             </ul>
             <div class="card-body">
                 <a href="list" class="btn btn-primary">Retour</a>
-                <a href="consultation" class="btn btn-primary">Ajouter consultation</a>
-                <a href="delete?id=<%= patient.getPatientId() %>" class="btn btn-danger">Delete</a>
+                <a href="consultation" class="btn btn-primary">+ consultation</a>
+<%--                <a href="delete?id=<%= patient.getPatientId() %>" class="btn btn-danger">Delete</a>--%>
             </div>
 
         </div>

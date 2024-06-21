@@ -2,13 +2,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>JSP - Hello World</title>
+    <title>JSP - Hospital</title>
 </head>
 <body>
-<h1><%= "Hello World!" %>
+<h1><%= "Clinique Sainte Mangouste" %>
 </h1>
 <br/>
-<a href="hello-servlet">Hello Servlet</a>
-<a href="patient">Patient</a>
+<a href="patient/list">Gestion des patients</a>
 </body>
 </html>

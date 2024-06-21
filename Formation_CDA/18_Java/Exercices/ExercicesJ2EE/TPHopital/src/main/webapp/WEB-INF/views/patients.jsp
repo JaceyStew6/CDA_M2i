@@ -35,8 +35,8 @@
             <th></th>
 
             <th>
-                <a href="new?id=<%= p.getPatientId() %>" class="btn btn-info">Edit</a>
-                <a href="delete?id=<%= p.getPatientId() %>" class="btn btn-danger">Delete</a>
+<%--                <a href="new?id=<%= p.getPatientId() %>" class="btn btn-info">Edit</a>--%>
+<%--                <a href="delete?id=<%= p.getPatientId() %>" class="btn btn-danger">Delete</a>--%>
                 <a href="details?id=<%= p.getPatientId() %>" class="btn btn-primary">Detail</a>
             </th>
         </tr>

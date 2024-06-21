@@ -40,6 +40,8 @@ public class PatientRepository extends BaseRepository<Patient>{
             if (patient == null){
                 throw new NotFoundException("Patient not found");
             }
+            //Permet de charger les consultations du patient en mémoire pour éviter les LazyInitializationException
+            // lors de l'affichage des consultations et du détail d'un patient
             patient.getConsultations().size();
         }catch (Exception e){
             e.printStackTrace();
