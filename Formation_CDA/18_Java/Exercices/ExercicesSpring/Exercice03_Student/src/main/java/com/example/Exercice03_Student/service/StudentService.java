@@ -57,4 +57,8 @@ public class StudentService {
     public void add(Student student){
         students.put(student.getId(), student);
     }
+
+/*    public List<Student> getListStudentByName(String name){
+        return students.values().stream().filter(s -> s.getName().equals(name)).allMatch();
+    }*/
 }
