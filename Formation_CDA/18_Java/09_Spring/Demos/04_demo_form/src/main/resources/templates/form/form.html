@@ -9,6 +9,7 @@
     <a th:href="@{/}">Home</a>
 
     <form th:action="@{/add}" th:object="${contact}" method="post">
+        <input th:field="*{id}">
         <div>
             <label for="name">Nom du contact :</label>
             <input type="text" id="name" th:field="*{name}">
