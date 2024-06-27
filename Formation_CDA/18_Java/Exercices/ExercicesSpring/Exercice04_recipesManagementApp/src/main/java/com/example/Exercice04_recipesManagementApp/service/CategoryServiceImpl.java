@@ -13,6 +13,7 @@ public class CategoryServiceImpl implements CategoryService{
     private List<Category> categories = new ArrayList<>();
     @Override
     public Category createCategory(Category category) {
+        category.setId(UUID.randomUUID());
         categories.add(category);
         return category;
     }

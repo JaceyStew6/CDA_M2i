@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Category List</title>
+    <span th:replace="~{home :: bootstrapImport}"></span>
+</head>
+<body>
+<span th:replace="~{home :: navbar}"></span>
+<main class="container">
+    <h1>Categories List</h1>
+    <table class="table" th:unless="${categories.isEmpty()}">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+        </tr>
+        </thead>
+        <tbody th:each="c : ${categories}">
+        <td th:text="${c.id}"></td>
+        <td th:text="${c.name}"></td>
+        <td th:text="${c.description}"></td>
+<!--        <a th:href="@{/delete(categoryId=${category.getId()})}">Delete</a>-->
+<!--        <a th:href="@{/update(categoryId=${category.getId()})}">Update</a>-->
+        </tbody>
+    </table>
+    <p th:if="${categories.isEmpty()}">No categories!</p>
+</main>
+<span th:replace="~{home :: footer}"></span>
+</body>
+</html>

@@ -10,8 +10,10 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
+import java.util.UUID;
 
 @Controller
 public class CategoryController {
@@ -45,7 +47,7 @@ public class CategoryController {
         }
         return "redirect:/categories";
     }
-
+    
     @GetMapping("/categories")
     public String showAllCategories(Model model){
         List<Category> categories = categoryService.getAllCategories();
@@ -53,7 +55,18 @@ public class CategoryController {
         return "list";
     }
 
+    @GetMapping("/update")
+    public String formUpdate(@RequestParam("categoryId")UUID id, Model model){
+        Category category = categoryService.getCategoryById(id);
+        model.addAttribute("category", category);
+        return "form";
+    }
 
+    @GetMapping("/delete")
+    public String delete(@RequestParam("categoryId") UUID id){
+        categoryService.deleteCategory(id);
+        return "redirect:/categories";
+    }
 
 
 
