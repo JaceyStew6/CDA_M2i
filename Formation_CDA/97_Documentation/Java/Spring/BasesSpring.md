@@ -24,7 +24,11 @@ Tout va fonctionner via des annotations.
 </dependency>
 ```
 
+La dépendance `validation` permet de vérifier la validité des informations saisies par l'utilisateur dans le cadre d'un formulaire.
 
+`Spring Boot Dev Tools` permet de recharger notre appli en temps réel et donc de ne pas avoir à la relancer sans cesse pour que les changements dans le code se mettent à jour.
+
+`Lombok` permet de générer automatiquement les Getter et les Setter ainsi que nos constructeurs, des builders...
 
 ## Annotations
 ### @Autowired
@@ -56,3 +60,17 @@ Voici les points clés de son utilisation :
 - **Contrôle des erreurs** : Dans le corps de la méthode, vous pouvez utiliser @BindingResult pour vérifier s'il y a des erreurs. Si des erreurs sont présentes, vous pouvez les gérer en conséquence, par exemple, en renvoyant l'utilisateur vers le formulaire avec les messages d'erreur.
 
 - **Personnalisation de la réponse** : Permet de personnaliser la réponse envoyée à l'utilisateur en fonction des erreurs capturées, améliorant ainsi l'expérience utilisateur en fournissant des feedbacks spécifiques sur ce qui doit être corrigé.
+
+## Validation
+
+On peut mettre des annotations au dessus de nos attributs dans notre classe (dans les model)
+
+Types d'annotations:
+- @NotNull
+    - on peut y ajouter un message si le champs est nul 
+        - @NotNull(message = "merci de saisir le nom de votre chien")
+- @NotBlank
+- @Min(value = 1)
+    - valable pour les int notamment. Ici on a défini que l'utilisateur ne doit pas entrer de valeur inférieure à 1.
+- On peut mettre un message dans toutes nos annotations
+    - @Min(value = 1, message = "merci de saisir une valeur positive")
