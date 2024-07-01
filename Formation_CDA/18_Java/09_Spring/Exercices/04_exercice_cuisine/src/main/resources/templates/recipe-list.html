@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <li th:each="category : ${recipes}">
+        <span th:text="${category.getName()}"></span> - <span th:text="${category.getCategory().getName()}"></span>
+        <span th:each="ingredient : ${category.getIngredients()}" th:text="${ingredient}"></span>
+        <a th:href="@{/recipe/delete(id=${category.getId()})}">Supprimer</a>
+        <a th:href="@{/recipe/update(id=${category.getId()})}">Modifier</a>
+    </li>
+</body>
+</html>

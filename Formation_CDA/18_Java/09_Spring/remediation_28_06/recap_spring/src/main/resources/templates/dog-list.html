@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <ul>
+        <li th:each="dog : ${dogs}">
+            Mon chien <span th:text="${dog.getName()}"></span> de <span th:text="${dog.getAge()}"></span> ans.
+            <a th:href="@{/dog/delete(id=${dog.getId()})}">Supprimer</a>
+            <a th:href="@{/dog/update(id=${dog.getId()})}">Modification</a>
+        </li>
+    </ul>
+</body>
+</html>
