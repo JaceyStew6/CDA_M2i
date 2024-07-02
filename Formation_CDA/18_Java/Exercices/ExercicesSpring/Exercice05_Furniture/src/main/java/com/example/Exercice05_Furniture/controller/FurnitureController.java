@@ -14,6 +14,7 @@ public class FurnitureController {
 
     public FurnitureController(FurnitureService furnitureService) {
         this.furnitureService = furnitureService;
+
     }
 
     @GetMapping("/")
