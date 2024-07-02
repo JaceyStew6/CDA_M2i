@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" >
+    <title>Home Page</title>
+</head>
+<body>
+<ul>
+    <li th:each="furniture : ${furnitures}" th:text="${furniture.name} + ' - ' + ${furniture.description} + ' - ' +  ${furniture.price} + ' - ' + ${furniture.stock}"></li>
+</ul>
+</body>
+</html>
