@@ -6,6 +6,8 @@ import java.util.List;
 
 public interface IMessageService {
     List<Message> getAllMessages();
-    Message saveMessage(Message message);
+/*    Message saveMessage(Message message);*/
     void deleteMessage(int id);
+    Message saveMessage(Message message, int id);
+
 }

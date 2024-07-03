@@ -8,4 +8,5 @@ public interface ITopicService {
     List<Topic> getAllTopics();
     Topic saveTopic(Topic topic);
     void deleteTopic(int id);
+    Topic getTopicById(int id);
 }

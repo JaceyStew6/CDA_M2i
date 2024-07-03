@@ -1,7 +1,9 @@
 package com.example.Exercice06_Forum.service;
 
 import com.example.Exercice06_Forum.dao.MessageRepository;
+import com.example.Exercice06_Forum.dao.TopicRepository;
 import com.example.Exercice06_Forum.entity.Message;
+import com.example.Exercice06_Forum.entity.Topic;
 import com.example.Exercice06_Forum.entity.User;
 import org.springframework.stereotype.Service;
 
@@ -11,11 +13,15 @@ import java.util.List;
 @Service
 public class MessageService implements IMessageService{
     private final MessageRepository messageRepository;
-//    private final UserService userService;
+    private final TopicRepository topicRepository;
+    private final TopicService topicService;
+    //    private final UserService userService;
 
-    public MessageService(MessageRepository messageRepository, UserService userService) {
+    public MessageService(MessageRepository messageRepository, UserService userService, TopicRepository topicRepository, TopicService topicService) {
         this.messageRepository = messageRepository;
 //        this.userService = userService;
+        this.topicRepository = topicRepository;
+        this.topicService = topicService;
     }
 
     @Override
@@ -37,11 +43,20 @@ public class MessageService implements IMessageService{
         return null;
     }*/
 
-    @Override
+/*    @Override
     public Message saveMessage(Message message) {
         message.setPostHour(LocalDateTime.now());
         messageRepository.save(message);
         return message;
+    }*/
+
+    @Override
+    public Message saveMessage(Message message, int id) {
+        Topic topic = topicRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Topic not found"));
+        message.setTopic(topic);
+        message.setPostHour(LocalDateTime.now());
+        return messageRepository.save(message);
     }
 
     //--------------------------------FIN CODE PROVISOIRE------------------------------

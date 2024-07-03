@@ -31,4 +31,9 @@ public class TopicService implements ITopicService{
     public void deleteTopic(int id) {
 
     }
+
+    @Override
+    public Topic getTopicById(int id) {
+        return topicRepository.findById(id).orElse(null);
+    }
 }
