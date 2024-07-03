@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Topics List</title>
+    <span th:replace="~{home :: bootstrapImport}"></span>
+</head>
+<body>
+<span th:replace="~{home :: navbar}"></span>
+
+<div class="container mt-4">
+    <h1 class="mb-4">Topics</h1>
+    <table class="table table-striped">
+        <thead class="thead-dark">
+        <tr>
+            <th>Username</th>
+            <th>Date</th>
+            <th>Content</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="topic : ${topics}">
+            <!--            TODO changer getUserId par le nom de l'utilisateur-->
+            <td th:text="${topic.getUserId()}"></td>
+            <td th:text="${topic.getPostHour()}"></td>
+            <td th:text="${topic.getContent()}"></td>
+            <td>
+                <form th:action="@{/messageList/{id}(id=${topic.getId()})}" method="get">
+                    <button type="submit">See answers</button>
+                </form>
+            </td>
+
+        </tr>
+        </tbody>
+    </table>
+
+    <a th:href="@{topicForm}">Add Topic</a>
+</div>
+</body>
+</html>
