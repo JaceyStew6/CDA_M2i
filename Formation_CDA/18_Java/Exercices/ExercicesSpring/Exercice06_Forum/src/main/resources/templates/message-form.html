@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Message</title>
+    <span th:replace="~{home :: bootstrapImport}"></span>
+</head>
+<body>
+<span th:replace="~{home :: navbar}"></span>
+<div class="container mt-4">
+    <h1 class="mb-4">Add a message</h1>
+    <form th:action="@{/addMessage}" th:object="${message}" method="post">
+        <input th:field="*{id}" type="hidden">
+        <div class="form-group">
+            <label for="content">Content</label>
+            <input type="text" id="content" th:field="*{content}" class="form-control">
+        </div>
+
+
+        <button type="submit" class="btn btn-primary mt-4">Send</button>
+    </form>
+</div>
+</body>
+</html>

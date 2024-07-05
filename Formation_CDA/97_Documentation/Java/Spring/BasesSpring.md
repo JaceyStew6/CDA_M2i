@@ -7,7 +7,11 @@ Pour génerer un nouveau projet, aller sur le site Spring initializr (https://st
 Télécharger le projet en cliquant sur `Generate`.
 Extraire le fichier zip, le mettre dans le dossier souhaité et ouvrir avec IntelliJ.
 
+**Créer projet de base**
 ![StartSpringIO](./GénérerProjetSpring.jpg)
+
+**Créer projet avec validation et BDD**
+![StartSpringIOwithBDD](./GénérerProjetSpring%20avec%20BDD.jpg)
 
 Spring va fonctionner avec l'injection de dépendances. 
 Tout va fonctionner via des annotations.
@@ -74,3 +78,17 @@ Types d'annotations:
     - valable pour les int notamment. Ici on a défini que l'utilisateur ne doit pas entrer de valeur inférieure à 1.
 - On peut mettre un message dans toutes nos annotations
     - @Min(value = 1, message = "merci de saisir une valeur positive")
+
+
+
+
+## Intégrer base de données
+
+Ajouter les dépendances correspondantes (voir visuel plus haut).
+
+Créer une base de données reliée à MySQLWorkbench directement dans IntelliJ.
+![CreateDB](./CreateDB.jpg)  
+Renseigner les paramètres nécessaires
+![CreateDB2](./CreateDB2.jpg)  
+Ajouter un schéma pour relier à la base de données  
+![CreateSchema](./CreateSchema.jpg)
