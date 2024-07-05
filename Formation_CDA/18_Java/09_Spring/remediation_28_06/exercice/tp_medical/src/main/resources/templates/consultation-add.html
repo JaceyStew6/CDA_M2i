@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajouter une consultation</title>
+</head>
+<body>
+    <h1>Créer une consultation</h1>
+    <form th:action="@{/patient/{patientId}/createConsultation(patientId=${patientId})}" th:object="${consultation}" method="post">
+        <div>
+            <label for="description">Description :</label>
+            <textarea id="description" th:field="*{description}" />
+        </div>
+        <div>
+            <label for="dateConsultation">Date consultation :</label>
+            <input type="date" id="dateConsultation" th:field="*{dateConsultation}">
+        </div>
+        <button type="submit">Ajouter</button>
+    </form>
+</body>
+</html>

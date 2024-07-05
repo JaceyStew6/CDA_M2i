@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form th:action="@{/dog/add}" th:object="${dog}" method="post">
+        <input th:field="*{id}" type="hidden">
+        <div>
+            <label for="dogName">Nom du chien :</label>
+            <input th:field="*{name}" id="dogName" type="text">
+            <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+        </div>
+        <div>
+            <label for="dogBreed">Race du chien :</label>
+            <input th:field="*{breed}" id="dogBreed" type="text">
+            <span th:if="${#fields.hasErrors('breed')}" th:errors="*{breed}"></span>
+        </div>
+        <div>
+            <label for="dogAge">Age du chien :</label>
+            <input th:field="*{age}" id="dogAge" type="number">
+            <span th:if="${#fields.hasErrors('age')}" th:errors="*{age}"></span>
+        </div>
+        <button type="submit">Ajouter</button>
+    </form>
+</body>
+</html>

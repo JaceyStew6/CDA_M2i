@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Détail du patient</title>
+</head>
+<body>
+    <h1>Détail du patient</h1>
+    <h3><span th:text="${patient.getPrenom()} + ' ' + ${patient.getNom()}"></span></h3>
+    <p>Date de naissance : <span th:text="${patient.getDateNaissance()}"></span></p>
+    <a th:href="@{/patient/delete(patientId=${patient.getId()})}">Supprimer</a>
+    <a th:href="@{/patient/update(patientId=${patient.getId()})}">Modifier</a>
+    <br>
+    <h3>Liste des consultations :</h3>
+    <ul>
+        <li th:each="c : ${patient.getConsultations()}" th:text="${c.getDescription()} + ' - ' + ${c.getDateConsultation()} "></li>
+    </ul>
+    <a th:href="@{/patient/{id}/consultationForm(id=${patient.getId()})}">Ajouter une consultation</a>
+    <a th:href="@{'/patient/'+${patient.getId()}+'/consultationForm'}">Ajouter une consultation</a>
+</body>
+</html>

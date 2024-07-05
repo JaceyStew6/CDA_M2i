@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste</title>
+</head>
+<body>
+    <h1>Gestion des catégories</h1>
+
+    <ul>
+        <li th:each="category : ${categories}">
+            <span th:text="${category.getName()}"></span> - <span th:text="${category.getDescription()}"></span>
+            <a th:href="@{/category/delete(id=${category.getId()})}">Supprimer</a>
+            <a th:href="@{/category/update(id=${category.getId()})}">Modifier</a>
+        </li>
+    </ul>
+</body>
+</html>
