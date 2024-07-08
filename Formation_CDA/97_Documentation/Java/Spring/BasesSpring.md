@@ -16,8 +16,20 @@ Extraire le fichier zip, le mettre dans le dossier souhaité et ouvrir avec Inte
 Spring va fonctionner avec l'injection de dépendances. 
 Tout va fonctionner via des annotations.
 
+---
+On peut aussi initialiser le projet directement dans IntelliJ
+
+![StartSpringIntelliJ](./SpringInitializerIntelliJ.png)
+
+Attention de bien sélectionner les dépendances. 
+
+Cela n'est possible qu'avec la version Ultimate d'IntelliJ.
 
 ## Dépendances
+
+### Beans
+
+Classes que Spring va gérer lors de son fonctionnement.
 
 ### Pour la validation
 
@@ -65,6 +77,15 @@ Voici les points clés de son utilisation :
 
 - **Personnalisation de la réponse** : Permet de personnaliser la réponse envoyée à l'utilisateur en fonction des erreurs capturées, améliorant ainsi l'expérience utilisateur en fournissant des feedbacks spécifiques sur ce qui doit être corrigé.
 
+### @Controller
+
+En API va nous permettre de définir nos méthodes.
+En web, on va y gérer l'affichage, avec Thymeleaf.
+
+### @Primary
+
+Si on a plusieurs implémentations d'une même interface, on peut définir quelle interface correspond à la configuration par défaut.
+
 ## Validation
 
 On peut mettre des annotations au dessus de nos attributs dans notre classe (dans les model)
@@ -78,6 +99,7 @@ Types d'annotations:
     - valable pour les int notamment. Ici on a défini que l'utilisateur ne doit pas entrer de valeur inférieure à 1.
 - On peut mettre un message dans toutes nos annotations
     - @Min(value = 1, message = "merci de saisir une valeur positive")
+
 
 
 
