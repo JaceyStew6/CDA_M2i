@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="f095ec92-8ef1-4dfa-b9c7-94f5198869d6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../../09_Spring/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../09_Spring/.idea/misc.xml" afterDir="false" />
-    </list>
+    <list default="true" id="f095ec92-8ef1-4dfa-b9c7-94f5198869d6" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -12,9 +13,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 6
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
   <component name="ProjectId" id="2igDqclky3xl39MwITOEXN7Gc47" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -25,6 +26,11 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Administrateur/Documents/CDA M2i/CDA_M2i/Formation_CDA/18_Java/Exercices/ExercicesSpring",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
   }
@@ -46,6 +52,7 @@
       <option name="presentableId" value="Default" />
       <updated>1719903518275</updated>
       <workItem from="1719903519388" duration="4000" />
+      <workItem from="1720009900649" duration="4555000" />
     </task>
     <servers />
   </component>
