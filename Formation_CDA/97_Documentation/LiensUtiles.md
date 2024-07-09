@@ -49,6 +49,7 @@
 * [![MongoDB]][MongoDB-url]
 * [![Mongoose]][Mongoose-url]
 * [![Sequelize][Sequelize.js]][Sequelize-url]
+* [![Hibernate][Hibernate]][Hibernate-url]
 
 ### Outils
 #### Divers
@@ -158,6 +159,8 @@
 [Express-url]: https://expressjs.com/fr/
 [Sequelize.js]: https://img.shields.io/badge/sequelize-323330?style=for-the-badge&logo=sequelize&logoColor=blue
 [Sequelize-url]: https://sequelize.org/
+[Hibernate]: https://img.shields.io/badge/Hibernate-blue?style=for-the-badge&logo=hibernate
+[Hibernate-url]: https://hibernate.org/
 [MySql]: https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white
 [MySQL-url]: https://www.mysql.com/fr/
 [MongoDB]: https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white
