@@ -24,7 +24,7 @@ public class CandidateDtoPost {
     //TODO ajouter regex pour vérifier email
     private String email;
     @Pattern(regexp = "([0-9]+(-[0-9]+)+)")
-    private LocalDate birthDate;
+    private String birthDateStr;
     @Min(1)
     @Max(10)
     private int rating;
@@ -32,20 +32,5 @@ public class CandidateDtoPost {
     private String skill;
     private String wantedJob;
     @Pattern(regexp = "([0-9]+(-[0-9]+)+)")
-    private LocalDate jobInterviewDate;
+    private String jobInterviewDateStr;
 }
-
-
-
-
-/*
-@Pattern(regexp = "([0-9]+(-[0-9]+)+)")
-private String releaseDateStr;
-private String description;
-@Min(1)
-private int duration;
-@Min(0)
-@Max(8)
-private int filmType;
-@Min(1)
-private int directorId;*/
