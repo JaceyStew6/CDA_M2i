@@ -13,6 +13,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CandidateDtoGet {
+    private int id;
     private String name;
     private int identificationNumber;
     private String address;

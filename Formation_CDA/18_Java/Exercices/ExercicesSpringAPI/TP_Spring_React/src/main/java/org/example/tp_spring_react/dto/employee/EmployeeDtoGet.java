@@ -13,14 +13,15 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 public class EmployeeDtoGet {
+    private int id;
     private String name;
     private int identificationNumber;
     private String address;
     private String phone;
     private String email;
-    private String birthDate;
-    private String contractStart;
-    private String contractEnd;
+    private LocalDate birthDate;
+    private LocalDate contractStart;
+    private LocalDate contractEnd;
     private String occupation;
     private boolean admin;
     private double salary;

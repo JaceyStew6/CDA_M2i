@@ -23,7 +23,7 @@ public class CandidateDtoPost {
     private String phone;
     //TODO ajouter regex pour vérifier email
     private String email;
-    @Pattern(regexp = "([0-9]+(-[0-9]+)+)")
+//    @Pattern(regexp = "([0-9]+(-[0-9]+)+)")
     private String birthDateStr;
     @Min(1)
     @Max(10)
@@ -31,6 +31,6 @@ public class CandidateDtoPost {
     private String observation;
     private String skill;
     private String wantedJob;
-    @Pattern(regexp = "([0-9]+(-[0-9]+)+)")
+//    @Pattern(regexp = "([0-9]+(-[0-9]+)+)")
     private String jobInterviewDateStr;
 }
