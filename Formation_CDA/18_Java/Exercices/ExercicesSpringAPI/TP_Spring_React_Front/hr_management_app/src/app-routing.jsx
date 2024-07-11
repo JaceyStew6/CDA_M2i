@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from "./App";
 import CandidateDetails from "./components/candidate/CandidateDetails";
-import CandidateDisplay from "./components/candidate/CandidateDisplay";
+import CandidateList from "./components/candidate/CandidateList";
 
 const router = createBrowserRouter([
     {
@@ -9,8 +9,12 @@ const router = createBrowserRouter([
         element: <App/>,
         children: [
             {
+                path: "/",
+                element: <CandidateList/>
+            },
+            {
                 path: "/candidates",
-                element: <CandidateDisplay/>
+                element: <CandidateList/>
             },
             {
                 path: "candidates/:candidate_id",

@@ -1,0 +1,78 @@
+CANDIDATES
+{
+    "name" : "Black Max",
+    "identificationNumber" : 1111112,
+    "address" : "1507 Hoffman Avenue - 10013 - New York",
+    "phone" : "917-886-7151",
+    "email" : "maxblck@nyc.com",
+    "birthDate" : "12-03-1989",
+    "rating" : 8,
+    "observation" : "Quite rude but interesting and could do the job",
+    "skill" : "Javascript, Vue.js, HTML, CSS",
+    "wantedJob" : "Web developer",
+    "jobInterviewDate" : "10-07-2024"
+}
+
+{
+    "name" : "Channing Caroline",
+    "identificationNumber" : 1111123,
+    "address" : "1507 Hoffman Avenue - 10013 - New York",
+    "phone" : "917-886-7151",
+    "email" : "chan@nyc.com",
+    "birthDateStr" : "04-07-1988",
+    "rating" : 6,
+    "observation" : "Good for management and business",
+    "skill" : "Customer relationship, management",
+    "wantedJob" : "Business Developer",
+    "jobInterviewDateStr" : "12-07-2024"
+}
+
+
+{
+    "name" : "TEst",
+    "identificationNumber" : 1111111,
+    "address" : "somewhere",
+    "phone" : "0000000000",
+    "email" : "test@test.fr",
+    "birthDateStr" : "04-07-1988",
+    "rating" : 1,
+    "observation" : "Good for nothing",
+    "skill" : "none",
+    "wantedJob" : "none",
+    "jobInterviewDateStr" : "12-07-2024"
+}
+
+
+EMPLOYEES
+
+{
+    "name" : "Black Max",
+    "identificationNumber" : 1111122,
+    "address" : "1507 Hoffman Avenue - 10013 - New York",
+    "phone" : "917-886-7151",
+    "email" : "maxblck@nyc.com",
+    "birthDate" : "12-03-1989",
+    "contractStart" : "01-08-2024",
+    "contractEnd" : "30-06-2030",
+    "occupation" : "Web developer",
+    "password" : "Maxxx89",
+    "admin" : false,
+    "salary" : 42000.00,
+    "observation" : "Do the job"
+}
+
+{
+    "name" : "Fonte Olympia",
+    "identificationNumber" : 1112345,
+    "address" : "4071 Armbrester Drive - 90501 - Torrance",
+    "phone" : "310-533-1718",
+    "email" : "folympia@inquisition.alt",
+    "birthDate" : "16-11-1502",
+    "contractStart" : "01-05-1525",
+    "contractEnd" : "30-09-1560",
+    "occupation" : "Inquisitor",
+    "password" : "OlympieAltabianc@",
+    "admin" : false,
+    "salary" : 48563.10,
+    "observation" : "Inquisition Altabianca Detective"
+}

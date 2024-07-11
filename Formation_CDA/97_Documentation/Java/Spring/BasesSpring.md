@@ -63,6 +63,9 @@ L'annotation `@Autowired` dans Spring Framework est utilisée pour ***l'injectio
 
 - **Optionnelle** : Par défaut, toutes les injections @Autowired sont obligatoires, mais vous pouvez les rendre optionnelles en définissant l'attribut required à false.
 
+
+/!\ Attention : L'Autowired n'est pas toujours recommandé car son comportement n'est pas toujours celui attendu.
+
 ### @BindingResult
 
 L'annotation `@BindingResult` dans Spring MVC est utilisée pour ***capturer et stocker les résultats de la validation d'un objet ainsi que les erreurs qui peuvent survenir lors du processus de liaison*** (binding) des données de formulaire à un objet. Elle est typiquement utilisée après un objet annoté avec `@ModelAttribute` ou `@RequestBody` dans les méthodes de contrôleur pour vérifier les erreurs de liaison ou de validation.

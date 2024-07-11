@@ -41,16 +41,16 @@ const candidateSlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {
         builder
-            .addCase(fetchCandidatesAction.pending, (state) => {
+            .addCase(fetchCandidates.pending, (state) => {
                 state.isLoading = true;
                 state.error = null;
                 state.candidates = [];
             })
-            .addCase(fetchCandidatesAction.fulfilled, (state, action) => {
+            .addCase(fetchCandidates.fulfilled, (state, action) => {
                 state.isLoading = false;
                 state.candidates = action.payload;
             })
-            .addCase(fetchCandidatesAction.rejected, (state, action) => {
+            .addCase(fetchCandidates.rejected, (state, action) => {
                 state.isLoading = false;
                 state.error = action.error.message;
             });
