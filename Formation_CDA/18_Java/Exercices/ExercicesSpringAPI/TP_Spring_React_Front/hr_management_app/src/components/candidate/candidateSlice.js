@@ -4,23 +4,14 @@ import axios from "axios";
 const BASE_URL = "http://localhost:8080/api/candidates";
 
 export const fetchCandidates = createAsyncThunk(
-    "candidat/fetchCandidates",
+    "candidate/fetchCandidates",
     async () => {
         const response = await axios.get(BASE_URL);
-        const data = await response.data.results;
-
-        const candidates = [];
-
-        await Promise.all(
-            data.map(async (candidate)=> {
-                await axios.get(candidate.url).then((response)=>{
-                    candidate.push(response.data);
-                });
-            })
-        );
-        return candidates;
+                console.log(response.data);
+        return response.data;
     }
 );
+
 
 export const fetchCandidate = createAsyncThunk(
     "candidate/fetchCandidate",
@@ -32,13 +23,17 @@ export const fetchCandidate = createAsyncThunk(
 );
 
 const candidateSlice = createSlice({
-    name: "candidate",
+    name: "candidates",
     initialState:{
         candidates: [],
         error: null,
         isLoading: false,
     },
-    reducers: {},
+    reducers: {
+        addCandidate: (state, action) => {
+            state.candidates.push(action.payload);
+        }
+    },
     extraReducers: (builder) => {
         builder
             .addCase(fetchCandidates.pending, (state) => {
@@ -57,4 +52,5 @@ const candidateSlice = createSlice({
     }
 });
 
+export const { addCandidate } = candidateSlice.reducer;
 export default candidateSlice.reducer;

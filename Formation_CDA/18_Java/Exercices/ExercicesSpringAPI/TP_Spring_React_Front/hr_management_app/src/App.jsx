@@ -4,7 +4,8 @@ import {Outlet} from 'react-router-dom'
 
 
 function App() {
-  <div>
+  return (
+      <div>
     <header>
       <NavBar/>
     </header>
@@ -12,6 +13,8 @@ function App() {
       <Outlet/>
     </main>
   </div>
+  )
+
   
 }
 
