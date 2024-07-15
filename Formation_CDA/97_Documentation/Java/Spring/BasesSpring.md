@@ -89,6 +89,16 @@ En web, on va y gérer l'affichage, avec Thymeleaf.
 
 Si on a plusieurs implémentations d'une même interface, on peut définir quelle interface correspond à la configuration par défaut.
 
+### @Configuration
+
+On execute en priorité ce qu'il y a dedans. C'est exécuté avant le démarrage de l'application.
+
+
+### @EnableWebSecurity
+
+On active la sécurité dans notre application
+
+
 ## Validation
 
 On peut mettre des annotations au dessus de nos attributs dans notre classe (dans les model)
