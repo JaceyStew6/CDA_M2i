@@ -122,3 +122,68 @@ Pour avoir un mot de passe renforcé, cela pourra passer par des validateurs ave
 Dans Postman :
 
 ![PostmanAuth](./AuthPostman.png)
+
+
+## 3 étapes importantes
+
+Essayer de les développer dans l'ordre et de les tester au fur et à mesure.
+
+-> Register  
+-> Login (génération du JWT)
+-> Communication (le JWT va servir à communiquer avec l'application à chaque requête. Il faut également vérifier si le token est valide à chaque fois qu'on intercepte une requête)
+
+
+## Convention de nommage pour les rôles
+
+`Role_Admin`
+`Role_User`
+
+
+
+### JWT
+
+Génère un jeton qui est:
+- Unique
+- Facilement vérifiable 
+- Peut contenir des informations dans le payload
+
+https://jwt.io/
+
+Il y a 3 dépendances pour utiliser JWT
+
+```xml
+       <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-api</artifactId>
+            <version>0.11.2</version>
+        </dependency>
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-impl</artifactId>
+            <version>0.11.2</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-jackson</artifactId>
+            <version>0.11.2</version>
+            <scope>runtime</scope>
+        </dependency>
+```
+
+
+Un Token est composé de:
+- un header (peut passer des cookies, le jeton, le content-Type...)
+- un payload (comprend de la data)
+- un secret
+
+
+Dans le SpringSecurityJwtApplication, ajouter les lignes ci-dessous pour générer une clé secrète
+
+```java
+        SecretKey key = Keys.secretKeyFor(SignatureAlgorithm.HS512);
+
+        String base64Key = Encoders.BASE64.encode(key.getEncoded());
+
+        System.out.println(base64Key);
+```

@@ -1,10 +1,13 @@
-package org.example.springsecurityjwt.dao;
+package com.example.springsecurityjwt.repository;
 
-import org.example.springsecurityjwt.entity.User;
+import com.example.springsecurityjwt.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
 
 public interface UserRepository extends JpaRepository<User, Long> {
+
     Optional<User> findByEmail(String email);
+
+
 }

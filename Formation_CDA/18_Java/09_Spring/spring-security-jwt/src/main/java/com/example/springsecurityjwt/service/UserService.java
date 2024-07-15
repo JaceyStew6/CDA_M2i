@@ -1,7 +1,7 @@
-package org.example.springsecurityjwt.service;
+package com.example.springsecurityjwt.service;
 
-import org.example.springsecurityjwt.dao.UserRepository;
-import org.example.springsecurityjwt.entity.User;
+import com.example.springsecurityjwt.model.User;
+import com.example.springsecurityjwt.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -11,18 +11,30 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class UserService implements UserDetailsService {
-    @Autowired
-    private UserRepository userRepository;
+
     @Autowired
     private PasswordEncoder passwordEncoder;
 
 
+    @Autowired
+    private UserRepository userRepository;
+
+
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        return userRepository.findByEmail(email).orElseThrow(()-> new UsernameNotFoundException("user not found"));
+        return userRepository.findByEmail(email).orElseThrow(()-> new UsernameNotFoundException("User Not Found"));
     }
 
-//    public boolean createUser(User user){
-//        user.setPassword(passwordEncoder);
-//    }
+
+    public boolean createUser(User user){
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        userRepository.save(user);
+        return true;
+    }
+
+
+
+
+
+
 }
