@@ -1,8 +1,8 @@
-package com.example.springsecurityjwt.service;
+package com.m2ibank.service;
 
-import com.example.springsecurityjwt.config.jwt.JwtTokenProvider;
-import com.example.springsecurityjwt.model.User;
-import com.example.springsecurityjwt.repository.UserRepository;
+import com.m2ibank.config.jwt.JwtTokenProvider;
+import com.m2ibank.model.User;
+import com.m2ibank.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -19,7 +19,7 @@ import org.springframework.stereotype.Service;
 public class UserService implements UserDetailsService {
 
     @Autowired
-    private PasswordEncoder passwordEncoder;
+    private PasswordEncoder passwordEncoder;  //On récupère le passwordEncoder dans SecurityConfig
 
     @Autowired
     private UserRepository userRepository;
@@ -33,12 +33,12 @@ public class UserService implements UserDetailsService {
 
     public boolean verifyUser(String email, String password){
         return userRepository.findByEmail(email).map(user -> passwordEncoder
-                .matches(password, user.getPassword())).orElseThrow(()-> new UsernameNotFoundException("User Not Found"));
+                .matches(password, user.getPassword())).orElseThrow(() -> new UsernameNotFoundException("User not found"));
     }
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        return userRepository.findByEmail(email).orElseThrow(()-> new UsernameNotFoundException("User Not Found"));
+        return userRepository.findByEmail(email).orElseThrow(() -> new UsernameNotFoundException("User not found"));
     }
 
     public boolean checkUserNameExist(String email){

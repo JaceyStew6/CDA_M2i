@@ -31,30 +31,35 @@ public class UserService implements UserDetailsService {
     @Autowired
     private AuthenticationManager authenticationManager;
 
-    public boolean verifyUser(String email, String password){
-        return userRepository.findByEmail(email).map(user -> passwordEncoder
-                .matches(password, user.getPassword())).orElseThrow(()-> new UsernameNotFoundException("User Not Found"));
+
+    public boolean verifyUser(String email, String password) {
+        return userRepository.findByEmail(email).map(user -> passwordEncoder.
+                matches(password, user.getPassword())).orElseThrow(() -> new UsernameNotFoundException(" User Not Found "));
     }
+
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        return userRepository.findByEmail(email).orElseThrow(()-> new UsernameNotFoundException("User Not Found"));
+        return userRepository.findByEmail(email).orElseThrow(() -> new UsernameNotFoundException(" User Not Found "));
     }
 
-    public boolean checkUserNameExist(String email){
+    public boolean checkUserNameExists(String email) {
         return userRepository.findByEmail(email).isPresent();
     }
 
-    public String generateToken(String email, String password){
+    public String generateToken(String email, String password) {
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(email, password));
         SecurityContextHolder.getContext().setAuthentication(authentication);
         String token = jwtTokenProvider.generateToken(authentication);
         return token;
+
     }
 
-    public boolean createUser(User user){
+    public boolean createUser(User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepository.save(user);
         return true;
     }
+
+
 }
