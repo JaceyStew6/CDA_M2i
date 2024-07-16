@@ -5,10 +5,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
 @SpringBootApplication
-public class M2iBankBackendApplication {
+public class EazyBankBackendApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(M2iBankBackendApplication.class, args);
+		SpringApplication.run(EazyBankBackendApplication.class, args);
 	}
 
 }

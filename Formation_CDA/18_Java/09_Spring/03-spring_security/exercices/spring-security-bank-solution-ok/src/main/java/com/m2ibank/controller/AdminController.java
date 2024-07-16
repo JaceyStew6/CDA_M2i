@@ -26,6 +26,8 @@ public class AdminController {
     @Autowired
     private AccountTransactionsRepository accountTransactionsRepository;
 
+    @Autowired
+    private UserRepository userRepository;
 
     @GetMapping("/loans")
     public Iterable<Loans> getAllLoans() {
@@ -47,6 +49,9 @@ public class AdminController {
         return accountTransactionsRepository.findAll();
     }
 
-
+    @GetMapping("/users")
+    public Iterable<User> getAllUsers() {
+        return userRepository.findAll();
+    }
 }
 

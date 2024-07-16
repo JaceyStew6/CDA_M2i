@@ -316,3 +316,5 @@ On a besoin de:
 Plusieurs méthodes:
 - `generateToken()`: On génère le token qu'on va récupérer dans le controller
 - `createUser()`: Créer un utilisateur
+
+
