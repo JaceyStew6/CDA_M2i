@@ -4,6 +4,7 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
+import org.example.tpspringsecuritytodolist.entity.User;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.AuthenticationCredentialsNotFoundException;
 import org.springframework.security.core.Authentication;
@@ -31,9 +32,12 @@ public class JwtTokenProvider {
         Date expireDate = new Date(currentDate.getTime() + 86400000); //Validité du token fixée à 24h
         String roles = authentication.getAuthorities().stream().map(GrantedAuthority::getAuthority).collect(Collectors.joining(","));
 
+        Long id = ((User) authentication.getPrincipal()).getId();
+
         String token = Jwts.builder()
                 .setSubject(username)
                 .claim("roles", roles)
+                .claim("userid",id)
                 .setIssuedAt(new Date())
                 .setExpiration(expireDate)
                 .signWith(getSigninKey(), SignatureAlgorithm.HS512)
