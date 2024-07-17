@@ -27,19 +27,29 @@ public class UserController {
         }
     }
 
-    //On va faire toutes les opérations de vérification et si ok, donnera un token à la fin
     @PostMapping("/login")
     public BaseResponseDto loginUser(@RequestBody UserLoginDto userLoginDto) {
-        if (userService.checkUserNameExist(userLoginDto.getEmail())) { //On vérifie l'existence du user
-            if (userService.verifyUser(userLoginDto.getEmail(), userLoginDto.getPassword())) { //On vérifie que ses infos matchent
+
+        if (userService.checkUserNameExists(userLoginDto.getEmail())) {
+
+            if (userService.verifyUser(userLoginDto.getEmail(), userLoginDto.getPassword())) {
+
                 Map<String, Object> data = new HashMap<>();
-                data.put("token", userService.generateToken(userLoginDto.getEmail(), userLoginDto.getPassword())); //On génère le token après vérification
+
+                data.put("token", userService.generateToken(userLoginDto.getEmail(), userLoginDto.getPassword()));
+
                 return new BaseResponseDto("Success", data);
+
             } else {
                 return new BaseResponseDto("Wrong password");
             }
+
         } else {
-            return new BaseResponseDto("User doesn't exist");
+            return new BaseResponseDto("User Not Exist");
         }
+
+
     }
+
+
 }

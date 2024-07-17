@@ -18,6 +18,7 @@ import java.io.IOException;
 @Component
 public class JwtRequestFilter extends OncePerRequestFilter {
 
+
     @Autowired
     private JwtTokenProvider jwtTokenProvider;
 
@@ -29,26 +30,35 @@ public class JwtRequestFilter extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
+
         try {
             String token = getJWTFromHttpRequest(request);
-            if (token != null && jwtTokenProvider.validateToken(token)){
+            if(token != null && jwtTokenProvider.validateToken(token)){
                 String userName = jwtTokenProvider.getUsernameFromToken(token);
                 UserDetails userDetails = userService.loadUserByUsername(userName);
-                UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
+                UsernamePasswordAuthenticationToken authenticationToken =
+                        new UsernamePasswordAuthenticationToken(userDetails,null, userDetails.getAuthorities());
                 SecurityContextHolder.getContext().setAuthentication(authenticationToken);
             }
-            filterChain.doFilter(request, response);
+            filterChain.doFilter(request,response);
         }catch (AuthenticationException e){
-            jwtAuthenticationEntryPoint.commence(request, response, e);
+            jwtAuthenticationEntryPoint.commence(request,response,e);
         }
     }
 
+
     private String getJWTFromHttpRequest(HttpServletRequest httpServletRequest){
         String bearerToken = httpServletRequest.getHeader("Authorization");
-
-        if (bearerToken != null && bearerToken.startsWith("Bearer ")){ // Attention, l'espace après "Bearer " est important
+        if(bearerToken != null && bearerToken.startsWith("Bearer ")){
             return bearerToken.substring(7);
         }
         return null;
     }
+
+    @Override
+    protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
+        String path = request.getRequestURI();
+        return path.startsWith("/api/auth"); //n'appliquera pas le filtre sur la route /api/auth
+    }
+
 }

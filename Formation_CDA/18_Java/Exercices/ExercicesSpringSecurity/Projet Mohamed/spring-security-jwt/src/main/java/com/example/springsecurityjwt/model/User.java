@@ -32,9 +32,10 @@ public class User implements UserDetails {
 
     private boolean isEnabled=true;
 
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return Arrays.stream(roles.split(",")).map(SimpleGrantedAuthority::new).collect(Collectors.toList()); //J'ai une chaine de caractère que je découpe, séparé par une virgule et je converti en quelque chose qui extend GrantedAuthority en SimpleGrantedAuthority
+        return Arrays.stream(roles.split(",")).map(SimpleGrantedAuthority::new).collect(Collectors.toList());
     }
 
     @Override

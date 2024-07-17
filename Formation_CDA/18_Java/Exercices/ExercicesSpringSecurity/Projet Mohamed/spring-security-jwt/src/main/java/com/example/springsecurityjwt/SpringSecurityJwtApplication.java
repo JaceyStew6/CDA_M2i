@@ -14,12 +14,12 @@ public class SpringSecurityJwtApplication {
     public static void main(String[] args) {
         SpringApplication.run(SpringSecurityJwtApplication.class, args);
 
-        //On génère une clé unique //Code commenté car la clé est stockée dans application.properties
-        //Attention: on stocke la clé de préférence ailleurs que dans l'application
-/*        SecretKey key = Keys.secretKeyFor(SignatureAlgorithm.HS512);
+      /*  SecretKey key = Keys.secretKeyFor(SignatureAlgorithm.HS512);
 
         String base64Key = Encoders.BASE64.encode(key.getEncoded());
 
         System.out.println(base64Key);*/
+
     }
+
 }
