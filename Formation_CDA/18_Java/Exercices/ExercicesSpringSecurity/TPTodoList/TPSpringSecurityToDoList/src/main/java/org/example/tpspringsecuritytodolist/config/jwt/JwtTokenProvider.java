@@ -30,13 +30,13 @@ public class JwtTokenProvider {
         String username = authentication.getName();
         Date currentDate = new Date();
         Date expireDate = new Date(currentDate.getTime() + 86400000); //Validité du token fixée à 24h
-        String roles = authentication.getAuthorities().stream().map(GrantedAuthority::getAuthority).collect(Collectors.joining(","));
+        String role = authentication.getAuthorities().stream().map(GrantedAuthority::getAuthority).collect(Collectors.joining(","));
 
         Long id = ((User) authentication.getPrincipal()).getId();
 
         String token = Jwts.builder()
                 .setSubject(username)
-                .claim("roles", roles)
+                .claim("role", role)
                 .claim("userid",id)
                 .setIssuedAt(new Date())
                 .setExpiration(expireDate)
