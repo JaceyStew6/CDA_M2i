@@ -5,12 +5,12 @@ CANDIDATES
     "address" : "1507 Hoffman Avenue - 10013 - New York",
     "phone" : "917-886-7151",
     "email" : "maxblck@nyc.com",
-    "birthDate" : "12-03-1989",
+    "birthDateStr" : "12-03-1989",
     "rating" : 8,
     "observation" : "Quite rude but interesting and could do the job",
     "skill" : "Javascript, Vue.js, HTML, CSS",
     "wantedJob" : "Web developer",
-    "jobInterviewDate" : "10-07-2024"
+    "jobInterviewDateStr" : "10-07-2024"
 }
 
 {

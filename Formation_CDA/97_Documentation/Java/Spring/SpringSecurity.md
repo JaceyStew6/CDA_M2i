@@ -20,7 +20,7 @@ Spring Security est basé sur une série de filtres de servlet qui interceptent 
 Il y a 3 façons de s'authentifier
 - **LDAP**
 - **InMemory** : l'information est directement dans l'application en dur. Fortement déconseillé car peu sécurisé.
-- **JDBC** : l'information est stockée en base de données
+- **JDBC** : l'information est stockée en base de données (DAOAuthenticationProvider)
 
 > *Un serveur LDAP permet de centraliser l'authentification pour un utilisateur (on centralise l'authentification d'un utilisateur à plusieurs comptes/outils).*
 
@@ -276,22 +276,22 @@ Dispose de 4 méthodes:
 --> ***security***  
 ---> *SecurityConfig*  
 Nécessite un `passwordEncoder`, ainsi qu'un `AuthenticationManager`.
-On utiliser le `UserDetailsService` pour récupérer les informations utilisateur en base de données.
+On utiliser le `UserDetailsService` pour récupérer les informations utilisateur en base de données. Il comprend également les différents filtres de vérification.
 
 `JwtRequestFilter` doit être utilisé dans le SecurityConfig, dans le `SecurityFilterChain`
 
 On y indique les autorisations pour les différents endpoints
 
 -> **controller**  
----> *UserController*
+---> *UserController*  
 2 endpoints (register et login)
 
 ---> *ProductController*
 
 -> **dto**  
 ---> *BaseResponseDto*  
-On fait 2 types de réponse: `message` et `data`
----> *UserLoginDto*
+On fait 2 types de réponse: `message` et `data`  
+---> *UserLoginDto*  
 On y passe uniquement ce dont on a besoin pour s'authentifier. Ici un email et un password
 
 -> **model**  
