@@ -2,7 +2,6 @@ package com.example.springsecurityjwt.config.security;
 
 import com.example.springsecurityjwt.config.jwt.JwtRequestFilter;
 
-import com.example.springsecurityjwt.filter.EmailVerificationFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -23,7 +22,6 @@ import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import java.util.Arrays;
-import java.util.Collections;
 
 @Configuration
 @EnableWebSecurity
@@ -46,10 +44,11 @@ public class SecurityConfig {
     }
 
 
-    @Bean
+
+/*    @Bean
     public EmailVerificationFilter emailVerificationFilter(){
         return new EmailVerificationFilter();
-    }
+    }*/
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
@@ -64,7 +63,7 @@ public class SecurityConfig {
                         .requestMatchers("*").authenticated()
                 )
                 .addFilterBefore(jwtRequestFilter(), UsernamePasswordAuthenticationFilter.class);
-                //.addFilterBefore(emailVerificationFilter(), UsernamePasswordAuthenticationFilter.class);
+              //  .addFilterBefore(emailVerificationFilter(), UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
     }
@@ -74,7 +73,8 @@ public class SecurityConfig {
     public CorsConfigurationSource corsConfigurationSource(){
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowedMethods(Arrays.asList("GET","POST","PUT","DELETE"));
-        configuration.setAllowedOriginPatterns(Collections.singletonList("http://localhost:3000"));
+        configuration.setAllowedOriginPatterns(Arrays.asList("http://localhost:3000"));
+       // configuration.setAllowedOriginPatterns(Arrays.asList("http://13.39.149.74:3000"));
         configuration.setAllowedHeaders(Arrays.asList("*"));
         configuration.setAllowCredentials(true);
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
