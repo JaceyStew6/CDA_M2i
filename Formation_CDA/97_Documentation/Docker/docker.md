@@ -137,8 +137,10 @@ Repose sur DockerHub.
 `docker ps` : n'affiche que les containers qui sont en train de tourner (containers qui font tourner un service)  
 `docker ps -a` : affiche que les containers qui ont tourné et se sont arrêtés  
 `docker stop nom_du_container` : stopper un container en cours  
-`docker start nom_du_container` : redémarrer un container arrêté  
+`docker start nom_du_container` : démarrer un container arrêté  
+`docker restart nom_du_container` : redémarrer un container arrêté  
 `docker exec -it nom_du_container sh` : exécuter quelque chose sur un container qui est en train de tourner. Ici on cherche à ouvrir un terminal shell  
+`docker commit id_ou_nom_container nom_image_à_créer` : créer une image d'un container en local  
 `clear` : épurer le terminal
 
   

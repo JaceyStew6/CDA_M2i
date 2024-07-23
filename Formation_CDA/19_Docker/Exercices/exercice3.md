@@ -51,7 +51,20 @@ docker run --name exercice3 -p 8080:80 -d nginx
 # Accéder à une session interactive à l'intérieur du container
 docker exec -it exercice3 sh
 
+# Explorer le système de fichier sur le serveur nginx
+cd /usr/share/nginx/html
 
+# Modifier page html
+apt update
+apt upgrade
+apt install nano
+nano index.html
+exit
+# --------------------------
 
+# Arrêter le container
+docker stop exercice3
 
+# Supprimer le container
+docker rm exercice3
 ```
