@@ -401,7 +401,7 @@ Il existe 3 types de volumes
 
 - volumes nommés
 - volumes anonymes : ne prenne pas de nom mais un id
-- volumes liés/jumelés (bydemont) : `docker run -v volume_local:volume_container`
+- volumes liés/jumelés (bindmount) : `docker run -v volume_local:volume_container`
 
 ```powershell
 # Pour voir si on a déjà des volumes
@@ -430,3 +430,75 @@ docker volume rm nom_du_volume
 
 ## Attention, pour pouvoir supprimer un volume, il faut supprimer tous les containers qui y sont liés
 ```
+
+
+Pour créer un volume anonyme:
+
+```powershell
+# Créer volume anonyme
+docker run -v chemin_lié --name nom_container -it nom_image 
+
+# Supprimer volume anonyme. Supprimer un container ne supprime pas nécessairement le volume qui lui est lié. Il faut lui passer une option -v ou --volumes
+docker rm -v nom_du_container
+```
+
+On ne lui passe pas de nom de volume et il lui passera un nom aléatoire, mélange de chiffres et de lettres
+
+**Volume Bindmount**
+
+Permet de lier un dossier local avec un volume. Toute modification effectuée dans l'un, sera répercutée dans l'autre.
+
+```powershell
+docker run -v chemin_machine_locale:/chemin_lié_au_container --name nom_container -d -p 8080:80 nom_image 
+```
+Exemple:
+```powershell
+docker run -d -p 8080:80 -v "C:\Users\Administrateur\Documents\CDA M2i\CDA_M2i\Formation_CDA":/usr/share/nginx/ --name nginx_container nginx
+```
+
+## Créer un réseau
+
+[Documentation docker network](https://docs.docker.com/reference/cli/docker/network/)
+
+Pour connaitre sa propre adresse ip, la commande est `ipconfig`
+Pour savoir si on communique bien avec un réseau, on peut faire un ping.
+
+Par défaut tous les containers sont sur le réseau `bridge`.
+
+Exemple:
+```powershell
+ping google.fr
+ping polarfoxgames.com
+```
+
+```powershell
+# Créer mon propre réseau
+docker network create nom_du_réseau
+
+# Lister les réseaux
+docker network ls
+
+# Inspecter un réseau
+docker network inspect nom_réseau
+
+# Connecter un container déjà créé
+docker network connect nom_réseau nom_container
+
+# Connecter un container à un réseau lors de sa création
+docker run --network nom_réseau
+
+# Déconnecter un container lié à un réseau
+docker network disconnect nom_réseau nom_container
+
+```
+
+Pour connecter un container au moment de la création, on utilise l'option `--network`
+
+**Exemple:**
+```powershell
+docker run -d --name container-1 --network mon-reseau nginx
+```
+
+Pour faire un ping entre 2 réseaux tournant sur Docker, on doit faire un ugrade et update et installer ping et/ou iputils avant toute chose.
+
+L'intérêt de communiquer entre 2 machines via leur nom et non via leur ip, est de pouvoir toujours communiquer sans contraintes ou risques de rupture de connexion, dans la mesure où l'ip est susceptible de changer lors d'un redémarrage par exemple. Il faut toutefois que les machines soient sur le même réseau.
