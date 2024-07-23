@@ -19,6 +19,8 @@ redis                  latest    9c893be668ac   2 months ago    116MB
 openjdk                latest    71260f256d19   17 months ago   470MB
 evilroot/docker-2048   latest    09a1a3e342a9   7 years ago     7.47MB
 
+#  ---------------------------
+
 # Lancer ce jeu sur un port disponible au travers d’un conteneur que vous allez appeler «jeu-votre-nom ».
 docker run --name jeu_roxane -p 8080:80 -d evilroot/docker-2048
 
@@ -28,6 +30,8 @@ docker ps
 # Résultat
 CONTAINER ID   IMAGE                  COMMAND                  CREATED         STATUS         PORTS                  NAMES
 0397b322f400   evilroot/docker-2048   "nginx -g 'pid /tmp/…"   4 seconds ago   Up 4 seconds   0.0.0.0:8080->80/tcp   jeu_roxane
+
+#  ---------------------------
 
 # Créer un second conteneur qui va lancer le même jeu mais avec un nom différent «jeu2-votre-nom »
 docker run --name jeu2_roxane -p 8081:80 -d evilroot/docker-2048
@@ -40,6 +44,7 @@ CONTAINER ID   IMAGE                  COMMAND                  CREATED          
 532b412b6d42   evilroot/docker-2048   "nginx -g 'pid /tmp/…"   36 seconds ago   Up 36 seconds   0.0.0.0:8081->80/tcp   jeu2_roxane
 0397b322f400   evilroot/docker-2048   "nginx -g 'pid /tmp/…"   5 minutes ago    Up 5 minutes    0.0.0.0:8080->80/tcp   jeu_roxane
 
+#  ---------------------------
 
 # Stopper les 2 conteneurs et assurez-vous que ces 2 conteneurs sont arrêtés.
 docker stop jeu_roxane
@@ -51,6 +56,8 @@ docker ps -a
 CONTAINER ID   IMAGE                  COMMAND                  CREATED         STATUS                      PORTS     NAMES
 532b412b6d42   evilroot/docker-2048   "nginx -g 'pid /tmp/…"   4 minutes ago   Exited (0) 9 seconds ago              jeu2_roxane
 0397b322f400   evilroot/docker-2048   "nginx -g 'pid /tmp/…"   9 minutes ago   Exited (0) 14 seconds ago             jeu_roxane
+
+#  ---------------------------
 
 # Relancer le conteneur «jeu2-votre-nom » et aller vérifier dans votre navigateur s’il fonctionne bien. Effectuer la commande pour voir s’il a bien été relancé. Puis stopper le
 docker start jeu2_roxane
@@ -103,7 +110,7 @@ nano index.html
 exit
 
 # ------------------------ AVEC APACHE ------------------------
-# Refaite la même opération mais en utilisant le serveur web apache et donc il faudra créer un autre conteneur
+# Refaites la même opération mais en utilisant le serveur web apache et donc il faudra créer un autre conteneur
 # Récupérer une image docker apache
 docker search apache
 docker pull httpd
@@ -167,7 +174,3 @@ docker cp "C:\Users\Administrateur\Documents\CDA M2i\CDA_M2i\Formation_CDA\19_Do
 docker stop nginx-web3 nginx-web4 nginx-web5
 
 ```
-
-
-
-

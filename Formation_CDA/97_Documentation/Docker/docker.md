@@ -271,49 +271,6 @@ docker cp distracted_mclaren:/root/test.txt "C:\Users\Administrateur\Desktop"
 # Nommer un container lors de sa création
 docker run --name container_perso -it alpine ## Attention, toutes les options doivent se placer avant le nom de l'image
 ```
-
----
-## Exemple de commandes (voir exercice 1)
-
-```powershell
-# Je vérifie les images présentes
-docker images
-
-# Alpine est déjà présente, donc je crée un container tout en ouvrant le terminal Linux grâce à la commande -it
-docker run -it alpine
-
-# -------
-# Avant d'ajouter Git, bien penser à mettre à jour le gestionnaire de packages
-apk update
-# Puis
-apk upgrade
-# -------
-
-# J'ajoute git et nano
-apk add git nano
-
-# -------
-# Penser à se placer dans le répertoire souhaité avant de cloner le repo Git
-# Exemple
-cd /root
-# -------
-
-# Je clone mon repo Git 
-git clone https://github.com/RoxanePouchain/Pokemon-App---React-Native.git
-
-# Je me déplace dans le répertoire de mon projet
-cd Pokemon-App---React-Native/
-
-# J'ouvre mon readme avec Nano, j'ajoute une ligne, sauvegarde avec ctrl+s et quitte avec ctrl+x
-nano README.md
-
-# J'importe le fichier modifié localement depuis le terminal Windows
-docker cp relaxed_booth:/Pokemon-App---React-Native/README.md "C:\Users\Administrateur\Desktop"
-
-## Bonus
-# Nommer un container lors de sa création
-docker run --name container_perso -it alpine ## Attention, toutes les options doivent se placer avant le nom de l'image
-```
 ---
 
 ## Autres commandes utiles
@@ -327,6 +284,9 @@ docker inspect alpine >> infos.txt
 #Mettre un nom de fichier qui n'existe pas ou il écrasera l'existant
 # Si on met > , on écrase le contenu
 # Si on met >> , on concatène et donc les informations se mettent à la suite de l'existant
+
+# Créer un fichier contenant du texte
+echo monTexte > monFichier.txt
 ```
 
 Renvoie :
@@ -394,3 +354,79 @@ Renvoie :
 ```
 
 
+## DockerHub
+
+1. Commit l'image à partir d'un container (pas la meilleure manière)
+
+```powershell
+docker commit id_ou_nom_container nom_image_à_créer
+```
+
+2. Créer un compte sur DockerHub.
+
+3. Puis, se logger dans Docker en passant par le terminal Windows :
+
+```powershell
+docker login
+```
+*Renseigner le Username et le Password*
+Attention, le mot de passe n'affichera rien mais prendra bien en compte la saisie
+
+4. Après avoir fait un commit, on va pouvoir envoyer notre image vers DockerHub. Il faut avant tout la renommer, plus précisemment la taguer.
+
+```powershell
+docker tag nom_image_initial nom_utilisateur/nouveau_nom_image 
+```
+
+*Si on ne précise rien, la version sera `latest`*
+
+5. Pour l'envoyer vers DockerHub
+
+```powershell
+docker push nom_utilisateur/nouveau_nom_image
+```
+
+Dans DockerHub, l'overview correspond à un README sur Github.
+
+Attention à ce qu'on envoie dans DockerHub. Comme pour Github, n'importe qui peut accéder à notre contenu. Ne pas laisser trainer de mot de passe ou autres données sensibles.
+
+Ici, on n'a droit qu'à un seul dépôt privé.
+
+
+
+## Les volumes
+Permettent de stocker le contenu d'un répertoire sans le perdre même après suppression d'un container. Il est en revanche nécessaire de paramétrer le jumellage en amont
+
+Il existe 3 types de volumes
+
+- volumes nommés
+- volumes anonymes : ne prenne pas de nom mais un id
+- volumes liés/jumelés (bydemont) : `docker run -v volume_local:volume_container`
+
+```powershell
+# Pour voir si on a déjà des volumes
+docker volume ls
+
+# Créer mon propre volume
+docker volume create nom_du_volume
+
+# Créer un container avec un volume
+docker run -v nom_du_volume:chemin_lié --name nom_container -it nom_image 
+
+# Si on recrée un container et qu'on lie le volume et le chemin comme pour le container précédent, on récupèrera le contenu mis par l'autre container.
+# Pour cela, on crée un nouveau container de la même manière, avec la commande :
+docker run -v nom_du_volume:chemin_lié --name nom_container -it nom_image 
+
+# ----------------------------
+# Par exemple, si on nomme notre premier container onec et qu'on a créé un volume mesFichiers, lié à /root, voici la commande
+docker run -v mesFichiers:/root --name onec -it alpine
+
+# Pour récupérer les données du volume dans un autre container, on peut renseigner la commande:
+docker run -v mesFichiers:/root --name secondc -it alpine
+# ----------------------------
+
+# Supprimer un volume
+docker volume rm nom_du_volume
+
+## Attention, pour pouvoir supprimer un volume, il faut supprimer tous les containers qui y sont liés
+```
