@@ -1,0 +1,5 @@
+FROM httpd
+LABEL version="0.1"
+WORKDIR /usr/local/apache2/htdocs
+COPY . .
+EXPOSE 80

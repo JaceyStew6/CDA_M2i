@@ -2,7 +2,9 @@
 
 
 [Installation](https://www.docker.com/products/docker-desktop/)  
-[DocumentationDocker](https://docs.docker.com/reference/cli/docker/)
+[Documentation Docker](https://docs.docker.com/reference/cli/docker/)  
+[Linux CheatSheet](https://www.geeksforgeeks.org/linux-commands-cheat-sheet/)  
+[Docker CheatSheet](https://www.geeksforgeeks.org/docker-cheat-sheet/)
 
 ## Bases
 
@@ -141,6 +143,7 @@ Repose sur DockerHub.
 `docker restart nom_du_container` : redémarrer un container arrêté  
 `docker exec -it nom_du_container sh` : exécuter quelque chose sur un container qui est en train de tourner. Ici on cherche à ouvrir un terminal shell  
 `docker commit id_ou_nom_container nom_image_à_créer` : créer une image d'un container en local  
+`docker logs nom_container` : voir le logs d'un container donné 
 `clear` : épurer le terminal
 
   
@@ -150,6 +153,7 @@ Options:
 - **-d** : detached (fonctionnement du code en arrière plan)
 - **-it** : permet d'ouvrir un terminal
 - **-a** : affichera même les containers arrêtés
+- **-e** : donner un nom et une valeur à une variable d'environnement
 
 Attention, on ne peut pas supprimer tout de suite une image qui est liée à un container. On doit d'abord supprimer le container qui y est lié
 
@@ -354,7 +358,9 @@ Renvoie :
 ```
 
 
-## DockerHub
+## Créer une image
+
+### A partir d'un container (pas recommandé)
 
 1. Commit l'image à partir d'un container (pas la meilleure manière)
 
@@ -390,9 +396,53 @@ Dans DockerHub, l'overview correspond à un README sur Github.
 
 Attention à ce qu'on envoie dans DockerHub. Comme pour Github, n'importe qui peut accéder à notre contenu. Ne pas laisser trainer de mot de passe ou autres données sensibles.
 
-Ici, on n'a droit qu'à un seul dépôt privé.
+En version gratuite, tous les dépôts sont publics.
 
+### A partir d'un Dockerfile (recommandé)
 
+[Documentation Dockerfile](https://docs.docker.com/reference/dockerfile/)
+[Documentation docker build](https://docs.docker.com/build/building/packaging/)
+
+Un Dockerfile est multistage.
+On a une image qui permet de construire un .jar et ensuite ce qu'il faut pour déployer le .jar (un jdk).
+
+On met un dockerfile à la racine de notre application.
+
+On crée une image à l'aide de Docker DSL.
+
+On ne crée pas une image à partir de rien. On part forcément d'une image existante. 
+
+DSL contient une multitude d'instructions:
+
+- **FROM** : définit l'image de base qui sera utilisée par les instructions suivantes
+- **LABEL** : ajoute des métadonnées à l'image avec un système de clés-valeurs (on peut par exemple indiquer à l'utilisateur, l'auteur du Dockerfile)
+- **ARG** : variable temporaire 
+- **ENV** : variable d'environnement utilisable dans le Dockerfile et le container
+- **RUN** : exécute les commandes Linux ou Windows lors de la création de l'image. Chaque instruction RUN va créer une couche en cache qui sera réutilisée dans le cas de modification ultérieure du Dockerfile.
+- **COPY** : copier des fichiers depuis notre machine locale vers le container
+- **ADD** : idem à copy, mais prend en charge des liens ou des archives (si le format est reconnu, alors il sera décompressé à la volée).
+- **ENTRYPOINT** : point d'entrée du container. Prend la forme d'un JSON ou de texte. La commande qui sera toujours exécutée au démarrage du container. C'est oour lancer l'application. 
+```shell
+# Deux façons de l'écrire
+ENTRYPOINT ["executable", "param1", "param2"]
+# OU
+ENTRYPOINT command param1 param2
+```
+- **CMD** : spécifie les arguments qui seront envoyés au ENTRYPOINT (on peut aussi l'utiliser pour lancer des commandes par défaut lors du démarrage d'un container). S'il est utilisé pour fournir des arguments par défaut pour l'instruction ENTRYPOINT, alors les instructions CMD et ENTRYPOINT doivent être spécifiées au format de tableau JSON. Si le lancement est fait en CMD, quelqu'un pourrait changer la commande de démarrage par la sienne et ainsi surcharger notre commande. Si on passe par l'ENTRYPOINT, la commande de base ne peut pas être surchargée et la commande de l'utilisateur s'ajoutera à la suite.
+- **WORKDIR** : définit le répertoire de travail qui sera utilisé pour le lancement des commandes CMD et/ou ENTRYPOINT et ce sera aussi le dossier courant lors du démarrage du container.
+- **EXPOSE** : expose un port
+- **VOLUMES** : crée un point de montage qui permettra de persister les données
+- **USER** : désigne quel est l'utilisateur qui lancera les prochaines instructions RUN, CMD ou ENTRYPOINT (par défaut, c'est l'utilisateur root, mais ce n'est pas forcément recommandé de laisser un utilisateur accéder au root)
+
+Pour construire l'image:
+```powershell
+# construction de l'image
+docker build -t nom_image .
+
+# Build sans utiliser le cache
+docker build --no-cache -t nom_image .
+
+```
 
 ## Les volumes
 Permettent de stocker le contenu d'un répertoire sans le perdre même après suppression d'un container. Il est en revanche nécessaire de paramétrer le jumellage en amont
@@ -490,6 +540,10 @@ docker run --network nom_réseau
 # Déconnecter un container lié à un réseau
 docker network disconnect nom_réseau nom_container
 
+# Supprimer un réseau
+docker network rm nom_réseau
+# Attention, pour supprimer un réseau, il faut que les containers qui lui sont liés soient déconnectés du réseau. Pour que les containers soient liés à un réseau de nouveau, il faut les rattacher à un réseau.
+
 ```
 
 Pour connecter un container au moment de la création, on utilise l'option `--network`
@@ -502,3 +556,13 @@ docker run -d --name container-1 --network mon-reseau nginx
 Pour faire un ping entre 2 réseaux tournant sur Docker, on doit faire un ugrade et update et installer ping et/ou iputils avant toute chose.
 
 L'intérêt de communiquer entre 2 machines via leur nom et non via leur ip, est de pouvoir toujours communiquer sans contraintes ou risques de rupture de connexion, dans la mesure où l'ip est susceptible de changer lors d'un redémarrage par exemple. Il faut toutefois que les machines soient sur le même réseau.
+
+Attention, quand Linux fait un ping, il ne fait pas que 4 appels comme Windows mais va tourner en continu. Pour le quitter, faire un `ctrl+c`.
+
+
+Quand on veut créer une image avec un Dockerfile, il est possible de lui passer un `.dockerignore` afin d'ignorer certains fichiers (comme pour le `.gitignore`).
+Sur Visual Studio Code, on peut ajourter l'extension Docker, qui peut apporter une aide syntaxique.
+
+
+## Multi staging
+
