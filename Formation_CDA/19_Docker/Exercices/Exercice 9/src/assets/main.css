@@ -1,0 +1,24 @@
+@import './base.css';
+
+:root {
+  --background-black-soft: rgba(20, 20, 20, 0.965);
+  --background-black-mute: rgba(21, 21, 21, 0.970);
+}
+
+#app {
+  font-weight: normal;
+  font-family: novecento-sans;
+  background-color: var(--background-black-mute);
+  color: var(--vt-c-white-mute);
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  margin-bottom: 5vh;
+}
+
+
+main {
+  height: auto;
+}
+

@@ -1,0 +1,28 @@
+FROM maven AS builder
+
+WORKDIR /app
+
+COPY pom.xml .
+RUN mvn dependency:go-offline
+
+COPY src ./src
+RUN mvn package -DskipTests
+
+# attention : changer port, actuellement 3306
+
+FROM openjdk
+
+WORKDIR /app
+
+COPY --from=builder /app/target/back_employee-0.0.1-SNAPSHOT.jar .
+
+ENV SPRING_DATASOURCE_URL=jdbc:mysql://localhost:3307/employee
+
+EXPOSE 8080
+
+ENTRYPOINT ["java","-jar","back_employee-0.0.1-SNAPSHOT.jar"]
+
+
+
+# docker build -t back_employee .
+# docker run -p 3307:8081 -d back_employee

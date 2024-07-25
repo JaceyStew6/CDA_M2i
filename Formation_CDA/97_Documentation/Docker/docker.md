@@ -421,7 +421,7 @@ DSL contient une multitude d'instructions:
 - **RUN** : exécute les commandes Linux ou Windows lors de la création de l'image. Chaque instruction RUN va créer une couche en cache qui sera réutilisée dans le cas de modification ultérieure du Dockerfile.
 - **COPY** : copier des fichiers depuis notre machine locale vers le container
 - **ADD** : idem à copy, mais prend en charge des liens ou des archives (si le format est reconnu, alors il sera décompressé à la volée).
-- **ENTRYPOINT** : point d'entrée du container. Prend la forme d'un JSON ou de texte. La commande qui sera toujours exécutée au démarrage du container. C'est oour lancer l'application. 
+- **ENTRYPOINT** : point d'entrée du container. Prend la forme d'un JSON ou de texte. La commande qui sera toujours exécutée au démarrage du container. C'est pour lancer l'application. Elle ne s'exécute qu'à la création du container avec notre image.
 ```shell
 # Deux façons de l'écrire
 ENTRYPOINT ["executable", "param1", "param2"]
@@ -566,3 +566,78 @@ Sur Visual Studio Code, on peut ajourter l'extension Docker, qui peut apporter u
 
 ## Multi staging
 
+Structure du multistaging dans un `dockerfile`
+
+```dockerfile
+# build stage
+FROM node as builder
+
+WORKDIR /usr/src/app
+
+COPY package.json .
+COPY package-lock.json .
+RUN npm install
+
+COPY . .
+RUN npm run build
+
+# production stage
+FROM nginx
+
+RUN rm -rf /usr/share/nginx/html/*
+COPY --from=builder /usr/src/app/dist /usr/share/nginx/html
+
+EXPOSE 80
+
+CMD ["nginx","-g","daemon off;"]
+
+
+# Commandes pour créer l'image et lancer un container avec l'image
+docker build -t photowebsite .
+docker run --name photosite -p 8080:80 photowebsite
+
+```
+
+
+## Docker compose
+
+
+[Documentation docker compose base](https://docs.docker.com/compose/compose-application-model/)
+[Documentation docker compose](https://docs.docker.com/compose/migrate/)
+
+Outil permettant de définir le comportement de nos containers et d'exécuter des applications Docker à container multiples.
+
+La config se fait à partir d'une fichier `YAML` et ensuite, avec une seule commande, on crée et démarre tous nos containers de notre configuration.
+
+Pour utiliser docker compose, il faut créer un fichier `docker-compose.yml`  
+Il lance les containers en tant que services.   
+Le fichier `docker-compose.yml` se situe à la racine de tous les projets qu'on veut lancer.
+
+Dans le docker compose, on doit:
+- indiquer la version (ne jamais descendre en dessous de 3)
+- indiquer les services (ce sont nos containers)
+    - chaque service est défini par son nom
+    - chaque service peut avoir les options suivantes:
+        - Image
+        - Container_name
+        - Restart
+        - Volumes
+        - Environment
+        - Ports
+- fournit un CLI pour démarrer les services et les arrêter
+- Commandes:
+    - `docker compose up` : démarrer un service
+    - `docker compose down` : arrêter un service
+    - `docker compose ps` : voir la configuration là où on se trouve (pour un docker compose spécifique)
+    - `docker compose ls` : liste les docker compose
+    
+
+Docker compose permet de générer des services directement à partir de dockerfile à l'aide de l'option `build`. Dans l'options `build`, il faut indiquer le chemin du dockerfil à utiliser pour le container.
+
+
+Si on veut utiliser une base de données Postgres en tant que service, on doit passer par pgAdmin pour configurer un serveur. Si c'est du MySQL, on passe par PHPmyAdmin.
+On crée un nouveau serveur, on lui donne un nom, pour la connexion, on lui donne un nom d'hôte (qui est le nom de notre container), on change le nom d'utilisateur et on indique un mot de passe.
+
+Dans ce serveur nouvellement créé, on pourra créer de nouvelles bases de données.
+
+Attention, on peut pas dockeriser d'application React Native, car elle tourne sous Android.

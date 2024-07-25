@@ -1,0 +1,54 @@
+[
+	{
+		"id": 1,
+		"title": "3 Photos - 60€",
+		"nbr_animal": "1 seul animal",
+		"time": "45 minutes environ",
+		"distance": "20km autour de Moncheaux",
+		"precision": "+0,30€/km supplémentaire",
+		"supp_price": "12€/photo supplémentaire",
+		"image": {
+			"url": "pictures/prices/price-picture-1.webp",
+			"alt": "price-picture-1"
+		}
+	},
+	{
+		"id": 2,
+		"title": "6 Photos - 90€",
+		"nbr_animal": "2 animaux maximum",
+		"time": "1h environ",
+		"distance": "30km autour de Moncheaux",
+		"precision": "+0,30€/km supplémentaire",
+		"supp_price": "12€/photo supplémentaire",
+		"image": {
+			"url": "pictures/prices/price-picture-2-1.jpg",
+			"alt": "price-picture-2"
+		}
+	},
+	{
+		"id": 3,
+		"title": "10 Photos - 130€",
+		"nbr_animal": "3 animaux maximum",
+		"time": "1h30 environ",
+		"distance": "30km autour de Moncheaux",
+		"precision": "+0,30€/km supplémentaire",
+		"supp_price": "12€/photo supplémentaire",
+		"image": {
+			"url": "pictures/prices/price-picture-3.webp",
+			"alt": "price-picture-3"
+		}
+	},
+	{
+		"id": 4,
+		"title": "Carte Cadeau",
+		"nbr_animal": "Envie de faire plaisir à l'un de vos proches ?",
+		"time": "Choisissez une formule ",
+		"distance": "Contactez-moi pour réserver",
+		"precision": "",
+		"supp_price": "Plus de précisions en F.A.Q.",
+		"image": {
+			"url": "pictures/prices/price-picture-4.webp",
+			"alt": "price-picture-4"
+		}
+	}
+]

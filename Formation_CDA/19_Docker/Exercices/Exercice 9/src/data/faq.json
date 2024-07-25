@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "question": "Pour qui ?",
+        "response": "Chiens, chats, équidés, nacs, animaux de la ferme ; tout animal est le bienvenu pour poser devant mon objectif. J'adapterai la séance en fonction de l'espèce et du tempérament de chaque animal."
+    },
+    {
+        "id": 2,
+        "question": "Où ?",
+        "response": "Selon les besoins et le tempérament de votre animal, le shooting peut avoir lieu soit à votre domicile, soit en extérieur. Dans le cas d'un shooting en extérieur, il peut se dérouler dans un environnement naturel (forêt, parc, chemin de campagne...) ou urbain, selon vos préférences. Nous conviendrons du lieu lors de la prise de contact."
+    },
+    {
+        "id": 3,
+        "question": "Quand ?",
+        "response": "Je privilégie les shootings en début et fin de journée afin de profiter des plus belles ambiances lumineuses, et pourquoi pas d'un beau lever ou coucher de soleil. Si la météo est trop mauvaise, le shooting pourra être reporté à une date ultérieure."
+    },
+    {
+        "id": 4,
+        "question": "Comment se déroule le shooting ?",
+        "response": "Les séances en extérieur se déroulent sous la forme d'une balade, dans un esprit de détente. Je commencerai par faire connaissance avec vous et votre animal, puis pendrai des photos au fil de la balade, selon les opportunités qui se présenteront. Si vous le souhaitez vous aurez la possibilité de poser avec votre animal. Il est primordial de faire en sorte que votre animal soit le plus à l'aise possible, car la séance doit être un moment de plaisir pour lui. Une belle photo c'est bien, mais une belle photo qui laisse le souvenir d'un moment joyeux, c'est mieux !"
+    },
+    {
+        "id": 5,
+        "question": "Ce qu'il faut apporter le jour J ?",
+        "response": "Les friandises et/ou jouets préférés de votre chien, De l'eau pour qu'il puisse se désaltérer, Le matériel permettant de maintenir votre chien en sécurité s'il n'a pas un excellent rappel (collier ou harnais, laisse ou longe), sachant qu'un équipement assez discret peut être préférable pour les photos."
+    },
+    {
+        "id": 6,
+        "question": "Et après le shooting ?",
+        "response": "Dans la semaine suivant le shooting, je vous enverrai le lien d'une galerie privée sur laquelle vous pourrez choisir vos photos préférées. Ce sont les photos que je retoucherai et vous transmettrai sous 3 semaines. Selon vos souhaits, elles pourront être développées en couleurs ou en noir et blanc. Elles vous seront transmises uniquement au format numérique haute définition."
+    },
+    {
+        "id": 7,
+        "question": "Comment offrir une carte cadeau ?",
+        "response": "Choisissez la formule qui vous convient (dans la section Tarifs) et contactez-moi pour m'informer de votre choix. Après réception de votre paiement, je vous transmettrai par email la carte cadeau au format pdf."
+    },
+    {
+        "id": 8,
+        "question": "Combien de temps est valable une carte cadeau ?",
+        "response": "Elle est valable 1 an à partir de la date d'achat."
+    }
+]
