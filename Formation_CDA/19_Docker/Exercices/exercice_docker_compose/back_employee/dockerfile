@@ -16,7 +16,7 @@ WORKDIR /app
 
 COPY --from=builder /app/target/back_employee-0.0.1-SNAPSHOT.jar .
 
-ENV SPRING_DATASOURCE_URL=jdbc:mysql://localhost:3307/employee
+# ENV SPRING_DATASOURCE_URL=jdbc:mysql://localhost:3307/employee
 
 EXPOSE 8080
 

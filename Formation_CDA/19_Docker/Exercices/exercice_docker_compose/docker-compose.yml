@@ -7,7 +7,7 @@ services:
     container_name: employees_db
     restart: always
     ports:
-      - "3307:3307"
+      - "3307:3306"
     environment:
       MYSQL_DATABASE: employees_db
       MYSQL_ROOT_PASSWORD: Root
@@ -23,27 +23,33 @@ services:
     container_name: phpmyadmin_employee
     restart: always
     ports:
-      - "8080:80"
+      - "8090:80"
     environment:
       PMA_HOST: employees_db
     networks:
       - mysql-phpmyadmin-employee
 
   backapp:
+    depends_on:
+      - db
     build:
       context: ./back_employee
       dockerfile: dockerfile
     ports:
-      - "3308:8080"
+      - "8080:8080"
     networks:
       - mysql-phpmyadmin-employee
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/employee
 
   frontapp:
+    depends_on:
+      - backapp
     build:
       context: ./front_employee
       dockerfile: dockerfile
     ports:
-      - "5055:80"
+      - "80:80"
     networks:
       - mysql-phpmyadmin-employee
 
