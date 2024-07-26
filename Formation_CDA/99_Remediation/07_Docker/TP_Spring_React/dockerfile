@@ -1,0 +1,19 @@
+# FROM maven AS builder
+FROM maven:amazoncorretto AS builder
+WORKDIR /app
+
+COPY pom.xml .
+RUN mvn dependency:go-offline
+
+COPY src ./src
+RUN mvn package -DskipTests
+
+FROM openjdk
+
+WORKDIR /app
+
+COPY --from=builder /app/target/TP_Spring_React-0.0.1-SNAPSHOT.jar .
+
+EXPOSE 8080
+
+ENTRYPOINT [ "java","-jar","TP_Spring_React-0.0.1-SNAPSHOT.jar"]
